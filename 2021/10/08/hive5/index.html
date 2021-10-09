@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>Hive查询进阶 | 千里稻花应秀色</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+    <script>
+        var themeModelId = '';
+        if (themeModelId) {
+            localStorage.setItem('modelId', themeModelId);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
+    <script>
+        var live2dOpen = eval('true') || false;
+        if (!live2dOpen) {
+            localStorage.setItem('waifu-display', 1609323474481);
+        }
+    </script>
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 头部导航等 -->
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fa fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js" data-pjax></script>
+    
+</header>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+    function loadScript(src, cb) {
+        setTimeout(function () {
+            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            if (cb) script.onload = cb;
+            script.setAttribute('src', src);
+            HEAD.appendChild(script);
+        });
+    }
+
+    //https://github.com/filamentgroup/loadCSS
+    var loadCSS = function (href, before, media, attributes) {
+        var doc = window.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+            ref = before;
+        }
+        else {
+            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+            ref = refs[refs.length - 1];
+        }
+        var sheets = doc.styleSheets;
+        if (attributes) {
+            for (var attributeName in attributes) {
+                if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                }
+            }
+        }
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        function ready(cb) {
+            if (doc.body) {
+                return cb();
+            }
+            setTimeout(function () {
+                ready(cb);
+            });
+        }
+        ready(function () {
+            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+        });
+        var onloadcssdefined = function (cb) {
+            var resolvedHref = ss.href;
+            var i = sheets.length;
+            while (i--) {
+                if (sheets[i].href === resolvedHref) {
+                    return cb();
+                }
+            }
+            setTimeout(function () {
+                onloadcssdefined(cb);
+            });
+        };
+        function loadCB() {
+            if (ss.addEventListener) {
+                ss.removeEventListener("load", loadCB);
+            }
+            ss.media = media || "all";
+        }
+        if (ss.addEventListener) {
+            ss.addEventListener("load", loadCB);
+        }
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(loadCB);
+        return ss;
+    };
+    
+</script>
+ 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <!-- 内容区域 -->
+    <main class="main" id="pjax-container" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+<!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/1.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        Hive查询进阶
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fa fa-calendar"></i> 发表于：2021-10-08 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/Hive/" class="post-detail-header_category">
+              Hive
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      <div class="post-content">
+        <h1 id="hiveql数据查询进阶"><a class="markdownIt-Anchor" href="#hiveql数据查询进阶">#</a> HiveQL 数据查询进阶</h1>
+<p>本章要点</p>
+<ul>
+<li>Hive 内置函数</li>
+<li>Hive 构建搜索日志分析系统</li>
+<li>Sqoop 应用与开发</li>
+</ul>
+<h2 id="hive-内置函数"><a class="markdownIt-Anchor" href="#hive-内置函数">#</a> Hive 内置函数</h2>
+<p>Hive 内置函数就是 Hive 中可以直接使用的函数，首先查看一下有哪些函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> functions;</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------+</span></span><br><span class="line"><span class="operator">|</span>           tab_name           <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">!</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">!=</span>                           <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> $sum0                        <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">%</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&amp;</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">*</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">+</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">-</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">/</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&lt;</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&lt;=</span>                           <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&lt;=&gt;</span>                          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&lt;&gt;</span>                           <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">=</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">=</span><span class="operator">=</span>                           <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&gt;</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">&gt;=</span>                           <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="operator">^</span>                            <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abs                          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> acos                         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> add_months                   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> aes_decrypt                  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> aes_encrypt                  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">and</span>                          <span class="operator">|</span></span><br><span class="line">...</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------+</span></span><br><span class="line"><span class="number">289</span> <span class="keyword">rows</span> selected (<span class="number">0.494</span> seconds)</span><br></pre></td></tr></table></figure>
+<p>其中常用的如 avg 求平均，concat 连接函数，count 统计等。内置函数可以被分成：数学函数、字符函数、收集函数、转换函数、日期函数、条件函数、聚合函数以及表生成函数。</p>
+<h3 id="数学函数"><a class="markdownIt-Anchor" href="#数学函数">#</a> 数学函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#加法</span><br><span class="line"><span class="keyword">select</span> <span class="number">10</span><span class="operator">+</span><span class="number">10</span>;</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">20</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">1.324</span> seconds)</span><br><span class="line"></span><br><span class="line">#减法</span><br><span class="line"><span class="keyword">select</span> <span class="number">15</span><span class="number">-3</span>;</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">12</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.564</span> seconds)</span><br><span class="line"></span><br><span class="line">#乘除<span class="operator">*</span><span class="operator">/</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">6</span><span class="operator">*</span><span class="number">6</span>;</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">36</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.867</span> seconds)</span><br><span class="line"><span class="keyword">select</span> <span class="number">36</span><span class="operator">/</span><span class="number">6</span>;</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">6.0</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.734</span> seconds)</span><br><span class="line"></span><br><span class="line">#round四舍五入</span><br><span class="line"><span class="keyword">select</span> round(<span class="number">88.999</span>,<span class="number">2</span>),round(<span class="number">78.600</span>,<span class="number">1</span>), round(<span class="number">55.776</span>,<span class="number">2</span>);</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+--------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">89.00</span>  <span class="operator">|</span> <span class="number">78.6</span>  <span class="operator">|</span> <span class="number">55.78</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+--------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.505</span> seconds)</span><br><span class="line"></span><br><span class="line">#ceil向上取整</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">ceil</span>(<span class="number">84.5</span>);</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">85</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.542</span> seconds)</span><br><span class="line"></span><br><span class="line">#floor向下取整</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">floor</span>(<span class="number">45.9</span>);</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">45</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.535</span> seconds)</span><br><span class="line"></span><br><span class="line">#pow 平方函数</span><br><span class="line"><span class="keyword">select</span> pow(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">8.0</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.357</span> seconds)</span><br><span class="line"></span><br><span class="line">#pmod 取模函数</span><br><span class="line"><span class="keyword">select</span> pmod(<span class="number">9</span>,<span class="number">8</span>);</span><br><span class="line">INFO  : OK</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">1</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> selected (<span class="number">0.242</span> seconds)</span><br></pre></td></tr></table></figure>
+<h3 id="字符函数"><a class="markdownIt-Anchor" href="#字符函数">#</a> 字符函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#lower转小写</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">lower</span>(&quot;FJKNXCYT&quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> fjknxcyt  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line">#upper转大写</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">upper</span>(&quot;asdjnkgbasd&quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> ASDJNKGBASD  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line">#length字符串长度</span><br><span class="line"><span class="keyword">select</span> length(&quot;hadoop&quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">6</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line">#concat字符拼接</span><br><span class="line"><span class="keyword">select</span> concat(&quot;hadoop&quot;, &quot;&amp;hive&quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> hadoop<span class="operator">&amp;</span>hive  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line">#substr取子串(从<span class="number">8</span>开始取<span class="number">5</span>个)</span><br><span class="line"><span class="keyword">select</span> substr(&quot;hadoop spark hive&quot;, <span class="number">8</span>, <span class="number">5</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> spark  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line">#trim去除前后空格</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">trim</span>(&quot;   hadoop   &quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">---------+</span></span><br><span class="line"><span class="operator">|</span> hadoop  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+</span></span><br></pre></td></tr></table></figure>
+<h3 id="转换函数"><a class="markdownIt-Anchor" href="#转换函数">#</a> 转换函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#cast类型转换函数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">cast</span> (<span class="number">88</span> <span class="keyword">as</span> <span class="keyword">double</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">88.0</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br></pre></td></tr></table></figure>
+<h3 id="日期函数"><a class="markdownIt-Anchor" href="#日期函数">#</a> 日期函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">year</span> <span class="keyword">month</span> <span class="keyword">day</span> 分别获取年月日</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">year</span>(&quot;2021-10-08 18:40:24&quot;), <span class="keyword">month</span>(&quot;2021-10-08 18:40:24&quot;), <span class="keyword">day</span>(&quot;2021-10-08 18:40:24&quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+------+------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2021</span>  <span class="operator">|</span> <span class="number">10</span>   <span class="operator">|</span> <span class="number">8</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+------+------+</span></span><br><span class="line">#to_date返回字段中日期部分</span><br><span class="line"><span class="keyword">select</span> to_date(&quot;2021-10-08 18:40:24&quot;);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2021</span><span class="number">-10</span><span class="number">-08</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br></pre></td></tr></table></figure>
+<h3 id="条件函数"><a class="markdownIt-Anchor" href="#条件函数">#</a> 条件函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">case</span> A <span class="keyword">when</span> B <span class="keyword">then</span> C <span class="keyword">when</span> D <span class="keyword">then</span> E <span class="keyword">else</span> F <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">select</span> ts, uid, rank, <span class="keyword">case</span> rank <span class="keyword">when</span> &quot;2&quot; <span class="keyword">then</span> rank<span class="operator">+</span><span class="number">1</span> <span class="keyword">else</span> rank<span class="number">-1</span> <span class="keyword">end</span> <span class="keyword">from</span> sogou.sogou_liangjian;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------------+-----------------------------------+-------+------+</span></span><br><span class="line"><span class="operator">|</span>       ts        <span class="operator">|</span>                uid                <span class="operator">|</span> rank  <span class="operator">|</span> _c3  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------------+-----------------------------------+-------+------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">20111230104333</span>  <span class="operator">|</span> <span class="number">53</span>a3b5132bd6af7d324f3fd55d7153ba  <span class="operator">|</span> <span class="number">3</span>     <span class="operator">|</span> <span class="number">2</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">20111230104334</span>  <span class="operator">|</span> <span class="number">966</span>a6bf4c4ec1cc693b6e40702984235  <span class="operator">|</span> <span class="number">4</span>     <span class="operator">|</span> <span class="number">3</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">20111230104334</span>  <span class="operator">|</span> ae55d5e4b4f29a1221816a121e087567  <span class="operator">|</span> <span class="number">2</span>     <span class="operator">|</span> <span class="number">3</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------------+-----------------------------------+-------+------+</span></span><br></pre></td></tr></table></figure>
+<h3 id="聚合函数"><a class="markdownIt-Anchor" href="#聚合函数">#</a> 聚合函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#count返回行数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou.sogou_xj;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">1330</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line">#sum求和</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(orders) <span class="keyword">as</span> ordersum <span class="keyword">from</span> sogou.sogou_xj;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> ordersum  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2043</span>      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line">#min列最小值</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">min</span>(orders) <span class="keyword">from</span> sogou.sogou_xj;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">1</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line">#max列最大值</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(rank) <span class="keyword">from</span> sogou.sogou_xj;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">10</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+</span></span><br><span class="line">#avg列平均值</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(rank) <span class="keyword">from</span> sogou.sogou_xj;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2.9225563909774435</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="hive-构建搜索日志分析系统"><a class="markdownIt-Anchor" href="#hive-构建搜索日志分析系统">#</a> Hive 构建搜索日志分析系统</h2>
+<h3 id="数据预处理linux环境"><a class="markdownIt-Anchor" href="#数据预处理linux环境">#</a> 数据预处理 (Linux 环境)</h3>
+<ol>
+<li>查看数据</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hdp-1 hive]# wc -l sogou.500w.utf8 </span><br><span class="line">5000000 sogou.500w.utf8</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>数据拓展<br>
+将用户访问的时间拆分成，年月日小时字段，为后面创建分区表做准备，编写一个 shell 脚本实现此功能。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi pre.sh </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">infile=$1</span><br><span class="line">outfile=$2</span><br><span class="line">awk -F &#x27;\t&#x27; &#x27;&#123;print $0&quot;\t&quot;substr($1,1,4)&quot;\t&quot;substr($1,5,2)&quot;\t&quot;substr($1,7,2)&quot;\t&quot;substr($1,9,2)&#125;&#x27; $infile &gt; $outfile</span><br><span class="line"></span><br><span class="line">chmod +x pre.sh</span><br><span class="line">sh pre.sh ./sogou.500w.utf8 ./sogou.500w.utf8.ext</span><br><span class="line">less sogou.500w.utf8.ext</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>数据加载<br>
+将数据放到 HDFS 上</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir -p /usr/local/hive/</span><br><span class="line">hdfs dfs -put ./sogou.500w.utf8.ext /usr/local/hive/</span><br></pre></td></tr></table></figure>
+<h3 id="基于hive-构建日志的数据仓库"><a class="markdownIt-Anchor" href="#基于hive-构建日志的数据仓库">#</a> 基于 Hive 构建日志的数据仓库</h3>
+<p>启动 Hadoop 集群，打开 Hive 客户端</p>
+<ol>
+<li>基本操作</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span>    database_name    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">default</span>             <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> information_schema  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou               <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sys                 <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="keyword">create</span> database if <span class="keyword">not</span> <span class="keyword">exists</span> sogou;</span><br><span class="line">use sogou;</span><br><span class="line"><span class="keyword">show</span> tables;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span>     tab_name     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span> sogou_500w       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_liangjian  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_xj         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_xj_backup  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line">#创建外部表sogou_0936加载sogou<span class="number">.500</span>w.utf8的数据</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span>  if <span class="keyword">not</span> <span class="keyword">exists</span> sogou.sogou_0936(ts string,uid string,keyword string, rank <span class="type">int</span>, orders <span class="type">int</span>, url string) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span> stored <span class="keyword">as</span> textfile location <span class="string">&#x27;/usr/local/hive/raw/&#x27;</span>;</span><br><span class="line">#创建外部表sogou_ext加载sogou<span class="number">.500</span>w.utf8.ext的数据</span><br><span class="line"> <span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span>  if <span class="keyword">not</span> <span class="keyword">exists</span> sogou.sogou_ext(ts string,uid string,keyword string, rank <span class="type">int</span>, orders <span class="type">int</span>, url string) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span> stored <span class="keyword">as</span> textfile location <span class="string">&#x27;/usr/local/hive/ext/&#x27;</span></span><br><span class="line">#查看数据没问题</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sogou_0936 limit <span class="number">10</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sogou_ext limit <span class="number">10</span>;</span><br><span class="line"><span class="keyword">desc</span> sogou_0936;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> col_name  <span class="operator">|</span> data_type  <span class="operator">|</span> comment  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> ts        <span class="operator">|</span> string     <span class="operator">|</span>          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> uid       <span class="operator">|</span> string     <span class="operator">|</span>          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> keyword   <span class="operator">|</span> string     <span class="operator">|</span>          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> rank      <span class="operator">|</span> <span class="type">int</span>        <span class="operator">|</span>          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> orders    <span class="operator">|</span> <span class="type">int</span>        <span class="operator">|</span>          <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> url       <span class="operator">|</span> string     <span class="operator">|</span>          <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------------+----------+</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建分区表</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#创建分区表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span>  if <span class="keyword">not</span> <span class="keyword">exists</span> sogou.sogou_partition(ts string,uid string,keyword string, rank <span class="type">int</span>, orders <span class="type">int</span>, url string) partitioned <span class="keyword">by</span> (<span class="keyword">year</span> <span class="type">int</span>, <span class="keyword">month</span> <span class="type">int</span>, <span class="keyword">day</span> <span class="type">int</span>, <span class="keyword">hour</span> <span class="type">int</span> ) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span> stored <span class="keyword">as</span> textfile;</span><br><span class="line">#查看表</span><br><span class="line"><span class="keyword">show</span> tables;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span>     tab_name     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span> sogou_0936       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_500w       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_ext        <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_liangjian  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_partition  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_xj         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sogou_xj_backup  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line">#最后向分区表中导入数据</span><br><span class="line">#开启动态分区非严格模式</span><br><span class="line"><span class="keyword">set</span> hive.exec.dynamic.partition.mode<span class="operator">=</span>nonstrict;</span><br><span class="line">#禁用矢量运行</span><br><span class="line"><span class="keyword">set</span> hive.vectorized.execution.enabled<span class="operator">=</span><span class="literal">false</span>;</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> sogou.sogou_partition <span class="keyword">partition</span>(<span class="keyword">year</span>, <span class="keyword">month</span>, <span class="keyword">day</span>, <span class="keyword">hour</span>) <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sogou.sogou_ext;</span><br><span class="line">#查看数据</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211008220145786.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211008220145786"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211008220222053.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211008220222053"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211008220457507.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211008220457507"></p>
+<h3 id="数据分析需求1条数统计"><a class="markdownIt-Anchor" href="#数据分析需求1条数统计">#</a> 数据分析需求（1）：条数统计</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查询总数据条数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou.sogou_ext;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211008221558788.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211008221558788"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查询关键词非空数据</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">where</span> keyword <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> keyword <span class="operator">!=</span> <span class="string">&#x27;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009083441029.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009083441029"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#无重复总条数（根据ts, uid, keyword, url）</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> (<span class="keyword">select</span> uid,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">group</span> <span class="keyword">by</span> ts,uid,keyword,url <span class="keyword">having</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="operator">=</span> <span class="number">1</span> ) t;</span><br><span class="line">#需要给子表起个名</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009114925786.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009114925786"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#统计独立uid条数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span>(uid)) <span class="keyword">from</span> sogou.sogou_ext;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009115150331.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009115150331"></p>
+<h3 id="数据分析需求2关键词分析"><a class="markdownIt-Anchor" href="#数据分析需求2关键词分析">#</a> 数据分析需求（2）：关键词分析</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#查询关键词平均长度</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(a.cnt) <span class="keyword">from</span> (<span class="keyword">select</span> size(split(keyword,<span class="string">&#x27; s+&#x27;</span>)) <span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext) a;</span><br><span class="line">#由于split函数不支持矢量计算，需要先关闭该功能</span><br><span class="line"><span class="keyword">set</span> hive.vectorized.execution.enabled<span class="operator">=</span><span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009122646106.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009122646106"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查询频度排名前<span class="number">50</span></span><br><span class="line"><span class="keyword">select</span> keyword,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">group</span> <span class="keyword">by</span> keyword <span class="keyword">order</span> <span class="keyword">by</span> cnt <span class="keyword">desc</span> limit <span class="number">50</span>;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009122909785.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009122909785"></p>
+<h3 id="数据分析需求3uid分析"><a class="markdownIt-Anchor" href="#数据分析需求3uid分析">#</a> 数据分析需求（3）：UID 分析</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#为了统计UID的查询次数分布（查询<span class="number">1</span>次的UID个数…查询n次的UID个数），这里我们列出查询<span class="number">1</span>次、<span class="number">2</span>次、<span class="number">3</span>次和大于<span class="number">3</span>次的UID个数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(if(uids.cnt<span class="operator">=</span><span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>)),<span class="built_in">sum</span>(if(uids.cnt<span class="operator">=</span><span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)), <span class="built_in">sum</span>(if(uids.cnt<span class="operator">=</span><span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>)), <span class="built_in">sum</span>(if(uids.cnt<span class="operator">&gt;</span><span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>)) <span class="keyword">from</span> (<span class="keyword">select</span> uid, <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">group</span> <span class="keyword">by</span> uid) uids;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009123459384.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009123459384"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#统计UID平均查询次数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(a.cnt)<span class="operator">/</span><span class="built_in">count</span>(a.uid)<span class="keyword">from</span>(<span class="keyword">select</span> uid,<span class="built_in">count</span>(<span class="operator">*</span>)<span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">group</span> <span class="keyword">by</span> uid) a;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009124613760.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009124613760"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#统计查询次数大于<span class="number">2</span>次的用户占比：</span><br><span class="line">#先统计B:UID总数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span>(uid)) <span class="keyword">as</span> A <span class="keyword">from</span> sogou.sogou_ext;</span><br><span class="line">#统计查询A:次数大于<span class="number">2</span>的UID个数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(a.uid) <span class="keyword">as</span> B <span class="keyword">from</span> (<span class="keyword">select</span> uid,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">group</span> <span class="keyword">by</span> uid <span class="keyword">having</span> cnt<span class="operator">&gt;</span><span class="number">2</span>)a;</span><br><span class="line">#占比结果是C<span class="operator">=</span>B<span class="operator">/</span>A</span><br><span class="line">#查询次数大于<span class="number">2</span>次的数据如下</span><br><span class="line"><span class="keyword">select</span> b.<span class="operator">*</span> <span class="keyword">from</span>(<span class="keyword">select</span> uid,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">group</span> <span class="keyword">by</span> uid <span class="keyword">having</span> cnt <span class="operator">&gt;</span><span class="number">2</span>) a <span class="keyword">join</span> sogou.sogou_ext b <span class="keyword">on</span> a.uid<span class="operator">=</span>b.uid limit <span class="number">50</span>;</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211009124722432.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009124722432"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211009124814645.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009124814645"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211009125148463.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009125148463"></p>
+<h3 id="数据分析需求4用户行为分析"><a class="markdownIt-Anchor" href="#数据分析需求4用户行为分析">#</a> 数据分析需求（4）：用户行为分析</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#点击次数与rank之间的关系</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">where</span> rank <span class="operator">&lt;</span> <span class="number">11</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">4999869</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#直接输入url进行查询的比例</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">where</span> keyword <span class="keyword">like</span><span class="string">&#x27;%www%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">73979</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#用户访问的网站包含用户输入的url类型关键词</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(if(instr(url，keyword)<span class="operator">&gt;</span><span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>)) <span class="keyword">from</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">where</span> keyword <span class="keyword">like</span> <span class="string">&#x27;%www%&#x27;</span>)a;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">27561</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#查询独立用户行为</span><br><span class="line"><span class="keyword">select</span> uid, <span class="built_in">count</span>(<span class="operator">*</span>)<span class="keyword">as</span> cnt <span class="keyword">from</span> sogou.sogou_ext <span class="keyword">where</span> keyword <span class="keyword">like</span><span class="string">&#x27;%仙剑奇侠传%&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> uid <span class="keyword">having</span> cnt <span class="operator">&gt;</span> <span class="number">3</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------------------------------+------+</span></span><br><span class="line"><span class="operator">|</span>                uid                <span class="operator">|</span> cnt  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------------------------------+------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">265</span>f1fa26029c058c695ecc7ee4bad01  <span class="operator">|</span> <span class="number">4</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2</span>b136abffd8f0dd38d97a52a7e50f7fb  <span class="operator">|</span> <span class="number">4</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">40</span>aa046859609c25b3914ac9f2735c5c  <span class="operator">|</span> <span class="number">5</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">653</span>d48aa356d5111ac0e59f9fe736429  <span class="operator">|</span> <span class="number">9</span>    <span class="operator">|</span></span><br></pre></td></tr></table></figure>
+<h2 id="sqoop-应用与开发"><a class="markdownIt-Anchor" href="#sqoop-应用与开发">#</a> Sqoop 应用与开发</h2>
+<p>在实际开发中我们经常会碰到这样一种需求，即大数据平台处理完的数据需要导入关系型数据库，反之关系型数据库中的数据也需要导入大数据平台，为此大数据平台为我们提供了 Sqoop 工具来解决这一需求。</p>
+<h3 id="sqoop简介"><a class="markdownIt-Anchor" href="#sqoop简介">#</a> Sqoop 简介</h3>
+<p>Sqoop 是 Apache 开源的顶级项目之一，用于在 ApacheHadoop 和关系型数据库等结构化数据存储之间高效传输大容量数据的工具。也就是说，Sqoop 是一款类 ETL 工具，主要负责将大数据平台处理完的数据导入关系型数据库中，或者将关系型数据库中的数据带入大数据平台。</p>
+<h3 id="sqoop安装部署"><a class="markdownIt-Anchor" href="#sqoop安装部署">#</a> Sqoop 安装部署</h3>
+<p>安装环境<br>
+在安装 Sqoop 之前确保 hadoop 正确启动，运行，mysql 正常运行。<br>
+解压安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz</span><br><span class="line">mv sqoop-1.4.7.bin__hadoop-2.6.0 /usr/local/sqoopmv sqoop-1.4.7.bin__hadoop-2.6.0 /usr/local/sqoop</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">更改目录权限</span></span><br><span class="line">chown hadoop:hadoop -R /usr/local/sqoop/</span><br></pre></td></tr></table></figure>
+<p>配置 Sqoop</p>
+<ol>
+<li>配置 MySQL 连接器<br>
+ Sqoop 底层通过 JDBC 的方式访问 MySQL 数据库，所以需要把 MySQL 数据库的驱动程序复制到 Sqoop 的依赖包，这里可以使用 hive 的 mysql 驱动（如果有）</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/hive/lib/mysql-connector-java-5.1.32.jar  /usr/local/sqoop/lib/</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>配置环境变量<br>
+进入到 Sqoop 的 conf 目录下，找到 sqoop-env-template.sh 文件，<a target="_blank" rel="noopener" href="http://xn--sqoop-env-fp6nq62cnhb6779b.sh">重命名为 sqoop-env.sh</a>，打开进行环境变量的配置</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/sqoop/conf/sqoop-env-template.sh  /usr/local/sqoop/conf/sqoop-env.sh</span><br><span class="line">vi /usr/local/sqoop/conf/sqoop-env.sh</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>将 commons-log.jar 包放在 lib 下。<br>
+<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache//commons/lang/binaries/commons-lang-2.6-bin.zip">https://mirrors.tuna.tsinghua.edu.cn/apache//commons/lang/binaries/commons-lang-2.6-bin.zip</a></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv commons-lang-2.6.jar /usr/local/sqoop/lib/</span><br><span class="line">chown hadoop:hadoop /usr/local/sqoop/lib/commons-lang-2.6.jar</span><br></pre></td></tr></table></figure>
+<h3 id="sqoop将hive表中的数据导入mysql"><a class="markdownIt-Anchor" href="#sqoop将hive表中的数据导入mysql">#</a> Sqoop 将 Hive 表中的数据导入 MySQL</h3>
+<p><strong>实验条件</strong><br>
+ MySQL 正常启动<br>
+<strong>构建 MySQL 数据库中的表</strong></p>
+<ol>
+<li>登录 MySQL<br>
+ 登录 MySQL 的命令</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>u root <span class="operator">-</span>p</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建数据库</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database if <span class="keyword">not</span> <span class="keyword">exists</span> test;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>创建表</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span>  test.uid_cnt (uid <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">default</span> <span class="keyword">null</span>,cnt <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">default</span> <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>构建 Hive 数据仓库中的表</strong></p>
+<ol>
+<li>进入 Hive</li>
+<li>创建 Hive 中的表 sogou.sogou_uid_cnt</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> sogou.sogou_uid_cnt(uid string,cnt <span class="type">int</span>) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>向表中写入数据</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> sogou.sogou_uid_cnt <span class="keyword">select</span> uid,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> sogou_500w <span class="keyword">group</span> <span class="keyword">by</span> uid;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sogou.sogou_uid_cnt limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>使用 Sqoop 工具将 Hive 的数据导入 MySQL</strong></p>
+<ol>
+<li>导入命令</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span>usr<span class="operator">/</span><span class="keyword">local</span><span class="operator">/</span>sqoop<span class="operator">/</span>bin<span class="operator">/</span>sqoop export <span class="comment">--connect jdbc:mysql://master:3306/test --username root --password 123456 --table uid_cnt --export-dir &#x27;hdfs://master:9000/user/hive/warehouse/sogou.db/sogou_uid_cnt&#x27; --fields-terminated-by &#x27;\t&#x27;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>以上命令的解释如下<br>
+ sqoop export 表示数据从 Hive 复制到 MySQL 数据库中；–connect jdbc:mysql://master:3306/test 表示连接 MySQL 数据库 test；–username root 表示连接 MySQL 数据库的用户名；–password 12345 表示连接 MySQL 数据库的密码；–table uid_cnt 表示 MySQL 中的表即将被导入的表名称；–export-dir '/user/hive/warehouse/sogou.db/uid_cnt’表示 Hive 中被导出的文件路径；–fields-terminated-by '\t’表示 Hive 中被导出的文件字段的分隔符。</p>
+</li>
+<li>
+<p>以上命令成功运行之后会在控制台打印输出如下结果</p>
+</li>
+<li>
+<p>最后，验证结果数据。<br>
+登录 MySQL 数据库，查询库 test 的表 uid_cnt 中是已经有了数据，如果有数据说明 Sqoop 工具将 Hive 中的数据成功导入了 MySQL。</p>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test.uid_cnt limit <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> test.uid_cnt;</span><br></pre></td></tr></table></figure>
+<p><strong>使用 Sqoop 工具将 MySQL 中的数据导入 Hive 表</strong><br>
+前面我们成功地将 Hive 表 sogou_uid_cnt 中的数据导入 MySQL 数据库的 uid_cnt 表，反之，我们再利用 Sqoop 工具将表 uid_cnt 中的数据导入表 sogou_uid_cnt2 中</p>
+<ol>
+<li>首先，在 Hive 中创建表 sogou_uid_cnt2</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> sogou.sogou_uid_cnt2(uid string,cnt <span class="type">int</span>) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line"><span class="keyword">describe</span> sogou.sogou_uid_cnt2;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>然后，我们就可以使用 Sqoop 工具将 MySQL 中表 uid_cnt 的数据导入 Hive 的表 sogou_uid_cnt<br>
+ 在导入数据之前，/user/hive/warehouse/sogou.db/sogou_uid_cnt2 已经存在，我们将其删除。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -rmdir /user/hive/warehouse/sogou.db/sogou_uid_cnt2</span><br><span class="line"></span><br><span class="line">/usr/local/sqoop/bin/sqoop import --connect jdbc:mysql://master:3306/test --username root --password 123456 --table uid_cnt --target-dir /user/hive/warehouse/sogou.db/sogou_uid_cnt2 --fields-terminated-by &#x27;\t&#x27; -m 1</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>进入 Hive 进行验证</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sogou.sogou_uid_cnt2 limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="">
+              大数据
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/10/08/hive5/" target="_blank" title="Hive查询进阶">http://example.com/2021/10/08/hive5/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/09/28/Ambari/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div class="title-text">Ambari</div>
+      </div>
+      <!-- <div class="content">
+        # Ambari
+# 1. 什么是 Ambari
+Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+  <!-- js在scripts目录下的的toc.ejs里面 -->
+  
+
+  <script>
+    function openBtnClickFn () {
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'true');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    };
+    openBtnClickFn();
+    document.addEventListener('pjax:complete', function () {
+      openBtnClickFn();
+    })
+  </script>
+
+
+  
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+    </div>
+    <div class="footer-custom">
+      
+    </div>
+    <!-- 不蒜子统计 -->
+    
+  </div>
+</div>
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8062553743"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+    
+    <script src="/js/app.js" data-pjax></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init(option);
+    
+  }
+
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+    }
+  });
+
+  
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+/* .toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+} */
+</style> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- div滚动到显示区域的动画 -->
+
+  <script src="/js/aos/aos.js"></script>
+  <script>
+    // https://github.com/michalsnik/aos
+    var themeOffset = parseInt('120') || 120;
+    var themeDelay = parseInt('0') || 0;
+    var themeDuration = parseInt('400') || 400;
+    var themeEasing = 'ease' || 'ease';
+    var themeOnce = eval('true') || false;
+    var themeMirror = eval('false') || false;
+    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: themeOffset, // offset (in px) from the original trigger point
+      delay: themeDelay, // values from 0 to 3000, with step 50ms
+      duration: themeDuration, // values from 0 to 3000, with step 50ms
+      easing: themeEasing, // default easing for AOS animations
+      once: themeOnce, // whether animation should happen only once - while scrolling down
+      mirror: themeMirror, // whether elements should animate out while scrolling past them
+      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      AOS.refresh();
+    })
+  </script>
+
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          console.log('888');
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            console.log('111111111111111');
+            doSomething();
+            // 返回false, 防止重复触发copy事件  
+            // return false;
+          }
+        })
+        //  监听 ctrl + c事件  
+        // $(document).unbind('keypress').bind('keypress', function (e) {
+        //   if (e.ctrlKey && e.keyCode == 67) {
+        //     console.log('111111111111111');
+        //     doSomething();
+        //     // 返回false, 防止重复触发copy事件  
+        //     return false;
+        //   }
+        // })
+
+        // // 鼠标右键的复制事件  
+        // $(document).unbind('copy').bind('copy', function (e) {
+        //   console.log('222222222222222222');
+        //   doSomething();
+        //   // console.log('右键复制 监听成功');
+        // });
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+          // console.log('ctrl + c 监听成功');  
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+
+
+<!-- 图片懒加载 -->
+<script src="/js/lazyload/lazyload@1.9.1.js"></script>
+<script data-pjax>
+  $(function () {
+    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+      {
+        effect: "show",
+        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+      }
+    );
+  });
+</script>
+
+<!-- 评论所需js -->
+
+    
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+	 
+		<script src="/js/cursor/clicklove.js"></script> 
+	
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+  </script>
+
+
+
+  </body>
+</html>
