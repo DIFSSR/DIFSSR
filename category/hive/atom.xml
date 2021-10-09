@@ -5,9 +5,9 @@
     <link href="http://example.com" />
     <updated>2021-10-08T09:57:10.000Z</updated>
     <category term="平台" />
-    <category term="安全" />
     <category term="shell" />
     <category term="大数据" />
+    <category term="安全" />
     <entry>
         <id>http://example.com/2021/10/08/hive5/</id>
         <title>Hive查询进阶</title>
