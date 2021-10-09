@@ -588,11 +588,11 @@
 </ul>
 <p>Ambari 使应用程序开发人员和系统集成商能够：</p>
 <ul>
-<li>使用<a target="_blank" rel="noopener" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md"> Ambari REST API</a> 轻松将 Hadoop 的配置，管理和监视功能集成到自己的应用<a target="_blank" rel="noopener" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">程序中</a>。</li>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/apache/blob/trunk/ambari-server/docs/api/v1/index.md"> Ambari REST API</a> 轻松将 Hadoop 的配置，管理和监视功能集成到自己的应用<a target="_blank" rel="noopener" href="https://github.com/apache/blob/trunk/ambari-server/docs/api/v1/index.md">程序中</a>。</li>
 </ul>
 <p>官方网站：<a target="_blank" rel="noopener" href="http://ambari.apache.org/">http://ambari.apache.org/</a></p>
 <h2 id="2ambari架构"><a class="markdownIt-Anchor" href="#2ambari架构">#</a> 2.Ambari 架构</h2>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010140739738.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=""></p>
+<p><img "" class="lazyload placeholder" data-original="20201010140739738.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=""></p>
 <h3 id="ambari-server"><a class="markdownIt-Anchor" href="#ambari-server">#</a> ambari-server</h3>
 <ul>
 <li>提供外部访问的 API</li>
@@ -611,11 +611,11 @@
 <h2 id="3下载"><a class="markdownIt-Anchor" href="#3下载">#</a> 3. 下载</h2>
 <p>Ambari 所在的公司已经被 Cloudera 公司收购所以相关的文档都在 clodera 公司的官方网站：<a target="_blank" rel="noopener" href="https://docs.cloudera.com/HDPDocuments/index.html">https://docs.cloudera.com/HDPDocuments/index.html</a></p>
 <p>我们选择的安装方式是：Ambari+HDP+HDP-UTILS, 因为 Ambari 本身只是一个大数据平台自动化部署和管理的工具，所以需要配合 HDP (大数据软件安装包集合) 一起使用。</p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/image-20211009131251511.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009131251511"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211009131251511.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009131251511"></p>
 <p>选择合适的版本，我们这里选择的是 2.7.0.0 版本，然后就会有一个安装指南：<a target="_blank" rel="noopener" href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.0.0/bk_ambari-installation/content/ambari_repositories.html">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.0.0/bk_ambari-installation/content/ambari_repositories.html</a></p>
 <p>其实可以直接配置官网提供的 yum 源就可以安装，但是由于是国外的网站，速度比较慢，所以就使用离线本地 yum 源的安装方式</p>
 <h2 id="4安装环境说明"><a class="markdownIt-Anchor" href="#4安装环境说明">#</a> 4. 安装环境说明</h2>
-<p>使用 VMWare/VirtualBox，虚拟四台虚拟机，其中 ambari 是服务器，其他为 HDP 安装节点，配置如下:</p>
+<p>使用 VMWare/VirtualBox，虚拟四台虚拟机，(也可以将 server 配置在一台节点中) 其中 ambari 是服务器，其他为 HDP 安装节点，配置如下:</p>
 <table>
 <thead>
 <tr>
@@ -632,7 +632,7 @@
 <td style="text-align:center">CentOS7</td>
 <td style="text-align:center">172.18.74.160(NAT/birdge)</td>
 <td style="text-align:center">4G</td>
-<td>100G</td>
+<td>50G</td>
 </tr>
 <tr>
 <td style="text-align:center">hdp-1</td>
@@ -658,16 +658,16 @@
 </tbody>
 </table>
 <p>配置好虚拟机就可以安装了，安装的方式如下</p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141026410.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141026410.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
 <h2 id="5server端环境配置ambari"><a class="markdownIt-Anchor" href="#5server端环境配置ambari">#</a> 5.Server 端环境配置 (ambari)</h2>
 <p>说明：如果服务器已经配置好，则直接进行第 6 节客户端的配置。</p>
 <h3 id="51安装http服务"><a class="markdownIt-Anchor" href="#51安装http服务">#</a> 5.1. 安装 http 服务</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install -y httpd</span><br><span class="line">systemctl start httpd</span><br><span class="line">systemctl enable httpd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="52配置yum源"><a class="markdownIt-Anchor" href="#52配置yum源">#</a> 5.2. 配置 yum 源</h3>
 <p>虚拟机的网络模式是 nat 或者桥接的时候就可以连通外网，这样我们就可以不用配置 CentOS 的 yum 源了，但是 Ambari 和 HDP 的还需要我们配置，需要将 Ambari 和 HDP 以及 HDP-UTILS 的安装包通过 SFTP 工具上传到 ambari 上。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件夹</span></span><br><span class="line">mkdir /var/www/html/&#123;ambari,hdp,hdp-utils&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压安装包到HTTP的网页根目录</span></span><br><span class="line">tar -zxvf HDP-UTILS-1.1.0.22-centos7.tar.gz -C /var/www/html/hdp-utils/</span><br><span class="line">tar -zxvf ambari-2.7.0.0-centos7.tar.gz -C /var/www/html/ambari/</span><br><span class="line">tar -zxvf HDP-3.0.0.0-centos7-rpm.tar.gz -C /var/www/html/hdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件夹</span></span><br><span class="line">mkdir /var/www/html/&#123;ambari,hdp,hdp-utils&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压安装包到HTTP的网页根目录</span></span><br><span class="line">tar -zxvf HDP-UTILS-1.1.0.22-centos7.tar.gz -C /var/www/html/hdp-utils/</span><br><span class="line">tar -zxvf ambari-2.7.0.0-centos7.tar.gz -C /var/www/html/</span><br><span class="line">tar -zxvf HDP-3.0.0.0-centos7-rpm.tar.gz -C /var/www/html/hdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>这样就可以通过 http 的方式获取到相应的 rpm 文件和 repodata 文件来配置 yum 源了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置ambari的yum源</span></span><br><span class="line">vi /etc/yum.repos.d/ambari.repo</span><br><span class="line">[ambari]</span><br><span class="line">name=ambari</span><br><span class="line">baseurl=http://172.18.74.160/ambari/ambari/centos7/2.7.0.0-897/</span><br><span class="line">gpgcheck=0</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">配置hdp和hdp-utils的yum源</span></span><br><span class="line">vi /etc/yum.repos.d/hdp.repo</span><br><span class="line">[HDP]</span><br><span class="line">name=HDP</span><br><span class="line">baseurl=http://172.18.74.160/hdp/HDP/centos7/3.0.0.0-1634/</span><br><span class="line">gpgcheck=0</span><br><span class="line">[HDP-UTILS]</span><br><span class="line">name=HDP_UTILS</span><br><span class="line">baseurl=http://172.18.74.160/hdp-utils/HDP-UTILS/centos7/1.1.0.22/</span><br><span class="line">gpgcheck=0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">yum repolist</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置ambari的yum源</span></span><br><span class="line">vi /etc/yum.repos.d/ambari.repo</span><br><span class="line">[ambari]</span><br><span class="line">name=ambari</span><br><span class="line">baseurl=http://172.18.74.160/centos7/2.7.0.0-897/</span><br><span class="line">gpgcheck=0</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">配置hdp和hdp-utils的yum源</span></span><br><span class="line">vi /etc/yum.repos.d/hdp.repo</span><br><span class="line">[HDP]</span><br><span class="line">name=HDP</span><br><span class="line">baseurl=http://172.18.74.160/hdp/HDP/centos7/3.0.0.0-1634/</span><br><span class="line">gpgcheck=0</span><br><span class="line">[HDP-UTILS]</span><br><span class="line">name=HDP_UTILS</span><br><span class="line">baseurl=http://172.18.74.160/hdp-utils/HDP-UTILS/centos7/1.1.0.22/</span><br><span class="line">gpgcheck=0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">yum repolist</span><br></pre></td></tr></table></figure>
 <p>将 yum 文件使用 scp 发送到客户端节点</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp /etc/yum.repos.d/ambari.repo hdp-1:/etc/yum.repos.d/</span><br><span class="line">scp /etc/yum.repos.d/hdp.repo hdp-1:/etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
 <h3 id="53数据库配置"><a class="markdownIt-Anchor" href="#53数据库配置">#</a> 5.3. 数据库配置</h3>
@@ -711,23 +711,23 @@
 <h2 id="71登录"><a class="markdownIt-Anchor" href="#71登录">#</a> 7.1 登录</h2>
 <p>在浏览器中访问 <a target="_blank" rel="noopener" href="http://172.18.74.160:8080">http://172.18.74.160:8080</a></p>
 <p>默认的用户名和密码都是 admin</p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/image-20211009131454796.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009131454796"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211009131454796.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009131454796"></p>
 <h2 id="72配置集群"><a class="markdownIt-Anchor" href="#72配置集群">#</a> 7.2 配置集群</h2>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141301559.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141325856.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/202010101414045.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141418882.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141433923.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141454782.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141535201.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141550200.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141603805.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141621700.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/2020101014164097.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141651804.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/20201010141707114.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/image-20211009132110430.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=""></p>
-<p><img "" class="lazyload placeholder" data-original="Ambari/image-20211009132042277.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009132042277"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141301559.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141325856.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="202010101414045.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141418882.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141433923.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141454782.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141535201.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141550200.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141603805.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141621700.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="2020101014164097.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141651804.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="20201010141707114.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211009132110430.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=""></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211009132042277.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211009132042277"></p>
 
       </div>
       <div class="post-tags-categories">
