@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>Mahout简介 | 千里稻花应秀色</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+    <script>
+        var themeModelId = '';
+        if (themeModelId) {
+            localStorage.setItem('modelId', themeModelId);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
+    <script>
+        var live2dOpen = eval('true') || false;
+        if (!live2dOpen) {
+            localStorage.setItem('waifu-display', 1609323474481);
+        }
+    </script>
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 头部导航等 -->
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fa fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js" data-pjax></script>
+    
+</header>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+    function loadScript(src, cb) {
+        setTimeout(function () {
+            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            if (cb) script.onload = cb;
+            script.setAttribute('src', src);
+            HEAD.appendChild(script);
+        });
+    }
+
+    //https://github.com/filamentgroup/loadCSS
+    var loadCSS = function (href, before, media, attributes) {
+        var doc = window.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+            ref = before;
+        }
+        else {
+            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+            ref = refs[refs.length - 1];
+        }
+        var sheets = doc.styleSheets;
+        if (attributes) {
+            for (var attributeName in attributes) {
+                if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                }
+            }
+        }
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        function ready(cb) {
+            if (doc.body) {
+                return cb();
+            }
+            setTimeout(function () {
+                ready(cb);
+            });
+        }
+        ready(function () {
+            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+        });
+        var onloadcssdefined = function (cb) {
+            var resolvedHref = ss.href;
+            var i = sheets.length;
+            while (i--) {
+                if (sheets[i].href === resolvedHref) {
+                    return cb();
+                }
+            }
+            setTimeout(function () {
+                onloadcssdefined(cb);
+            });
+        };
+        function loadCB() {
+            if (ss.addEventListener) {
+                ss.removeEventListener("load", loadCB);
+            }
+            ss.media = media || "all";
+        }
+        if (ss.addEventListener) {
+            ss.addEventListener("load", loadCB);
+        }
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(loadCB);
+        return ss;
+    };
+    
+</script>
+ 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <!-- 内容区域 -->
+    <main class="main" id="pjax-container" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+<!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/1.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        Mahout简介
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fa fa-calendar"></i> 发表于：2021-11-07 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/Hive/" class="post-detail-header_category">
+              Hive
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      <div class="post-content">
+        <h1 id="mahout安装部署"><a class="markdownIt-Anchor" href="#mahout安装部署">#</a> Mahout 安装部署</h1>
+<h2 id="mahout是什么"><a class="markdownIt-Anchor" href="#mahout是什么">#</a> Mahout 是什么</h2>
+<p>Apache Mahout 是 Apache Software Foundation （ASF）旗下的一个开源项目，提供了一些经典的机器学习的算法，皆在帮助开发人员更加方便快捷地创建智能应用程序。目前已经有了三个公共发型版本，通过 ApacheMahout 库，Mahout 可以有效地扩展到云中。Mahout 包括许多实现，包括聚类、分类、推荐引擎、频繁子项挖掘。<br>
+　　Apache Mahout 的主要目标是建立可伸缩的机器学习算法。这种可伸缩性是针对大规模的数据集而言的。Apache Mahout 的算法运行在 ApacheHadoop 平台下，它通过 Mapreduce 模式实现。但是，Apache Mahout 并非严格要求算法的实现基于 Hadoop 平台，单个节点或非 Hadoop 平台也可以。Apache Mahout 核心库的非分布式算法也具有良好的性能。<br>
+　　Mahout 是一个机器学习 Java 类库的集合，用于完成各种各样的任务，如分类、评价性的聚类和模式挖掘等。<br>
+　　Mahout 开源项目就是一个 Hadoop 云平台的算法库，已经实现了多种经典算法，并一直在扩充中，其目标就是致力于创建一个可扩容的云平台算法库。<br>
+　　在 Hadoop 云平台下编程不仅要求用户对 Hadoop 云平台框架比较熟悉，还要对 Hadoop 云平台下底层数据流、Map 和 Reduce 原理非常熟悉，这是基本的编程要求。此外，用户要编写某一个算法还需要对该算法的原理比较熟悉，即需要对算法原理理解透彻。总体来看，编写云平台下的算法程序是属于高难度的开发工作了。但是，如果使用 Mahout，情况就会有很大的不同，用户再也不用自己编写复杂的算法，不需要掌握太高深的云平台的框架和数据流程的理论知识。用户所需要了解的只是算法的大概原理、算法实际应用环境和如何调用 Mahout 相关算法的程序接口。当然，在具体的项目中，用户还应该根据实际需求在 Mahout 源代码基础上进行二次开发以满足具体的实际应用情况。</p>
+<h2 id="安装方法"><a class="markdownIt-Anchor" href="#安装方法">#</a> 安装方法</h2>
+<p>下载安装包并解压，安装前确保 Hadoop 能正常使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-mahout-distribution-0.10.1.tar.gz</span><br><span class="line">mv apache-mahout-distribution-0.10.1 /usr/local/mahout</span><br></pre></td></tr></table></figure>
+<p>编辑环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">export MAHOUT_HOME=/usr/local/mahout</span><br><span class="line">export PATH=$&#123;MAHOUT_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h2 id="测试运行"><a class="markdownIt-Anchor" href="#测试运行">#</a> 测试运行</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">将测试数据集上传hdfs并改名为testdata</span></span><br><span class="line">hdfs dfs -put synthetic_control.data testdata</span><br><span class="line">hdfs dfs -lsr</span><br><span class="line"><span class="meta">#</span><span class="bash">默认上传到<span class="string">&quot;/user/用户名/&quot;</span>目录下</span></span><br><span class="line"><span class="meta">#</span><span class="bash">运行mahout</span></span><br><span class="line">mahout -core org.apache.mahout.clustering.syntheticcontrol.kmeans.Job</span><br><span class="line"><span class="meta">#</span><span class="bash">可以在yarn UI界面看到两个任务</span></span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="Mahout/image-20211107162124666.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211107162124666"></p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/image-20211107162200626.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211107162200626"></p>
+<h2 id="mahoutapi"><a class="markdownIt-Anchor" href="#mahoutapi">#</a> MahoutAPI</h2>
+<p><strong>Mahout 学习（主要学习内容是 Mahout 中推荐部分的 ItemCF、UserCF、Hadoop 集群部署运行）</strong></p>
+<p>1、Mahout 是什么？</p>
+<ul>
+<li>
+<p>Mahout 是一个<strong>算法库</strong>，集成了很多算法。</p>
+</li>
+<li>
+<p>Apache Mahout 是 Apache Software Foundation（ASF）旗下的一个开源项目，提供一些可扩展的<strong>机器学习领域经典算法的实现</strong>，旨在帮助开发人员更加方便快捷地创建智能应用程序。</p>
+</li>
+<li>
+<p>Mahout 项目目前已经有了多个公共发行版本。Mahout 包含许多实现，包括聚类、分类、推荐过滤、频繁子项挖掘。</p>
+</li>
+<li>
+<p>通过使用 Apache Hadoop 库，Mahout 可以有效地扩展到 Hadoop 集群。</p>
+</li>
+<li>
+<p>Mahout 的创始人 Grant Ingersoll 介绍了机器学习的基本概念，并演示了如何使用 Mahout 来实现文档集群、提出建议和组织内容。</p>
+</li>
+</ul>
+<p>2、Mahout 是用来干嘛的？</p>
+<p>2.1 推荐引擎</p>
+<p>服务商或网站会根据你过去的行为为你推荐书籍、电影或文章。</p>
+<p>2.2 聚类</p>
+<p>Google news 使用聚类技术通过标题把新闻文章进行分组，从而按照逻辑线索来显示新闻，而并非给出所有新闻的原始列表。</p>
+<p>2.3 分类</p>
+<p>雅虎邮箱基于用户以前对正常邮件和垃圾邮件的报告，以及电子邮件自身的特征，来判别到来的消息是否是垃圾邮件。</p>
+<p>3、Mahout 协同过滤算法</p>
+<p>Mahout 使用了 Taste 来提高协同过滤算法的实现，它是一个基于 Java 实现的可扩展的，高效的推荐引擎。Taste 既实现了最基本的基于用户的和基于内容的推荐算法，同时也提供了扩展接口，使用户可以方便的定义和实现自己的推荐算法。同时，Taste 不仅仅只适用于 Java 应用程序，它可以作为内部服务器的一个组件以 HTTP 和 Web Service 的形式向外界提供推荐的逻辑。Taste 的设计使它能满足企业对推荐引擎在性能、灵活性和可扩展性等方面的要求。</p>
+<p>Taste 主要包括以下几个接口：</p>
+<ul>
+<li>DataModel 是用户喜好信息的抽象接口，它的具体实现支持从任意类型的数据源抽取用户喜好信息。Taste 默认提供 JDBCDataModel 和 FileDataModel，分别支持从数据库和文件中读取用户的喜好信息。</li>
+<li>UserSimilarity 和 ItemSimilarity 。UserSimilarity 用于定义两个用户间的相似度，它是基于协同过滤的推荐引擎的核心部分，可以用来计算用户的 “邻居”，这里我们将与当前用户口味相似的用户称为他的邻居。ItemSimilarity 类似的，计算 Item 之间的相似度。</li>
+<li>UserNeighborhood 用于基于用户相似度的推荐方法中，推荐的内容是基于找到与当前用户喜好相似的邻居用户的方式产生的。UserNeighborhood 定义了确定邻居用户的方法，具体实现一般是基于 UserSimilarity 计算得到的。</li>
+<li>Recommender 是推荐引擎的抽象接口，Taste 中的核心组件。程序中，为它提供一个 DataModel，它可以计算出对不同用户的推荐内容。实际应用中，主要使用它的实现类 GenericUserBasedRecommender 或者 GenericItemBasedRecommender，分别实现基于用户相似度的推荐引擎或者基于内容的推荐引擎。</li>
+<li>RecommenderEvaluator ：评分器。</li>
+<li>RecommenderIRStatsEvaluator ：搜集推荐性能相关的指标，包括准确率、召回率等等。</li>
+</ul>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170623221329257-557838148.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p>4、Mahout 协同过滤算法编程</p>
+<p>1、创建 maven 项目</p>
+<p>2、导入 mahout 依赖</p>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.mahout&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mahout&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.11.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.mahout&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mahout-examples&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.11.1&lt;/version&gt;</span><br><span class="line">        &lt;exclusions&gt;</span><br><span class="line">            &lt;exclusion&gt;</span><br><span class="line">                &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;</span><br><span class="line">            &lt;/exclusion&gt;</span><br><span class="line">        &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<p>3、下载电影评分数据</p>
+<p>下载地址：<a target="_blank" rel="noopener" href="http://grouplens.org/datasets/movielens/">http://grouplens.org/datasets/movielens/</a></p>
+<p>数据类别：7.2 万用户对 1 万部电影的百万级评价和 10 万个标签数据</p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170623233121648-907850964.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170623233155726-1891613913.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p>4、基于用户的推荐</p>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> 1 package com.ahu.learnmahout;</span><br><span class="line"> 2 </span><br><span class="line"> 3 import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;</span><br><span class="line"> 4 import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;</span><br><span class="line"> 5 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;</span><br><span class="line"> 6 import org.apache.mahout.cf.taste.model.DataModel;</span><br><span class="line"> 7 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;</span><br><span class="line"> 8 import org.apache.mahout.cf.taste.recommender.RecommendedItem;</span><br><span class="line"> 9 import org.apache.mahout.cf.taste.recommender.Recommender;</span><br><span class="line">10 import org.apache.mahout.cf.taste.similarity.UserSimilarity;</span><br><span class="line">11 import org.apache.mahout.cf.taste.similarity.precompute.example.GroupLensDataModel;</span><br><span class="line">12 </span><br><span class="line">13 import java.io.File;</span><br><span class="line">14 import java.util.List;</span><br><span class="line">15 </span><br><span class="line">16 /**</span><br><span class="line">17  * Created by ahu_lichang on 2017/6/23.</span><br><span class="line">18  */</span><br><span class="line">19 public class BaseUserRecommender &#123;</span><br><span class="line">20     public static void main(String[] args) throws Exception &#123;</span><br><span class="line">21         //准备数据 这里是电影评分数据</span><br><span class="line">22         File file = new File(&quot;E:\\ml-10M100K\\ratings.dat&quot;);</span><br><span class="line">23         //将数据加载到内存中，GroupLensDataModel是针对开放电影评论数据的</span><br><span class="line">24         DataModel dataModel = new GroupLensDataModel(file);</span><br><span class="line">25         //计算相似度，相似度算法有很多种，欧几里得、皮尔逊等等。</span><br><span class="line">26         UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);</span><br><span class="line">27         //计算最近邻域，邻居有两种算法，基于固定数量的邻居和基于相似度的邻居，这里使用基于固定数量的邻居</span><br><span class="line">28         UserNeighborhood userNeighborhood = new NearestNUserNeighborhood(100, similarity, dataModel);</span><br><span class="line">29         //构建推荐器，协同过滤推荐有两种，分别是基于用户的和基于物品的，这里使用基于用户的协同过滤推荐</span><br><span class="line">30         Recommender recommender = new GenericUserBasedRecommender(dataModel, userNeighborhood, similarity);</span><br><span class="line">31         //给用户ID等于5的用户推荐10部电影</span><br><span class="line">32         List&lt;RecommendedItem&gt; recommendedItemList = recommender.recommend(5, 10);</span><br><span class="line">33         //打印推荐的结果</span><br><span class="line">34         System.out.println(&quot;使用基于用户的协同过滤算法&quot;);</span><br><span class="line">35         System.out.println(&quot;为用户5推荐10个商品&quot;);</span><br><span class="line">36         for (RecommendedItem recommendedItem : recommendedItemList) &#123;</span><br><span class="line">37             System.out.println(recommendedItem);</span><br><span class="line">38         &#125;</span><br><span class="line">39     &#125;</span><br><span class="line">40 &#125;</span><br></pre></td></tr></table></figure>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<p>运行结果：</p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170623233313413-1189848861.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p>5、基于物品的推荐</p>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package com.ahu.learnmahout;</span><br><span class="line"></span><br><span class="line">import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;</span><br><span class="line">import org.apache.mahout.cf.taste.model.DataModel;</span><br><span class="line">import org.apache.mahout.cf.taste.recommender.RecommendedItem;</span><br><span class="line">import org.apache.mahout.cf.taste.similarity.ItemSimilarity;</span><br><span class="line">import org.apache.mahout.cf.taste.similarity.precompute.example.GroupLensDataModel;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by ahu_lichang on 2017/6/24.</span><br><span class="line"> */</span><br><span class="line">public class BaseItemRecommender &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        //准备数据 这里是电影评分数据</span><br><span class="line">        File file = new File(&quot;E:\\ml-10M100K\\ratings.dat&quot;);</span><br><span class="line">        //将数据加载到内存中，GroupLensDataModel是针对开放电影评论数据的</span><br><span class="line">        DataModel dataModel = new GroupLensDataModel(file);</span><br><span class="line">        //计算相似度，相似度算法有很多种，欧几里得、皮尔逊等等。</span><br><span class="line">        ItemSimilarity itemSimilarity = new PearsonCorrelationSimilarity(dataModel);</span><br><span class="line">        //构建推荐器，协同过滤推荐有两种，分别是基于用户的和基于物品的，这里使用基于物品的协同过滤推荐</span><br><span class="line">        GenericItemBasedRecommender recommender = new GenericItemBasedRecommender(dataModel, itemSimilarity);</span><br><span class="line">        //给用户ID等于5的用户推荐10个与2398相似的商品</span><br><span class="line">        List&lt;RecommendedItem&gt; recommendedItemList = recommender.recommendedBecause(5, 2398, 10);</span><br><span class="line">        //打印推荐的结果</span><br><span class="line">        System.out.println(&quot;使用基于物品的协同过滤算法&quot;);</span><br><span class="line">        System.out.println(&quot;根据用户5当前浏览的商品2398，推荐10个相似的商品&quot;);</span><br><span class="line">        for (RecommendedItem recommendedItem : recommendedItemList) &#123;</span><br><span class="line">            System.out.println(recommendedItem);</span><br><span class="line">        &#125;</span><br><span class="line">        long start = System.currentTimeMillis();</span><br><span class="line">        recommendedItemList = recommender.recommendedBecause(5, 34, 10);</span><br><span class="line">        //打印推荐的结果</span><br><span class="line">        System.out.println(&quot;使用基于物品的协同过滤算法&quot;);</span><br><span class="line">        System.out.println(&quot;根据用户5当前浏览的商品34，推荐10个相似的商品&quot;);</span><br><span class="line">        for (RecommendedItem recommendedItem : recommendedItemList) &#123;</span><br><span class="line">            System.out.println(recommendedItem);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(System.currentTimeMillis() -start);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<p>运行结果：</p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170624111836710-1685609646.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p>6、评估推荐模型</p>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package com.ahu.learnmahout;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.apache.mahout.cf.taste.common.TasteException;</span><br><span class="line">import org.apache.mahout.cf.taste.eval.RecommenderBuilder;</span><br><span class="line">import org.apache.mahout.cf.taste.eval.RecommenderEvaluator;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.eval.AverageAbsoluteDifferenceRecommenderEvaluator;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;</span><br><span class="line">import org.apache.mahout.cf.taste.model.DataModel;</span><br><span class="line">import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;</span><br><span class="line">import org.apache.mahout.cf.taste.recommender.Recommender;</span><br><span class="line">import org.apache.mahout.cf.taste.similarity.UserSimilarity;</span><br><span class="line">import org.apache.mahout.cf.taste.similarity.precompute.example.GroupLensDataModel;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by ahu_lichang on 2017/6/24.</span><br><span class="line"> */</span><br><span class="line">public class MyEvaluator &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        //准备数据 这里是电影评分数据</span><br><span class="line">        File file = new File(&quot;E:\\ml-10M100K\\ratings.dat&quot;);</span><br><span class="line">        //将数据加载到内存中，GroupLensDataModel是针对开放电影评论数据的</span><br><span class="line">        DataModel dataModel = new GroupLensDataModel(file);</span><br><span class="line">        //推荐评估，使用均方根</span><br><span class="line">        //RecommenderEvaluator evaluator = new RMSRecommenderEvaluator();</span><br><span class="line">        //推荐评估，使用平均差值</span><br><span class="line">        RecommenderEvaluator evaluator = new AverageAbsoluteDifferenceRecommenderEvaluator();</span><br><span class="line">        RecommenderBuilder builder = new RecommenderBuilder() &#123;</span><br><span class="line"></span><br><span class="line">            public Recommender buildRecommender(DataModel dataModel) throws TasteException &#123;</span><br><span class="line">                UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);</span><br><span class="line">                UserNeighborhood neighborhood = new NearestNUserNeighborhood(2, similarity, dataModel);</span><br><span class="line">                return new GenericUserBasedRecommender(dataModel, neighborhood, similarity);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        // 用70%的数据用作训练，剩下的30%用来测试</span><br><span class="line">        double score = evaluator.evaluate(builder, null, dataModel, 0.7, 1.0);</span><br><span class="line">        //最后得出的评估值越小，说明推荐结果越好</span><br><span class="line">        System.out.println(score);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<p>7、获取推荐的准确率和召回率</p>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.ahu.learnmahout;</span><br><span class="line"></span><br><span class="line">import org.apache.mahout.cf.taste.common.TasteException;</span><br><span class="line">import org.apache.mahout.cf.taste.eval.IRStatistics;</span><br><span class="line">import org.apache.mahout.cf.taste.eval.RecommenderBuilder;</span><br><span class="line">import org.apache.mahout.cf.taste.eval.RecommenderIRStatsEvaluator;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.eval.GenericRecommenderIRStatsEvaluator;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;</span><br><span class="line">import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;</span><br><span class="line">import org.apache.mahout.cf.taste.model.DataModel;</span><br><span class="line">import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;</span><br><span class="line">import org.apache.mahout.cf.taste.recommender.Recommender;</span><br><span class="line">import org.apache.mahout.cf.taste.similarity.UserSimilarity;</span><br><span class="line">import org.apache.mahout.cf.taste.similarity.precompute.example.GroupLensDataModel;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by ahu_lichang on 2017/6/24.</span><br><span class="line"> */</span><br><span class="line">public class MyIRStatistics &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        //准备数据 这里是电影评分数据</span><br><span class="line">        File file = new File(&quot;E:\\ml-10M100K\\ratings.dat&quot;);</span><br><span class="line">        //将数据加载到内存中，GroupLensDataModel是针对开放电影评论数据的</span><br><span class="line">        DataModel dataModel = new GroupLensDataModel(file);</span><br><span class="line">        RecommenderIRStatsEvaluator statsEvaluator = new GenericRecommenderIRStatsEvaluator();</span><br><span class="line">        RecommenderBuilder recommenderBuilder = new RecommenderBuilder() &#123;</span><br><span class="line">            public Recommender buildRecommender(DataModel model) throws TasteException &#123;</span><br><span class="line">                UserSimilarity similarity = new PearsonCorrelationSimilarity(model);</span><br><span class="line">                UserNeighborhood neighborhood = new NearestNUserNeighborhood(4, similarity, model);</span><br><span class="line">                return new GenericUserBasedRecommender(model, neighborhood, similarity);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        // 计算推荐4个结果时的查准率和召回率</span><br><span class="line">        //使用评估器，并设定评估期的参数</span><br><span class="line">        //4表示&quot;precision and recall at 4&quot;即相当于推荐top4，然后在top-4的推荐上计算准确率和召回率</span><br><span class="line">        IRStatistics stats = statsEvaluator.evaluate(recommenderBuilder, null, dataModel, null, 4, GenericRecommenderIRStatsEvaluator.CHOOSE_THRESHOLD, 1.0);</span><br><span class="line">        System.out.println(stats.getPrecision());</span><br><span class="line">        System.out.println(stats.getRecall());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[<img "" class="lazyload placeholder" data-original="Mahout/copycode.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="复制代码">](javascript:void (0)😉</p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170624171117320-1871811297.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p>5、Mahout 运行在 Hadoop 集群</p>
+<p>**1、**<strong>Hadoop 执行脚本</strong></p>
+<p>hadoop jar mahout-examples-0.9-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob --input /sanbox/movie/10M.txt --output /sanbox/movie/r -s SIMILARITY_LOGLIKELIHOOD</p>
+<p>参数说明</p>
+<ul>
+<li>–input (path) : 存储用户偏好数据的目录，该目录下可以包含一个或多个存储用户偏好数据的文本文件；</li>
+<li>–output (path) : 结算结果的输出目录</li>
+<li>–numRecommendations (integer) : 为每个用户推荐的 item 数量，默认为 10</li>
+<li>–usersFile (path) : 指定一个包含了一个或多个存储 userID 的文件路径，仅为该路径下所有文件包含的 userID 做推荐计算 (该选项可选)</li>
+<li>–itemsFile (path) : 指定一个包含了一个或多个存储 itemID 的文件路径，仅为该路径下所有文件包含的 itemID 做推荐计算 (该选项可选)</li>
+<li>–filterFile (path) : 指定一个路径，该路径下的文件包含了 [userID,itemID] 值对，userID 和 itemID 用逗号分隔。计算结果将不会为 user 推荐 [userID,itemID] 值对中包含的 item (该选项可选)</li>
+<li>–booleanData (boolean) : 如果输入数据不包含偏好数值，则将该参数设置为 true，默认为 false</li>
+<li>–maxPrefsPerUser (integer) : 在最后计算推荐结果的阶段，针对每一个 user 使用的偏好数据的最大数量，默认为 10</li>
+<li>–minPrefsPerUser (integer) : 在相似度计算中，忽略所有偏好数据量少于该值的用户，默认为 1</li>
+<li>–maxSimilaritiesPerItem (integer) : 针对每个 item 的相似度最大值，默认为 100</li>
+<li>–maxPrefsPerUserInItemSimilarity (integer) : 在 item 相似度计算阶段，针对每个用户考虑的偏好数据最大数量，默认为 1000</li>
+<li>–similarityClassname (classname) : 向量相似度计算类</li>
+<li>outputPathForSimilarityMatrix ：SimilarityMatrix 输出目录</li>
+<li>–randomSeed ：随机种子 – sequencefileOutput ：序列文件输出路径</li>
+<li>–tempDir (path) : 存储临时文件的目录，默认为当前用户的 home 目录下的 temp 目录</li>
+<li>–threshold (double) : 忽略相似度低于该阀值的 item 对</li>
+</ul>
+<p>2、 <strong>执行结果</strong></p>
+<p>上面命令运行完成之后，会在当前用户的 hdfs 主目录生成 temp 目录，该目录可由 --tempDir (path) 参数设置.</p>
+<p><strong>后期学习补充：</strong></p>
+<p><strong>Mahout 是基于 Hadoop 的机器学习和数据挖掘的一个分布式框架。Mahout 用 MapReduce 实现了部分数据挖掘算法，解决了并行挖掘的问题。</strong></p>
+<p><strong>Mahout 应用场景：</strong></p>
+<p><img "" class="lazyload placeholder" data-original="Mahout/1110462-20170819160931068-666710630.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="">
+              大数据
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/11/07/Hive学习/Mahout/" target="_blank" title="Mahout简介">http://example.com/2021/11/07/Hive学习/Mahout/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%B7%A5%E4%B8%9A%E8%92%B8%E6%B1%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div class="title-text">工业蒸汽数据分析</div>
+      </div>
+      
+      <!-- <div class="content">
+        # 导入数据探索的工具包
+1234567891011import numpy as npimport pandas as
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/05/Hive%E5%AD%A6%E4%B9%A0/Azkaban/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div class="title-text">Azkaban</div>
+      </div>
+      <!-- <div class="content">
+        # Azkaban 任务调度
+# 安装 Azkaban
+准备安装包
+
+将安装包解压
+12345tar -zxvf azk
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+  <!-- js在scripts目录下的的toc.ejs里面 -->
+  
+
+  <script>
+    function openBtnClickFn () {
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'true');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    };
+    openBtnClickFn();
+    document.addEventListener('pjax:complete', function () {
+      openBtnClickFn();
+    })
+  </script>
+
+
+  
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+    </div>
+    <div class="footer-custom">
+      
+    </div>
+    <!-- 不蒜子统计 -->
+    
+  </div>
+</div>
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8062553743"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+    
+    <script src="/js/app.js" data-pjax></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init(option);
+    
+  }
+
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+    }
+  });
+
+  
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+/* .toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+} */
+</style> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- div滚动到显示区域的动画 -->
+
+  <script src="/js/aos/aos.js"></script>
+  <script>
+    // https://github.com/michalsnik/aos
+    var themeOffset = parseInt('120') || 120;
+    var themeDelay = parseInt('0') || 0;
+    var themeDuration = parseInt('400') || 400;
+    var themeEasing = 'ease' || 'ease';
+    var themeOnce = eval('true') || false;
+    var themeMirror = eval('false') || false;
+    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: themeOffset, // offset (in px) from the original trigger point
+      delay: themeDelay, // values from 0 to 3000, with step 50ms
+      duration: themeDuration, // values from 0 to 3000, with step 50ms
+      easing: themeEasing, // default easing for AOS animations
+      once: themeOnce, // whether animation should happen only once - while scrolling down
+      mirror: themeMirror, // whether elements should animate out while scrolling past them
+      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      AOS.refresh();
+    })
+  </script>
+
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          console.log('888');
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            console.log('111111111111111');
+            doSomething();
+            // 返回false, 防止重复触发copy事件  
+            // return false;
+          }
+        })
+        //  监听 ctrl + c事件  
+        // $(document).unbind('keypress').bind('keypress', function (e) {
+        //   if (e.ctrlKey && e.keyCode == 67) {
+        //     console.log('111111111111111');
+        //     doSomething();
+        //     // 返回false, 防止重复触发copy事件  
+        //     return false;
+        //   }
+        // })
+
+        // // 鼠标右键的复制事件  
+        // $(document).unbind('copy').bind('copy', function (e) {
+        //   console.log('222222222222222222');
+        //   doSomething();
+        //   // console.log('右键复制 监听成功');
+        // });
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+          // console.log('ctrl + c 监听成功');  
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+
+
+<!-- 图片懒加载 -->
+<script src="/js/lazyload/lazyload@1.9.1.js"></script>
+<script data-pjax>
+  $(function () {
+    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+      {
+        effect: "show",
+        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+      }
+    );
+  });
+</script>
+
+<!-- 评论所需js -->
+
+    
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+	 
+		<script src="/js/cursor/clicklove.js"></script> 
+	
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+  </script>
+
+
+
+  </body>
+</html>

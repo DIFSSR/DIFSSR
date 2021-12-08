@@ -7,14 +7,19 @@
         <language>zh-CN</language>
         <pubDate>Thu, 15 Apr 2021 11:40:59 +0800</pubDate>
         <lastBuildDate>Thu, 15 Apr 2021 11:40:59 +0800</lastBuildDate>
-        <category>平台</category>
-        <category>shell</category>
+        <category>C</category>
         <category>大数据</category>
+        <category>Python</category>
+        <category>Shell</category>
+        <category>平台</category>
+        <category>鸿蒙</category>
+        <category>单片机</category>
+        <category>机器学习</category>
         <category>安全</category>
         <item>
-            <guid isPermalink="true">http://example.com/2021/04/15/DVWA/</guid>
+            <guid isPermalink="true">http://example.com/2021/04/15/%E5%AE%89%E5%85%A8/DVWA/</guid>
             <title>DVWA通关手册</title>
-            <link>http://example.com/2021/04/15/DVWA/</link>
+            <link>http://example.com/2021/04/15/%E5%AE%89%E5%85%A8/DVWA/</link>
             <category>安全</category>
             <pubDate>Thu, 15 Apr 2021 11:40:59 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;dvwa通关手册&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dvwa通关手册&#34;&gt;#&lt;/a&gt; DVWA 通关手册&lt;/h1&gt;

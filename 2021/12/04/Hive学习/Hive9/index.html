@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>(Hive)汽车销售数据分析系统实战开发 | 千里稻花应秀色</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+    <script>
+        var themeModelId = '';
+        if (themeModelId) {
+            localStorage.setItem('modelId', themeModelId);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
+    <script>
+        var live2dOpen = eval('true') || false;
+        if (!live2dOpen) {
+            localStorage.setItem('waifu-display', 1609323474481);
+        }
+    </script>
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 头部导航等 -->
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fa fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js" data-pjax></script>
+    
+</header>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+    function loadScript(src, cb) {
+        setTimeout(function () {
+            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            if (cb) script.onload = cb;
+            script.setAttribute('src', src);
+            HEAD.appendChild(script);
+        });
+    }
+
+    //https://github.com/filamentgroup/loadCSS
+    var loadCSS = function (href, before, media, attributes) {
+        var doc = window.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+            ref = before;
+        }
+        else {
+            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+            ref = refs[refs.length - 1];
+        }
+        var sheets = doc.styleSheets;
+        if (attributes) {
+            for (var attributeName in attributes) {
+                if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                }
+            }
+        }
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        function ready(cb) {
+            if (doc.body) {
+                return cb();
+            }
+            setTimeout(function () {
+                ready(cb);
+            });
+        }
+        ready(function () {
+            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+        });
+        var onloadcssdefined = function (cb) {
+            var resolvedHref = ss.href;
+            var i = sheets.length;
+            while (i--) {
+                if (sheets[i].href === resolvedHref) {
+                    return cb();
+                }
+            }
+            setTimeout(function () {
+                onloadcssdefined(cb);
+            });
+        };
+        function loadCB() {
+            if (ss.addEventListener) {
+                ss.removeEventListener("load", loadCB);
+            }
+            ss.media = media || "all";
+        }
+        if (ss.addEventListener) {
+            ss.addEventListener("load", loadCB);
+        }
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(loadCB);
+        return ss;
+    };
+    
+</script>
+ 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <!-- 内容区域 -->
+    <main class="main" id="pjax-container" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+<!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/1.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        (Hive)汽车销售数据分析系统实战开发
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fa fa-calendar"></i> 发表于：2021-12-04 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/Hive/" class="post-detail-header_category">
+              Hive
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      <div class="post-content">
+        <p>本章围绕乘用车辆和商用车辆销售数据展开，通过 Hive 构建数据仓库，实现对汽车销售数据各项指标进行立体化分析。</p>
+<h2 id="数据概况"><a class="markdownIt-Anchor" href="#数据概况">#</a> 数据概况</h2>
+<p>项目的数据来源于一个真实项目，数据项包括<br>
+ “省，月，市，区县，年，车辆型号，制造商，品牌，车辆类型，所有权，使用性质，数量，发动机型号，排量，功率，燃料种类，车长，车宽，车高，厢长，厢宽，厢高，轴数，轴距，前轮距，轮胎规格，轮胎数，总质量，整备质量，核定载质量，核定载客，准牵引质量，底盘企业，底盘品牌，底盘型号，发动机企业，车辆名称，年龄，性别”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">山西省,3,朔州市,朔城区,2013,LZW6450PF,上汽通用五菱汽车股份有限公司,五菱,小型普通客车,个人,非营运,1,L3C,8424,79,汽油,4490,1615,1900,10,45,26,2,3050,1386,175/70R14LT,4,2110,1275,,7,,,,,上汽通用五菱汽车股份有限公司,客车,1913,男性</span><br></pre></td></tr></table></figure>
+<h2 id="项目实战"><a class="markdownIt-Anchor" href="#项目实战">#</a> 项目实战</h2>
+<p>本节内容包括构建数据仓库、创建原始数据表、加载数据到数据仓库、验证数据结果以及具体的项目需求、设计思路、HiveSQL 设计以及 HiveSQL 运行结果等内容。</p>
+<h3 id="构建数据仓库"><a class="markdownIt-Anchor" href="#构建数据仓库">#</a> 构建数据仓库</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hive (<span class="keyword">default</span>)<span class="operator">&gt;</span> <span class="keyword">create</span> database if <span class="keyword">not</span> <span class="keyword">exists</span> cars;</span><br><span class="line">OK</span><br><span class="line"><span class="type">Time</span> taken: <span class="number">7.501</span> seconds</span><br><span class="line"></span><br><span class="line">hive (<span class="keyword">default</span>)<span class="operator">&gt;</span> use cars;</span><br><span class="line">OK</span><br><span class="line"><span class="type">Time</span> taken: <span class="number">0.082</span> seconds</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="创建原始数据表"><a class="markdownIt-Anchor" href="#创建原始数据表">#</a> 创建原始数据表</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> car_2019712(province string comment <span class="string">&#x27;省&#x27;</span>, <span class="keyword">month</span> <span class="type">int</span> commet <span class="string">&#x27;月&#x27;</span>, city string comment <span class="string">&#x27;市&#x27;</span>, district string comment <span class="string">&#x27;区县&#x27;</span>, <span class="keyword">year</span> <span class="type">int</span> comment <span class="string">&#x27;年&#x27;</span>, modring comment <span class="string">&#x27;车辆型号&#x27;</span>, manufacturer string comment <span class="string">&#x27;制造商&#x27;</span>, brand string comment <span class="string">&#x27;品牌&#x27;</span>, pe string comment <span class="string">&#x27;车辆类型&#x27;</span>, ownership string comment <span class="string">&#x27;所有权&#x27;</span>,nature string comment <span class="string">&#x27;使用ity int comment &#x27;</span>数量<span class="string">&#x27;, enginemodel string comment &#x27;</span>发动</span><br><span class="line">           <span class="operator">&gt;</span> 机型号<span class="string">&#x27;, displacement int comment &#x27;</span>排量<span class="string">&#x27;, power int comment &#x27;</span>功率<span class="string">&#x27;, fuel stringt &#x27;</span>燃料种类<span class="string">&#x27;, length1 int comment &#x27;</span>车长<span class="string">&#x27;, width1 int comment &#x27;</span>车宽<span class="string">&#x27;, height1 int comment &#x27;</span>车h2 <span class="type">int</span> comment <span class="string">&#x27;厢长&#x27;</span>, width2 <span class="type">int</span> comment <span class="string">&#x27;厢宽&#x27;</span>, height2 <span class="type">int</span> comment <span class="string">&#x27;厢高&#x27;</span>, numberofaxles mment <span class="string">&#x27;轴数&#x27;</span>, wheelbase <span class="type">int</span> comment <span class="string">&#x27;轴距&#x27;</span>, frontwheelbase <span class="type">int</span> comment <span class="string">&#x27;前轮距&#x27;</span>, tirespecifistring comment <span class="string">&#x27;轮胎规格&#x27;</span>, tirenumber <span class="type">int</span> comment <span class="string">&#x27;轮胎数&#x27;</span>, totalquality <span class="type">int</span> comment <span class="string">&#x27;总质量equality int comment &#x27;</span>整备质量<span class="string">&#x27;, approvedquality int comment &#x27;</span>核定载质量<span class="string">&#x27;, approvedpassengeromment &#x27;</span>核定载客<span class="string">&#x27;, tractionquality int comment &#x27;</span>准牵引质量<span class="string">&#x27;, chassisenterprise string commen chassisbrand string comment &#x27;</span>底盘品牌<span class="string">&#x27;, chassismodel string comment &#x27;</span>底盘型号<span class="string">&#x27;, engineenterring comment &#x27;</span>发动机企业<span class="string">&#x27;, vehiclename string comment &#x27;</span>车辆名称<span class="string">&#x27;, age int comment &#x27;</span>年龄<span class="string">&#x27;, ge comment &#x27;</span>性别<span class="string">&#x27;) comment &#x27;</span>this <span class="keyword">is</span> the raw data<span class="string">&#x27; row format delimited fields terminated by &#x27;</span>,location <span class="string">&#x27;/cars&#x27;</span>;</span><br><span class="line">OK</span><br><span class="line"><span class="type">Time</span> taken: <span class="number">0.766</span> seconds</span><br><span class="line"></span><br><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">desc</span> car_2019712;</span><br><span class="line">OK</span><br><span class="line">col_name	data_type	comment</span><br><span class="line">province            	string              	?                   </span><br><span class="line"><span class="keyword">month</span>               	<span class="type">int</span>                 	?                   </span><br><span class="line">city                	string              	?                   </span><br><span class="line">district            	string              	??                  </span><br><span class="line"><span class="keyword">year</span>                	<span class="type">int</span>                 	?   </span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+<h3 id="加载数据到数据仓库"><a class="markdownIt-Anchor" href="#加载数据到数据仓库">#</a> 加载数据到数据仓库</h3>
+<ol>
+<li>在 HDFS 上创建存放数据的目录 /cars，如果 /cars 已存在，则无需创建</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# hadoop fs -ls /</span><br><span class="line">Found 6 items</span><br><span class="line">drwxr-xr-x   - root   supergroup          0 2021-12-04 17:54 /cars</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>将数据文档 cars.csv 利用 Xshell 上传到 master 的 /root 中</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# ll</span><br><span class="line">总用量 171488</span><br><span class="line">-rw-r--r--. 1 root root  20702466 12月  4 18:02 cars.csv</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>用 Hadoop 命令行方式将数据加载到 Hive 数据仓库监控的目录中</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# hadoop fs -put /root/cars.csv /cars</span><br></pre></td></tr></table></figure>
+<h3 id="验证数据结果"><a class="markdownIt-Anchor" href="#验证数据结果">#</a> 验证数据结果</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> cars.car_2019712 limit <span class="number">3</span>;</span><br><span class="line">OK</span><br><span class="line">car_2019712.province	car_2019712.month	car_2019712.city	car_2019712.districcar_2019712.year	car_2019712.model	car_2019712.manufacturer	car_2019712.brand  car_2019712.vehicletype	car_2019712.ownership	car_2019712.nature	car_2019712.quantitcar_2019712.enginemodel	car_2019712.displacement	car_2019712.power	car_2019712.fuel	car_2019712.length1	car_2019712.width1	car_2019712.height1	car_2019712.length2	car_2019712.width2	car_2019712.height2	car_2019712.numberofaxles	car_2019712.wheelbase	car_2019712.frontwheelbase	car_2019712.tirespecification	car_2019712.tirenumber	car_2019712.totalquality	car_2019712.completequality	car_2019712.approvedquality	car_2019712.approvedpassenger	car_2019712.tractionquality	car_2019712.chassisenterprise	car_2019712.chassisbrand	car_2019712.chassismodel   car_2019712.engineenterprise	car_2019712.vehiclename	car_2019712.age	car_2019712.gender</span><br><span class="line">山西省	<span class="number">3</span>	朔州市	朔城区	<span class="number">2013</span>	LZW6450PF	上汽通用五菱汽车股份有限公司	五菱小型普通客车	个人	非营运	<span class="number">1</span>	L3C	<span class="number">8424</span>	<span class="number">79</span>	汽油	<span class="number">4490</span>	<span class="number">1615</span>	<span class="number">19010</span>	<span class="number">45</span>	<span class="number">26</span>	<span class="number">2</span>	<span class="number">3050</span>	<span class="number">1386</span>	<span class="number">175</span><span class="operator">/</span><span class="number">70</span>R14LT	<span class="number">4</span>	<span class="number">2110</span>	<span class="number">1275</span>	NULNULL				上汽通用五菱汽车股份有限公司	客车	<span class="number">1913</span>	男性</span><br><span class="line">山西省	<span class="number">3</span>	晋城市	城区	<span class="number">2013</span>	EQ6450PF1	东风小康汽车有限公司	东风	小型普通客车	个人	非营运	<span class="number">1</span>	DK13<span class="number">-06</span>	<span class="number">1587</span>	<span class="number">74</span>	汽油	<span class="number">4500</span>	<span class="number">1680</span>	<span class="number">19610</span>	<span class="number">45</span>	<span class="number">26</span>	<span class="number">2</span>	<span class="number">3050</span>	<span class="number">1435</span>	<span class="number">185</span>R14LT <span class="number">6</span>PR	<span class="number">4</span>	<span class="number">1970</span>	<span class="number">1290</span>	NULNULL	东风小康汽车有限公司		EQ6440KMF	重庆渝安淮海动力有限公司	客<span class="number">.1929</span>	男性</span><br><span class="line">山西省	<span class="number">12</span>	长治市	长治城区	<span class="number">2013</span>	BJ6440BKV1A	北汽银翔汽车有限公司	北京小型普通客车	个人	非营运	<span class="number">1</span>	BJ415A	<span class="number">1500</span>	<span class="number">75</span>		<span class="number">4440</span>	<span class="keyword">NULL</span>	NUL10	<span class="number">45</span>	<span class="number">26</span>	<span class="keyword">NULL</span>	<span class="keyword">NULL</span>	<span class="keyword">NULL</span>		<span class="keyword">NULL</span>	<span class="keyword">NULL</span>	<span class="keyword">NULL</span>	<span class="keyword">NULL</span>	   <span class="keyword">NULL</span>	北汽银翔汽车有限公司	北京	BJ6440BKV1A	北汽银翔汽车有限公司		<span class="number">1938</span>男性</span><br><span class="line"><span class="type">Time</span> taken: <span class="number">2.895</span> seconds, Fetched: <span class="number">3</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h3 id="统计乘用车辆和商用车辆的销售数量和销售数量占比"><a class="markdownIt-Anchor" href="#统计乘用车辆和商用车辆的销售数量和销售数量占比">#</a> 统计乘用车辆和商用车辆的销售数量和销售数量占比</h3>
+<ol>
+<li>根据字段 “nature” 即 “使用性质” 来分组统计乘用车辆和商用车辆的总数量，乘用车辆的使用性质为 “非营运”，商用车辆的使用性质为 “营运”</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="string">&#x27;非营运&#x27;</span>, <span class="built_in">sum</span>(if(a.nature<span class="operator">=</span><span class="string">&#x27;非营运&#x27;</span>,a.cnt,<span class="number">0</span>)),<span class="string">&#x27;营运&#x27;</span>,<span class="built_in">sum</span>(if(a.nature<span class="operator">!=</span><span class="string">&#x27;非t,0)) from (select nature, count(*) as cnt from cars.car_2019712 group by nature having nature is not null and nature!=&#x27;&#x27;) a;</span></span><br><span class="line"><span class="string">Job running in-process (local Hadoop)</span></span><br><span class="line"><span class="string">2021-12-04 18:06:17,810 Stage-1 map = 100%,  reduce = 0%</span></span><br><span class="line"><span class="string">2021-12-04 18:06:18,832 Stage-1 map = 100%,  reduce = 100%</span></span><br><span class="line"><span class="string">Ended Job = job_local1330125293_0001</span></span><br><span class="line"><span class="string">OK</span></span><br><span class="line"><span class="string">_c0	_c1	_c2	_c3</span></span><br><span class="line"><span class="string">非营运	66478	营运	3884</span></span><br><span class="line"><span class="string">Time taken: 6.564 seconds, Fetched: 1 row(s)</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>统计出汽车销售总数量</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> cars.car_2019712;</span><br><span class="line">Job <span class="keyword">running</span> <span class="keyword">in</span><span class="operator">-</span>process (<span class="keyword">local</span> Hadoop)</span><br><span class="line"><span class="number">2021</span><span class="number">-12</span><span class="number">-04</span> <span class="number">18</span>:<span class="number">07</span>:<span class="number">45</span>,<span class="number">241</span> Stage<span class="number">-1</span> map <span class="operator">=</span> <span class="number">100</span><span class="operator">%</span>,  reduce <span class="operator">=</span> <span class="number">100</span><span class="operator">%</span></span><br><span class="line">Ended Job <span class="operator">=</span> job_local445756713_0003</span><br><span class="line">OK</span><br><span class="line">_c0</span><br><span class="line"><span class="number">70640</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>计算乘用车辆的销售数量占比<br>
+（66478/70640)*100%=94.1%</li>
+<li>计算商用车辆的销售数量占比<br>
+（3884/70640)*100%=5.5%<br>
+ 还有 0.4% 属于其他类型的车辆</li>
+</ol>
+<h3 id="统计山西省2013年每个月的汽车销售数量的比例"><a class="markdownIt-Anchor" href="#统计山西省2013年每个月的汽车销售数量的比例">#</a> 统计山西省 2013 年每个月的汽车销售数量的比例</h3>
+<p>分别统计出山西省 2013 年每个月的汽车销售数量和山西省 2013 年年度汽车销售总数量，再用 2013 年每个月的汽车销售数量除以年度汽车销售总数量。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">set</span> hive.strict.checks.cartesian.product<span class="operator">=</span><span class="literal">false</span>;</span><br><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="keyword">month</span>,c1.ss<span class="operator">/</span>c2.sumshu <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">month</span>, <span class="built_in">sum</span>(quantity) <span class="keyword">as</span> ss <span class="keyword">from</span> cars.car_2019712 <span class="keyword">where</span> province<span class="operator">=</span><span class="string">&#x27;山西省&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span><span class="string">&#x27;2013&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">month</span>) c1, (<span class="keyword">select</span> <span class="built_in">sum</span>(quantity) <span class="keyword">as</span> sumshu <span class="keyword">from</span> cars.car_2019712 <span class="keyword">where</span> province<span class="operator">=</span><span class="string">&#x27;山西省&#x27;</span> <span class="keyword">and</span> <span class="keyword">year</span><span class="operator">=</span><span class="string">&#x27;2013&#x27;</span>) c2;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">124235252</span> HDFS Write: <span class="number">12420</span> SUCCESS</span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-3</span>:  HDFS Read: <span class="number">165660827</span> HDFS Write: <span class="number">39149</span> SUCCESS</span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-4</span>:  HDFS Read: <span class="number">82838654</span> HDFS Write: <span class="number">25114</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line"><span class="keyword">month</span>	_c1</span><br><span class="line"><span class="number">1</span>	<span class="number">0.14799181376311077</span></span><br><span class="line"><span class="number">2</span>	<span class="number">0.05831272561894204</span></span><br><span class="line"><span class="number">3</span>	<span class="number">0.09306159574770473</span></span><br><span class="line"><span class="number">4</span>	<span class="number">0.06587362496802251</span></span><br><span class="line"><span class="number">5</span>	<span class="number">0.0732071288479577</span></span><br><span class="line"><span class="number">6</span>	<span class="number">0.05547028225462608</span></span><br><span class="line"><span class="number">7</span>	<span class="number">0.06323015263920867</span></span><br><span class="line"><span class="number">8</span>	<span class="number">0.06378442909525028</span></span><br><span class="line"><span class="number">9</span>	<span class="number">0.06948352804070379</span></span><br><span class="line"><span class="number">10</span>	<span class="number">0.1044882180722549</span></span><br><span class="line"><span class="number">11</span>	<span class="number">0.10053722179585571</span></span><br><span class="line"><span class="number">12</span>	<span class="number">0.1045592791563628</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">24.092</span> seconds, Fetched: <span class="number">12</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h3 id="统计买车的男女比例及男女对车的品牌的选择"><a class="markdownIt-Anchor" href="#统计买车的男女比例及男女对车的品牌的选择">#</a> 统计买车的男女比例及男女对车的品牌的选择</h3>
+<p>分别统计出买车的男性人数、女性人数和总人数，再分别用男性人数和女性人数除以购车总人数。</p>
+<ol>
+<li>统计买车的男性占比和女性占比</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="string">&#x27;男性&#x27;</span>, a.nan<span class="operator">*</span><span class="number">1.0</span><span class="operator">/</span>(a.nan<span class="operator">+</span>a.nv),<span class="string">&#x27;女性&#x27;</span>, a.nv<span class="operator">*</span><span class="number">1.0</span><span class="operator">/</span>(a.nan<span class="operator">+</span>a.nv) <span class="keyword">from</span> (selec性<span class="string">&#x27;, sum(if(b.gender=&#x27;</span>男性<span class="string">&#x27;,b.cnt,0)) as nan, &#x27;</span>女性<span class="string">&#x27;, sum(if(b.gender=&#x27;</span>女性<span class="string">&#x27;,b.cnt,0)) as nvselect gender, count(*) as cnt from cars.car_2019712 group by gender having gender is not null and gender!= &#x27;&#x27;) b)a;</span></span><br><span class="line"><span class="string">MapReduce Jobs Launched: </span></span><br><span class="line"><span class="string">Stage-Stage-1:  HDFS Read: 207083230 HDFS Write: 50347 SUCCESS</span></span><br><span class="line"><span class="string">Stage-Stage-2:  HDFS Read: 207092711 HDFS Write: 64901 SUCCESS</span></span><br><span class="line"><span class="string">Total MapReduce CPU Time Spent: 0 msec</span></span><br><span class="line"><span class="string">OK</span></span><br><span class="line"><span class="string">_c0	_c1	_c2	_c3</span></span><br><span class="line"><span class="string">男性	0.70106593239522273	女性	0.29893406760477727</span></span><br><span class="line"><span class="string">Time taken: 4.188 seconds, Fetched: 1 row(s)</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>分析男性和女性对车的品牌的选择情况</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> gender,brand,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> cars.car_2019712 <span class="keyword">where</span> gender <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> gender<span class="operator">!=</span><span class="string">&#x27;&#x27;</span> <span class="keyword">and</span> age <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">group</span> <span class="keyword">by</span> gender,brand <span class="keyword">having</span> brand <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> brand<span class="operator">!=</span><span class="string">&#x27;&#x27;</span>;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">248503192</span> HDFS Write: <span class="number">68889</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">gender	brand	_c2</span><br><span class="line">女性	一汽佳星	<span class="number">1</span></span><br><span class="line">男性	一汽佳星	<span class="number">2</span></span><br><span class="line">女性	东南	<span class="number">1</span></span><br><span class="line">男性	东南	<span class="number">12</span></span><br><span class="line">女性	东风	<span class="number">1367</span></span><br><span class="line">男性	东风	<span class="number">3214</span></span><br><span class="line">女性	中誉	<span class="number">4</span></span><br><span class="line">男性	中誉	<span class="number">2</span></span><br><span class="line">男性	中通	<span class="number">1</span></span><br><span class="line">女性	五菱	<span class="number">12004</span></span><br><span class="line">男性	五菱	<span class="number">28208</span></span><br><span class="line">女性	五菱宏光	<span class="number">1057</span></span><br><span class="line">男性	五菱宏光	<span class="number">2331</span></span><br><span class="line">女性	众泰	<span class="number">2</span></span><br><span class="line">男性	众泰	<span class="number">6</span></span><br><span class="line">女性	依维柯	<span class="number">32</span></span><br><span class="line">男性	依维柯	<span class="number">64</span></span><br><span class="line">女性	俊风	<span class="number">1</span></span><br><span class="line">男性	俊风	<span class="number">4</span></span><br><span class="line">女性	力帆	<span class="number">27</span></span><br><span class="line">男性	力帆	<span class="number">84</span></span><br><span class="line">女性	北京	<span class="number">741</span></span><br><span class="line">男性	北京	<span class="number">1836</span></span><br><span class="line">男性	合客	<span class="number">2</span></span><br><span class="line">女性	吉奥	<span class="number">12</span></span><br><span class="line">男性	吉奥	<span class="number">30</span></span><br><span class="line">男性	同心	<span class="number">1</span></span><br><span class="line">女性	哈飞	<span class="number">4</span></span><br><span class="line">男性	哈飞	<span class="number">7</span></span><br><span class="line">女性	大通	<span class="number">7</span></span><br><span class="line">男性	大通	<span class="number">31</span></span><br><span class="line">女性	大马	<span class="number">3</span></span><br><span class="line">男性	大马	<span class="number">7</span></span><br><span class="line">女性	奥路卡	<span class="number">125</span></span><br><span class="line">男性	奥路卡	<span class="number">277</span></span><br><span class="line">女性	宇通	<span class="number">6</span></span><br><span class="line">男性	宇通	<span class="number">7</span></span><br><span class="line">女性	少林	<span class="number">28</span></span><br><span class="line">男性	少林	<span class="number">72</span></span><br><span class="line">女性	尼桑	<span class="number">2</span></span><br><span class="line">男性	尼桑	<span class="number">2</span></span><br><span class="line">女性	开瑞	<span class="number">89</span></span><br><span class="line">男性	开瑞	<span class="number">231</span></span><br><span class="line">女性	恒通客车	<span class="number">2</span></span><br><span class="line">男性	恒通客车	<span class="number">2</span></span><br><span class="line">女性	昌河	<span class="number">20</span></span><br><span class="line">男性	昌河	<span class="number">75</span></span><br><span class="line">女性	昌河铃木	<span class="number">3</span></span><br><span class="line">男性	昌河铃木	<span class="number">1</span></span><br><span class="line">女性	松花江	<span class="number">25</span></span><br><span class="line">男性	松花江	<span class="number">86</span></span><br><span class="line">男性	柯斯达	<span class="number">6</span></span><br><span class="line">男性	梅赛德斯<span class="operator">-</span>奔驰	<span class="number">1</span></span><br><span class="line">女性	欧诺	<span class="number">121</span></span><br><span class="line">男性	欧诺	<span class="number">239</span></span><br><span class="line">男性	汇众	<span class="number">3</span></span><br><span class="line">女性	江淮	<span class="number">7</span></span><br><span class="line">男性	江淮	<span class="number">13</span></span><br><span class="line">女性	江铃全顺	<span class="number">84</span></span><br><span class="line">男性	江铃全顺	<span class="number">200</span></span><br><span class="line">女性	海格	<span class="number">1</span></span><br><span class="line">男性	海格	<span class="number">1</span></span><br><span class="line">女性	神剑	<span class="number">6</span></span><br><span class="line">男性	神剑	<span class="number">16</span></span><br><span class="line">女性	福田	<span class="number">17</span></span><br><span class="line">男性	福田	<span class="number">49</span></span><br><span class="line">女性	航天	<span class="number">31</span></span><br><span class="line">男性	航天	<span class="number">93</span></span><br><span class="line">女性	解放	<span class="number">96</span></span><br><span class="line">男性	解放	<span class="number">242</span></span><br><span class="line">女性	通家福	<span class="number">5</span></span><br><span class="line">男性	通家福	<span class="number">19</span></span><br><span class="line">女性	野马	<span class="number">8</span></span><br><span class="line">男性	野马	<span class="number">20</span></span><br><span class="line">女性	金旅	<span class="number">7</span></span><br><span class="line">男性	金旅	<span class="number">6</span></span><br><span class="line">女性	金杯	<span class="number">102</span></span><br><span class="line">男性	金杯	<span class="number">265</span></span><br><span class="line">女性	金龙	<span class="number">16</span></span><br><span class="line">男性	金龙	<span class="number">26</span></span><br><span class="line">女性	长城	<span class="number">2</span></span><br><span class="line">男性	长城	<span class="number">18</span></span><br><span class="line">女性	长安	<span class="number">1628</span></span><br><span class="line">男性	长安	<span class="number">3679</span></span><br><span class="line">男性	飞碟	<span class="number">3</span></span><br><span class="line">男性	黄海	<span class="number">2</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">3.112</span> seconds, Fetched: <span class="number">86</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h3 id="统计车的所有权-车辆型号和车辆类型"><a class="markdownIt-Anchor" href="#统计车的所有权-车辆型号和车辆类型">#</a> 统计车的所有权、车辆型号和车辆类型</h3>
+<ol>
+<li>统计买车的所有权</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> ownership,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> cars.car_2019712 <span class="keyword">group</span> <span class="keyword">by</span> ownership <span class="keyword">order</span> <span class="keyword">by</span> cnt <span class="keyword">desc</span>;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">289915770</span> HDFS Write: <span class="number">72901</span> SUCCESS</span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-2</span>:  HDFS Read: <span class="number">289923419</span> HDFS Write: <span class="number">83320</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">ownership	cnt</span><br><span class="line">个人	<span class="number">60745</span></span><br><span class="line">单位	<span class="number">9617</span></span><br><span class="line"><span class="keyword">NULL</span>	<span class="number">273</span></span><br><span class="line">	<span class="number">5</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">4.611</span> seconds, Fetched: <span class="number">4</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>统计车辆型号</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> model,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> cars.car_2019712 <span class="keyword">group</span> <span class="keyword">by</span> model <span class="keyword">order</span> <span class="keyword">by</span> cnt <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">331331684</span> HDFS Write: <span class="number">114251</span> SUCCESS</span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-2</span>:  HDFS Read: <span class="number">331400570</span> HDFS Write: <span class="number">155657</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">model	cnt</span><br><span class="line">LZW6376NF	<span class="number">13727</span></span><br><span class="line">LZW6407BAF	<span class="number">6357</span></span><br><span class="line">LZW6390QF	<span class="number">5967</span></span><br><span class="line">LZW6388NF	<span class="number">5120</span></span><br><span class="line">LZW6432KF	<span class="number">4097</span></span><br><span class="line">LZW6431MF	<span class="number">3622</span></span><br><span class="line">EQ6361PF6	<span class="number">2509</span></span><br><span class="line">SC6363B4S	<span class="number">2234</span></span><br><span class="line">LZW6430KF	<span class="number">1484</span></span><br><span class="line">LZW6390NF	<span class="number">1396</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">4.495</span> seconds, Fetched: <span class="number">10</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>统计车辆类型<br>
+根据车辆类型字段 vehicletype 进行分组统计</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> vehicletype,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> cars.car_2019712 <span class="keyword">group</span> <span class="keyword">by</span> vehicletype <span class="keyword">order</span> <span class="keyword">by</span> cnt <span class="keyword">desc</span> limit <span class="number">10</span>; </span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">372809322</span> HDFS Write: <span class="number">156530</span> SUCCESS</span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-2</span>:  HDFS Read: <span class="number">372817774</span> HDFS Write: <span class="number">167935</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">vehicletype	cnt</span><br><span class="line">小型普通客车	<span class="number">62156</span></span><br><span class="line">	<span class="number">3276</span></span><br><span class="line">大型普通客车	<span class="number">3275</span></span><br><span class="line">中型普通客车	<span class="number">1398</span></span><br><span class="line"><span class="keyword">NULL</span>	<span class="number">273</span></span><br><span class="line">大型专用校车	<span class="number">221</span></span><br><span class="line">中型专用校车	<span class="number">29</span></span><br><span class="line">小型专用客车	<span class="number">5</span></span><br><span class="line">大型铰接客车	<span class="number">3</span></span><br><span class="line">微型普通客车	<span class="number">2</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">4.15</span> seconds, Fetched: <span class="number">10</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>统计所有权、车辆型号和车辆类型<br>
+统计车辆的 3 个维度：所有权、车辆型号和车辆类型。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> a.cnt,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> (<span class="keyword">select</span> concat(model,ownership,vehicletype) <span class="keyword">as</span> cnt <span class="keyword">from</span> cars.car_2019712) a <span class="keyword">group</span> <span class="keyword">by</span> a.cnt;</span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">455821028</span> HDFS Write: <span class="number">358380</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">a.cnt	_c1</span><br><span class="line"><span class="keyword">NULL</span>	<span class="number">273</span></span><br><span class="line">	<span class="number">5</span></span><br><span class="line">BFC6120B<span class="number">-1</span>单位大型普通客车	<span class="number">7</span></span><br><span class="line">BFC6120B2单位大型普通客车	<span class="number">1</span></span><br><span class="line">BFC6900<span class="number">-2</span>单位大型普通客车	<span class="number">8</span></span><br><span class="line">BJ6102U8LHB单位大型普通客车	<span class="number">1</span></span><br><span class="line">BJ6103U7MHB单位大型普通客车	<span class="number">1</span></span><br><span class="line">BJ6103U8LHB<span class="number">-4</span>单位大型普通客车	<span class="number">3</span></span><br><span class="line">BJ6110U7LCB<span class="number">-1</span>单位大型普通客车	<span class="number">6</span></span><br><span class="line">BJ6115U7AJB<span class="number">-1</span>单位大型普通客车	<span class="number">1</span></span><br><span class="line">...</span><br><span class="line">ZQ6420A73F个人小型普通客车	<span class="number">63</span></span><br><span class="line">ZQ6420A73F单位小型普通客车	<span class="number">8</span></span><br><span class="line">ZQ6421A73AF个人小型普通客车	<span class="number">17</span></span><br><span class="line">ZQ6421A73AF单位小型普通客车	<span class="number">3</span></span><br><span class="line">ZZY6530A个人小型普通客车	<span class="number">6</span></span><br><span class="line">ZZY6530A单位小型普通客车	<span class="number">2</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">1.686</span> seconds, Fetched: <span class="number">1290</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h3 id="统计不同类型车在一个月对应一段时间如每月或每年的总销售"><a class="markdownIt-Anchor" href="#统计不同类型车在一个月对应一段时间如每月或每年的总销售">#</a> 统计不同类型车在一个月（对应一段时间，如每月或每年) 的总销售</h3>
+<p>统计不同类型车在一个月的总销量。也就是统计某一年某一个月某一类型的车，如大型普通客车、小型普通客车等，销售了多少辆。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="keyword">month</span>,vehicletype,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> cars.car_2019712 <span class="keyword">group</span> <span class="keyword">by</span> vehicletype, <span class="keyword">month</span> <span class="keyword">having</span> <span class="keyword">month</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> vehicletype <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> vehicletype<span class="operator">!=</span><span class="string">&#x27;&#x27;</span>;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">497227388</span> HDFS Write: <span class="number">362693</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line"><span class="keyword">month</span>	vehicletype	_c2</span><br><span class="line"><span class="number">1</span>	中型普通客车	<span class="number">157</span></span><br><span class="line"><span class="number">1</span>	大型专用校车	<span class="number">4</span></span><br><span class="line"><span class="number">1</span>	大型普通客车	<span class="number">529</span></span><br><span class="line">...</span><br><span class="line"><span class="number">12</span>	大型专用校车	<span class="number">8</span></span><br><span class="line"><span class="number">12</span>	大型普通客车	<span class="number">482</span></span><br><span class="line"><span class="number">12</span>	小型普通客车	<span class="number">6701</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">2.054</span> seconds, Fetched: <span class="number">64</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h3 id="通过不同类型品牌车销售情况来统计发动机型号和燃料种类"><a class="markdownIt-Anchor" href="#通过不同类型品牌车销售情况来统计发动机型号和燃料种类">#</a> 通过不同类型 (品牌) 车销售情况，来统计发动机型号和燃料种类</h3>
+<p>通过不同类型（品牌）车销售情况，统计发动机型号和燃料种类。也就是按车辆的品牌字段 brand、发动机型号字段 enginemodel 和燃油种类字段 fuel 进行分组统计。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> brand,enginemodel,fuel,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> cars.car_2019712 <span class="keyword">group</span> <span class="keyword">by</span> brand,enginemodel,fuel;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">580122636</span> HDFS Write: <span class="number">444919</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">brand	enginemodel	fuel	_c3</span><br><span class="line">...</span><br><span class="line">黄海	YC6J245<span class="number">-30</span>	柴油	<span class="number">17</span></span><br><span class="line">黄海	YC6J245<span class="number">-42</span>	柴油	<span class="number">2</span></span><br><span class="line">黄海	YC6L330<span class="number">-30</span>	柴油	<span class="number">1</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">1.765</span> seconds, Fetched: <span class="number">757</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h3 id="统计五菱某一年每月的销售量"><a class="markdownIt-Anchor" href="#统计五菱某一年每月的销售量">#</a> 统计五菱某一年每月的销售量</h3>
+<p>统计五菱汽车某一年每月的销售量，可以按汽车的品牌 brand 和月 month 两个字段进行分组统计，并从结果中将品牌名为 “五菱” 的数据过滤出来即可。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">hive (cars)<span class="operator">&gt;</span> <span class="keyword">select</span> brand,<span class="keyword">month</span>,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> cars.car_2019712 <span class="keyword">group</span> <span class="keyword">by</span> brand,<span class="keyword">month</span> <span class="keyword">having</span> brand<span class="operator">=</span><span class="string">&#x27;五菱&#x27;</span>;</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage<span class="operator">-</span>Stage<span class="number">-1</span>:  HDFS Read: <span class="number">621528450</span> HDFS Write: <span class="number">445834</span> SUCCESS</span><br><span class="line">Total MapReduce CPU <span class="type">Time</span> Spent: <span class="number">0</span> msec</span><br><span class="line">OK</span><br><span class="line">brand	<span class="keyword">month</span>	_c2</span><br><span class="line">五菱	<span class="number">1</span>	<span class="number">5589</span></span><br><span class="line">五菱	<span class="number">2</span>	<span class="number">2226</span></span><br><span class="line">五菱	<span class="number">3</span>	<span class="number">3557</span></span><br><span class="line">五菱	<span class="number">4</span>	<span class="number">2389</span></span><br><span class="line">五菱	<span class="number">5</span>	<span class="number">3351</span></span><br><span class="line">五菱	<span class="number">6</span>	<span class="number">2302</span></span><br><span class="line">五菱	<span class="number">7</span>	<span class="number">2893</span></span><br><span class="line">五菱	<span class="number">8</span>	<span class="number">2980</span></span><br><span class="line">五菱	<span class="number">9</span>	<span class="number">3422</span></span><br><span class="line">五菱	<span class="number">10</span>	<span class="number">5278</span></span><br><span class="line">五菱	<span class="number">11</span>	<span class="number">4809</span></span><br><span class="line">五菱	<span class="number">12</span>	<span class="number">4963</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">1.863</span> seconds, Fetched: <span class="number">12</span> <span class="type">row</span>(s)</span><br></pre></td></tr></table></figure>
+<h2 id="本章小结"><a class="markdownIt-Anchor" href="#本章小结">#</a> 本章小结</h2>
+<p>本章通过汽车销售数据项目让大家感受了企业大数据项目的开发流程。</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="">
+              大数据
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/12/04/Hive学习/Hive9/" target="_blank" title="(Hive)汽车销售数据分析系统实战开发">http://example.com/2021/12/04/Hive学习/Hive9/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div class="title-text">基于支持向量机的分类预测</div>
+      </div>
+      <!-- <div class="content">
+        # 1 前言
+支持向量机（Support Vector Machine，SVM）是一个非常优雅的算法，具有非常完善的数学
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+  <!-- js在scripts目录下的的toc.ejs里面 -->
+  
+
+  <script>
+    function openBtnClickFn () {
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'true');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    };
+    openBtnClickFn();
+    document.addEventListener('pjax:complete', function () {
+      openBtnClickFn();
+    })
+  </script>
+
+
+  
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+    </div>
+    <div class="footer-custom">
+      
+    </div>
+    <!-- 不蒜子统计 -->
+    
+  </div>
+</div>
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8062553743"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+    
+    <script src="/js/app.js" data-pjax></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init(option);
+    
+  }
+
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+    }
+  });
+
+  
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+/* .toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+} */
+</style> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- div滚动到显示区域的动画 -->
+
+  <script src="/js/aos/aos.js"></script>
+  <script>
+    // https://github.com/michalsnik/aos
+    var themeOffset = parseInt('120') || 120;
+    var themeDelay = parseInt('0') || 0;
+    var themeDuration = parseInt('400') || 400;
+    var themeEasing = 'ease' || 'ease';
+    var themeOnce = eval('true') || false;
+    var themeMirror = eval('false') || false;
+    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: themeOffset, // offset (in px) from the original trigger point
+      delay: themeDelay, // values from 0 to 3000, with step 50ms
+      duration: themeDuration, // values from 0 to 3000, with step 50ms
+      easing: themeEasing, // default easing for AOS animations
+      once: themeOnce, // whether animation should happen only once - while scrolling down
+      mirror: themeMirror, // whether elements should animate out while scrolling past them
+      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      AOS.refresh();
+    })
+  </script>
+
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          console.log('888');
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            console.log('111111111111111');
+            doSomething();
+            // 返回false, 防止重复触发copy事件  
+            // return false;
+          }
+        })
+        //  监听 ctrl + c事件  
+        // $(document).unbind('keypress').bind('keypress', function (e) {
+        //   if (e.ctrlKey && e.keyCode == 67) {
+        //     console.log('111111111111111');
+        //     doSomething();
+        //     // 返回false, 防止重复触发copy事件  
+        //     return false;
+        //   }
+        // })
+
+        // // 鼠标右键的复制事件  
+        // $(document).unbind('copy').bind('copy', function (e) {
+        //   console.log('222222222222222222');
+        //   doSomething();
+        //   // console.log('右键复制 监听成功');
+        // });
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+          // console.log('ctrl + c 监听成功');  
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+
+
+<!-- 图片懒加载 -->
+<script src="/js/lazyload/lazyload@1.9.1.js"></script>
+<script data-pjax>
+  $(function () {
+    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+      {
+        effect: "show",
+        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+      }
+    );
+  });
+</script>
+
+<!-- 评论所需js -->
+
+    
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+	 
+		<script src="/js/cursor/clicklove.js"></script> 
+	
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+  </script>
+
+
+
+  </body>
+</html>

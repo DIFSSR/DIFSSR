@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>BP神经网络 | 千里稻花应秀色</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+    <script>
+        var themeModelId = '';
+        if (themeModelId) {
+            localStorage.setItem('modelId', themeModelId);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
+    <script>
+        var live2dOpen = eval('true') || false;
+        if (!live2dOpen) {
+            localStorage.setItem('waifu-display', 1609323474481);
+        }
+    </script>
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 头部导航等 -->
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fa fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js" data-pjax></script>
+    
+</header>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+    function loadScript(src, cb) {
+        setTimeout(function () {
+            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            if (cb) script.onload = cb;
+            script.setAttribute('src', src);
+            HEAD.appendChild(script);
+        });
+    }
+
+    //https://github.com/filamentgroup/loadCSS
+    var loadCSS = function (href, before, media, attributes) {
+        var doc = window.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+            ref = before;
+        }
+        else {
+            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+            ref = refs[refs.length - 1];
+        }
+        var sheets = doc.styleSheets;
+        if (attributes) {
+            for (var attributeName in attributes) {
+                if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                }
+            }
+        }
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        function ready(cb) {
+            if (doc.body) {
+                return cb();
+            }
+            setTimeout(function () {
+                ready(cb);
+            });
+        }
+        ready(function () {
+            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+        });
+        var onloadcssdefined = function (cb) {
+            var resolvedHref = ss.href;
+            var i = sheets.length;
+            while (i--) {
+                if (sheets[i].href === resolvedHref) {
+                    return cb();
+                }
+            }
+            setTimeout(function () {
+                onloadcssdefined(cb);
+            });
+        };
+        function loadCB() {
+            if (ss.addEventListener) {
+                ss.removeEventListener("load", loadCB);
+            }
+            ss.media = media || "all";
+        }
+        if (ss.addEventListener) {
+            ss.addEventListener("load", loadCB);
+        }
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(loadCB);
+        return ss;
+    };
+    
+</script>
+ 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <!-- 内容区域 -->
+    <main class="main" id="pjax-container" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+<!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/2.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        BP神经网络
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fa fa-calendar"></i> 发表于：2021-11-08 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%AD%8F/" class="post-detail-header_category">
+              机器学习课程(魏)
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      <div class="post-content">
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> sio</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">fashion_mnist=sio.loadmat(<span class="string">&#x27;fashion_mnist.mat&#x27;</span>)</span><br><span class="line">train_img=fashion_mnist[<span class="string">&#x27;train&#x27;</span>]</span><br><span class="line">train_imglabels=fashion_mnist[<span class="string">&#x27;trainlabels&#x27;</span>]</span><br><span class="line">test_img=fashion_mnist[<span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">test_imglabels=fashion_mnist[<span class="string">&#x27;testlabels&#x27;</span>]</span><br><span class="line"></span><br><span class="line">input1=keras.layers.Input(shape=train_img.shape[<span class="number">1</span>:])</span><br><span class="line">hidden1=keras.layers.Dense(<span class="number">100</span>,activation=<span class="string">&quot;tanh&quot;</span>)(input1)</span><br><span class="line">hidden2=keras.layers.Dense(<span class="number">120</span>,activation=<span class="string">&quot;tanh&quot;</span>)(hidden1)</span><br><span class="line">concat=keras.layers.Concatenate()([input1,hidden2])</span><br><span class="line">output=keras.layers.Dense(<span class="number">10</span>,activation=<span class="string">&quot;softmax&quot;</span>)(concat)</span><br><span class="line">model=keras.Model(inputs=[input1],outputs=[output])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(loss=<span class="string">&quot;sparse_categorical_crossentropy&quot;</span>,optimizer=keras.optimizers.SGD(lr=<span class="number">0.005</span>),metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">x_valid,x_train=train_img[:<span class="number">5000</span>]/<span class="number">255</span>,train_img[<span class="number">5000</span>:]/<span class="number">255</span></span><br><span class="line">y_valid,y_train=train_imglabels[:<span class="number">5000</span>],train_imglabels[<span class="number">5000</span>:]</span><br><span class="line"></span><br><span class="line">model.fit(x_train,y_train,batch_size=<span class="number">2500</span>,epochs=<span class="number">100</span>,validation_data=(x_valid,y_valid),verbose=<span class="number">1</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>WARNING:tensorflow:From c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\tensorflow_core\python\ops\resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+Train on 55000 samples, validate on 5000 samples
+Epoch 1/100
+55000/55000 [==============================] - 3s 46us/sample - loss: 2.2687 - acc: 0.1840 - val_loss: 2.0692 - val_acc: 0.2996
+Epoch 2/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.9678 - acc: 0.3960 - val_loss: 1.8557 - val_acc: 0.4844
+Epoch 3/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.7842 - acc: 0.5295 - val_loss: 1.6939 - val_acc: 0.5776
+Epoch 4/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.6412 - acc: 0.5905 - val_loss: 1.5654 - val_acc: 0.6198
+Epoch 5/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.5266 - acc: 0.6213 - val_loss: 1.4618 - val_acc: 0.6430
+Epoch 6/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.4337 - acc: 0.6395 - val_loss: 1.3775 - val_acc: 0.6570
+Epoch 7/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.3572 - acc: 0.6528 - val_loss: 1.3078 - val_acc: 0.6666
+Epoch 8/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.2934 - acc: 0.6628 - val_loss: 1.2492 - val_acc: 0.6752
+Epoch 9/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.2395 - acc: 0.6706 - val_loss: 1.1996 - val_acc: 0.6824
+Epoch 10/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.1935 - acc: 0.6769 - val_loss: 1.1571 - val_acc: 0.6874
+Epoch 11/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.1537 - acc: 0.6833 - val_loss: 1.1201 - val_acc: 0.6924
+Epoch 12/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.1190 - acc: 0.6876 - val_loss: 1.0877 - val_acc: 0.6988
+Epoch 13/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.0885 - acc: 0.6928 - val_loss: 1.0591 - val_acc: 0.7032
+Epoch 14/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.0614 - acc: 0.6970 - val_loss: 1.0337 - val_acc: 0.7074
+Epoch 15/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.0372 - acc: 0.7007 - val_loss: 1.0109 - val_acc: 0.7110
+Epoch 16/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 1.0154 - acc: 0.7045 - val_loss: 0.9903 - val_acc: 0.7146
+Epoch 17/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9957 - acc: 0.7075 - val_loss: 0.9716 - val_acc: 0.7184
+Epoch 18/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9777 - acc: 0.7114 - val_loss: 0.9546 - val_acc: 0.7220
+Epoch 19/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9613 - acc: 0.7147 - val_loss: 0.9390 - val_acc: 0.7248
+Epoch 20/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9462 - acc: 0.7171 - val_loss: 0.9246 - val_acc: 0.7268
+Epoch 21/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9323 - acc: 0.7196 - val_loss: 0.9113 - val_acc: 0.7296
+Epoch 22/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9194 - acc: 0.7229 - val_loss: 0.8990 - val_acc: 0.7320
+Epoch 23/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.9073 - acc: 0.7255 - val_loss: 0.8875 - val_acc: 0.7338
+Epoch 24/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8961 - acc: 0.7285 - val_loss: 0.8767 - val_acc: 0.7366
+Epoch 25/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8856 - acc: 0.7301 - val_loss: 0.8665 - val_acc: 0.7400
+Epoch 26/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8757 - acc: 0.7328 - val_loss: 0.8570 - val_acc: 0.7432
+Epoch 27/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8664 - acc: 0.7349 - val_loss: 0.8480 - val_acc: 0.7456
+Epoch 28/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8576 - acc: 0.7374 - val_loss: 0.8396 - val_acc: 0.7476
+Epoch 29/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8493 - acc: 0.7391 - val_loss: 0.8315 - val_acc: 0.7498
+Epoch 30/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8413 - acc: 0.7415 - val_loss: 0.8239 - val_acc: 0.7516
+Epoch 31/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8338 - acc: 0.7430 - val_loss: 0.8166 - val_acc: 0.7524
+Epoch 32/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8266 - acc: 0.7444 - val_loss: 0.8097 - val_acc: 0.7544
+Epoch 33/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8198 - acc: 0.7457 - val_loss: 0.8030 - val_acc: 0.7562
+Epoch 34/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8132 - acc: 0.7475 - val_loss: 0.7966 - val_acc: 0.7580
+Epoch 35/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8069 - acc: 0.7493 - val_loss: 0.7906 - val_acc: 0.7582
+Epoch 36/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.8009 - acc: 0.7509 - val_loss: 0.7847 - val_acc: 0.7604
+Epoch 37/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7951 - acc: 0.7519 - val_loss: 0.7791 - val_acc: 0.7608
+Epoch 38/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7896 - acc: 0.7535 - val_loss: 0.7737 - val_acc: 0.7638
+Epoch 39/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7842 - acc: 0.7550 - val_loss: 0.7684 - val_acc: 0.7650
+Epoch 40/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7790 - acc: 0.7564 - val_loss: 0.7634 - val_acc: 0.7660
+Epoch 41/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7740 - acc: 0.7574 - val_loss: 0.7585 - val_acc: 0.7676
+Epoch 42/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7692 - acc: 0.7592 - val_loss: 0.7538 - val_acc: 0.7684
+Epoch 43/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7645 - acc: 0.7607 - val_loss: 0.7493 - val_acc: 0.7696
+Epoch 44/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7600 - acc: 0.7619 - val_loss: 0.7449 - val_acc: 0.7714
+Epoch 45/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7556 - acc: 0.7634 - val_loss: 0.7406 - val_acc: 0.7738
+Epoch 46/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7514 - acc: 0.7646 - val_loss: 0.7365 - val_acc: 0.7750
+Epoch 47/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7472 - acc: 0.7656 - val_loss: 0.7324 - val_acc: 0.7758
+Epoch 48/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7432 - acc: 0.7671 - val_loss: 0.7286 - val_acc: 0.7770
+Epoch 49/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7393 - acc: 0.7678 - val_loss: 0.7247 - val_acc: 0.7784
+Epoch 50/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7355 - acc: 0.7697 - val_loss: 0.7210 - val_acc: 0.7792
+Epoch 51/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7319 - acc: 0.7702 - val_loss: 0.7174 - val_acc: 0.7802
+Epoch 52/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7283 - acc: 0.7711 - val_loss: 0.7139 - val_acc: 0.7812
+Epoch 53/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7248 - acc: 0.7726 - val_loss: 0.7105 - val_acc: 0.7816
+Epoch 54/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7213 - acc: 0.7733 - val_loss: 0.7072 - val_acc: 0.7820
+Epoch 55/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7180 - acc: 0.7739 - val_loss: 0.7039 - val_acc: 0.7828
+Epoch 56/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7148 - acc: 0.7749 - val_loss: 0.7007 - val_acc: 0.7830
+Epoch 57/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7116 - acc: 0.7755 - val_loss: 0.6976 - val_acc: 0.7840
+Epoch 58/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7085 - acc: 0.7766 - val_loss: 0.6946 - val_acc: 0.7840
+Epoch 59/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7054 - acc: 0.7775 - val_loss: 0.6917 - val_acc: 0.7846
+Epoch 60/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.7025 - acc: 0.7783 - val_loss: 0.6888 - val_acc: 0.7858
+Epoch 61/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6996 - acc: 0.7792 - val_loss: 0.6860 - val_acc: 0.7860
+Epoch 62/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6967 - acc: 0.7801 - val_loss: 0.6831 - val_acc: 0.7874
+Epoch 63/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6940 - acc: 0.7806 - val_loss: 0.6804 - val_acc: 0.7874
+Epoch 64/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6913 - acc: 0.7816 - val_loss: 0.6778 - val_acc: 0.7896
+Epoch 65/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6886 - acc: 0.7821 - val_loss: 0.6752 - val_acc: 0.7900
+Epoch 66/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6860 - acc: 0.7827 - val_loss: 0.6726 - val_acc: 0.7908
+Epoch 67/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6834 - acc: 0.7835 - val_loss: 0.6701 - val_acc: 0.7916
+Epoch 68/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6809 - acc: 0.7839 - val_loss: 0.6676 - val_acc: 0.7918
+Epoch 69/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6785 - acc: 0.7844 - val_loss: 0.6652 - val_acc: 0.7934
+Epoch 70/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6760 - acc: 0.7853 - val_loss: 0.6629 - val_acc: 0.7932
+Epoch 71/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6737 - acc: 0.7859 - val_loss: 0.6606 - val_acc: 0.7942
+Epoch 72/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6713 - acc: 0.7860 - val_loss: 0.6583 - val_acc: 0.7942
+Epoch 73/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6691 - acc: 0.7869 - val_loss: 0.6560 - val_acc: 0.7950
+Epoch 74/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6668 - acc: 0.7873 - val_loss: 0.6539 - val_acc: 0.7956
+Epoch 75/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6646 - acc: 0.7878 - val_loss: 0.6517 - val_acc: 0.7958
+Epoch 76/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6625 - acc: 0.7886 - val_loss: 0.6495 - val_acc: 0.7960
+Epoch 77/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6603 - acc: 0.7890 - val_loss: 0.6475 - val_acc: 0.7970
+Epoch 78/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6582 - acc: 0.7898 - val_loss: 0.6454 - val_acc: 0.7974
+Epoch 79/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6562 - acc: 0.7902 - val_loss: 0.6434 - val_acc: 0.7980
+Epoch 80/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6542 - acc: 0.7908 - val_loss: 0.6414 - val_acc: 0.7982
+Epoch 81/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6522 - acc: 0.7912 - val_loss: 0.6395 - val_acc: 0.7998
+Epoch 82/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6502 - acc: 0.7916 - val_loss: 0.6376 - val_acc: 0.7996
+Epoch 83/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6483 - acc: 0.7920 - val_loss: 0.6357 - val_acc: 0.8002
+Epoch 84/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6464 - acc: 0.7925 - val_loss: 0.6339 - val_acc: 0.8010
+Epoch 85/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6445 - acc: 0.7929 - val_loss: 0.6320 - val_acc: 0.8010
+Epoch 86/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6427 - acc: 0.7935 - val_loss: 0.6302 - val_acc: 0.8016
+Epoch 87/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6409 - acc: 0.7937 - val_loss: 0.6284 - val_acc: 0.8014
+Epoch 88/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6391 - acc: 0.7940 - val_loss: 0.6267 - val_acc: 0.8020
+Epoch 89/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6374 - acc: 0.7945 - val_loss: 0.6250 - val_acc: 0.8022
+Epoch 90/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6356 - acc: 0.7946 - val_loss: 0.6233 - val_acc: 0.8032
+Epoch 91/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6340 - acc: 0.7953 - val_loss: 0.6217 - val_acc: 0.8040
+Epoch 92/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6323 - acc: 0.7957 - val_loss: 0.6199 - val_acc: 0.8050
+Epoch 93/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6306 - acc: 0.7962 - val_loss: 0.6183 - val_acc: 0.8056
+Epoch 94/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6290 - acc: 0.7963 - val_loss: 0.6168 - val_acc: 0.8056
+Epoch 95/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6274 - acc: 0.7969 - val_loss: 0.6152 - val_acc: 0.8056
+Epoch 96/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6258 - acc: 0.7974 - val_loss: 0.6137 - val_acc: 0.8064
+Epoch 97/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6242 - acc: 0.7978 - val_loss: 0.6121 - val_acc: 0.8066
+Epoch 98/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6227 - acc: 0.7986 - val_loss: 0.6106 - val_acc: 0.8068
+Epoch 99/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6212 - acc: 0.7985 - val_loss: 0.6091 - val_acc: 0.8080
+Epoch 100/100
+55000/55000 [==============================] - 2s 44us/sample - loss: 0.6197 - acc: 0.7992 - val_loss: 0.6077 - val_acc: 0.8074
+
+
+
+
+
+&lt;tensorflow.python.keras.callbacks.History at 0x16f1a0a3a20&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="">
+              机器学习
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/11/08/机器学习/机器学习课程(魏)/BP/" target="_blank" title="BP神经网络">http://example.com/2021/11/08/机器学习/机器学习课程(魏)/BP/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div class="title-text">基于逻辑回归的分类预测</div>
+      </div>
+      
+      <!-- <div class="content">
+        # 机器学习算法（一）: 基于逻辑回归的分类预测
+# 逻辑回归的介绍和应用
+# 1.1 逻辑回归的介绍
+逻辑回归（Log
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8ELightGBM%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div class="title-text">基于LightGBM的分类预测</div>
+      </div>
+      <!-- <div class="content">
+        # 1. 基于 LightGBM 的分类预测
+# 1.1 LightGBM 的介绍
+LightGBM 是 2017 年由
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+  <!-- js在scripts目录下的的toc.ejs里面 -->
+  
+
+  <script>
+    function openBtnClickFn () {
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'true');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    };
+    openBtnClickFn();
+    document.addEventListener('pjax:complete', function () {
+      openBtnClickFn();
+    })
+  </script>
+
+
+  
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+    </div>
+    <div class="footer-custom">
+      
+    </div>
+    <!-- 不蒜子统计 -->
+    
+  </div>
+</div>
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8062553743"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+    
+    <script src="/js/app.js" data-pjax></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init(option);
+    
+  }
+
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+    }
+  });
+
+  
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+/* .toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+} */
+</style> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- div滚动到显示区域的动画 -->
+
+  <script src="/js/aos/aos.js"></script>
+  <script>
+    // https://github.com/michalsnik/aos
+    var themeOffset = parseInt('120') || 120;
+    var themeDelay = parseInt('0') || 0;
+    var themeDuration = parseInt('400') || 400;
+    var themeEasing = 'ease' || 'ease';
+    var themeOnce = eval('true') || false;
+    var themeMirror = eval('false') || false;
+    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: themeOffset, // offset (in px) from the original trigger point
+      delay: themeDelay, // values from 0 to 3000, with step 50ms
+      duration: themeDuration, // values from 0 to 3000, with step 50ms
+      easing: themeEasing, // default easing for AOS animations
+      once: themeOnce, // whether animation should happen only once - while scrolling down
+      mirror: themeMirror, // whether elements should animate out while scrolling past them
+      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      AOS.refresh();
+    })
+  </script>
+
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          console.log('888');
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            console.log('111111111111111');
+            doSomething();
+            // 返回false, 防止重复触发copy事件  
+            // return false;
+          }
+        })
+        //  监听 ctrl + c事件  
+        // $(document).unbind('keypress').bind('keypress', function (e) {
+        //   if (e.ctrlKey && e.keyCode == 67) {
+        //     console.log('111111111111111');
+        //     doSomething();
+        //     // 返回false, 防止重复触发copy事件  
+        //     return false;
+        //   }
+        // })
+
+        // // 鼠标右键的复制事件  
+        // $(document).unbind('copy').bind('copy', function (e) {
+        //   console.log('222222222222222222');
+        //   doSomething();
+        //   // console.log('右键复制 监听成功');
+        // });
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+          // console.log('ctrl + c 监听成功');  
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+
+
+<!-- 图片懒加载 -->
+<script src="/js/lazyload/lazyload@1.9.1.js"></script>
+<script data-pjax>
+  $(function () {
+    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+      {
+        effect: "show",
+        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+      }
+    );
+  });
+</script>
+
+<!-- 评论所需js -->
+
+    
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+	 
+		<script src="/js/cursor/clicklove.js"></script> 
+	
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+  </script>
+
+
+
+  </body>
+</html>

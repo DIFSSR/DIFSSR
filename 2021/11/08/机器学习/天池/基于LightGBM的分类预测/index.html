@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>基于LightGBM的分类预测 | 千里稻花应秀色</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+    <script>
+        var themeModelId = '';
+        if (themeModelId) {
+            localStorage.setItem('modelId', themeModelId);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
+    <script>
+        var live2dOpen = eval('true') || false;
+        if (!live2dOpen) {
+            localStorage.setItem('waifu-display', 1609323474481);
+        }
+    </script>
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 头部导航等 -->
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fa fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js" data-pjax></script>
+    
+</header>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+    function loadScript(src, cb) {
+        setTimeout(function () {
+            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            if (cb) script.onload = cb;
+            script.setAttribute('src', src);
+            HEAD.appendChild(script);
+        });
+    }
+
+    //https://github.com/filamentgroup/loadCSS
+    var loadCSS = function (href, before, media, attributes) {
+        var doc = window.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+            ref = before;
+        }
+        else {
+            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+            ref = refs[refs.length - 1];
+        }
+        var sheets = doc.styleSheets;
+        if (attributes) {
+            for (var attributeName in attributes) {
+                if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                }
+            }
+        }
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        function ready(cb) {
+            if (doc.body) {
+                return cb();
+            }
+            setTimeout(function () {
+                ready(cb);
+            });
+        }
+        ready(function () {
+            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+        });
+        var onloadcssdefined = function (cb) {
+            var resolvedHref = ss.href;
+            var i = sheets.length;
+            while (i--) {
+                if (sheets[i].href === resolvedHref) {
+                    return cb();
+                }
+            }
+            setTimeout(function () {
+                onloadcssdefined(cb);
+            });
+        };
+        function loadCB() {
+            if (ss.addEventListener) {
+                ss.removeEventListener("load", loadCB);
+            }
+            ss.media = media || "all";
+        }
+        if (ss.addEventListener) {
+            ss.addEventListener("load", loadCB);
+        }
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(loadCB);
+        return ss;
+    };
+    
+</script>
+ 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <!-- 内容区域 -->
+    <main class="main" id="pjax-container" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+<!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/2.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        基于LightGBM的分类预测
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fa fa-calendar"></i> 发表于：2021-11-08 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E5%A4%A9%E6%B1%A0%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/" class="post-detail-header_category">
+              天池机器学习入门
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      <div class="post-content">
+        <h1 id="1-基于lightgbm的分类预测"><a class="markdownIt-Anchor" href="#1-基于lightgbm的分类预测">#</a> 1. 基于 LightGBM 的分类预测</h1>
+<h2 id="11-lightgbm的介绍"><a class="markdownIt-Anchor" href="#11-lightgbm的介绍">#</a> 1.1 LightGBM 的介绍</h2>
+<p>LightGBM 是 2017 年由微软推出的可扩展机器学习系统，是微软旗下 DMKT 的一个开源项目，由 2014 年首届阿里巴巴大数据竞赛获胜者之一柯国霖老师带领开发。它是一款基于 GBDT（梯度提升决策树）算法的分布式梯度提升框架，为了满足缩短模型计算时间的需求，LightGBM 的设计思路主要集中在减小数据对内存与计算性能的使用，以及减少多机器并行计算时的通讯代价。</p>
+<p>LightGBM 可以看作是 XGBoost 的升级豪华版，在获得与 XGBoost 近似精度的同时，又提供了更快的训练速度与更少的内存消耗。正如其名字中的 Light 所蕴含的那样，LightGBM 在大规模数据集上跑起来更加优雅轻盈，一经推出便成为各种数据竞赛中刷榜夺冠的神兵利器。</p>
+<p>LightGBM 的主要优点：</p>
+<ol>
+<li>简单易用。提供了主流的 Python\C++\R 语言接口，用户可以轻松使用 LightGBM 建模并获得相当不错的效果。</li>
+<li>高效可扩展。在处理大规模数据集时高效迅速、高准确度，对内存等硬件资源要求不高。</li>
+<li>鲁棒性强。相较于深度学习模型不需要精细调参便能取得近似的效果。</li>
+<li>LightGBM 直接支持缺失值与类别特征，无需对数据额外进行特殊处理</li>
+</ol>
+<p>LightGBM 的主要缺点：</p>
+<ol>
+<li>相对于深度学习模型无法对时空位置建模，不能很好地捕获图像、语音、文本等高维数据。</li>
+<li>在拥有海量训练数据，并能找到合适的深度学习模型时，深度学习的精度可以遥遥领先 LightGBM。</li>
+</ol>
+<h2 id="12-lightgbm的应用"><a class="markdownIt-Anchor" href="#12-lightgbm的应用">#</a> 1.2 LightGBM 的应用</h2>
+<p>LightGBM 在机器学习与数据挖掘领域有着极为广泛的应用。据统计 LightGBM 模型自 2016 到 2019 年在 Kaggle 平台上累积获得数据竞赛前三名三十余次，其中包括 CIKM2017 AnalytiCup、IEEE Fraud Detection 等知名竞赛。这些竞赛来源于各行各业的真实业务，这些竞赛成绩表明 LightGBM 具有很好的可扩展性，在各类不同问题上都可以取得非常好的效果。</p>
+<p>同时，LightGBM 还被成功应用在工业界与学术界的各种问题中。例如金融风控、购买行为识别、交通流量预测、环境声音分类、基因分类、生物成分分析等诸多领域。虽然领域相关的数据分析和特性工程在这些解决方案中也发挥了重要作用，但学习者与实践者对 LightGBM 的一致选择表明了这一软件包的影响力与重要性。</p>
+<h1 id="2-实验室手册"><a class="markdownIt-Anchor" href="#2-实验室手册">#</a> 2. 实验室手册</h1>
+<h2 id="21-学习目标"><a class="markdownIt-Anchor" href="#21-学习目标">#</a> 2.1 学习目标</h2>
+<ul>
+<li>了解 LightGBM 的参数与相关知识</li>
+<li>掌握 LightGBM 的 Python 调用并将其运用到英雄联盟游戏胜负预测数据集上</li>
+</ul>
+<h2 id="22-代码流程"><a class="markdownIt-Anchor" href="#22-代码流程">#</a> 2.2 代码流程</h2>
+<h4 id="part1-基于英雄联盟数据集的lightgbm分类实践"><a class="markdownIt-Anchor" href="#part1-基于英雄联盟数据集的lightgbm分类实践">#</a> Part1 基于英雄联盟数据集的 LightGBM 分类实践</h4>
+<p><strong>Step1: 库函数导入</strong></p>
+<p><strong>Step2: 数据读取 / 载入</strong></p>
+<p><strong>Step3: 数据信息简单查看</strong></p>
+<p><strong>Step4: 可视化描述</strong></p>
+<p><strong>Step5: 利用 LightGBM 进行训练与预测</strong></p>
+<p><strong>Step6: 利用 LightGBM 进行特征选择</strong></p>
+<p><strong>Step7: 通过调整参数获得更好的效果</strong></p>
+<h2 id="23-算法实战"><a class="markdownIt-Anchor" href="#23-算法实战">#</a> 2.3 算法实战</h2>
+<h3 id="231-基于英雄联盟数据集的lightgbm分类实战"><a class="markdownIt-Anchor" href="#231-基于英雄联盟数据集的lightgbm分类实战">#</a> 2.3.1 基于英雄联盟数据集的 LightGBM 分类实战</h3>
+<p>在实践的最开始，我们首先需要导入一些基础的函数库包括：numpy （Python 进行科学计算的基础软件包），pandas（pandas 是一种快速，强大，灵活且易于使用的开源数据分析和处理工具），matplotlib 和 seaborn 绘图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载需要用到的数据集</span></span><br><span class="line">!wget https://tianchi-media.oss-cn-beijing.aliyuncs.com/DSW/8LightGBM/high_diamond_ranked_10min.csv</span><br></pre></td></tr></table></figure>
+<pre><code>'wget' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+</code></pre>
+<p><strong>Step1: 库函数导入</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##  基础函数库</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">## 绘图函数库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
+<p>本次我们选择英雄联盟数据集进行 LightGBM 的场景体验。英雄联盟是 2009 年美国拳头游戏开发的 MOBA 竞技网游，在每局比赛中蓝队与红队在同一个地图进行作战，游戏的目标是破坏敌方队伍的防御塔，进而摧毁敌方的水晶枢纽，拿下比赛的胜利。</p>
+<p>现在共有 9881 场英雄联盟韩服钻石段位以上的排位比赛数据，数据提供了在十分钟时的游戏状态，包括击杀数、死亡数、金币数量、经验值、等级…… 等信息。列 blueWins 是数据的标签，代表了本场比赛是否为蓝队获胜。</p>
+<p>数据的各个特征描述如下：</p>
+<table>
+<thead>
+<tr>
+<th>特征名称</th>
+<th>特征意义</th>
+<th>取值范围</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WardsPlaced</td>
+<td>插眼数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WardsDestroyed</td>
+<td>拆眼数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FirstBlood</td>
+<td>是否获得首次击杀</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Kills</td>
+<td>击杀英雄数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Deaths</td>
+<td>死亡数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Assists</td>
+<td>助攻数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EliteMonsters</td>
+<td>击杀大型野怪数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Dragons</td>
+<td>击杀史诗野怪数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Heralds</td>
+<td>击杀峡谷先锋数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TowersDestroyed</td>
+<td>推塔数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalGold</td>
+<td>总经济</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AvgLevel</td>
+<td>平均英雄等级</td>
+<td>浮点数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalExperience</td>
+<td>英雄总经验</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalMinionsKilled</td>
+<td>英雄补兵数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalJungleMinionsKilled</td>
+<td>英雄击杀野怪数量</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GoldDiff</td>
+<td>经济差距</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ExperienceDiff</td>
+<td>经验差距</td>
+<td>整数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CSPerMin</td>
+<td>分均补刀</td>
+<td>浮点数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GoldPerMin</td>
+<td>分均经济</td>
+<td>浮点数</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step2: 数据读取 / 载入</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 我们利用Pandas自带的read_csv函数读取并转化为DataFrame格式</span></span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;./high_diamond_ranked_10min.csv&#x27;</span>)</span><br><span class="line">y = df.blueWins</span><br></pre></td></tr></table></figure>
+<p><strong>Step3: 数据信息简单查看</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 利用.info()查看数据的整体信息</span></span><br><span class="line">df.info()</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 9879 entries, 0 to 9878
+Data columns (total 40 columns):
+ #   Column                        Non-Null Count  Dtype  
+---  ------                        --------------  -----  
+ 0   gameId                        9879 non-null   int64  
+ 1   blueWins                      9879 non-null   int64  
+ 2   blueWardsPlaced               9879 non-null   int64  
+ 3   blueWardsDestroyed            9879 non-null   int64  
+ 4   blueFirstBlood                9879 non-null   int64  
+ 5   blueKills                     9879 non-null   int64  
+ 6   blueDeaths                    9879 non-null   int64  
+ 7   blueAssists                   9879 non-null   int64  
+ 8   blueEliteMonsters             9879 non-null   int64  
+ 9   blueDragons                   9879 non-null   int64  
+ 10  blueHeralds                   9879 non-null   int64  
+ 11  blueTowersDestroyed           9879 non-null   int64  
+ 12  blueTotalGold                 9879 non-null   int64  
+ 13  blueAvgLevel                  9879 non-null   float64
+ 14  blueTotalExperience           9879 non-null   int64  
+ 15  blueTotalMinionsKilled        9879 non-null   int64  
+ 16  blueTotalJungleMinionsKilled  9879 non-null   int64  
+ 17  blueGoldDiff                  9879 non-null   int64  
+ 18  blueExperienceDiff            9879 non-null   int64  
+ 19  blueCSPerMin                  9879 non-null   float64
+ 20  blueGoldPerMin                9879 non-null   float64
+ 21  redWardsPlaced                9879 non-null   int64  
+ 22  redWardsDestroyed             9879 non-null   int64  
+ 23  redFirstBlood                 9879 non-null   int64  
+ 24  redKills                      9879 non-null   int64  
+ 25  redDeaths                     9879 non-null   int64  
+ 26  redAssists                    9879 non-null   int64  
+ 27  redEliteMonsters              9879 non-null   int64  
+ 28  redDragons                    9879 non-null   int64  
+ 29  redHeralds                    9879 non-null   int64  
+ 30  redTowersDestroyed            9879 non-null   int64  
+ 31  redTotalGold                  9879 non-null   int64  
+ 32  redAvgLevel                   9879 non-null   float64
+ 33  redTotalExperience            9879 non-null   int64  
+ 34  redTotalMinionsKilled         9879 non-null   int64  
+ 35  redTotalJungleMinionsKilled   9879 non-null   int64  
+ 36  redGoldDiff                   9879 non-null   int64  
+ 37  redExperienceDiff             9879 non-null   int64  
+ 38  redCSPerMin                   9879 non-null   float64
+ 39  redGoldPerMin                 9879 non-null   float64
+dtypes: float64(6), int64(34)
+memory usage: 3.0 MB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 进行简单的数据查看，我们可以利用 .head() 头部.tail()尾部</span></span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gameId</th>
+      <th>blueWins</th>
+      <th>blueWardsPlaced</th>
+      <th>blueWardsDestroyed</th>
+      <th>blueFirstBlood</th>
+      <th>blueKills</th>
+      <th>blueDeaths</th>
+      <th>blueAssists</th>
+      <th>blueEliteMonsters</th>
+      <th>blueDragons</th>
+      <th>...</th>
+      <th>redTowersDestroyed</th>
+      <th>redTotalGold</th>
+      <th>redAvgLevel</th>
+      <th>redTotalExperience</th>
+      <th>redTotalMinionsKilled</th>
+      <th>redTotalJungleMinionsKilled</th>
+      <th>redGoldDiff</th>
+      <th>redExperienceDiff</th>
+      <th>redCSPerMin</th>
+      <th>redGoldPerMin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4519157822</td>
+      <td>0</td>
+      <td>28</td>
+      <td>2</td>
+      <td>1</td>
+      <td>9</td>
+      <td>6</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>16567</td>
+      <td>6.8</td>
+      <td>17047</td>
+      <td>197</td>
+      <td>55</td>
+      <td>-643</td>
+      <td>8</td>
+      <td>19.7</td>
+      <td>1656.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4523371949</td>
+      <td>0</td>
+      <td>12</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>17620</td>
+      <td>6.8</td>
+      <td>17438</td>
+      <td>240</td>
+      <td>52</td>
+      <td>2908</td>
+      <td>1173</td>
+      <td>24.0</td>
+      <td>1762.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4521474530</td>
+      <td>0</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>11</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>17285</td>
+      <td>6.8</td>
+      <td>17254</td>
+      <td>203</td>
+      <td>28</td>
+      <td>1172</td>
+      <td>1033</td>
+      <td>20.3</td>
+      <td>1728.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4524384067</td>
+      <td>0</td>
+      <td>43</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>16478</td>
+      <td>7.0</td>
+      <td>17961</td>
+      <td>235</td>
+      <td>47</td>
+      <td>1321</td>
+      <td>7</td>
+      <td>23.5</td>
+      <td>1647.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4436033771</td>
+      <td>0</td>
+      <td>75</td>
+      <td>4</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>17404</td>
+      <td>7.0</td>
+      <td>18313</td>
+      <td>225</td>
+      <td>67</td>
+      <td>1004</td>
+      <td>-230</td>
+      <td>22.5</td>
+      <td>1740.4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 40 columns</p>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.tail()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gameId</th>
+      <th>blueWins</th>
+      <th>blueWardsPlaced</th>
+      <th>blueWardsDestroyed</th>
+      <th>blueFirstBlood</th>
+      <th>blueKills</th>
+      <th>blueDeaths</th>
+      <th>blueAssists</th>
+      <th>blueEliteMonsters</th>
+      <th>blueDragons</th>
+      <th>...</th>
+      <th>redTowersDestroyed</th>
+      <th>redTotalGold</th>
+      <th>redAvgLevel</th>
+      <th>redTotalExperience</th>
+      <th>redTotalMinionsKilled</th>
+      <th>redTotalJungleMinionsKilled</th>
+      <th>redGoldDiff</th>
+      <th>redExperienceDiff</th>
+      <th>redCSPerMin</th>
+      <th>redGoldPerMin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9874</th>
+      <td>4527873286</td>
+      <td>1</td>
+      <td>17</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>15246</td>
+      <td>6.8</td>
+      <td>16498</td>
+      <td>229</td>
+      <td>34</td>
+      <td>-2519</td>
+      <td>-2469</td>
+      <td>22.9</td>
+      <td>1524.6</td>
+    </tr>
+    <tr>
+      <th>9875</th>
+      <td>4527797466</td>
+      <td>1</td>
+      <td>54</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>4</td>
+      <td>8</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>15456</td>
+      <td>7.0</td>
+      <td>18367</td>
+      <td>206</td>
+      <td>56</td>
+      <td>-782</td>
+      <td>-888</td>
+      <td>20.6</td>
+      <td>1545.6</td>
+    </tr>
+    <tr>
+      <th>9876</th>
+      <td>4527713716</td>
+      <td>0</td>
+      <td>23</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>7</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>18319</td>
+      <td>7.4</td>
+      <td>19909</td>
+      <td>261</td>
+      <td>60</td>
+      <td>2416</td>
+      <td>1877</td>
+      <td>26.1</td>
+      <td>1831.9</td>
+    </tr>
+    <tr>
+      <th>9877</th>
+      <td>4527628313</td>
+      <td>0</td>
+      <td>14</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>15298</td>
+      <td>7.2</td>
+      <td>18314</td>
+      <td>247</td>
+      <td>40</td>
+      <td>839</td>
+      <td>1085</td>
+      <td>24.7</td>
+      <td>1529.8</td>
+    </tr>
+    <tr>
+      <th>9878</th>
+      <td>4523772935</td>
+      <td>1</td>
+      <td>18</td>
+      <td>0</td>
+      <td>1</td>
+      <td>6</td>
+      <td>6</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>15339</td>
+      <td>6.8</td>
+      <td>17379</td>
+      <td>201</td>
+      <td>46</td>
+      <td>-927</td>
+      <td>58</td>
+      <td>20.1</td>
+      <td>1533.9</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 40 columns</p>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 标注标签并利用value_counts函数查看训练集标签的数量</span></span><br><span class="line">y = df.blueWins</span><br><span class="line">y.value_counts()</span><br></pre></td></tr></table></figure>
+<pre><code>0    4949
+1    4930
+Name: blueWins, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 标注特征列</span></span><br><span class="line">drop_cols = [<span class="string">&#x27;gameId&#x27;</span>,<span class="string">&#x27;blueWins&#x27;</span>]</span><br><span class="line">x = df.drop(drop_cols, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 对于特征进行一些统计描述</span></span><br><span class="line">x.describe()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>blueWardsPlaced</th>
+      <th>blueWardsDestroyed</th>
+      <th>blueFirstBlood</th>
+      <th>blueKills</th>
+      <th>blueDeaths</th>
+      <th>blueAssists</th>
+      <th>blueEliteMonsters</th>
+      <th>blueDragons</th>
+      <th>blueHeralds</th>
+      <th>blueTowersDestroyed</th>
+      <th>...</th>
+      <th>redTowersDestroyed</th>
+      <th>redTotalGold</th>
+      <th>redAvgLevel</th>
+      <th>redTotalExperience</th>
+      <th>redTotalMinionsKilled</th>
+      <th>redTotalJungleMinionsKilled</th>
+      <th>redGoldDiff</th>
+      <th>redExperienceDiff</th>
+      <th>redCSPerMin</th>
+      <th>redGoldPerMin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>...</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+      <td>9879.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>22.288288</td>
+      <td>2.824881</td>
+      <td>0.504808</td>
+      <td>6.183925</td>
+      <td>6.137666</td>
+      <td>6.645106</td>
+      <td>0.549954</td>
+      <td>0.361980</td>
+      <td>0.187974</td>
+      <td>0.051422</td>
+      <td>...</td>
+      <td>0.043021</td>
+      <td>16489.041401</td>
+      <td>6.925316</td>
+      <td>17961.730438</td>
+      <td>217.349226</td>
+      <td>51.313088</td>
+      <td>-14.414111</td>
+      <td>33.620306</td>
+      <td>21.734923</td>
+      <td>1648.904140</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>18.019177</td>
+      <td>2.174998</td>
+      <td>0.500002</td>
+      <td>3.011028</td>
+      <td>2.933818</td>
+      <td>4.064520</td>
+      <td>0.625527</td>
+      <td>0.480597</td>
+      <td>0.390712</td>
+      <td>0.244369</td>
+      <td>...</td>
+      <td>0.216900</td>
+      <td>1490.888406</td>
+      <td>0.305311</td>
+      <td>1198.583912</td>
+      <td>21.911668</td>
+      <td>10.027885</td>
+      <td>2453.349179</td>
+      <td>1920.370438</td>
+      <td>2.191167</td>
+      <td>149.088841</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>5.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>11212.000000</td>
+      <td>4.800000</td>
+      <td>10465.000000</td>
+      <td>107.000000</td>
+      <td>4.000000</td>
+      <td>-11467.000000</td>
+      <td>-8348.000000</td>
+      <td>10.700000</td>
+      <td>1121.200000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>14.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>15427.500000</td>
+      <td>6.800000</td>
+      <td>17209.500000</td>
+      <td>203.000000</td>
+      <td>44.000000</td>
+      <td>-1596.000000</td>
+      <td>-1212.000000</td>
+      <td>20.300000</td>
+      <td>1542.750000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>16.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>16378.000000</td>
+      <td>7.000000</td>
+      <td>17974.000000</td>
+      <td>218.000000</td>
+      <td>51.000000</td>
+      <td>-14.000000</td>
+      <td>28.000000</td>
+      <td>21.800000</td>
+      <td>1637.800000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>20.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>8.000000</td>
+      <td>9.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>17418.500000</td>
+      <td>7.200000</td>
+      <td>18764.500000</td>
+      <td>233.000000</td>
+      <td>57.000000</td>
+      <td>1585.500000</td>
+      <td>1290.500000</td>
+      <td>23.300000</td>
+      <td>1741.850000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>250.000000</td>
+      <td>27.000000</td>
+      <td>1.000000</td>
+      <td>22.000000</td>
+      <td>22.000000</td>
+      <td>29.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>4.000000</td>
+      <td>...</td>
+      <td>2.000000</td>
+      <td>22732.000000</td>
+      <td>8.200000</td>
+      <td>22269.000000</td>
+      <td>289.000000</td>
+      <td>92.000000</td>
+      <td>10830.000000</td>
+      <td>9333.000000</td>
+      <td>28.900000</td>
+      <td>2273.200000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 38 columns</p>
+</div>
+<ul>
+<li>我们发现不同对局中插眼数和拆眼数的取值范围存在明显差距，甚至有前十分钟插了 250 个眼的异常值。</li>
+<li>我们发现 EliteMonsters 的取值相当于 Deagons + Heralds。</li>
+<li>我们发现 TotalGold 等变量在大部分对局中差距不大。</li>
+<li>我们发现两支队伍的经济差和经验差是相反数。</li>
+<li>我们发现红队和蓝队拿到首次击杀的概率大概都是 50%</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 根据上面的描述，我们可以去除一些重复变量，比如只要知道蓝队是否拿到一血，我们就知道红队有没有拿到，可以去除红队的相关冗余数据。</span></span><br><span class="line">drop_cols = [<span class="string">&#x27;redFirstBlood&#x27;</span>,<span class="string">&#x27;redKills&#x27;</span>,<span class="string">&#x27;redDeaths&#x27;</span></span><br><span class="line">             ,<span class="string">&#x27;redGoldDiff&#x27;</span>,<span class="string">&#x27;redExperienceDiff&#x27;</span>, <span class="string">&#x27;blueCSPerMin&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;blueGoldPerMin&#x27;</span>,<span class="string">&#x27;redCSPerMin&#x27;</span>,<span class="string">&#x27;redGoldPerMin&#x27;</span>]</span><br><span class="line">x.drop(drop_cols, axis=<span class="number">1</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>Step4: 可视化描述</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">data = x</span><br><span class="line">data_std = (data - data.mean()) / data.std()</span><br><span class="line">data = pd.concat([y, data_std.iloc[:, <span class="number">0</span>:<span class="number">9</span>]], axis=<span class="number">1</span>)</span><br><span class="line">data = pd.melt(data, id_vars=<span class="string">&#x27;blueWins&#x27;</span>, var_name=<span class="string">&#x27;Features&#x27;</span>, value_name=<span class="string">&#x27;Values&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">15</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制小提琴图</span></span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;Features&#x27;</span>, y=<span class="string">&#x27;Values&#x27;</span>, hue=<span class="string">&#x27;blueWins&#x27;</span>, data=data, split=<span class="literal">True</span>,</span><br><span class="line">               inner=<span class="string">&#x27;quart&#x27;</span>, ax=ax[<span class="number">0</span>], palette=<span class="string">&#x27;Blues&#x27;</span>)</span><br><span class="line">fig.autofmt_xdate(rotation=<span class="number">45</span>)</span><br><span class="line"></span><br><span class="line">data = x</span><br><span class="line">data_std = (data - data.mean()) / data.std()</span><br><span class="line">data = pd.concat([y, data_std.iloc[:, <span class="number">9</span>:<span class="number">18</span>]], axis=<span class="number">1</span>)</span><br><span class="line">data = pd.melt(data, id_vars=<span class="string">&#x27;blueWins&#x27;</span>, var_name=<span class="string">&#x27;Features&#x27;</span>, value_name=<span class="string">&#x27;Values&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制小提琴图</span></span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;Features&#x27;</span>, y=<span class="string">&#x27;Values&#x27;</span>, hue=<span class="string">&#x27;blueWins&#x27;</span>, </span><br><span class="line">               data=data, split=<span class="literal">True</span>, inner=<span class="string">&#x27;quart&#x27;</span>, ax=ax[<span class="number">1</span>], palette=<span class="string">&#x27;Blues&#x27;</span>)</span><br><span class="line">fig.autofmt_xdate(rotation=<span class="number">45</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>​<br>
+<img "" class="lazyload placeholder" data-original="output_16_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+​</p>
+<p>提琴图 (Violin Plot) 是用来展示多组数据的分布状态以及概率密度。这种图表结合了箱形图和密度图的特征，主要用来显示数据的分布形状。</p>
+<p>从图中我们可以看出：</p>
+<ul>
+<li>击杀英雄数量越多更容易赢，死亡数量越多越容易输（bluekills 与 bluedeaths 左右的区别）。</li>
+<li>助攻数量与击杀英雄数量形成的图形状类似，说明他们对游戏结果的影响差不多。</li>
+<li>一血的取得情况与获胜有正相关，但是相关性不如击杀英雄数量明显。</li>
+<li>经济差与经验差对于游戏胜负的影响较小。</li>
+<li>击杀野怪数量对游戏胜负的影响并不大。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">18</span>,<span class="number">14</span>))</span><br><span class="line">sns.heatmap(<span class="built_in">round</span>(x.corr(),<span class="number">2</span>), cmap=<span class="string">&#x27;Blues&#x27;</span>, annot=<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>​<br>
+<img "" class="lazyload placeholder" data-original="output_18_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+​</p>
+<p>同时我们画出各个特征之间的相关性热力图，颜色越深代表特征之间相关性越强，我们剔除那些相关性较强的冗余特征。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去除冗余特征</span></span><br><span class="line">drop_cols = [<span class="string">&#x27;redAvgLevel&#x27;</span>,<span class="string">&#x27;blueAvgLevel&#x27;</span>]</span><br><span class="line">x.drop(drop_cols, axis=<span class="number">1</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sns.<span class="built_in">set</span>(style=<span class="string">&#x27;whitegrid&#x27;</span>, palette=<span class="string">&#x27;muted&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造两个新特征</span></span><br><span class="line">x[<span class="string">&#x27;wardsPlacedDiff&#x27;</span>] = x[<span class="string">&#x27;blueWardsPlaced&#x27;</span>] - x[<span class="string">&#x27;redWardsPlaced&#x27;</span>]</span><br><span class="line">x[<span class="string">&#x27;wardsDestroyedDiff&#x27;</span>] = x[<span class="string">&#x27;blueWardsDestroyed&#x27;</span>] - x[<span class="string">&#x27;redWardsDestroyed&#x27;</span>]</span><br><span class="line"></span><br><span class="line">data = x[[<span class="string">&#x27;blueWardsPlaced&#x27;</span>,<span class="string">&#x27;blueWardsDestroyed&#x27;</span>,<span class="string">&#x27;wardsPlacedDiff&#x27;</span>,<span class="string">&#x27;wardsDestroyedDiff&#x27;</span>]].sample(<span class="number">1000</span>)</span><br><span class="line">data_std = (data - data.mean()) / data.std()</span><br><span class="line">data = pd.concat([y, data_std], axis=<span class="number">1</span>)</span><br><span class="line">data = pd.melt(data, id_vars=<span class="string">&#x27;blueWins&#x27;</span>, var_name=<span class="string">&#x27;Features&#x27;</span>, value_name=<span class="string">&#x27;Values&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line">sns.swarmplot(x=<span class="string">&#x27;Features&#x27;</span>, y=<span class="string">&#x27;Values&#x27;</span>, hue=<span class="string">&#x27;blueWins&#x27;</span>, data=data)</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 7.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 8.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 6.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 7.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+</code></pre>
+<p><img "" class="lazyload placeholder" data-original="output_21_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p>我们画出了插眼数量的散点图，发现不存在插眼数量与游戏胜负间的显著规律。猜测由于钻石分段以上在哪插眼在哪好排眼都是套路，所以数据中前十分钟插眼数拔眼数对游戏的影响不大。所以我们暂时先把这些特征去掉。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 去除和眼位相关的特征</span></span><br><span class="line">drop_cols = [<span class="string">&#x27;blueWardsPlaced&#x27;</span>,<span class="string">&#x27;blueWardsDestroyed&#x27;</span>,<span class="string">&#x27;wardsPlacedDiff&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;wardsDestroyedDiff&#x27;</span>,<span class="string">&#x27;redWardsPlaced&#x27;</span>,<span class="string">&#x27;redWardsDestroyed&#x27;</span>]</span><br><span class="line">x.drop(drop_cols, axis=<span class="number">1</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x[<span class="string">&#x27;killsDiff&#x27;</span>] = x[<span class="string">&#x27;blueKills&#x27;</span>] - x[<span class="string">&#x27;blueDeaths&#x27;</span>]</span><br><span class="line">x[<span class="string">&#x27;assistsDiff&#x27;</span>] = x[<span class="string">&#x27;blueAssists&#x27;</span>] - x[<span class="string">&#x27;redAssists&#x27;</span>]</span><br><span class="line"></span><br><span class="line">x[[<span class="string">&#x27;blueKills&#x27;</span>,<span class="string">&#x27;blueDeaths&#x27;</span>,<span class="string">&#x27;blueAssists&#x27;</span>,<span class="string">&#x27;killsDiff&#x27;</span>,<span class="string">&#x27;assistsDiff&#x27;</span>,<span class="string">&#x27;redAssists&#x27;</span>]].hist(figsize=(<span class="number">12</span>,<span class="number">10</span>), bins=<span class="number">20</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\pandas\plotting\_matplotlib\tools.py:400: MatplotlibDeprecationWarning: 
+The is_first_col function was deprecated in Matplotlib 3.4 and will be removed two minor releases later. Use ax.get_subplotspec().is_first_col() instead.
+  if ax.is_first_col():
+</code></pre>
+<p><img "" class="lazyload placeholder" data-original="output_24_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p>我们发现击杀、死亡与助攻数的数据分布差别不大。但是击杀减去死亡、助攻减去死亡的分布与原分布差别很大，因此我们新构造这么两个特征。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data = x[[<span class="string">&#x27;blueKills&#x27;</span>,<span class="string">&#x27;blueDeaths&#x27;</span>,<span class="string">&#x27;blueAssists&#x27;</span>,<span class="string">&#x27;killsDiff&#x27;</span>,<span class="string">&#x27;assistsDiff&#x27;</span>,<span class="string">&#x27;redAssists&#x27;</span>]].sample(<span class="number">1000</span>)</span><br><span class="line">data_std = (data - data.mean()) / data.std()</span><br><span class="line">data = pd.concat([y, data_std], axis=<span class="number">1</span>)</span><br><span class="line">data = pd.melt(data, id_vars=<span class="string">&#x27;blueWins&#x27;</span>, var_name=<span class="string">&#x27;Features&#x27;</span>, value_name=<span class="string">&#x27;Values&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line">sns.swarmplot(x=<span class="string">&#x27;Features&#x27;</span>, y=<span class="string">&#x27;Values&#x27;</span>, hue=<span class="string">&#x27;blueWins&#x27;</span>, data=data)</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 7.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 7.5% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 7.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 6.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\seaborn\categorical.py:1296: UserWarning: 7.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+</code></pre>
+<p><img "" class="lazyload placeholder" data-original="output_26_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p>从上图我们可以发现击杀数与死亡数与助攻数，以及我们构造的特征对数据都有较好的分类能力。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = pd.concat([y, x], axis=<span class="number">1</span>).sample(<span class="number">500</span>)</span><br><span class="line"></span><br><span class="line">sns.pairplot(data, <span class="built_in">vars</span>=[<span class="string">&#x27;blueKills&#x27;</span>,<span class="string">&#x27;blueDeaths&#x27;</span>,<span class="string">&#x27;blueAssists&#x27;</span>,<span class="string">&#x27;killsDiff&#x27;</span>,<span class="string">&#x27;assistsDiff&#x27;</span>,<span class="string">&#x27;redAssists&#x27;</span>], </span><br><span class="line">             hue=<span class="string">&#x27;blueWins&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>​<br>
+<img "" class="lazyload placeholder" data-original="output_28_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+​</p>
+<p>一些特征两两组合后对于数据的划分能力也有提升。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">x[<span class="string">&#x27;dragonsDiff&#x27;</span>] = x[<span class="string">&#x27;blueDragons&#x27;</span>] - x[<span class="string">&#x27;redDragons&#x27;</span>]</span><br><span class="line">x[<span class="string">&#x27;heraldsDiff&#x27;</span>] = x[<span class="string">&#x27;blueHeralds&#x27;</span>] - x[<span class="string">&#x27;redHeralds&#x27;</span>]</span><br><span class="line">x[<span class="string">&#x27;eliteDiff&#x27;</span>] = x[<span class="string">&#x27;blueEliteMonsters&#x27;</span>] - x[<span class="string">&#x27;redEliteMonsters&#x27;</span>]</span><br><span class="line"></span><br><span class="line">data = pd.concat([y, x], axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">eliteGroup = data.groupby([<span class="string">&#x27;eliteDiff&#x27;</span>])[<span class="string">&#x27;blueWins&#x27;</span>].mean()</span><br><span class="line">dragonGroup = data.groupby([<span class="string">&#x27;dragonsDiff&#x27;</span>])[<span class="string">&#x27;blueWins&#x27;</span>].mean()</span><br><span class="line">heraldGroup = data.groupby([<span class="string">&#x27;heraldsDiff&#x27;</span>])[<span class="string">&#x27;blueWins&#x27;</span>].mean()</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>,<span class="number">3</span>, figsize=(<span class="number">15</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">eliteGroup.plot(kind=<span class="string">&#x27;bar&#x27;</span>, ax=ax[<span class="number">0</span>])</span><br><span class="line">dragonGroup.plot(kind=<span class="string">&#x27;bar&#x27;</span>, ax=ax[<span class="number">1</span>])</span><br><span class="line">heraldGroup.plot(kind=<span class="string">&#x27;bar&#x27;</span>, ax=ax[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(eliteGroup)</span><br><span class="line"><span class="built_in">print</span>(dragonGroup)</span><br><span class="line"><span class="built_in">print</span>(heraldGroup)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\pandas\plotting\_matplotlib\tools.py:400: MatplotlibDeprecationWarning: 
+The is_first_col function was deprecated in Matplotlib 3.4 and will be removed two minor releases later. Use ax.get_subplotspec().is_first_col() instead.
+  if ax.is_first_col():
+
+
+eliteDiff
+-2    0.286301
+-1    0.368772
+ 0    0.500683
+ 1    0.632093
+ 2    0.735211
+Name: blueWins, dtype: float64
+dragonsDiff
+-1    0.374173
+ 0    0.500000
+ 1    0.640940
+Name: blueWins, dtype: float64
+heraldsDiff
+-1    0.387729
+ 0    0.498680
+ 1    0.595046
+Name: blueWins, dtype: float64
+</code></pre>
+<p><img "" class="lazyload placeholder" data-original="output_30_2.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p>我们构造了两队之间是否拿到龙、是否拿到峡谷先锋、击杀大型野怪的数量差值，发现在游戏的前期拿到龙比拿到峡谷先锋更容易获得胜利。拿到大型野怪的数量和胜率也存在着强相关。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">x[<span class="string">&#x27;towerDiff&#x27;</span>] = x[<span class="string">&#x27;blueTowersDestroyed&#x27;</span>] - x[<span class="string">&#x27;redTowersDestroyed&#x27;</span>]</span><br><span class="line"></span><br><span class="line">data = pd.concat([y, x], axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">towerGroup = data.groupby([<span class="string">&#x27;towerDiff&#x27;</span>])[<span class="string">&#x27;blueWins&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(towerGroup.count())</span><br><span class="line"><span class="built_in">print</span>(towerGroup.mean())</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">15</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">towerGroup.mean().plot(kind=<span class="string">&#x27;line&#x27;</span>, ax=ax[<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Proportion of Blue Wins&#x27;</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_ylabel(<span class="string">&#x27;Proportion&#x27;</span>)</span><br><span class="line"></span><br><span class="line">towerGroup.count().plot(kind=<span class="string">&#x27;line&#x27;</span>, ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Count of Towers Destroyed&#x27;</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_ylabel(<span class="string">&#x27;Count&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>towerDiff
+-2      27
+-1     347
+ 0    9064
+ 1     406
+ 2      28
+ 3       6
+ 4       1
+Name: blueWins, dtype: int64
+towerDiff
+-2    0.185185
+-1    0.216138
+ 0    0.498124
+ 1    0.741379
+ 2    0.964286
+ 3    1.000000
+ 4    1.000000
+Name: blueWins, dtype: float64
+
+
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\pandas\plotting\_matplotlib\tools.py:400: MatplotlibDeprecationWarning: 
+The is_first_col function was deprecated in Matplotlib 3.4 and will be removed two minor releases later. Use ax.get_subplotspec().is_first_col() instead.
+  if ax.is_first_col():
+c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\pandas\plotting\_matplotlib\tools.py:400: MatplotlibDeprecationWarning: 
+The is_first_col function was deprecated in Matplotlib 3.4 and will be removed two minor releases later. Use ax.get_subplotspec().is_first_col() instead.
+  if ax.is_first_col():
+
+
+
+
+
+Text(0, 0.5, 'Count')
+</code></pre>
+<p>​<br>
+<img "" class="lazyload placeholder" data-original="output_32_3.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+​</p>
+<p>推塔是英雄联盟这个游戏的核心，因此推塔数量可能与游戏的胜负有很大关系。我们绘图发现，尽管前十分钟推掉第一座防御塔的概率很低，但是一旦某只队伍推掉第一座防御塔，获得游戏的胜率将大大增加。</p>
+<p><strong>Step5: 利用 LightGBM 进行训练与预测</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 为了正确评估模型性能，将数据划分为训练集和测试集，并在训练集上训练模型，在测试集上验证模型性能。</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment">## 选择其类别为0和1的样本 （不包括类别为2的样本）</span></span><br><span class="line">data_target_part = y</span><br><span class="line">data_features_part = x</span><br><span class="line"></span><br><span class="line"><span class="comment">## 测试集大小为20%， 80%/20%分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(data_features_part, </span><br><span class="line">                                                    data_target_part, </span><br><span class="line">                                                    test_size = <span class="number">0.2</span>, </span><br><span class="line">                                                    random_state = <span class="number">2020</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 导入LightGBM模型</span></span><br><span class="line"><span class="keyword">from</span> lightgbm.sklearn <span class="keyword">import</span> LGBMClassifier</span><br><span class="line"><span class="comment">## 定义 LightGBM 模型 </span></span><br><span class="line">clf = LGBMClassifier()</span><br><span class="line"><span class="comment"># 在训练集上训练LightGBM模型</span></span><br><span class="line">clf.fit(x_train, y_train)</span><br></pre></td></tr></table></figure>
+<pre><code>LGBMClassifier()
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在训练集和测试集上分布利用训练好的模型进行预测</span></span><br><span class="line">train_predict = clf.predict(x_train)</span><br><span class="line">test_predict = clf.predict(x_test)</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"><span class="comment">## 利用accuracy（准确度）【预测正确的样本数目占总预测样本数目的比例】评估模型效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The accuracy of the Logistic Regression is:&#x27;</span>,metrics.accuracy_score(y_train,train_predict))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The accuracy of the Logistic Regression is:&#x27;</span>,metrics.accuracy_score(y_test,test_predict))</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看混淆矩阵 (预测值和真实值的各类情况统计矩阵)</span></span><br><span class="line">confusion_matrix_result = metrics.confusion_matrix(test_predict,y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The confusion matrix result:\n&#x27;</span>,confusion_matrix_result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用热力图对于结果进行可视化</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">sns.heatmap(confusion_matrix_result, annot=<span class="literal">True</span>, cmap=<span class="string">&#x27;Blues&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Predicted labels&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;True labels&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>The accuracy of the Logistic Regression is: 0.8447425028470201
+The accuracy of the Logistic Regression is: 0.722165991902834
+The confusion matrix result:
+ [[714 300]
+ [249 713]]
+</code></pre>
+<p><img "" class="lazyload placeholder" data-original="output_37_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p>我们可以发现共有 718 + 707 个样本预测正确，306 + 245 个样本预测错误。</p>
+<p><strong>Step6: 利用 LightGBM 进行特征选择</strong></p>
+<p>LightGBM 的特征选择属于特征选择中的嵌入式方法，在 LightGBM 中可以用属性 feature_importances_去查看特征的重要度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.barplot(y=data_features_part.columns, x=clf.feature_importances_)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;AxesSubplot:&gt;
+</code></pre>
+<p>​<br>
+<img "" class="lazyload placeholder" data-original="output_40_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+​</p>
+<p>总经济差距等特征，助攻数量、击杀死亡数量等特征都具有很大的作用。插眼数、推塔数对模型的影响并不大。</p>
+<p>初次之外，我们还可以使用 LightGBM 中的下列重要属性来评估特征的重要性。</p>
+<ul>
+<li>gain: 当利用特征做划分的时候的评价基尼指数</li>
+<li>split: 是以特征用到的次数来评价</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">from</span> lightgbm <span class="keyword">import</span> plot_importance</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimate</span>(<span class="params">model,data</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#sns.barplot(data.columns,model.feature_importances_)</span></span><br><span class="line">    ax1=plot_importance(model,importance_type=<span class="string">&quot;gain&quot;</span>)</span><br><span class="line">    ax1.set_title(<span class="string">&#x27;gain&#x27;</span>)</span><br><span class="line">    ax2=plot_importance(model, importance_type=<span class="string">&quot;split&quot;</span>)</span><br><span class="line">    ax2.set_title(<span class="string">&#x27;split&#x27;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classes</span>(<span class="params">data,label,test</span>):</span></span><br><span class="line">    model=LGBMClassifier()</span><br><span class="line">    model.fit(data,label)</span><br><span class="line">    ans=model.predict(test)</span><br><span class="line">    estimate(model, data)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"> </span><br><span class="line">ans=classes(x_train,y_train,x_test)</span><br><span class="line">pre=accuracy_score(y_test, ans)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;acc=&#x27;</span>,accuracy_score(y_test,ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>​<br>
+<img "" class="lazyload placeholder" data-original="output_42_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+​</p>
+<p><img "" class="lazyload placeholder" data-original="output_42_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<pre><code>acc= 0.722165991902834
+</code></pre>
+<p>这些图同样可以帮助我们更好的了解其他重要特征。</p>
+<p><strong>Step7: 通过调整参数获得更好的效果</strong></p>
+<p>LightGBM 中包括但不限于下列对模型影响较大的参数：</p>
+<ul>
+<li>learning_rate: 有时也叫作 eta，系统默认值为 0.3。每一步迭代的步长，很重要。太大了运行准确率不高，太小了运行速度慢。</li>
+<li>num_leaves：系统默认为 32。这个参数控制每棵树中最大叶子节点数量。</li>
+<li>feature_fraction：系统默认值为 1。我们一般设置成 0.8 左右。用来控制每棵随机采样的列数的占比 (每一列是一个特征)。</li>
+<li>max_depth： 系统默认值为 6，我们常用 3-10 之间的数字。这个值为树的最大深度。这个值是用来控制过拟合的。max_depth 越大，模型学习的更加具体。</li>
+</ul>
+<p>调节模型参数的方法有贪心算法、网格调参、贝叶斯调参等。这里我们采用网格调参，它的基本思想是穷举搜索：在所有候选的参数选择中，通过循环遍历，尝试每一种可能性，表现最好的参数就是最终的结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 从sklearn库中导入网格调参函数</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义参数取值范围</span></span><br><span class="line">learning_rate = [<span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">0.6</span>]</span><br><span class="line">feature_fraction = [<span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">1</span>]</span><br><span class="line">num_leaves = [<span class="number">16</span>, <span class="number">32</span>, <span class="number">64</span>]</span><br><span class="line">max_depth = [-<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">parameters = &#123; <span class="string">&#x27;learning_rate&#x27;</span>: learning_rate,</span><br><span class="line">              <span class="string">&#x27;feature_fraction&#x27;</span>:feature_fraction,</span><br><span class="line">              <span class="string">&#x27;num_leaves&#x27;</span>: num_leaves,</span><br><span class="line">              <span class="string">&#x27;max_depth&#x27;</span>: max_depth&#125;</span><br><span class="line">model = LGBMClassifier(n_estimators = <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 进行网格搜索</span></span><br><span class="line">clf = GridSearchCV(model, parameters, cv=<span class="number">3</span>, scoring=<span class="string">&#x27;accuracy&#x27;</span>,verbose=<span class="number">3</span>, n_jobs=-<span class="number">1</span>)</span><br><span class="line">clf = clf.fit(x_train, y_train)</span><br></pre></td></tr></table></figure>
+<pre><code>Fitting 3 folds for each of 108 candidates, totalling 324 fits
+[LightGBM] [Warning] feature_fraction is set=1, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=1
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 网格搜索后的最好参数为</span></span><br><span class="line"></span><br><span class="line">clf.best_params_</span><br></pre></td></tr></table></figure>
+<pre><code>&#123;'feature_fraction': 1, 'learning_rate': 0.1, 'max_depth': 3, 'num_leaves': 16&#125;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在训练集和测试集上分布利用最好的模型参数进行预测</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义带参数的 LightGBM模型 </span></span><br><span class="line">clf = LGBMClassifier(feature_fraction = <span class="number">1</span>,</span><br><span class="line">                    learning_rate = <span class="number">0.1</span>,</span><br><span class="line">                    max_depth= <span class="number">3</span>,</span><br><span class="line">                    num_leaves = <span class="number">16</span>)</span><br><span class="line"><span class="comment"># 在训练集上训练LightGBM模型</span></span><br><span class="line">clf.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">train_predict = clf.predict(x_train)</span><br><span class="line">test_predict = clf.predict(x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 利用accuracy（准确度）【预测正确的样本数目占总预测样本数目的比例】评估模型效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The accuracy of the Logistic Regression is:&#x27;</span>,metrics.accuracy_score(y_train,train_predict))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The accuracy of the Logistic Regression is:&#x27;</span>,metrics.accuracy_score(y_test,test_predict))</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看混淆矩阵 (预测值和真实值的各类情况统计矩阵)</span></span><br><span class="line">confusion_matrix_result = metrics.confusion_matrix(test_predict,y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The confusion matrix result:\n&#x27;</span>,confusion_matrix_result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用热力图对于结果进行可视化</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">sns.heatmap(confusion_matrix_result, annot=<span class="literal">True</span>, cmap=<span class="string">&#x27;Blues&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Predicted labels&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;True labels&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>[LightGBM] [Warning] feature_fraction is set=1, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=1
+The accuracy of the Logistic Regression is: 0.7462988738453752
+The accuracy of the Logistic Regression is: 0.7302631578947368
+The confusion matrix result:
+ [[724 294]
+ [239 719]]
+</code></pre>
+<p><img "" class="lazyload placeholder" data-original="output_47_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p>原本有 306 + 245 个错误，现在有 294 + 239 个错误，带来了明显的正确率提升。</p>
+<h2 id="24-重要知识点"><a class="markdownIt-Anchor" href="#24-重要知识点">#</a> 2.4 重要知识点</h2>
+<h3 id="241-lightgbm的重要参数"><a class="markdownIt-Anchor" href="#241-lightgbm的重要参数">#</a> 2.4.1 LightGBM 的重要参数</h3>
+<h4 id="2411-基本参数调整"><a class="markdownIt-Anchor" href="#2411-基本参数调整">#</a> 2.4.1.1 基本参数调整</h4>
+<ol>
+<li>
+<p><strong>num_leaves 参数</strong> 这是控制树模型复杂度的主要参数，一般的我们会使 num_leaves 小于（2 的 max_depth 次方），以防止过拟合。由于 LightGBM 是 leaf-wise 建树与 XGBoost 的 depth-wise 建树方法不同，num_leaves 比 depth 有更大的作用。、</p>
+</li>
+<li>
+<p><strong>min_data_in_leaf</strong> 这是处理过拟合问题中一个非常重要的参数。它的值取决于训练数据的样本个树和 num_leaves 参数。将其设置的较大可以避免生成一个过深的树，但有可能导致欠拟合。实际应用中，对于大数据集，设置其为几百或几千就足够了.</p>
+</li>
+<li>
+<p><strong>max_depth</strong> 树的深度，depth 的概念在 leaf-wise 树中并没有多大作用，因为并不存在一个从 leaves 到 depth 的合理映射。</p>
+</li>
+</ol>
+<h4 id="2412-针对训练速度的参数调整"><a class="markdownIt-Anchor" href="#2412-针对训练速度的参数调整">#</a> 2.4.1.2 针对训练速度的参数调整</h4>
+<ol>
+<li>通过设置 bagging_fraction 和 bagging_freq 参数来使用 bagging 方法。</li>
+<li>通过设置 feature_fraction 参数来使用特征的子抽样。</li>
+<li>选择较小的 max_bin 参数。</li>
+<li>使用 save_binary 在未来的学习过程对数据加载进行加速。</li>
+</ol>
+<h4 id="2413-针对准确率的参数调整"><a class="markdownIt-Anchor" href="#2413-针对准确率的参数调整">#</a> 2.4.1.3 针对准确率的参数调整</h4>
+<ol>
+<li>使用较大的 max_bin （学习速度可能变慢）</li>
+<li>使用较小的 learning_rate 和较大的 num_iterations</li>
+<li>使用较大的 num_leaves （可能导致过拟合）</li>
+<li>使用更大的训练数据</li>
+<li>尝试 dart 模式</li>
+</ol>
+<h4 id="2414-针对过拟合的参数调整"><a class="markdownIt-Anchor" href="#2414-针对过拟合的参数调整">#</a> 2.4.1.4 针对过拟合的参数调整</h4>
+<ol>
+<li>使用较小的 max_bin</li>
+<li>使用较小的 num_leaves</li>
+<li>使用 min_data_in_leaf 和 min_sum_hessian_in_leaf</li>
+<li>通过设置 bagging_fraction 和 bagging_freq 来使用 bagging</li>
+<li>通过设置 feature_fraction 来使用特征子抽样</li>
+<li>使用更大的训练数据</li>
+<li>使用 lambda_l1, lambda_l2 和 min_gain_to_split 来使用正则</li>
+<li>尝试 max_depth 来避免生成过深的树</li>
+</ol>
+<h3 id="242-lightgbm原理粗略讲解"><a class="markdownIt-Anchor" href="#242-lightgbm原理粗略讲解">#</a> 2.4.2 LightGBM 原理粗略讲解</h3>
+<p>LightGBM 底层实现了 GBDT 算法，并且添加了一系列的新特性：</p>
+<ol>
+<li>基于直方图算法进行优化，使数据存储更加方便、运算更快、鲁棒性强、模型更加稳定等。</li>
+<li>提出了带深度限制的 Leaf-wise 算法，抛弃了大多数 GBDT 工具使用的按层生长 (level-wise) 的决策树生长策略，而使用了带有深度限制的按叶子生长策略，可以降低误差，得到更好的精度。</li>
+<li>提出了单边梯度采样算法，排除大部分小梯度的样本，仅用剩下的样本计算信息增益，它是一种在减少数据量和保证精度上平衡的算法。</li>
+<li>提出了互斥特征捆绑算法，高维度的数据往往是稀疏的，这种稀疏性启发我们设计一种无损的方法来减少特征的维度。通常被捆绑的特征都是互斥的（即特征不会同时为非零值，像 one-hot），这样两个特征捆绑起来就不会丢失信息。</li>
+</ol>
+<p>LightGBM 是基于 CART 树的集成模型，它的思想是串联多个决策树模型共同进行决策。</p>
+<p>那么如何串联呢？LightGBM 采用迭代预测误差的方法串联。举个通俗的例子，我们现在需要预测一辆车价值 3000 元。我们构建决策树 1 训练后预测为 2600 元，我们发现有 400 元的误差，那么决策树 2 的训练目标为 400 元，但决策树 2 的预测结果为 350 元，还存在 50 元的误差就交给第三棵树…… 以此类推，每一颗树用来估计之前所有树的误差，最后所有树预测结果的求和就是最终预测结果！</p>
+<p>LightGBM 的基模型是 CART 回归树，它有两个特点：（1）CART 树，是一颗二叉树。（2）回归树，最后拟合结果是连续值。</p>
+<p>LightGBM 模型可以表示为以下形式，我们约定<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_t(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 表示前 t 颗树的和，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">h_t(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 表示第<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> 颗决策树，模型定义如下：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>f</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><msub><mi>h</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_t(x) = \sum_{t=1}^Th_t(x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0954490000000003em;vertical-align:-1.267113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000002em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>由于模型递归生成，第<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> 步的模型由第<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mtext>−</mtext><mn>1</mn></mrow><annotation encoding="application/x-tex">t−1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">t</span><span class="mord">−</span><span class="mord">1</span></span></span></span> 步的模型形成，可以写成：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>f</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>f</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>h</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_t(x)=f_{t-1}(x)+h_t(x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>每次需要加上的树<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">h_t(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 是之前树求和的误差：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>r</mi><mrow><mi>t</mi><mo separator="true">,</mo><mi>i</mi></mrow></msub><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>f</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">r_{t,i} = y_i - f_{m-1}(x_i)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="">
+              机器学习
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/11/08/机器学习/天池/基于LightGBM的分类预测/" target="_blank" title="基于LightGBM的分类预测">http://example.com/2021/11/08/机器学习/天池/基于LightGBM的分类预测/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/BP/" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div class="title-text">BP神经网络</div>
+      </div>
+      
+      <!-- <div class="content">
+        123456import tensorflow as tffrom tensorflow import kerasimp
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8EXGBoost%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div class="title-text">基于XGBoost的分类预测</div>
+      </div>
+      <!-- <div class="content">
+        # 1. 实验室介绍
+# 1.1 XGBoost 的介绍
+XGBoost 是 2016 年由华盛顿大学陈天奇老师带领开发
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+  <!-- js在scripts目录下的的toc.ejs里面 -->
+  
+
+  <script>
+    function openBtnClickFn () {
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'true');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    };
+    openBtnClickFn();
+    document.addEventListener('pjax:complete', function () {
+      openBtnClickFn();
+    })
+  </script>
+
+
+  
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+    </div>
+    <div class="footer-custom">
+      
+    </div>
+    <!-- 不蒜子统计 -->
+    
+  </div>
+</div>
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8062553743"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+    
+    <script src="/js/app.js" data-pjax></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init(option);
+    
+  }
+
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+    }
+  });
+
+  
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+/* .toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+} */
+</style> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- div滚动到显示区域的动画 -->
+
+  <script src="/js/aos/aos.js"></script>
+  <script>
+    // https://github.com/michalsnik/aos
+    var themeOffset = parseInt('120') || 120;
+    var themeDelay = parseInt('0') || 0;
+    var themeDuration = parseInt('400') || 400;
+    var themeEasing = 'ease' || 'ease';
+    var themeOnce = eval('true') || false;
+    var themeMirror = eval('false') || false;
+    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: themeOffset, // offset (in px) from the original trigger point
+      delay: themeDelay, // values from 0 to 3000, with step 50ms
+      duration: themeDuration, // values from 0 to 3000, with step 50ms
+      easing: themeEasing, // default easing for AOS animations
+      once: themeOnce, // whether animation should happen only once - while scrolling down
+      mirror: themeMirror, // whether elements should animate out while scrolling past them
+      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      AOS.refresh();
+    })
+  </script>
+
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          console.log('888');
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            console.log('111111111111111');
+            doSomething();
+            // 返回false, 防止重复触发copy事件  
+            // return false;
+          }
+        })
+        //  监听 ctrl + c事件  
+        // $(document).unbind('keypress').bind('keypress', function (e) {
+        //   if (e.ctrlKey && e.keyCode == 67) {
+        //     console.log('111111111111111');
+        //     doSomething();
+        //     // 返回false, 防止重复触发copy事件  
+        //     return false;
+        //   }
+        // })
+
+        // // 鼠标右键的复制事件  
+        // $(document).unbind('copy').bind('copy', function (e) {
+        //   console.log('222222222222222222');
+        //   doSomething();
+        //   // console.log('右键复制 监听成功');
+        // });
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+          // console.log('ctrl + c 监听成功');  
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+
+
+<!-- 图片懒加载 -->
+<script src="/js/lazyload/lazyload@1.9.1.js"></script>
+<script data-pjax>
+  $(function () {
+    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+      {
+        effect: "show",
+        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+      }
+    );
+  });
+</script>
+
+<!-- 评论所需js -->
+
+    
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+	 
+		<script src="/js/cursor/clicklove.js"></script> 
+	
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+  </script>
+
+
+
+  </body>
+</html>
