@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>第一讲 神经网络计算 | 千里稻花应秀色</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+    <script>
+        var themeModelId = '';
+        if (themeModelId) {
+            localStorage.setItem('modelId', themeModelId);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
+    <script>
+        var live2dOpen = eval('true') || false;
+        if (!live2dOpen) {
+            localStorage.setItem('waifu-display', 1609323474481);
+        }
+    </script>
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 头部导航等 -->
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fa fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js" data-pjax></script>
+    
+</header>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+    function loadScript(src, cb) {
+        setTimeout(function () {
+            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            if (cb) script.onload = cb;
+            script.setAttribute('src', src);
+            HEAD.appendChild(script);
+        });
+    }
+
+    //https://github.com/filamentgroup/loadCSS
+    var loadCSS = function (href, before, media, attributes) {
+        var doc = window.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+            ref = before;
+        }
+        else {
+            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+            ref = refs[refs.length - 1];
+        }
+        var sheets = doc.styleSheets;
+        if (attributes) {
+            for (var attributeName in attributes) {
+                if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                }
+            }
+        }
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        function ready(cb) {
+            if (doc.body) {
+                return cb();
+            }
+            setTimeout(function () {
+                ready(cb);
+            });
+        }
+        ready(function () {
+            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+        });
+        var onloadcssdefined = function (cb) {
+            var resolvedHref = ss.href;
+            var i = sheets.length;
+            while (i--) {
+                if (sheets[i].href === resolvedHref) {
+                    return cb();
+                }
+            }
+            setTimeout(function () {
+                onloadcssdefined(cb);
+            });
+        };
+        function loadCB() {
+            if (ss.addEventListener) {
+                ss.removeEventListener("load", loadCB);
+            }
+            ss.media = media || "all";
+        }
+        if (ss.addEventListener) {
+            ss.addEventListener("load", loadCB);
+        }
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(loadCB);
+        return ss;
+    };
+    
+</script>
+ 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <!-- 内容区域 -->
+    <main class="main" id="pjax-container" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+<!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/2.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        第一讲 神经网络计算
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fa fa-calendar"></i> 发表于：2021-11-08 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/TensorFlow%E7%AC%94%E8%AE%B0/" class="post-detail-header_category">
+              TensorFlow笔记
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      <div class="post-content">
+        <h1 id="实验环境准备"><a class="markdownIt-Anchor" href="#实验环境准备">#</a> 实验环境准备</h1>
+<ul>
+<li>Anoconda3.7</li>
+<li>TensorFlow2.1</li>
+<li>PyCharm</li>
+</ul>
+<h2 id="安装anoconda"><a class="markdownIt-Anchor" href="#安装anoconda">#</a> 安装 Anoconda</h2>
+<p>官网下载安装，勾选添加到环境变量。</p>
+<h2 id="安装tensorflow21"><a class="markdownIt-Anchor" href="#安装tensorflow21">#</a> 安装 TensorFlow2.1</h2>
+<p>1 打开安装好的 Anoconda Prompt</p>
+<p><img "" class="lazyload placeholder" data-original="image-20211211133411024.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211211133411024"></p>
+<p>2 创建一个环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n TF2.1 python=3.7</span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+<p>3 进入新创建的环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate TF2.1</span><br></pre></td></tr></table></figure>
+<p>4 安装所需软件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装英伟达SDK10.1版本</span></span><br><span class="line">conda install cudatoolkit=10.1</span><br><span class="line"><span class="meta">#</span><span class="bash">安装英伟达深度学习软件包7.6版本</span></span><br><span class="line">conda install cudann=7.6</span><br><span class="line"><span class="meta">#</span><span class="bash">以上两条是为了支持N卡GPU，如果报错，暂时跳过</span></span><br><span class="line"><span class="meta">#</span><span class="bash">安装TensorFlow，指定版本2.1</span></span><br><span class="line">pip install tensorflow==2.1</span><br></pre></td></tr></table></figure>
+<p>5 验证安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import tensorflow as tf </span><br><span class="line">tf.__version__</span><br></pre></td></tr></table></figure>
+<h2 id="安装pycharm"><a class="markdownIt-Anchor" href="#安装pycharm">#</a> 安装 PyCharm</h2>
+<p>官网下载安装</p>
+<h2 id="新建工程"><a class="markdownIt-Anchor" href="#新建工程">#</a> 新建工程</h2>
+<ul>
+<li>打开 PyCharm，新建工程，添加创建好的环境 TF2.1</li>
+<li>右键工程文件夹选择在文件管理器中打开（open in explorer）</li>
+<li>将课程代码拷贝进入工程目录</li>
+</ul>
+<p><img "" class="lazyload placeholder" data-original="image-20211211150007347.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211211150007347"></p>
+<p><img "" class="lazyload placeholder" data-original="image-20211211150025257.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211211150025257"></p>
+<h1 id="神经网络计算"><a class="markdownIt-Anchor" href="#神经网络计算">#</a> 神经网络计算</h1>
+<p>本讲目标：学会神经网络计算过程，使用基于 TF2 原生代码搭建你的第一个的神经网络训练模型</p>
+<ul>
+<li>当今人工智能主流方向 —— 连接主义</li>
+<li>前向传播</li>
+<li>损失函数（初体会）</li>
+<li>梯度下降（初体会）</li>
+<li>学习率（初体会）</li>
+<li>反向传播更新参数</li>
+<li>Tensorflow2 常用函数</li>
+</ul>
+<h2 id="11-人工智能三学派"><a class="markdownIt-Anchor" href="#11-人工智能三学派">#</a> 1.1 人工智能三学派</h2>
+<p>人工智能：让机器具备人的思维和意识。<br>
+<strong>人工智能三学派：</strong></p>
+<ul>
+<li>
+<p>行为主义：基于控制论，构建感知 - 动作控制系统。<br>
+（控制论，如平衡、行走、避障等自适应控制系统）</p>
+</li>
+<li>
+<p>符号主义：基于算数逻辑表达式，求解问题时先把问题描述为表达式，再求解表达式。<br>
+（可用公式描述、实现理性思维，如专家系统）</p>
+</li>
+<li>
+<p>连接主义：仿生学，模仿神经元连接关系。本课重点<br>
+（仿脑神经元连接，实现感性思维，如神经网络）</p>
+</li>
+</ul>
+<h2 id="12-基于连结主义的神经网络设计过程"><a class="markdownIt-Anchor" href="#12-基于连结主义的神经网络设计过程">#</a> 1.2 基于连结主义的神经网络设计过程</h2>
+<p><img "" class="lazyload placeholder" data-original="image-20211211140449793.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211211140449793"></p>
+<p>用计算机仿出神经网络连接关系，让计算机具备感性思维。</p>
+<p><img "" class="lazyload placeholder" data-original="image-20211211140517854.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211211140517854"></p>
+<ul>
+<li>准备数据：采集大量 “特征 / 标签” 数据</li>
+<li>搭建网络：搭建神经网络结构</li>
+<li>优化参数：训练网络获取最佳参数（反传）</li>
+<li>应用网络：将网络保存为模型，输入新数据，输出分类或预测结果（前传）</li>
+</ul>
+<h2 id="13-tf2"><a class="markdownIt-Anchor" href="#13-tf2">#</a> 1.3 TF2</h2>
+<p>TensorFlow2</p>
+<ul>
+<li>2019 年 3 月 Tensorflow2.0 测试版发布</li>
+<li>2019 年 10 月 Tensorflow2.0 正式版发布</li>
+<li>2020 年 1 月 Tensorflow2.1 发布</li>
+</ul>
+<p><strong>张量</strong></p>
+<ul>
+<li>张量（Tensor）：多维数组（列表）阶：张量的维数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>维数</th>
+<th>阶</th>
+<th>名字</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-D</td>
+<td>0</td>
+<td>标量 scalar</td>
+<td>s=123</td>
+</tr>
+<tr>
+<td>1-D</td>
+<td>1</td>
+<td>向量 vector</td>
+<td>v=[1,2,3]</td>
+</tr>
+<tr>
+<td>2-D</td>
+<td>2</td>
+<td>矩阵 matrix</td>
+<td>m=[[1,2,3],[4,5,6],[7,8,9]]</td>
+</tr>
+<tr>
+<td>3-D</td>
+<td>n</td>
+<td>张量 tensor</td>
+<td>t=[[[…]]]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型</strong></p>
+<ul>
+<li>
+<p>tf.int, tf.float……<br>
+tf.int 32, tf.float32, tf.float64</p>
+</li>
+<li>
+<p>tf.bool<br>
+tf.constant([True, False])</p>
+</li>
+<li>
+<p>tf.string<br>
+tf.constant(“Hello, world!”)</p>
+</li>
+</ul>
+<p><strong>如何创建一个 Tensor</strong></p>
+<ul>
+<li>tf 创建一个张量<br>
+ tf.constant (张量内容，dtype = 数据类型 (可选))</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflowas tf</span><br><span class="line">a=tf.constant([<span class="number">1</span>,<span class="number">5</span>],dtype=tf.int64)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(a.dtype)</span><br><span class="line"><span class="built_in">print</span>(a.shape)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将 numpy 的数据类型转换为 Tensor 数据类型<br>
+ tf. convert_to_tensor (数据名，dtype = 数据类型 (可选))</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflowas tf</span><br><span class="line"><span class="keyword">import</span> numpyas np</span><br><span class="line">a = np.arange(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">b = tf.convert_to_tensor( a, dtype=tf.int64 )</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>创建全为 0 的张量<br>
+ tf. zeros (维度)</p>
+</li>
+<li>
+<p>创建全为 1 的张量<br>
+ tf. ones (维度)</p>
+</li>
+<li>
+<p>创建全为指定值的张量<br>
+ tf. fill (维度，指定值)</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">维度：</span></span><br><span class="line"><span class="string">一维直接写个数</span></span><br><span class="line"><span class="string">二维用[行，列]</span></span><br><span class="line"><span class="string">多维用[n,m,j,k……]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a = tf.zeros([<span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = tf.ones(<span class="number">4</span>)</span><br><span class="line">c = tf.fill([<span class="number">2</span>, <span class="number">2</span>], <span class="number">9</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>生成正态分布的随机数，默认均值为 0，标准差为 1<br>
+tf. random.normal (维度，mean = 均值，stddev = 标准差)</p>
+</li>
+<li>
+<p>生成截断式正态分布的随机数<br>
+ tf. random.truncated_normal (维度，mean = 均值，stddev = 标准差)<br>
+ 在 tf.truncated_normal 中如果随机生成数据的取值在（μ-2σ，μ+2σ）之外则重新进行生成，保证了生成值在均值附近。<br>
+μ：均值，σ：标准差</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d = tf.random.normal([<span class="number">2</span>, <span class="number">2</span>], mean=<span class="number">0.5</span>, stddev=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line">e = tf.random.truncated_normal([<span class="number">2</span>, <span class="number">2</span>], mean=<span class="number">0.5</span>, stddev=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成均匀分布随机数 [minval, maxval)<br>
+ tf. random. uniform (维度，minval = 最小值，maxval = 最大值)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = tf.random.uniform([<span class="number">2</span>, <span class="number">2</span>], minval=<span class="number">0</span>, maxval=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(f)</span><br></pre></td></tr></table></figure>
+<h2 id="14-tf2常用函数"><a class="markdownIt-Anchor" href="#14-tf2常用函数">#</a> 1.4 TF2 常用函数</h2>
+<ul>
+<li>强制 tensor 转换为该数据类型</li>
+</ul>
+<p>tf.cast (张量名，dtype = 数据类型)</p>
+<ul>
+<li>计算张量维度上元素的最小值</li>
+</ul>
+<p>tf.reduce_min (张量名)</p>
+<ul>
+<li>计算张量维度上元素的最大值</li>
+</ul>
+<p>tf.reduce_max (张量名)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x1 = tf.constant([<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>],dtype=tf.float64)</span><br><span class="line"><span class="built_in">print</span>(x1)</span><br><span class="line">x2 = tf.cast(x1, tf.int32)</span><br><span class="line"><span class="built_in">print</span>(x2)</span><br><span class="line"><span class="built_in">print</span> (tf.reduce_min(x2), tf.reduce_max(x2))</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">理解axis</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">在一个二维张量或数组中，可以通过调整</span></span><br><span class="line"><span class="string">axis 等于0或1 控制执行维度。</span></span><br><span class="line"><span class="string">axis=0代表跨行（经度，down)，而axis=1代表跨列（纬度，across)</span></span><br><span class="line"><span class="string">如果不指定axis，则所有元素参与计算。</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="image-20211211150529913.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211211150529913"></p>
+<ul>
+<li>计算张量沿着指定维度的平均值</li>
+</ul>
+<p>tf.reduce_mean (张量名，axis = 操作轴)</p>
+<ul>
+<li>计算张量沿着指定维度的和</li>
+</ul>
+<p>tf.reduce_sum (张量名，axis = 操作轴)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=tf.constant( [ [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],[ <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>] ] )</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(tf.reduce_mean( x ))</span><br><span class="line"><span class="built_in">print</span>(tf.reduce_sum( x, axis=<span class="number">1</span> ))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tf.Variable()</li>
+</ul>
+<p>tf.Variable () 将变量标记为 “可训练”，被标记的变量会在反向传播中记录梯度信息。神经网络训练中，常用该函数标记待训练参数。<br>
+tf.Variable (初始值)<br>
+w = tf.Variable(tf.random.normal([2, 2], mean=0, stddev=1))</p>
+<p><strong>TensorFlow 中的数学运算</strong></p>
+<ul>
+<li>对应元素的四则运算：tf.add，tf.subtract，tf.multiply，tf.divide</li>
+</ul>
+<p>只有维度相同的张量才可以做四则运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = tf.ones([<span class="number">1</span>, <span class="number">3</span>])</span><br><span class="line">b = tf.fill([<span class="number">1</span>, <span class="number">3</span>], <span class="number">3.</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"><span class="built_in">print</span>(tf.add(a,b))</span><br><span class="line"><span class="built_in">print</span>(tf.subtract(a,b))</span><br><span class="line"><span class="built_in">print</span>(tf.multiply(a,b))</span><br><span class="line"><span class="built_in">print</span>(tf.divide(b,a))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>平方、次方与开方： tf.square，tf.pow，tf.sqrt</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = tf.fill([<span class="number">1</span>, <span class="number">2</span>], <span class="number">3.</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(tf.<span class="built_in">pow</span>(a, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(tf.square(a))</span><br><span class="line"><span class="built_in">print</span>(tf.sqrt(a))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>矩阵乘：tf.matmul</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">tf.matmul(矩阵1，矩阵2)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a = tf.ones([<span class="number">3</span>, <span class="number">2</span>])</span><br><span class="line">b = tf.fill([<span class="number">2</span>, <span class="number">3</span>], <span class="number">3.</span>)</span><br><span class="line"><span class="built_in">print</span>(tf.matmul(a, b))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tf.data.Dataset.from_tensor_slices</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">切分传入张量的第一维度，生成输入特征/标签对，构建数据集</span></span><br><span class="line"><span class="string">data = tf.data.Dataset.from_tensor_slices((输入特征, 标签))</span></span><br><span class="line"><span class="string">（Numpy和Tensor格式都可用该语句读入数据）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">features = tf.constant([<span class="number">12</span>,<span class="number">23</span>,<span class="number">10</span>,<span class="number">17</span>])</span><br><span class="line">labels = tf.constant([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">dataset = tf.data.Dataset.from_tensor_slices((features, labels))</span><br><span class="line"><span class="built_in">print</span>(dataset)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> dataset:</span><br><span class="line">  <span class="built_in">print</span>(element)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tf.GradientTape</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">with结构记录计算过程，gradient求出张量的梯度</span></span><br><span class="line"><span class="string">with tf.GradientTape( ) as tape:</span></span><br><span class="line"><span class="string">  若干个计算过程</span></span><br><span class="line"><span class="string">grad=tape.gradient(函数，对谁求导)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">with</span> tf.GradientTape( ) <span class="keyword">as</span> tape:</span><br><span class="line">  w = tf.Variable(tf.constant(<span class="number">3.0</span>))</span><br><span class="line">  loss = tf.<span class="built_in">pow</span>(w,<span class="number">2</span>)</span><br><span class="line">grad = tape.gradient(loss,w)</span><br><span class="line"><span class="built_in">print</span>(grad)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>enumerate</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">enumerate是python的内建函数，它可遍历每个元素(如列表、元组</span></span><br><span class="line"><span class="string">或字符串)，组合为：索引 元素，常在for循环中使用。</span></span><br><span class="line"><span class="string">enumerate(列表名)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">  <span class="built_in">print</span>(i, element)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tf.one_hot</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">独热编码（one-hot encoding）：在分类问题中，常用独热码做标签，标记类别：1表示是，0表示非.</span></span><br><span class="line"><span class="string">tf.one_hot (待转换数据, depth=几分类)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">classes = <span class="number">3</span></span><br><span class="line">labels = tf.constant([<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>]) <span class="comment"># 输入的元素值最小为0，最大为2</span></span><br><span class="line">output = tf.one_hot( labels, depth=classes )</span><br><span class="line"><span class="built_in">print</span>(output)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>tf.nn.softmax</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">tf.nn.softmax(x) 使输出符合概率分布</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">y = tf.constant ( [<span class="number">1.01</span>, <span class="number">2.01</span>, -<span class="number">0.66</span>] )</span><br><span class="line">y_pro = tf.nn.softmax(y)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;After softmax, y_pro is:&quot;</span>, y_pro)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>assign_sub</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">赋值操作，更新参数的值并返回。</span></span><br><span class="line"><span class="string">调用assign_sub前，先用 tf.Variable 定义变量 w 为可训练（可自更新）。</span></span><br><span class="line"><span class="string">w.assign_sub (w要自减的内容) </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">w = tf.Variable(<span class="number">4</span>)</span><br><span class="line">w.assign_sub(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(w)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tf.argmax</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">返回张量沿指定维度最大值的索引tf.argmax (张量名,axis=操作轴)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">test = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>], [<span class="number">8</span>, <span class="number">7</span>, <span class="number">2</span>]])</span><br><span class="line"><span class="built_in">print</span>(test)</span><br><span class="line"><span class="built_in">print</span>( tf.argmax (test, axis=<span class="number">0</span>)) <span class="comment"># 返回每一列（经度）最大值的索引</span></span><br><span class="line"><span class="built_in">print</span>( tf.argmax (test, axis=<span class="number">1</span>)) <span class="comment"># 返回每一行（纬度）最大值的索引</span></span><br></pre></td></tr></table></figure>
+<h2 id="15-神经网络实现鸢尾花分类"><a class="markdownIt-Anchor" href="#15-神经网络实现鸢尾花分类">#</a> 1.5 神经网络实现鸢尾花分类</h2>
+<h3 id="数据集介绍"><a class="markdownIt-Anchor" href="#数据集介绍">#</a> 数据集介绍</h3>
+<p>共有数据 150 组，每组包括花萼长、花萼宽、花瓣长、花瓣宽 4 个输入特征。同时给出了，这一组特征对应的鸢尾花类别。类别包括 Setosa Iris（狗尾草鸢尾），Versicolour Iris（杂色鸢尾），Virginica Iris（弗吉尼亚鸢尾）三类，分别用数字 0，1，2 表示。</p>
+<p><img "" class="lazyload placeholder" data-original="image-20211212172907509.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="image-20211212172907509"></p>
+<h3 id="准备数据"><a class="markdownIt-Anchor" href="#准备数据">#</a> 准备数据</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据集读入</span></span><br><span class="line"><span class="comment">#从sklearn包datasets 读入数据集：</span></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> datasets</span><br><span class="line">x_data = datasets.load_iris().data 返回iris数据集所有输入特征</span><br><span class="line">y_data = datasets.load_iris().target 返回iris数据集所有标签</span><br><span class="line"><span class="comment">#数据集乱序</span></span><br><span class="line">np.random.seed(<span class="number">116</span>) <span class="comment"># 使用相同的seed，使输入特征/标签一一对应</span></span><br><span class="line">np.random.shuffle(x_data)</span><br><span class="line">np.random.seed(<span class="number">116</span>)</span><br><span class="line">np.random.shuffle(y_data)</span><br><span class="line">tf.random.set_seed(<span class="number">116</span>)</span><br><span class="line"><span class="comment">#数据集分出永不相见的训练集和测试集</span></span><br><span class="line">x_train = x_data[:-<span class="number">30</span>]</span><br><span class="line">y_train = y_data[:-<span class="number">30</span>]</span><br><span class="line">x_test = x_data[-<span class="number">30</span>:]</span><br><span class="line">y_test = y_data[-<span class="number">30</span>:]</span><br><span class="line"><span class="comment">#配成[输入特征，标签]对，每次喂入一小撮（batch）</span></span><br><span class="line">train_db = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(<span class="number">32</span>)</span><br><span class="line">test_db = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(<span class="number">32</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="搭建网络"><a class="markdownIt-Anchor" href="#搭建网络">#</a> 搭建网络</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义神经网路中所有可训练参数</span></span><br><span class="line">w1 = tf.Variable(tf.random.truncated_normal([ <span class="number">4</span>, <span class="number">3</span> ], stddev=<span class="number">0.1</span>, seed=<span class="number">1</span>))</span><br><span class="line">b1 = tf.Variable(tf.random.truncated_normal([ <span class="number">3</span> ], stddev=<span class="number">0.1</span>, seed=<span class="number">1</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="参数优化"><a class="markdownIt-Anchor" href="#参数优化">#</a> 参数优化</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#嵌套循环迭代，with结构更新参数，显示当前loss</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epoch): <span class="comment">#数据集级别迭代</span></span><br><span class="line">  <span class="keyword">for</span> step, (x_train, y_train) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_db): <span class="comment">#batch级别迭代</span></span><br><span class="line">    <span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape: <span class="comment"># 记录梯度信息</span></span><br><span class="line">      前向传播过程计算y</span><br><span class="line">      计算总loss</span><br><span class="line">    grads = tape.gradient(loss, [ w1, b1 ])</span><br><span class="line">    w1.assign_sub(lr * grads[<span class="number">0</span>]) <span class="comment">#参数自更新</span></span><br><span class="line">    b1.assign_sub(lr * grads[<span class="number">1</span>])</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Epoch &#123;&#125;, loss: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(epoch, loss_all/<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="测试效果"><a class="markdownIt-Anchor" href="#测试效果">#</a> 测试效果</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算当前参数前向传播后的准确率，显示当前acc</span></span><br><span class="line"><span class="keyword">for</span> x_test, y_test <span class="keyword">in</span> test_db:</span><br><span class="line">y = tf.matmul(h, w) + b <span class="comment"># y为预测结果</span></span><br><span class="line">y = tf.nn.softmax(y) <span class="comment"># y符合概率分布</span></span><br><span class="line">pred = tf.argmax(y, axis=<span class="number">1</span>) <span class="comment"># 返回y中最大值的索引，即预测的分类</span></span><br><span class="line">pred = tf.cast(pred, dtype=y_test.dtype) <span class="comment">#调整数据类型与标签一致</span></span><br><span class="line">correct = tf.cast(tf.equal(pred, y_test), dtype=tf.int32)</span><br><span class="line">correct = tf.reduce_sum (correct) <span class="comment"># 将每个batch的correct数加起来</span></span><br><span class="line">total_correct += <span class="built_in">int</span> (correct) <span class="comment"># 将所有batch中的correct数加起来</span></span><br><span class="line">total_number += x_test.shape [<span class="number">0</span>]</span><br><span class="line">acc = total_correct / total_number</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;test_acc:&quot;</span>, acc)</span><br></pre></td></tr></table></figure>
+<h3 id="accloss可视化"><a class="markdownIt-Anchor" href="#accloss可视化">#</a> acc/loss 可视化</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#acc / loss可视化</span></span><br><span class="line">plt.title(<span class="string">&#x27;Acc Curve&#x27;</span>) <span class="comment"># 图片标题</span></span><br><span class="line">plt.xlabel(<span class="string">&#x27;Epoch&#x27;</span>) <span class="comment"># x轴名称</span></span><br><span class="line">plt.ylabel(<span class="string">&#x27;Acc&#x27;</span>) <span class="comment"># y轴名称</span></span><br><span class="line">plt.plot(test_acc, label=<span class="string">&quot;$Accuracy$&quot;</span>) <span class="comment"># 逐点画出test_acc值并连线</span></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="">
+              机器学习
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/11/08/机器学习/TensorFlow笔记/Ch1/" target="_blank" title="第一讲 神经网络计算">http://example.com/2021/11/08/机器学习/TensorFlow笔记/Ch1/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/12/04/Hive%E5%AD%A6%E4%B9%A0/Hive9/" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div class="title-text">(Hive)汽车销售数据分析系统实战开发</div>
+      </div>
+      
+      <!-- <div class="content">
+        本章围绕乘用车辆和商用车辆销售数据展开，通过 Hive 构建数据仓库，实现对汽车销售数据各项指标进行立体化分析。
+# 数
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div class="title-text">基于支持向量机的分类预测</div>
+      </div>
+      <!-- <div class="content">
+        # 1 前言
+支持向量机（Support Vector Machine，SVM）是一个非常优雅的算法，具有非常完善的数学
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+  <!-- js在scripts目录下的的toc.ejs里面 -->
+  
+
+  <script>
+    function openBtnClickFn () {
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'true');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    };
+    openBtnClickFn();
+    document.addEventListener('pjax:complete', function () {
+      openBtnClickFn();
+    })
+  </script>
+
+
+  
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+    </div>
+    <div class="footer-custom">
+      
+    </div>
+    <!-- 不蒜子统计 -->
+    
+  </div>
+</div>
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8062553743"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+    
+    <script src="/js/app.js" data-pjax></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init(option);
+    
+  }
+
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+    }
+  });
+
+  
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+/* .toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+} */
+</style> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- div滚动到显示区域的动画 -->
+
+  <script src="/js/aos/aos.js"></script>
+  <script>
+    // https://github.com/michalsnik/aos
+    var themeOffset = parseInt('120') || 120;
+    var themeDelay = parseInt('0') || 0;
+    var themeDuration = parseInt('400') || 400;
+    var themeEasing = 'ease' || 'ease';
+    var themeOnce = eval('true') || false;
+    var themeMirror = eval('false') || false;
+    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: themeOffset, // offset (in px) from the original trigger point
+      delay: themeDelay, // values from 0 to 3000, with step 50ms
+      duration: themeDuration, // values from 0 to 3000, with step 50ms
+      easing: themeEasing, // default easing for AOS animations
+      once: themeOnce, // whether animation should happen only once - while scrolling down
+      mirror: themeMirror, // whether elements should animate out while scrolling past them
+      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      AOS.refresh();
+    })
+  </script>
+
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          console.log('888');
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            console.log('111111111111111');
+            doSomething();
+            // 返回false, 防止重复触发copy事件  
+            // return false;
+          }
+        })
+        //  监听 ctrl + c事件  
+        // $(document).unbind('keypress').bind('keypress', function (e) {
+        //   if (e.ctrlKey && e.keyCode == 67) {
+        //     console.log('111111111111111');
+        //     doSomething();
+        //     // 返回false, 防止重复触发copy事件  
+        //     return false;
+        //   }
+        // })
+
+        // // 鼠标右键的复制事件  
+        // $(document).unbind('copy').bind('copy', function (e) {
+        //   console.log('222222222222222222');
+        //   doSomething();
+        //   // console.log('右键复制 监听成功');
+        // });
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+          // console.log('ctrl + c 监听成功');  
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+
+
+<!-- 图片懒加载 -->
+<script src="/js/lazyload/lazyload@1.9.1.js"></script>
+<script data-pjax>
+  $(function () {
+    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+      {
+        effect: "show",
+        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+      }
+    );
+  });
+</script>
+
+<!-- 评论所需js -->
+
+    
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+	 
+		<script src="/js/cursor/clicklove.js"></script> 
+	
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+  </script>
+
+
+
+  </body>
+</html>
