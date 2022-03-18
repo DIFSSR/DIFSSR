@@ -10,10 +10,10 @@
     <category term="Python" />
     <category term="MapReduce" />
     <category term="平台" />
+    <category term="安全" />
     <category term="鸿蒙" />
     <category term="单片机" />
     <category term="机器学习" />
-    <category term="安全" />
     <entry>
         <id>http://example.com/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/TensorFlow%E7%AC%94%E8%AE%B0/Ch1/</id>
         <title>第一讲 神经网络计算</title>

@@ -3,21 +3,89 @@
     <id>http://example.com</id>
     <title>千里稻花应秀色 • Posts by &#34;安全&#34; tag</title>
     <link href="http://example.com" />
-    <updated>2021-04-15T03:40:59.000Z</updated>
+    <updated>2021-09-15T03:40:59.000Z</updated>
     <category term="C" />
     <category term="大数据" />
     <category term="Shell" />
     <category term="Python" />
     <category term="MapReduce" />
     <category term="平台" />
+    <category term="安全" />
     <category term="鸿蒙" />
     <category term="单片机" />
     <category term="机器学习" />
-    <category term="安全" />
     <entry>
-        <id>http://example.com/2021/04/15/%E5%AE%89%E5%85%A8/DVWA/</id>
+        <id>http://example.com/2021/09/15/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/HBNISWP/</id>
+        <title>HBNIS WriteUp</title>
+        <link rel="alternate" href="http://example.com/2021/09/15/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/HBNISWP/"/>
+        <content type="html">&lt;p&gt;&lt;strong&gt;第四届河北省大学生网络与信息安全大赛选拔赛 WP&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本科组凌云一队战队&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;一-战队信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-战队信息&#34;&gt;#&lt;/a&gt; 一、 战队信息&lt;/h2&gt;
+&lt;p&gt;战队名称：凌云一队&lt;/p&gt;
+&lt;h2 id=&#34;二-解题情况&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-解题情况&#34;&gt;#&lt;/a&gt; 二、 解题情况&lt;/h2&gt;
+&lt;h3 id=&#34;请粘贴战队排名截图和答题情况截图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#请粘贴战队排名截图和答题情况截图&#34;&gt;#&lt;/a&gt; 请粘贴战队排名截图和答题情况截图：&lt;/h3&gt;
+&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;clip_image002.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;示例的操作流程：&lt;/p&gt;
+&lt;p&gt;“点击【排行榜】”→“截图”&lt;/p&gt;
+&lt;p&gt;（提交的时候请把下图替换为您队伍解题总榜上的排名截图）&lt;/p&gt;
+&lt;h2 id=&#34;三-解题过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三-解题过程&#34;&gt;#&lt;/a&gt; 三、 解题过程&lt;/h2&gt;
+&lt;h3 id=&#34;题目一-扫雷&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题目一-扫雷&#34;&gt;#&lt;/a&gt; 题目一 扫雷&lt;/h3&gt;
+&lt;p&gt;（题目序号 请参考解题总榜上面的序号）&lt;/p&gt;
+&lt;h3 id=&#34;操作内容&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作内容&#34;&gt;#&lt;/a&gt; 操作内容：&lt;/h3&gt;
+&lt;p&gt;（请输入操作内容）扫雷结束得到 16 进制字符串，在线工具一顿解码得到 flag&lt;/p&gt;
+&lt;h3 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;h3 id=&#34;flag值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flag值&#34;&gt;#&lt;/a&gt; flag 值：&lt;/h3&gt;
+&lt;p Z1ng@z1ng@z1ng@z1ng=&#34;&#34;&gt;flag&lt;/p&gt;
+&lt;h3 id=&#34;题目二-ping&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题目二-ping&#34;&gt;#&lt;/a&gt; 题目二 Ping&lt;/h3&gt;
+&lt;p&gt;（题目序号 请参考解题总榜上面的序号）&lt;/p&gt;
+&lt;h3 id=&#34;操作内容-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作内容-2&#34;&gt;#&lt;/a&gt; 操作内容：&lt;/h3&gt;
+&lt;p&gt;（请输入操作内容）&lt;/p&gt;
+&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;clip_image003.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;clip_image004.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-2&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;h3 id=&#34;flag值-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flag值-2&#34;&gt;#&lt;/a&gt; flag 值：&lt;/h3&gt;
+&lt;p 8139a944fa87092923a512058f52ea55=&#34;&#34;&gt;flag&lt;/p&gt;
+&lt;h3 id=&#34;题目三-web_ssrf&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题目三-web_ssrf&#34;&gt;#&lt;/a&gt; 题目三 web_ssrf&lt;/h3&gt;
+&lt;p&gt;（题目序号 请参考解题总榜上面的序号）&lt;/p&gt;
+&lt;h3 id=&#34;操作内容-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作内容-3&#34;&gt;#&lt;/a&gt; 操作内容：&lt;/h3&gt;
+&lt;p&gt;文件包含漏洞&lt;/p&gt;
+&lt;p&gt;（请输入操作内容）&lt;/p&gt;
+&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;clip_image005.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-3&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;h3 id=&#34;flag值-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flag值-3&#34;&gt;#&lt;/a&gt; flag 值：&lt;/h3&gt;
+&lt;p 348f5869d60bbe9e945e33d265c94d02=&#34;&#34;&gt;flag&lt;/p&gt;
+&lt;h3 id=&#34;题目四-ezexec&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题目四-ezexec&#34;&gt;#&lt;/a&gt; 题目四 Ezexec&lt;/h3&gt;
+&lt;p&gt;（题目序号 请参考解题总榜上面的序号）&lt;/p&gt;
+&lt;h3 id=&#34;操作内容-4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作内容-4&#34;&gt;#&lt;/a&gt; 操作内容：&lt;/h3&gt;
+&lt;p&gt;参考网站：&lt;a href=&#34;https://cloud.tencent.com/developer/article/1194018&#34;&gt;https://cloud.tencent.com/developer/article/1194018&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（请输入操作内容）&lt;/p&gt;
+&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;clip_image007.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-4&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;h3 id=&#34;flag值-4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flag值-4&#34;&gt;#&lt;/a&gt; flag 值：&lt;/h3&gt;
+&lt;p eb550f5cb8ddf9efa4b53e15ac36b9bb=&#34;&#34;&gt;flag&lt;/p&gt;
+&lt;h3 id=&#34;题目五-apk&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题目五-apk&#34;&gt;#&lt;/a&gt; 题目五 APK&lt;/h3&gt;
+&lt;p&gt;（题目序号 请参考解题总榜上面的序号）&lt;/p&gt;
+&lt;h3 id=&#34;操作内容-5&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作内容-5&#34;&gt;#&lt;/a&gt; 操作内容：&lt;/h3&gt;
+&lt;p&gt;（请输入操作内容）&lt;/p&gt;
+&lt;p&gt;下载安装 APP，玩了会&lt;/p&gt;
+&lt;p&gt;打开 MT 管理器，将 classes.dex 转换为 jar 包发到电脑上，使用 jd-gui 打开，将 TheFlagIsNotHere 类中的关键代码执行输出结果得到 flag&lt;/p&gt;
+&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;clip_image009.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-5&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-5&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;public class TheFlagIsNotHere &amp;#123;   public static final int *LEN* = &amp;quot;abcdefghijklmnopqrstuvwxyz0123456789&amp;#123;&amp;#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;quot;.length();   public static final String *SOURCE* = &amp;quot;abcdefghijklmnopqrstuvwxyz0123456789&amp;#123;&amp;#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;quot;;   public static String *key* = &amp;quot;iodj_ZhOf3phCDqguR4gA&amp;quot;;     public static void main(String[] args) &amp;#123;     //System.out.println(getKey());     *getKey*();     System.*out*.println(*key*.length());   &amp;#125;   public static void getKey()   &amp;#123;     StringBuilder localStringBuilder = new StringBuilder();     *key*.length();     for (int i = 0;; i++)     &amp;#123;       if (i &amp;gt;= *key*.length()) &amp;#123;         return;       &amp;#125;       int j = &amp;quot;abcdefghijklmnopqrstuvwxyz0123456789&amp;#123;&amp;#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;quot;.indexOf(*key*.charAt(i));       int k = j;       if (j == 2) &amp;#123;         k = *LEN* + 2;       &amp;#125;       j = k;       if (k == 1) &amp;#123;         j = *LEN* + 1;       &amp;#125;       k = j;       if (j == 0) &amp;#123;         k = *LEN*;       &amp;#125;       localStringBuilder.append(&amp;quot;abcdefghijklmnopqrstuvwxyz0123456789&amp;#123;&amp;#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;quot;.charAt(k - 3));       System.*out*.println(localStringBuilder);     &amp;#125;     &amp;#125; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;flag值-5&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flag值-5&#34;&gt;#&lt;/a&gt; flag 值：&lt;/h3&gt;
+&lt;p WeLc0me_AndrO1d=&#34;&#34;&gt;flag&lt;/p&gt;
+</content>
+        <category term="安全" />
+        <updated>2021-09-15T03:40:59.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2021/04/15/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/DVWA/</id>
         <title>DVWA通关手册</title>
-        <link rel="alternate" href="http://example.com/2021/04/15/%E5%AE%89%E5%85%A8/DVWA/"/>
+        <link rel="alternate" href="http://example.com/2021/04/15/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/DVWA/"/>
         <content type="html">&lt;h1 id=&#34;dvwa通关手册&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dvwa通关手册&#34;&gt;#&lt;/a&gt; DVWA 通关手册&lt;/h1&gt;
 &lt;h2 id=&#34;brute-force&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#brute-force&#34;&gt;#&lt;/a&gt; Brute Force&lt;/h2&gt;
 &lt;p&gt;登录界面&lt;/p&gt;
