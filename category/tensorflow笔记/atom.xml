@@ -5,9 +5,10 @@
     <link href="http://example.com" />
     <updated>2021-11-08T07:02:54.000Z</updated>
     <category term="C" />
-    <category term="Shell" />
     <category term="大数据" />
+    <category term="Shell" />
     <category term="Python" />
+    <category term="MapReduce" />
     <category term="平台" />
     <category term="鸿蒙" />
     <category term="单片机" />
