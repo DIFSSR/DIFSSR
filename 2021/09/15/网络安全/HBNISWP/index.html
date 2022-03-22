@@ -13,16 +13,12 @@
 
   <title>HBNIS WriteUp | 千里稻花应秀色</title>
 
-  
-    
-<link rel="stylesheet" href="/js/aos/aos.css">
-
-  
-
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
-  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/gh/inkss/fontawesome@5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
   
   
 <link rel="stylesheet" href="/css/animate.min.css">
@@ -52,13 +48,39 @@
     <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
     
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 
   
   <!-- 依赖于jquery和vue -->
-  <script src="/js/jquery3.5.1.js"></script>
-  <script src="/js/vue2.6.11.js"></script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+  
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+
+  
   
   <body>
     <!-- 预加载动画 -->
@@ -99,9 +121,83 @@
   }
 </script>
 
-    <!-- 头部导航等 -->
-    
-<header class="header " id="navHeader"
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (href, before, media, attributes) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header   " 
+  id="navHeader"
   style="position: fixed;
   left: 0; top: 0; z-index: 10;width: 100%;"
 >
@@ -109,7 +205,7 @@
     <div class="bars">
       <div id="appDrawer" class="sidebar-image">
   <div class="drawer-box-icon">
-    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
   </div>
   
   <transition name="fade">
@@ -118,7 +214,7 @@
   </transition>
   <div class="drawer-box" :class="{'active': visible}">
     <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
       <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
       <h5 class="drawer-box-head_desc">blogs by SSR</h5>
     </div>
@@ -131,7 +227,7 @@
               
                 <a href="/" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="fas fa-home" aria-hidden="true"></i>
                   
                   <span class="name">首页</span>
                 </a>
@@ -142,7 +238,7 @@
               
                 <a href="/archives" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <i class="fas fa-archive" aria-hidden="true"></i>
                   
                   <span class="name">归档</span>
                 </a>
@@ -153,7 +249,7 @@
               
                 <a href="/tags" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <i class="fas fa-tags" aria-hidden="true"></i>
                   
                   <span class="name">标签</span>
                 </a>
@@ -164,7 +260,7 @@
               
                 <a href="/categories" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
                   <span class="name">分类</span>
                 </a>
@@ -175,7 +271,7 @@
               
                 <a href="/about" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                   
                   <span class="name">关于</span>
                 </a>
@@ -186,7 +282,7 @@
         
           <li class="drawer-box-content_item">
             <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
-              <i class="fa fa-github" aria-hidden="true"></i>
+              <i class="fas fa-github" aria-hidden="true"></i>
               <span>Github</span>
             </a>
           </li>
@@ -245,7 +341,7 @@
     <div class="blog-title" id="author-avatar">
       
         <div class="avatar">
-          <img src="/medias/logo.png" alt="logo">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
         </div>
       
       <a href="/" class="logo">千里稻花应秀色</a>
@@ -258,7 +354,7 @@
               
                 <a href="/" class="menu-item-link" title="首页">
                   
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="fas fa-home" aria-hidden="true"></i>
                   
                   <span class="name">首页</span>
                 </a>
@@ -269,7 +365,7 @@
               
                 <a href="/archives" class="menu-item-link" title="归档">
                   
-                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <i class="fas fa-archive" aria-hidden="true"></i>
                   
                   <span class="name">归档</span>
                 </a>
@@ -280,7 +376,7 @@
               
                 <a href="/tags" class="menu-item-link" title="标签">
                   
-                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <i class="fas fa-tags" aria-hidden="true"></i>
                   
                   <span class="name">标签</span>
                 </a>
@@ -291,7 +387,7 @@
               
                 <a href="/categories" class="menu-item-link" title="分类">
                   
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
                   <span class="name">分类</span>
                 </a>
@@ -302,7 +398,7 @@
               
                 <a href="/about" class="menu-item-link" title="关于">
                   
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                   
                   <span class="name">关于</span>
                 </a>
@@ -314,19 +410,16 @@
       
       
         <div id="appSearch">
-  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
   <transition name="fade">
     <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
       <div class="message-box animated bounceInDown">
-        <!-- <div class="close" style="overflow: hidden;">
-          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
-        </div> -->
         <h2>
           <span>
-            <i class="fa fa-search" aria-hidden="true"></i>
+            <i class="fas fa-search" aria-hidden="true"></i>
             <span class="title">本地搜索</span>
           </span>
-          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
         </h2>
         <form class="site-search-form">
           <input type="text"
@@ -357,6 +450,9 @@
     computed: {
     },
     mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
     },
     methods: {
       showDialog() {
@@ -395,121 +491,23 @@
     <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
   
   
-
-    <!-- 当头部导航设置为背景透明的时候  -->
-    
-      <script src="/js/header/index.js" data-pjax></script>
-    
 </header>
-
-    <!-- 需要在上面加载的js -->
-    <script>
-    function loadScript(src, cb) {
-        setTimeout(function () {
-            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-            var script = document.createElement('script');
-            script.setAttribute('type', 'text/javascript');
-            if (cb) script.onload = cb;
-            script.setAttribute('src', src);
-            HEAD.appendChild(script);
-        });
-    }
-
-    //https://github.com/filamentgroup/loadCSS
-    var loadCSS = function (href, before, media, attributes) {
-        var doc = window.document;
-        var ss = doc.createElement("link");
-        var ref;
-        if (before) {
-            ref = before;
-        }
-        else {
-            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-            ref = refs[refs.length - 1];
-        }
-        var sheets = doc.styleSheets;
-        if (attributes) {
-            for (var attributeName in attributes) {
-                if (attributes.hasOwnProperty(attributeName)) {
-                    ss.setAttribute(attributeName, attributes[attributeName]);
-                }
-            }
-        }
-        ss.rel = "stylesheet";
-        ss.href = href;
-        ss.media = "only x";
-        function ready(cb) {
-            if (doc.body) {
-                return cb();
-            }
-            setTimeout(function () {
-                ready(cb);
-            });
-        }
-        ready(function () {
-            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
-        });
-        var onloadcssdefined = function (cb) {
-            var resolvedHref = ss.href;
-            var i = sheets.length;
-            while (i--) {
-                if (sheets[i].href === resolvedHref) {
-                    return cb();
-                }
-            }
-            setTimeout(function () {
-                onloadcssdefined(cb);
-            });
-        };
-        function loadCB() {
-            if (ss.addEventListener) {
-                ss.removeEventListener("load", loadCB);
-            }
-            ss.media = media || "all";
-        }
-        if (ss.addEventListener) {
-            ss.addEventListener("load", loadCB);
-        }
-        ss.onloadcssdefined = onloadcssdefined;
-        onloadcssdefined(loadCB);
-        return ss;
-    };
-    
-</script>
- 
-
-<!-- 轮播图所需要的js -->
-<script src="/js/swiper/swiper.min.js"></script>
-<script src="/js/swiper/vue-awesome-swiper.js"></script>
-<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
-
-
-  <script src="/js/vue-typed-js/index.js"></script>
-
-
-<!-- 首页的公告滚动插件的js需要重新加载 -->
-<script src="/js/vue-seamless-scroll/index.js"></script>
-
-<!-- 打字机效果js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-
-
-    <!-- 内容区域 -->
-    <main class="main" id="pjax-container" style="margin-top: 0;">
-      
+        <!-- 内容区域 -->
+        
  <!-- prismjs 代码高亮 -->
  
 
 
 <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
 
-<!-- 文章详情页顶部图片和标题 -->
+
+  <!-- 文章详情页顶部图片和标题 -->
 
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/3.jpg" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;">
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/38.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -523,7 +521,7 @@
     
       
         <span class="post-detail-header_date">
-          <i class="fa fa-calendar"></i> 发表于：2021-09-15 |
+          <i class="fas fa-calendar"></i> 发表于：2021-09-15 |
         </span>
       
 
@@ -540,10 +538,12 @@
 
 
 
-<div class="row justify-position">
+
+
+<div class="row justify-position" 
+  style="padding-top: 0px;">
   <div class="main-content">
     <article class="post post-detail">
-      
       <div class="post-content">
         <p><strong>第四届河北省大学生网络与信息安全大赛选拔赛 WP</strong></p>
 <p><strong>本科组凌云一队战队</strong></p>
@@ -551,7 +551,7 @@
 <p>战队名称：凌云一队</p>
 <h2 id="二-解题情况"><a class="markdownIt-Anchor" href="#二-解题情况">#</a> 二、 解题情况</h2>
 <h3 id="请粘贴战队排名截图和答题情况截图"><a class="markdownIt-Anchor" href="#请粘贴战队排名截图和答题情况截图">#</a> 请粘贴战队排名截图和答题情况截图：</h3>
-<p><img "" class="lazyload placeholder" data-original="clip_image002.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p><img src="clip_image002.png" class="lazyload placeholder" data-srcset="clip_image002.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
 <p>示例的操作流程：</p>
 <p>“点击【排行榜】”→“截图”</p>
 <p>（提交的时候请把下图替换为您队伍解题总榜上的排名截图）</p>
@@ -568,8 +568,8 @@
 <p>（题目序号 请参考解题总榜上面的序号）</p>
 <h3 id="操作内容-2"><a class="markdownIt-Anchor" href="#操作内容-2">#</a> 操作内容：</h3>
 <p>（请输入操作内容）</p>
-<p><img "" class="lazyload placeholder" data-original="clip_image003.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p><img "" class="lazyload placeholder" data-original="clip_image004.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p><img src="clip_image003.png" class="lazyload placeholder" data-srcset="clip_image003.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
+<p><img src="clip_image004.png" class="lazyload placeholder" data-srcset="clip_image004.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
 <h3 id="-2"><a class="markdownIt-Anchor" href="#-2">#</a> </h3>
 <p>​</p>
 <h3 id="flag值-2"><a class="markdownIt-Anchor" href="#flag值-2">#</a> flag 值：</h3>
@@ -579,7 +579,7 @@
 <h3 id="操作内容-3"><a class="markdownIt-Anchor" href="#操作内容-3">#</a> 操作内容：</h3>
 <p>文件包含漏洞</p>
 <p>（请输入操作内容）</p>
-<p><img "" class="lazyload placeholder" data-original="clip_image005.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p><img src="clip_image005.png" class="lazyload placeholder" data-srcset="clip_image005.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
 <h3 id="-3"><a class="markdownIt-Anchor" href="#-3">#</a> </h3>
 <p>​</p>
 <h3 id="flag值-3"><a class="markdownIt-Anchor" href="#flag值-3">#</a> flag 值：</h3>
@@ -589,7 +589,7 @@
 <h3 id="操作内容-4"><a class="markdownIt-Anchor" href="#操作内容-4">#</a> 操作内容：</h3>
 <p>参考网站：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1194018">https://cloud.tencent.com/developer/article/1194018</a></p>
 <p>（请输入操作内容）</p>
-<p><img "" class="lazyload placeholder" data-original="clip_image007.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p><img src="clip_image007.png" class="lazyload placeholder" data-srcset="clip_image007.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
 <h3 id="-4"><a class="markdownIt-Anchor" href="#-4">#</a> </h3>
 <p>​</p>
 <h3 id="flag值-4"><a class="markdownIt-Anchor" href="#flag值-4">#</a> flag 值：</h3>
@@ -600,7 +600,7 @@
 <p>（请输入操作内容）</p>
 <p>下载安装 APP，玩了会</p>
 <p>打开 MT 管理器，将 classes.dex 转换为 jar 包发到电脑上，使用 jd-gui 打开，将 TheFlagIsNotHere 类中的关键代码执行输出结果得到 flag</p>
-<p><img "" class="lazyload placeholder" data-original="clip_image009.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
+<p><img src="clip_image009.png" class="lazyload placeholder" data-srcset="clip_image009.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
 <h3 id="-5"><a class="markdownIt-Anchor" href="#-5">#</a> </h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class TheFlagIsNotHere &#123;   public static final int *LEN* = &quot;abcdefghijklmnopqrstuvwxyz0123456789&#123;&#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;.length();   public static final String *SOURCE* = &quot;abcdefghijklmnopqrstuvwxyz0123456789&#123;&#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;   public static String *key* = &quot;iodj_ZhOf3phCDqguR4gA&quot;;     public static void main(String[] args) &#123;     //System.out.println(getKey());     *getKey*();     System.*out*.println(*key*.length());   &#125;   public static void getKey()   &#123;     StringBuilder localStringBuilder = new StringBuilder();     *key*.length();     for (int i = 0;; i++)     &#123;       if (i &gt;= *key*.length()) &#123;         return;       &#125;       int j = &quot;abcdefghijklmnopqrstuvwxyz0123456789&#123;&#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;.indexOf(*key*.charAt(i));       int k = j;       if (j == 2) &#123;         k = *LEN* + 2;       &#125;       j = k;       if (k == 1) &#123;         j = *LEN* + 1;       &#125;       k = j;       if (j == 0) &#123;         k = *LEN*;       &#125;       localStringBuilder.append(&quot;abcdefghijklmnopqrstuvwxyz0123456789&#123;&#125;!_ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;.charAt(k - 3));       System.*out*.println(localStringBuilder);     &#125;     &#125; &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="flag值-5"><a class="markdownIt-Anchor" href="#flag值-5">#</a> flag 值：</h3>
@@ -646,12 +646,13 @@
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
+    <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/17.jpg" class="lazyload placeholder" data-srcset="/medias/17.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
     <a href="/2021/09/28/%E5%B9%B3%E5%8F%B0/Ambari/" class="post-nav-link">
       <div class="title">
-        <i class="fa fa-angle-left"></i> 上一篇:
+        <i class="fas fa-angle-left"></i> 上一篇:
         <div class="title-text">Ambari</div>
       </div>
       
@@ -667,12 +668,13 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/16.jpg" style="background-size: cover; 
+    <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
     <a href="/2021/09/14/Linux%20Shell/Linux%20Shell%E5%9F%BA%E7%A1%80/" class="post-nav-link">
       <div class="title">
-        下一篇: <i class="fa fa-angle-right"></i>
+        下一篇: <i class="fas fa-angle-right"></i>
         <div class="title-text">Linux Shell基础</div>
       </div>
       <!-- <div class="content">
@@ -715,6 +717,8 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
     
   </div>
 
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
 
   </div>
 
@@ -724,7 +728,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
   <div class="toc-aside">
     <div class="toc-main">
       <div class="toc-aside-title">
-        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
         
           <div class="toc-open-close">本文目录</div>
         
@@ -734,186 +738,255 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
       </div>
     </div>
   </div>
-  <!-- js在scripts目录下的的toc.ejs里面 -->
-  
 
-  <script>
-    function openBtnClickFn () {
-      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
-      let open = eval('' || 'true');
-      openOrCloseBtn.click(function() {
-        if (open === true) {
-          $(".toc-aside").css({'width': 0, 'padding': 0});
-          $(".toc-content").css({'width': 0});
-          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
-          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
-          open = false;
-        } else {
-          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
-          $(".toc-content").css({'width': '300px'});
-          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
-          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
-          open = true;
-        }
-      });
-    };
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
     openBtnClickFn();
-    document.addEventListener('pjax:complete', function () {
-      openBtnClickFn();
-    })
-  </script>
-
-
+  })
   
+</script>
 
   <!-- 图片放大 Wrap images with fancybox support -->
   <script src="/js/wrapImage.js"></script>
 </div>
 
 <!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
-    <transition-group tag="ul" :name="names">
-        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-            <img :src="image" class="bg-swiper-img">
-        </li>
-    </transition-group>
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
 </div>
 <script>
-    var vm = new Vue({
-        el: '#appBgSwiper',
-        data: {
-            names: '' || 'fade' || 'fade', // translate-fade fade
-            mark: 0,
-            img: [],
-            bgColor: '',
-            time: null
-        },
-        methods: {   //添加方法
-            change(i, m) {
-                if (i > m) {
-                    // this.names = 'fade';
-                } else if (i < m) {
-                    // this.names = 'fade';
-                } else {
-                    return;
-                }
-                this.mark = i;
-            },
-            prev() {
-                // this.names = 'fade';
-                this.mark--;
-                if (this.mark === -1) {
-                    this.mark = 3;
-                    return
-                }
-            },
-            next() {
-                // this.names = 'fade';
-                this.mark++;
-                if (this.mark === this.img.length) {
-                    this.mark = 0;
-                    return
-                }
-            },
-            autoPlay() {
-                // this.names = 'fade';
-                this.mark++;
-                if (this.mark === this.img.length) {
-                    this.mark = 0;
-                    return
-                }
-            },
-            play() {
-                let bgImgDelay = '' || '180000'
-                let delay = parseInt(bgImgDelay) || 180000;
-                this.time = setInterval(this.autoPlay, delay);
-            },
-            enter() {
-                clearInterval(this.time);
-            },
-            leave() {
-                this.play();
-            }
-        },
-        created() {
-            this.play()
-        },
-        beforeDestroy() {
-            clearInterval(this.time);
-        },
-        mounted() {
-            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
-            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
-            if (isImg) {
-                let img = prop.split(',');
-                let configRoot = '/'
-                let arrImg = [];
-                img.forEach(el => {
-                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-			        var objExp = new RegExp(Expression);
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
 
-                    if(objExp.test(el)) {
-                        // http or https
-                        arrImg.push(el);
-                    } else {
-                        // 非http or https开头
-                        // 本地文件
-                        let firstStr = el.charAt(0);
-                        if (firstStr == '/') {
-                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-                        }
-                        el = configRoot + el;
-                        arrImg.push(el);
-                    }
-                })
-                this.img = arrImg;
-            } else {
-                this.bgColor = prop;
-            }
-        }
-    })
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
 </script>
 
 <style>
-    .bg-swiper-box {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    .bg-swiper-img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
 </style>
 
-    </main>
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+      </main>
+    </div>
 
     <!-- 页脚 -->
-    <div class="footer bg-color">
-  <div class="footer-main">
-    <div class="link">
-      
-    </div>
-    <div class="footer-copyright">
-      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
-
-    </div>
-    <div class="footer-custom">
-      
-    </div>
-    <!-- 不蒜子统计 -->
     
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2019 - 2023 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+          </div>
+        
+      
+        
+          
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
   </div>
-</div>
+
 
 
     <!-- 渲染暗黑按钮 -->
     
       <div class="dark">
   <div class="dark-content">
-    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <i class="fas fa-moon" aria-hidden="true"></i>
     <!-- <span>关灯</span> -->
   </div>
   
@@ -926,7 +999,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
       $(".dark-content").replaceWith(
           `
           <div class='dark-content'>
-            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
           </div>
           `
         );
@@ -938,7 +1011,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
         $(".dark-content").replaceWith(
           `
           <div class='dark-content'>
-            <i class="fa fa-moon-o" aria-hidden="true"></i>
+            <i class="fas fa-moon" aria-hidden="true"></i>
           </div>
           `
         );
@@ -948,7 +1021,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
         $(".dark-content").replaceWith(
           `
           <div class='dark-content'>
-            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
           </div>
           `
         );
@@ -960,9 +1033,10 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
     <!-- 渲染回到顶部按钮 -->
     
       <div class="goTop top-btn-color" pointer>
-  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </div>
 <script src="/js/goTop.js"></script>
+
     
     <!-- 渲染左下角音乐播放器 -->
     
@@ -970,16 +1044,12 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
 <style>
 .aplayer .aplayer-lrc p {
   
-  display: none;
-  
   font-size: 12px;
   font-weight: 700;
   line-height: 16px !important;
 }
 
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
-  
-  display: none;
   
   font-size: 15px;
   color: #42b983;
@@ -1002,7 +1072,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
   type="album"
   id="447721094"
   fixed='true'
-  autoplay='true'
+  autoplay='false'
   theme='#42b983'
   loop='all'
   order='random'
@@ -1019,7 +1089,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
     bottom: 300px;
   }
 </style> -->
-<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
@@ -1036,8 +1106,9 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
     
     <!-- 背景彩带 -->
     
-    
-    <script src="/js/app.js" data-pjax></script>
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
     
     <!-- 文章目录所需js -->
 <link href="/js/tocbot/tocbot.css" rel="stylesheet">
@@ -1045,9 +1116,9 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
 
 <script>
   var headerEl = 'h2, h3, h4',  //headers 
-      content = '.post-detail',//文章容器
-      idArr = {};  //标题数组以确定是否增加索引id
-      //add #id
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
   var option = {
     // Where to render the table of contents.
     tocSelector: '.toc',
@@ -1061,6 +1132,8 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
     positionFixedSelector: '.toc-main',
     positionFixedClass: 'is-position-fixed',
     fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    // onClick: function (e) {},
   }
   if ($('.toc').length > 0) {
 
@@ -1081,10 +1154,41 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
       }
     });
 
-    tocbot.init(option);
-    
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
   }
 
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 100) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
 
   document.addEventListener('pjax:send', function () {
     if ($('.toc').length) {
@@ -1095,37 +1199,99 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
   document.addEventListener('pjax:complete', function () {
     if ($('.toc').length) {
       tocbot.init(option);
+      mobileTocClick();
     }
   });
-
   
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('toc-aside')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
 </script>
 
 <style>
-.is-position-fixed {
-  position:sticky !important;
-  top: 74px;
-}
-.toc-main ul {
-  counter-reset: show-list;
-}
-.toc-main ul li::before {
-  content: counter(item)".";
-  display: block;
-  position: absolute;
-  left: 12px;
-  top:0;
-}
-/* .toc > .toc-list {
-  padding-left: 35px;
-}
-.toc>.toc-list li {
-  list-style: decimal;
-}
-.toc-list {
-  padding-left: 25px;
-} */
+  .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  }
 </style> 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const headerMenuTransparent = true;
+    if (!headerMenuTransparent) { return; }
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
 
 <!-- 渲染issues标签里的内容 -->
 <script>
@@ -1144,46 +1310,6 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
     }
   })
 </script>
-
-<!-- div滚动到显示区域的动画 -->
-
-  <script src="/js/aos/aos.js"></script>
-  <script>
-    // https://github.com/michalsnik/aos
-    var themeOffset = parseInt('120') || 120;
-    var themeDelay = parseInt('0') || 0;
-    var themeDuration = parseInt('400') || 400;
-    var themeEasing = 'ease' || 'ease';
-    var themeOnce = eval('true') || false;
-    var themeMirror = eval('false') || false;
-    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
-    AOS.init({
-      // Global settings:
-      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-      initClassName: 'aos-init', // class applied after initialization
-      animatedClassName: 'aos-animate', // class applied on animation
-      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-      offset: themeOffset, // offset (in px) from the original trigger point
-      delay: themeDelay, // values from 0 to 3000, with step 50ms
-      duration: themeDuration, // values from 0 to 3000, with step 50ms
-      easing: themeEasing, // default easing for AOS animations
-      once: themeOnce, // whether animation should happen only once - while scrolling down
-      mirror: themeMirror, // whether elements should animate out while scrolling past them
-      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
-
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      AOS.refresh();
-    })
-  </script>
-
 
 <!-- 输入框打字特效 -->
 <!-- 输入框打字特效 -->
@@ -1217,7 +1343,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
         var initCopyCode = function () {
           var copyHtml = '';
           copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
-          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
           copyHtml += '</button>';
           $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
           $(".post-detail pre").not('.gutter pre').before(copyHtml);
@@ -1229,41 +1355,20 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
         }
         initCopyCode();
         $('.btn-copy').unbind('click').bind('click', function () {
-          console.log('888');
           doSomething();
         })
         $(document).unbind('keypress').bind('keypress', function (e) {
           if (e.ctrlKey && e.keyCode == 67) {
-            console.log('111111111111111');
             doSomething();
-            // 返回false, 防止重复触发copy事件  
-            // return false;
           }
         })
-        //  监听 ctrl + c事件  
-        // $(document).unbind('keypress').bind('keypress', function (e) {
-        //   if (e.ctrlKey && e.keyCode == 67) {
-        //     console.log('111111111111111');
-        //     doSomething();
-        //     // 返回false, 防止重复触发copy事件  
-        //     return false;
-        //   }
-        // })
-
-        // // 鼠标右键的复制事件  
-        // $(document).unbind('copy').bind('copy', function (e) {
-        //   console.log('222222222222222222');
-        //   doSomething();
-        //   // console.log('右键复制 监听成功');
-        // });
 
         function doSomething() {
           that.$notify({
             title: "成功",
-            content: "代码已复制，请遵守相关授权协议。",
+            content: "代码已复制，祝一切顺利。",
             type: 'success'
           })
-          // console.log('ctrl + c 监听成功');  
         }
       },
       methods: {
@@ -1271,32 +1376,51 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
       created() { }
     })
   </script>
-
+  
 
 <!-- 图片懒加载 -->
-<script src="/js/lazyload/lazyload@1.9.1.js"></script>
-<script data-pjax>
-  $(function () {
-    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
-      {
-        effect: "show",
-        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
-      }
-    );
+<script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
   });
 </script>
 
+
+<!-- 卡片滚动动画 -->
+   
+
 <!-- 评论所需js -->
 
-    
+  
 
 
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
-	 
-		<script src="/js/cursor/clicklove.js"></script> 
-	
+   
+    <script src="/js/cursor/clicklove.js"></script> 
+  
+
 
 
 
@@ -1340,7 +1464,7 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
 
   <script>
     var pjax = new Pjax({
-      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
       selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
       cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
       timeout: 5000
@@ -1377,6 +1501,11 @@ Apache Ambari 项目旨在通过开发用于配置，管理和监视 Ap
 
     document.addEventListener('pjax:error', function (e) {
       window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
     })
   </script>
 

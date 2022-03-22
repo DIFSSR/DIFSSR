@@ -13,16 +13,12 @@
 
   <title>基于逻辑回归的分类预测 | 千里稻花应秀色</title>
 
-  
-    
-<link rel="stylesheet" href="/js/aos/aos.css">
-
-  
-
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
-  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/gh/inkss/fontawesome@5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
   
   
 <link rel="stylesheet" href="/css/animate.min.css">
@@ -52,13 +48,39 @@
     <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
     
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 
   
   <!-- 依赖于jquery和vue -->
-  <script src="/js/jquery3.5.1.js"></script>
-  <script src="/js/vue2.6.11.js"></script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+  
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+
+  
   
   <body>
     <!-- 预加载动画 -->
@@ -99,9 +121,83 @@
   }
 </script>
 
-    <!-- 头部导航等 -->
-    
-<header class="header " id="navHeader"
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (href, before, media, attributes) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header   " 
+  id="navHeader"
   style="position: fixed;
   left: 0; top: 0; z-index: 10;width: 100%;"
 >
@@ -109,7 +205,7 @@
     <div class="bars">
       <div id="appDrawer" class="sidebar-image">
   <div class="drawer-box-icon">
-    <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
   </div>
   
   <transition name="fade">
@@ -118,7 +214,7 @@
   </transition>
   <div class="drawer-box" :class="{'active': visible}">
     <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
       <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
       <h5 class="drawer-box-head_desc">blogs by SSR</h5>
     </div>
@@ -131,7 +227,7 @@
               
                 <a href="/" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="fas fa-home" aria-hidden="true"></i>
                   
                   <span class="name">首页</span>
                 </a>
@@ -142,7 +238,7 @@
               
                 <a href="/archives" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <i class="fas fa-archive" aria-hidden="true"></i>
                   
                   <span class="name">归档</span>
                 </a>
@@ -153,7 +249,7 @@
               
                 <a href="/tags" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <i class="fas fa-tags" aria-hidden="true"></i>
                   
                   <span class="name">标签</span>
                 </a>
@@ -164,7 +260,7 @@
               
                 <a href="/categories" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
                   <span class="name">分类</span>
                 </a>
@@ -175,7 +271,7 @@
               
                 <a href="/about" class="drawer-menu-item-link">
                   
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                   
                   <span class="name">关于</span>
                 </a>
@@ -186,7 +282,7 @@
         
           <li class="drawer-box-content_item">
             <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
-              <i class="fa fa-github" aria-hidden="true"></i>
+              <i class="fas fa-github" aria-hidden="true"></i>
               <span>Github</span>
             </a>
           </li>
@@ -245,7 +341,7 @@
     <div class="blog-title" id="author-avatar">
       
         <div class="avatar">
-          <img src="/medias/logo.png" alt="logo">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
         </div>
       
       <a href="/" class="logo">千里稻花应秀色</a>
@@ -258,7 +354,7 @@
               
                 <a href="/" class="menu-item-link" title="首页">
                   
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="fas fa-home" aria-hidden="true"></i>
                   
                   <span class="name">首页</span>
                 </a>
@@ -269,7 +365,7 @@
               
                 <a href="/archives" class="menu-item-link" title="归档">
                   
-                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <i class="fas fa-archive" aria-hidden="true"></i>
                   
                   <span class="name">归档</span>
                 </a>
@@ -280,7 +376,7 @@
               
                 <a href="/tags" class="menu-item-link" title="标签">
                   
-                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <i class="fas fa-tags" aria-hidden="true"></i>
                   
                   <span class="name">标签</span>
                 </a>
@@ -291,7 +387,7 @@
               
                 <a href="/categories" class="menu-item-link" title="分类">
                   
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
                   <span class="name">分类</span>
                 </a>
@@ -302,7 +398,7 @@
               
                 <a href="/about" class="menu-item-link" title="关于">
                   
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                   
                   <span class="name">关于</span>
                 </a>
@@ -314,19 +410,16 @@
       
       
         <div id="appSearch">
-  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
   <transition name="fade">
     <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
       <div class="message-box animated bounceInDown">
-        <!-- <div class="close" style="overflow: hidden;">
-          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
-        </div> -->
         <h2>
           <span>
-            <i class="fa fa-search" aria-hidden="true"></i>
+            <i class="fas fa-search" aria-hidden="true"></i>
             <span class="title">本地搜索</span>
           </span>
-          <i class="fa fa-close close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
         </h2>
         <form class="site-search-form">
           <input type="text"
@@ -357,6 +450,9 @@
     computed: {
     },
     mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
     },
     methods: {
       showDialog() {
@@ -395,121 +491,23 @@
     <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
   
   
-
-    <!-- 当头部导航设置为背景透明的时候  -->
-    
-      <script src="/js/header/index.js" data-pjax></script>
-    
 </header>
-
-    <!-- 需要在上面加载的js -->
-    <script>
-    function loadScript(src, cb) {
-        setTimeout(function () {
-            var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-            var script = document.createElement('script');
-            script.setAttribute('type', 'text/javascript');
-            if (cb) script.onload = cb;
-            script.setAttribute('src', src);
-            HEAD.appendChild(script);
-        });
-    }
-
-    //https://github.com/filamentgroup/loadCSS
-    var loadCSS = function (href, before, media, attributes) {
-        var doc = window.document;
-        var ss = doc.createElement("link");
-        var ref;
-        if (before) {
-            ref = before;
-        }
-        else {
-            var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-            ref = refs[refs.length - 1];
-        }
-        var sheets = doc.styleSheets;
-        if (attributes) {
-            for (var attributeName in attributes) {
-                if (attributes.hasOwnProperty(attributeName)) {
-                    ss.setAttribute(attributeName, attributes[attributeName]);
-                }
-            }
-        }
-        ss.rel = "stylesheet";
-        ss.href = href;
-        ss.media = "only x";
-        function ready(cb) {
-            if (doc.body) {
-                return cb();
-            }
-            setTimeout(function () {
-                ready(cb);
-            });
-        }
-        ready(function () {
-            ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
-        });
-        var onloadcssdefined = function (cb) {
-            var resolvedHref = ss.href;
-            var i = sheets.length;
-            while (i--) {
-                if (sheets[i].href === resolvedHref) {
-                    return cb();
-                }
-            }
-            setTimeout(function () {
-                onloadcssdefined(cb);
-            });
-        };
-        function loadCB() {
-            if (ss.addEventListener) {
-                ss.removeEventListener("load", loadCB);
-            }
-            ss.media = media || "all";
-        }
-        if (ss.addEventListener) {
-            ss.addEventListener("load", loadCB);
-        }
-        ss.onloadcssdefined = onloadcssdefined;
-        onloadcssdefined(loadCB);
-        return ss;
-    };
-    
-</script>
- 
-
-<!-- 轮播图所需要的js -->
-<script src="/js/swiper/swiper.min.js"></script>
-<script src="/js/swiper/vue-awesome-swiper.js"></script>
-<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
-
-
-  <script src="/js/vue-typed-js/index.js"></script>
-
-
-<!-- 首页的公告滚动插件的js需要重新加载 -->
-<script src="/js/vue-seamless-scroll/index.js"></script>
-
-<!-- 打字机效果js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-
-
-    <!-- 内容区域 -->
-    <main class="main" id="pjax-container" style="margin-top: 0;">
-      
+        <!-- 内容区域 -->
+        
  <!-- prismjs 代码高亮 -->
  
 
 
 <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
 
-<!-- 文章详情页顶部图片和标题 -->
+
+  <!-- 文章详情页顶部图片和标题 -->
 
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/2.jpg" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;">
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/37.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -523,7 +521,7 @@
     
       
         <span class="post-detail-header_date">
-          <i class="fa fa-calendar"></i> 发表于：2021-11-08 |
+          <i class="fas fa-calendar"></i> 发表于：2021-11-08 |
         </span>
       
 
@@ -549,10 +547,12 @@
 
 
 
-<div class="row justify-position">
+
+
+<div class="row justify-position" 
+  style="padding-top: 0px;">
   <div class="main-content">
     <article class="post post-detail">
-      
       <div class="post-content">
         <h1 id="机器学习算法一-基于逻辑回归的分类预测"><a class="markdownIt-Anchor" href="#机器学习算法一-基于逻辑回归的分类预测">#</a> 机器学习算法（一）: 基于逻辑回归的分类预测</h1>
 <h2 id="逻辑回归的介绍和应用"><a class="markdownIt-Anchor" href="#逻辑回归的介绍和应用">#</a> 逻辑回归的介绍和应用</h2>
@@ -604,10 +604,10 @@ the intercept(w0) of Logistic Regression: [-0.13139986]
 </code></pre>
 <p><strong>Step4: 数据和模型可视化</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 可视化构造的数据样本点</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.scatter(x_fearures[:,<span class="number">0</span>],x_fearures[:,<span class="number">1</span>], c=y_label, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Dataset&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img "" class="lazyload placeholder" data-original="output_7_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+<p><img src="output_7_0.png" class="lazyload placeholder" data-srcset="output_7_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化决策边界</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.scatter(x_fearures[:,<span class="number">0</span>],x_fearures[:,<span class="number">1</span>], c=y_label, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Dataset&#x27;</span>)</span><br><span class="line"></span><br><span class="line">nx, ny = <span class="number">200</span>, <span class="number">100</span></span><br><span class="line">x_min, x_max = plt.xlim()</span><br><span class="line">y_min, y_max = plt.ylim()</span><br><span class="line">x_grid, y_grid = np.meshgrid(np.linspace(x_min, x_max, nx),np.linspace(y_min, y_max, ny))</span><br><span class="line"></span><br><span class="line">z_proba = lr_clf.predict_proba(np.c_[x_grid.ravel(), y_grid.ravel()])</span><br><span class="line">z_proba = z_proba[:, <span class="number">1</span>].reshape(x_grid.shape)</span><br><span class="line">plt.contour(x_grid, y_grid, z_proba, [<span class="number">0.5</span>], linewidths=<span class="number">2.</span>, colors=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img "" class="lazyload placeholder" data-original="output_8_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+<p><img src="output_8_0.png" class="lazyload placeholder" data-srcset="output_8_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 可视化预测新样本</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line"><span class="comment">## new point 1</span></span><br><span class="line">x_fearures_new1 = np.array([[<span class="number">0</span>, -<span class="number">1</span>]])</span><br><span class="line">plt.scatter(x_fearures_new1[:,<span class="number">0</span>],x_fearures_new1[:,<span class="number">1</span>], s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.annotate(s=<span class="string">&#x27;New point 1&#x27;</span>,xy=(<span class="number">0</span>,-<span class="number">1</span>),xytext=(-<span class="number">2</span>,<span class="number">0</span>),color=<span class="string">&#x27;blue&#x27;</span>,arrowprops=<span class="built_in">dict</span>(arrowstyle=<span class="string">&#x27;-|&gt;&#x27;</span>,connectionstyle=<span class="string">&#x27;arc3&#x27;</span>,color=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">## new point 2</span></span><br><span class="line">x_fearures_new2 = np.array([[<span class="number">1</span>, <span class="number">2</span>]])</span><br><span class="line">plt.scatter(x_fearures_new2[:,<span class="number">0</span>],x_fearures_new2[:,<span class="number">1</span>], s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.annotate(s=<span class="string">&#x27;New point 2&#x27;</span>,xy=(<span class="number">1</span>,<span class="number">2</span>),xytext=(-<span class="number">1.5</span>,<span class="number">2.5</span>),color=<span class="string">&#x27;red&#x27;</span>,arrowprops=<span class="built_in">dict</span>(arrowstyle=<span class="string">&#x27;-|&gt;&#x27;</span>,connectionstyle=<span class="string">&#x27;arc3&#x27;</span>,color=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">## 训练样本</span></span><br><span class="line">plt.scatter(x_fearures[:,<span class="number">0</span>],x_fearures[:,<span class="number">1</span>], c=y_label, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Dataset&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化决策边界</span></span><br><span class="line">plt.contour(x_grid, y_grid, z_proba, [<span class="number">0.5</span>], linewidths=<span class="number">2.</span>, colors=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:7: MatplotlibDeprecationWarning: The 's' parameter of annotate() has been renamed 'text' since Matplotlib 3.3; support for the old name will be dropped two minor releases later.
@@ -615,7 +615,7 @@ the intercept(w0) of Logistic Regression: [-0.13139986]
 c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:12: MatplotlibDeprecationWarning: The 's' parameter of annotate() has been renamed 'text' since Matplotlib 3.3; support for the old name will be dropped two minor releases later.
   if sys.path[0] == '':
 </code></pre>
-<p><img "" class="lazyload placeholder" data-original="output_9_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p><img src="output_9_1.png" class="lazyload placeholder" data-srcset="output_9_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
 <p><strong>Step5: 模型预测</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在训练集和测试集上分别利用训练好的模型进行预测</span></span><br><span class="line">y_label_new1_predict = lr_clf.predict(x_fearures_new1)</span><br><span class="line">y_label_new2_predict = lr_clf.predict(x_fearures_new2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The New point 1 predict class:\n&#x27;</span>,y_label_new1_predict)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The New point 2 predict class:\n&#x27;</span>,y_label_new2_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 由于逻辑回归模型是概率预测模型（前文介绍的 p = p(y=1|x,\theta)）,所以我们可以利用 predict_proba 函数预测其概率</span></span><br><span class="line">y_label_new1_predict_proba = lr_clf.predict_proba(x_fearures_new1)</span><br><span class="line">y_label_new2_predict_proba = lr_clf.predict_proba(x_fearures_new2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The New point 1 predict Probability of each class:\n&#x27;</span>,y_label_new1_predict_proba)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The New point 2 predict Probability of each class:\n&#x27;</span>,y_label_new2_predict_proba)</span><br></pre></td></tr></table></figure>
 <pre><code>The New point 1 predict class:
@@ -910,18 +910,18 @@ dtype: int64
 <p><strong>Step4: 可视化描述</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 合并标签和特征信息</span></span><br><span class="line">iris_all = iris_features.copy() <span class="comment">##进行浅拷贝，防止对于原始数据的修改</span></span><br><span class="line">iris_all[<span class="string">&#x27;target&#x27;</span>] = iris_target</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 特征与标签组合的散点可视化</span></span><br><span class="line">sns.pairplot(data=iris_all,diag_kind=<span class="string">&#x27;hist&#x27;</span>, hue= <span class="string">&#x27;target&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img "" class="lazyload placeholder" data-original="output_26_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+<p><img src="output_26_0.png" class="lazyload placeholder" data-srcset="output_26_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
 <p>从上图可以发现，在 2D 情况下不同的特征组合对于不同类别的花的散点分布，以及大概的区分能力。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> iris_features.columns:</span><br><span class="line">    sns.boxplot(x=<span class="string">&#x27;target&#x27;</span>, y=col, saturation=<span class="number">0.5</span>,palette=<span class="string">&#x27;pastel&#x27;</span>, data=iris_all)</span><br><span class="line">    plt.title(col)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p><img "" class="lazyload placeholder" data-original="output_28_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+<p><img src="output_28_0.png" class="lazyload placeholder" data-srcset="output_28_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
-<p><img "" class="lazyload placeholder" data-original="output_28_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
-<p><img "" class="lazyload placeholder" data-original="output_28_2.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
-<p><img "" class="lazyload placeholder" data-original="output_28_3.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p><img src="output_28_1.png" class="lazyload placeholder" data-srcset="output_28_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p><img src="output_28_2.png" class="lazyload placeholder" data-srcset="output_28_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p><img src="output_28_3.png" class="lazyload placeholder" data-srcset="output_28_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
 <p>利用箱型图我们也可以得到不同类别在不同特征上的分布差异情况。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选取其前三个特征绘制三维散点图</span></span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line"></span><br><span class="line">iris_all_class0 = iris_all[iris_all[<span class="string">&#x27;target&#x27;</span>]==<span class="number">0</span>].values</span><br><span class="line">iris_all_class1 = iris_all[iris_all[<span class="string">&#x27;target&#x27;</span>]==<span class="number">1</span>].values</span><br><span class="line">iris_all_class2 = iris_all[iris_all[<span class="string">&#x27;target&#x27;</span>]==<span class="number">2</span>].values</span><br><span class="line"><span class="comment"># &#x27;setosa&#x27;(0), &#x27;versicolor&#x27;(1), &#x27;virginica&#x27;(2)</span></span><br><span class="line">ax.scatter(iris_all_class0[:,<span class="number">0</span>], iris_all_class0[:,<span class="number">1</span>], iris_all_class0[:,<span class="number">2</span>],label=<span class="string">&#x27;setosa&#x27;</span>)</span><br><span class="line">ax.scatter(iris_all_class1[:,<span class="number">0</span>], iris_all_class1[:,<span class="number">1</span>], iris_all_class1[:,<span class="number">2</span>],label=<span class="string">&#x27;versicolor&#x27;</span>)</span><br><span class="line">ax.scatter(iris_all_class2[:,<span class="number">0</span>], iris_all_class2[:,<span class="number">1</span>], iris_all_class2[:,<span class="number">2</span>],label=<span class="string">&#x27;virginica&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img "" class="lazyload placeholder" data-original="output_30_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+<p><img src="output_30_0.png" class="lazyload placeholder" data-srcset="output_30_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
 <p><strong>Step5: 利用 逻辑回归模型 在二分类上 进行训练和预测</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 为了正确评估模型性能，将数据划分为训练集和测试集，并在训练集上训练模型，在测试集上验证模型性能。</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment">## 选择其类别为0和1的样本 （不包括类别为2的样本）</span></span><br><span class="line">iris_features_part = iris_features.iloc[:<span class="number">100</span>]</span><br><span class="line">iris_target_part = iris_target[:<span class="number">100</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">## 测试集大小为20%， 80%/20%分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(iris_features_part, </span><br><span class="line">                 iris_target_part, </span><br><span class="line">                 test_size = <span class="number">0.2</span>, </span><br><span class="line">                 random_state = <span class="number">2020</span>)</span><br></pre></td></tr></table></figure>
@@ -942,7 +942,7 @@ The confusion matrix result:
  [[ 9  0]
  [ 0 11]]
 </code></pre>
-<p><img "" class="lazyload placeholder" data-original="output_38_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p><img src="output_38_1.png" class="lazyload placeholder" data-srcset="output_38_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
 <p>我们可以发现其准确度为 1，代表所有的样本都预测正确了。</p>
 <p><strong>Step6: 利用 逻辑回归模型 在三分类 (多分类) 上 进行训练和预测</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 测试集大小为20%， 80%/20%分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(iris_features, </span><br><span class="line">                                                    iris_target, test_size = <span class="number">0.2</span>, </span><br><span class="line">                                                    random_state = <span class="number">2020</span>)</span><br></pre></td></tr></table></figure>
@@ -999,7 +999,7 @@ The accuracy of the Logistic Regression is: 0.8666666666666667
  [ 0  8  2]
  [ 0  2  8]]
 </code></pre>
-<p><img "" class="lazyload placeholder" data-original="output_45_1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"></p>
+<p><img src="output_45_1.png" class="lazyload placeholder" data-srcset="output_45_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
 <h2 id="重要知识点"><a class="markdownIt-Anchor" href="#重要知识点">#</a> 重要知识点</h2>
 <p>逻辑回归 原理简介：</p>
 <p>Logistic 回归虽然名字里带 “回归”，但是它实际上是一种分类方法，主要用于两分类问题（即输出只有两种，分别代表两个类别），所以利用了 Logistic 函数（或称为 Sigmoid 函数），函数形式为：</p>
@@ -1007,7 +1007,7 @@ The accuracy of the Logistic Regression is: 0.8666666666666667
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.09077em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 <p>其对应的函数图像可以表示如下:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = np.arange(-<span class="number">5</span>,<span class="number">5</span>,<span class="number">0.01</span>)</span><br><span class="line">y = <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br><span class="line"></span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.grid()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img "" class="lazyload placeholder" data-original="output_47_0.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="png"><br>
+<p><img src="output_47_0.png" class="lazyload placeholder" data-srcset="output_47_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
 <p x_i="">通过上图我们可以发现 Logistic 函数是单调递增函数，并且在 z=0 的时候取值为 0.5，并且 logi (⋅) 函数的取值范围为 (0,1)。<br>
 而回归的基本方程为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><msub><mi>w</mi><mn>0</mn></msub><mo>+</mo><msubsup><mo>∑</mo><mi>i</mi><mi>N</mi></msubsup><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">z=w_0+\sum_{i}^N{w_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.2809409999999999em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.981231em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
@@ -1060,12 +1060,13 @@ The accuracy of the Logistic Regression is: 0.8666666666666667
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+    <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/9.jpg" class="lazyload placeholder" data-srcset="/medias/9.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
     <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB/" class="post-nav-link">
       <div class="title">
-        <i class="fa fa-angle-left"></i> 上一篇:
+        <i class="fas fa-angle-left"></i> 上一篇:
         <div class="title-text">基于线性判别模型的分类</div>
       </div>
       
@@ -1081,18 +1082,17 @@ The accuracy of the Logistic Regression is: 0.8666666666666667
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+    <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/33.jpg" class="lazyload placeholder" data-srcset="/medias/33.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
-    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8ELightGBM%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-nav-link">
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/BP/" class="post-nav-link">
       <div class="title">
-        下一篇: <i class="fa fa-angle-right"></i>
-        <div class="title-text">基于LightGBM的分类预测</div>
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">BP神经网络</div>
       </div>
       <!-- <div class="content">
-        # 1. 基于 LightGBM 的分类预测
-# 1.1 LightGBM 的介绍
-LightGBM 是 2017 年由
+        123456import tensorflow as tffrom tensorflow import kerasimp
       </div> -->
     </a>
   </div>
@@ -1130,6 +1130,8 @@ LightGBM 是 2017 年由
     
   </div>
 
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
 
   </div>
 
@@ -1139,7 +1141,7 @@ LightGBM 是 2017 年由
   <div class="toc-aside">
     <div class="toc-main">
       <div class="toc-aside-title">
-        <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
         
           <div class="toc-open-close">本文目录</div>
         
@@ -1149,186 +1151,255 @@ LightGBM 是 2017 年由
       </div>
     </div>
   </div>
-  <!-- js在scripts目录下的的toc.ejs里面 -->
-  
 
-  <script>
-    function openBtnClickFn () {
-      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
-      let open = eval('' || 'true');
-      openOrCloseBtn.click(function() {
-        if (open === true) {
-          $(".toc-aside").css({'width': 0, 'padding': 0});
-          $(".toc-content").css({'width': 0});
-          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
-          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
-          open = false;
-        } else {
-          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
-          $(".toc-content").css({'width': '300px'});
-          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
-          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
-          open = true;
-        }
-      });
-    };
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
     openBtnClickFn();
-    document.addEventListener('pjax:complete', function () {
-      openBtnClickFn();
-    })
-  </script>
-
-
+  })
   
+</script>
 
   <!-- 图片放大 Wrap images with fancybox support -->
   <script src="/js/wrapImage.js"></script>
 </div>
 
 <!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
-    <transition-group tag="ul" :name="names">
-        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-            <img :src="image" class="bg-swiper-img">
-        </li>
-    </transition-group>
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
 </div>
 <script>
-    var vm = new Vue({
-        el: '#appBgSwiper',
-        data: {
-            names: '' || 'fade' || 'fade', // translate-fade fade
-            mark: 0,
-            img: [],
-            bgColor: '',
-            time: null
-        },
-        methods: {   //添加方法
-            change(i, m) {
-                if (i > m) {
-                    // this.names = 'fade';
-                } else if (i < m) {
-                    // this.names = 'fade';
-                } else {
-                    return;
-                }
-                this.mark = i;
-            },
-            prev() {
-                // this.names = 'fade';
-                this.mark--;
-                if (this.mark === -1) {
-                    this.mark = 3;
-                    return
-                }
-            },
-            next() {
-                // this.names = 'fade';
-                this.mark++;
-                if (this.mark === this.img.length) {
-                    this.mark = 0;
-                    return
-                }
-            },
-            autoPlay() {
-                // this.names = 'fade';
-                this.mark++;
-                if (this.mark === this.img.length) {
-                    this.mark = 0;
-                    return
-                }
-            },
-            play() {
-                let bgImgDelay = '' || '180000'
-                let delay = parseInt(bgImgDelay) || 180000;
-                this.time = setInterval(this.autoPlay, delay);
-            },
-            enter() {
-                clearInterval(this.time);
-            },
-            leave() {
-                this.play();
-            }
-        },
-        created() {
-            this.play()
-        },
-        beforeDestroy() {
-            clearInterval(this.time);
-        },
-        mounted() {
-            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
-            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
-            if (isImg) {
-                let img = prop.split(',');
-                let configRoot = '/'
-                let arrImg = [];
-                img.forEach(el => {
-                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-			        var objExp = new RegExp(Expression);
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
 
-                    if(objExp.test(el)) {
-                        // http or https
-                        arrImg.push(el);
-                    } else {
-                        // 非http or https开头
-                        // 本地文件
-                        let firstStr = el.charAt(0);
-                        if (firstStr == '/') {
-                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-                        }
-                        el = configRoot + el;
-                        arrImg.push(el);
-                    }
-                })
-                this.img = arrImg;
-            } else {
-                this.bgColor = prop;
-            }
-        }
-    })
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
 </script>
 
 <style>
-    .bg-swiper-box {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    .bg-swiper-img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
 </style>
 
-    </main>
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+      </main>
+    </div>
 
     <!-- 页脚 -->
-    <div class="footer bg-color">
-  <div class="footer-main">
-    <div class="link">
-      
-    </div>
-    <div class="footer-copyright">
-      <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
-
-    </div>
-    <div class="footer-custom">
-      
-    </div>
-    <!-- 不蒜子统计 -->
     
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2019 - 2023 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+          </div>
+        
+      
+        
+          
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
   </div>
-</div>
+
 
 
     <!-- 渲染暗黑按钮 -->
     
       <div class="dark">
   <div class="dark-content">
-    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <i class="fas fa-moon" aria-hidden="true"></i>
     <!-- <span>关灯</span> -->
   </div>
   
@@ -1341,7 +1412,7 @@ LightGBM 是 2017 年由
       $(".dark-content").replaceWith(
           `
           <div class='dark-content'>
-            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
           </div>
           `
         );
@@ -1353,7 +1424,7 @@ LightGBM 是 2017 年由
         $(".dark-content").replaceWith(
           `
           <div class='dark-content'>
-            <i class="fa fa-moon-o" aria-hidden="true"></i>
+            <i class="fas fa-moon" aria-hidden="true"></i>
           </div>
           `
         );
@@ -1363,7 +1434,7 @@ LightGBM 是 2017 年由
         $(".dark-content").replaceWith(
           `
           <div class='dark-content'>
-            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
           </div>
           `
         );
@@ -1375,9 +1446,10 @@ LightGBM 是 2017 年由
     <!-- 渲染回到顶部按钮 -->
     
       <div class="goTop top-btn-color" pointer>
-  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </div>
 <script src="/js/goTop.js"></script>
+
     
     <!-- 渲染左下角音乐播放器 -->
     
@@ -1385,16 +1457,12 @@ LightGBM 是 2017 年由
 <style>
 .aplayer .aplayer-lrc p {
   
-  display: none;
-  
   font-size: 12px;
   font-weight: 700;
   line-height: 16px !important;
 }
 
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
-  
-  display: none;
   
   font-size: 15px;
   color: #42b983;
@@ -1417,7 +1485,7 @@ LightGBM 是 2017 年由
   type="album"
   id="447721094"
   fixed='true'
-  autoplay='true'
+  autoplay='false'
   theme='#42b983'
   loop='all'
   order='random'
@@ -1434,7 +1502,7 @@ LightGBM 是 2017 年由
     bottom: 300px;
   }
 </style> -->
-<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
@@ -1451,8 +1519,9 @@ LightGBM 是 2017 年由
     
     <!-- 背景彩带 -->
     
-    
-    <script src="/js/app.js" data-pjax></script>
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
     
     <!-- 文章目录所需js -->
 <link href="/js/tocbot/tocbot.css" rel="stylesheet">
@@ -1460,9 +1529,9 @@ LightGBM 是 2017 年由
 
 <script>
   var headerEl = 'h2, h3, h4',  //headers 
-      content = '.post-detail',//文章容器
-      idArr = {};  //标题数组以确定是否增加索引id
-      //add #id
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
   var option = {
     // Where to render the table of contents.
     tocSelector: '.toc',
@@ -1476,6 +1545,8 @@ LightGBM 是 2017 年由
     positionFixedSelector: '.toc-main',
     positionFixedClass: 'is-position-fixed',
     fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    // onClick: function (e) {},
   }
   if ($('.toc').length > 0) {
 
@@ -1496,10 +1567,41 @@ LightGBM 是 2017 年由
       }
     });
 
-    tocbot.init(option);
-    
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
   }
 
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 100) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
 
   document.addEventListener('pjax:send', function () {
     if ($('.toc').length) {
@@ -1510,37 +1612,99 @@ LightGBM 是 2017 年由
   document.addEventListener('pjax:complete', function () {
     if ($('.toc').length) {
       tocbot.init(option);
+      mobileTocClick();
     }
   });
-
   
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('toc-aside')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
 </script>
 
 <style>
-.is-position-fixed {
-  position:sticky !important;
-  top: 74px;
-}
-.toc-main ul {
-  counter-reset: show-list;
-}
-.toc-main ul li::before {
-  content: counter(item)".";
-  display: block;
-  position: absolute;
-  left: 12px;
-  top:0;
-}
-/* .toc > .toc-list {
-  padding-left: 35px;
-}
-.toc>.toc-list li {
-  list-style: decimal;
-}
-.toc-list {
-  padding-left: 25px;
-} */
+  .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  }
 </style> 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const headerMenuTransparent = true;
+    if (!headerMenuTransparent) { return; }
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
 
 <!-- 渲染issues标签里的内容 -->
 <script>
@@ -1559,46 +1723,6 @@ LightGBM 是 2017 年由
     }
   })
 </script>
-
-<!-- div滚动到显示区域的动画 -->
-
-  <script src="/js/aos/aos.js"></script>
-  <script>
-    // https://github.com/michalsnik/aos
-    var themeOffset = parseInt('120') || 120;
-    var themeDelay = parseInt('0') || 0;
-    var themeDuration = parseInt('400') || 400;
-    var themeEasing = 'ease' || 'ease';
-    var themeOnce = eval('true') || false;
-    var themeMirror = eval('false') || false;
-    var themeAnchorPlacement = 'top-bottom' || 'top-bottom';
-    AOS.init({
-      // Global settings:
-      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-      initClassName: 'aos-init', // class applied after initialization
-      animatedClassName: 'aos-animate', // class applied on animation
-      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-      offset: themeOffset, // offset (in px) from the original trigger point
-      delay: themeDelay, // values from 0 to 3000, with step 50ms
-      duration: themeDuration, // values from 0 to 3000, with step 50ms
-      easing: themeEasing, // default easing for AOS animations
-      once: themeOnce, // whether animation should happen only once - while scrolling down
-      mirror: themeMirror, // whether elements should animate out while scrolling past them
-      anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
-
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      AOS.refresh();
-    })
-  </script>
-
 
 <!-- 输入框打字特效 -->
 <!-- 输入框打字特效 -->
@@ -1632,7 +1756,7 @@ LightGBM 是 2017 年由
         var initCopyCode = function () {
           var copyHtml = '';
           copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
-          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
           copyHtml += '</button>';
           $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
           $(".post-detail pre").not('.gutter pre').before(copyHtml);
@@ -1644,41 +1768,20 @@ LightGBM 是 2017 年由
         }
         initCopyCode();
         $('.btn-copy').unbind('click').bind('click', function () {
-          console.log('888');
           doSomething();
         })
         $(document).unbind('keypress').bind('keypress', function (e) {
           if (e.ctrlKey && e.keyCode == 67) {
-            console.log('111111111111111');
             doSomething();
-            // 返回false, 防止重复触发copy事件  
-            // return false;
           }
         })
-        //  监听 ctrl + c事件  
-        // $(document).unbind('keypress').bind('keypress', function (e) {
-        //   if (e.ctrlKey && e.keyCode == 67) {
-        //     console.log('111111111111111');
-        //     doSomething();
-        //     // 返回false, 防止重复触发copy事件  
-        //     return false;
-        //   }
-        // })
-
-        // // 鼠标右键的复制事件  
-        // $(document).unbind('copy').bind('copy', function (e) {
-        //   console.log('222222222222222222');
-        //   doSomething();
-        //   // console.log('右键复制 监听成功');
-        // });
 
         function doSomething() {
           that.$notify({
             title: "成功",
-            content: "代码已复制，请遵守相关授权协议。",
+            content: "代码已复制，祝一切顺利。",
             type: 'success'
           })
-          // console.log('ctrl + c 监听成功');  
         }
       },
       methods: {
@@ -1686,32 +1789,51 @@ LightGBM 是 2017 年由
       created() { }
     })
   </script>
-
+  
 
 <!-- 图片懒加载 -->
-<script src="/js/lazyload/lazyload@1.9.1.js"></script>
-<script data-pjax>
-  $(function () {
-    $("div.lazyload, img.lazyload, a.lazyload").lazyload(
-      {
-        effect: "show",
-        placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
-      }
-    );
+<script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
   });
 </script>
 
+
+<!-- 卡片滚动动画 -->
+   
+
 <!-- 评论所需js -->
 
-    
+  
 
 
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
-	 
-		<script src="/js/cursor/clicklove.js"></script> 
-	
+   
+    <script src="/js/cursor/clicklove.js"></script> 
+  
+
 
 
 
@@ -1755,7 +1877,7 @@ LightGBM 是 2017 年由
 
   <script>
     var pjax = new Pjax({
-      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"])',   // 拦截正常带链接的 a 标签
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
       selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
       cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
       timeout: 5000
@@ -1792,6 +1914,11 @@ LightGBM 是 2017 年由
 
     document.addEventListener('pjax:error', function (e) {
       window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
     })
   </script>
 

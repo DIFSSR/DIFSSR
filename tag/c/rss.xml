@@ -9,17 +9,18 @@
         <lastBuildDate>Thu, 22 Jul 2021 08:37:44 +0800</lastBuildDate>
         <category>C</category>
         <category>大数据</category>
-        <category>Shell</category>
         <category>Python</category>
+        <category>Shell</category>
         <category>MapReduce</category>
         <category>平台</category>
         <category>安全</category>
+        <category>数据库</category>
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>机器学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/07/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/</guid>
-            <title>C语言学习(一)</title>
+            <title>C语言学习</title>
             <link>http://example.com/2021/07/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/</link>
             <category>C</category>
             <pubDate>Thu, 22 Jul 2021 08:37:44 +0800</pubDate>
@@ -67,7 +68,7 @@ Thompson） 在开发 UNIX 操作系统时设计了 C 语言。 然而， C 语�
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;保留字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#保留字&#34;&gt;#&lt;/a&gt; 保留字&lt;/h3&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;关键字&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;关键字&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;基本数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本数据类型&#34;&gt;#&lt;/a&gt; 基本数据类型&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -103,7 +104,7 @@ char 是整数类型。 因为 char 类型实际上储存的是整数而不是�
 C 语言把 1 字节定义为 char 类型占用的位（bit） 数， 因此无论是 16 位还是&lt;br&gt;
  32 位系统， 都可以使用 char 类型。&lt;/p&gt;
 &lt;p&gt;转义支付&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210723114546983&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210723114546983&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;h4 id=&#34;布尔类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#布尔类型&#34;&gt;#&lt;/a&gt; 布尔类型&lt;/h4&gt;

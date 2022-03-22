@@ -9,11 +9,12 @@
         <lastBuildDate>Wed, 28 Jul 2021 08:37:44 +0800</lastBuildDate>
         <category>C</category>
         <category>大数据</category>
-        <category>Shell</category>
         <category>Python</category>
+        <category>Shell</category>
         <category>MapReduce</category>
         <category>平台</category>
         <category>安全</category>
+        <category>数据库</category>
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>机器学习</category>
@@ -85,7 +86,7 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;双击 Visual Studio Code 软件包进行安装。安装过程中，请勾选 “添加到 PATH（重启后生效）”。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;点击放大&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;安装完成后，重启计算机，使 Visual Studio Code 的环境变量生效。&lt;/p&gt;
@@ -98,15 +99,15 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;双击 Python 安装包进行安装，勾选 “&lt;strong&gt;Add Python 3.8 to PATH&lt;/strong&gt;”，然后点击&lt;strong&gt; Install Now&lt;/strong&gt; 开始安装。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;等待安装完成后，点击&lt;strong&gt; Close&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;打开命令行工具，输入 python --version，检查安装结果。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在命令行工具中，分别执行如下命令设置 pip 源，用于后续安装 DevEco Device Tool 过程中下载依赖的组件包。&lt;/p&gt;
@@ -122,7 +123,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;重新打开命令行工具，输入 “node -v” 命令，能正常查询 Node.js 的版本号，说明 Node.js 安装成功。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;安装hpm&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装hpm&#34;&gt;#&lt;/a&gt; 安装 hpm&lt;/h2&gt;
@@ -138,12 +139,12 @@
 &lt;li&gt;
 &lt;p&gt;打开命令行工具，执行如下命令安装最新版本 hpm。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g @ohos/hpm-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;安装完成后，执行如下命令（V 为大写字母）检查 hpm 安装结果。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hpm -V&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;安装deveco-device-tool插件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装deveco-device-tool插件&#34;&gt;#&lt;/a&gt; 安装 DevEco Device Tool 插件&lt;/h2&gt;
@@ -157,16 +158,16 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;安装过程中，会自动安装 DevEco Device Tool 所需的依赖文件（如 C/C++ 和 CodeLLDB 插件）和执行程序。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;安装完成后，会自动关闭命令行工具窗口。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;启动 Visual Studio Code，点击左侧的&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt; 按钮，检查 INSTALLED 中，是否已成功安装 C/C++、CodeLLDB 和 DevEco Device Tool。&lt;/p&gt;
+&lt;p&gt;启动 Visual Studio Code，点击左侧的&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt; 按钮，检查 INSTALLED 中，是否已成功安装 C/C++、CodeLLDB 和 DevEco Device Tool。&lt;/p&gt;
 &lt;p&gt;说明&lt;/p&gt;
 &lt;p&gt;如果 C/C++ 和 CodeLLDB 插件安装不成功，则 DevEco Device Tool 不能正常运行，解决方法，详细请参考：&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/offline_plugin_install-0000001074376846&#34;&gt;离线安装 C/C++ 和 CodeLLDB 插件&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -209,34 +210,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2021/06/21/%E5%B9%B3%E5%8F%B0/Windows%20%E5%AE%9A%E6%97%B6%E5%BC%80%E6%9C%BA%E3%80%81%E8%81%94%E7%BD%91%E3%80%81%E6%89%93%E5%BC%80%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1/</guid>
-            <title>Windows 定时开机、联网、打开远程服务</title>
-            <link>http://example.com/2021/06/21/%E5%B9%B3%E5%8F%B0/Windows%20%E5%AE%9A%E6%97%B6%E5%BC%80%E6%9C%BA%E3%80%81%E8%81%94%E7%BD%91%E3%80%81%E6%89%93%E5%BC%80%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1/</link>
-            <category>平台</category>
-            <pubDate>Mon, 21 Jun 2021 11:40:59 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;windows-定时开机-联网-打开远程服务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windows-定时开机-联网-打开远程服务&#34;&gt;#&lt;/a&gt; Windows 定时开机、联网、打开远程服务&lt;/h1&gt;
-&lt;p&gt;作者：SSR&lt;/p&gt;
-&lt;h2 id=&#34;设置定时任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置定时任务&#34;&gt;#&lt;/a&gt; 设置定时任务&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;右键此电脑 &amp;gt; 管理 &amp;gt; 任务计划程序 &amp;gt; 任务计划库&lt;/li&gt;
-&lt;li&gt;在右侧创建任务&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172358836.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210621172358836&#34;&gt;&lt;/li&gt;
-&lt;li&gt;输入事件名称，选择不管是否登陆都要执行（关键！确保开机不登录也运行）&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172519107.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210621172519107&#34;&gt;&lt;/li&gt;
-&lt;li&gt;添加触发器 1，选择启动时&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172654148.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210621172654148&#34;&gt;&lt;/li&gt;
-&lt;li&gt;添加触发器 2，选择每日特定时间&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172812758.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210621172812758&#34;&gt;&lt;/li&gt;
-&lt;li&gt;添加操作并指定联网脚本（理论上 java、python 都随意，这里使用批处理脚本）&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172957100.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210621172957100&#34;&gt;&lt;/li&gt;
-&lt;li&gt;添加操作，指定打开远程连接软件 ToDesk (&lt;a href=&#34;http://www.todesk.com&#34;&gt;www.todesk.com&lt;/a&gt;)&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621173149721.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210621173149721&#34;&gt;&lt;/li&gt;
-&lt;li&gt;点击确定完成设置&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;设置bios启动&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置bios启动&#34;&gt;#&lt;/a&gt; 设置 BIOS 启动&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;打开开始 &amp;gt; 设置 &amp;gt; 更新和安全 &amp;gt; 恢复 &amp;gt; 立即重新启动 &amp;gt; 疑难解答 &amp;gt; 高级选项 &amp;gt; UEFI 固件设置 &amp;gt; 重启&lt;/li&gt;
-&lt;li&gt;找到电池选项，修改如下，保存开机&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5CIMG_20210621_164601.jpg&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;IMG_20210621_164601&#34;&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证&#34;&gt;#&lt;/a&gt; 验证&lt;/h2&gt;
-&lt;p&gt;一气呵成，简直完美&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">http://example.com/2021/06/21/%E5%B9%B3%E5%8F%B0/%E5%AE%89%E8%A3%85mysql_5.6.33%20linux_64%E4%BD%8D/</guid>
             <title>安装mysql_5.6.33 linux_64位</title>
             <link>http://example.com/2021/06/21/%E5%B9%B3%E5%8F%B0/%E5%AE%89%E8%A3%85mysql_5.6.33%20linux_64%E4%BD%8D/</link>
@@ -269,6 +242,34 @@
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cp support-files/mysql.server /etc/init.d/mysqld&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;chkconfig --add mysqld&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;chkconfig mysqld on&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;service mysqld restart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;service mysqld status&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&#34;10-配置mycnf&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#10-配置mycnf&#34;&gt;#&lt;/a&gt; 10. 配置 my.cnf&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;vi my.cnf&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;添加如下语句&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;character-set-server=utf8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;lower_case_table_names=1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;max_allowed_packet=100M&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;配置完成重启服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;service mysqld restart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;service mysqld status&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2021/06/21/%E5%B9%B3%E5%8F%B0/Windows%20%E5%AE%9A%E6%97%B6%E5%BC%80%E6%9C%BA%E3%80%81%E8%81%94%E7%BD%91%E3%80%81%E6%89%93%E5%BC%80%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1/</guid>
+            <title>Windows 定时开机、联网、打开远程服务</title>
+            <link>http://example.com/2021/06/21/%E5%B9%B3%E5%8F%B0/Windows%20%E5%AE%9A%E6%97%B6%E5%BC%80%E6%9C%BA%E3%80%81%E8%81%94%E7%BD%91%E3%80%81%E6%89%93%E5%BC%80%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1/</link>
+            <category>平台</category>
+            <pubDate>Mon, 21 Jun 2021 11:40:59 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;windows-定时开机-联网-打开远程服务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windows-定时开机-联网-打开远程服务&#34;&gt;#&lt;/a&gt; Windows 定时开机、联网、打开远程服务&lt;/h1&gt;
+&lt;p&gt;作者：SSR&lt;/p&gt;
+&lt;h2 id=&#34;设置定时任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置定时任务&#34;&gt;#&lt;/a&gt; 设置定时任务&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;右键此电脑 &amp;gt; 管理 &amp;gt; 任务计划程序 &amp;gt; 任务计划库&lt;/li&gt;
+&lt;li&gt;在右侧创建任务&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172358836.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172358836.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210621172358836&#34;&gt;&lt;/li&gt;
+&lt;li&gt;输入事件名称，选择不管是否登陆都要执行（关键！确保开机不登录也运行）&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172519107.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172519107.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210621172519107&#34;&gt;&lt;/li&gt;
+&lt;li&gt;添加触发器 1，选择启动时&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172654148.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172654148.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210621172654148&#34;&gt;&lt;/li&gt;
+&lt;li&gt;添加触发器 2，选择每日特定时间&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172812758.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172812758.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210621172812758&#34;&gt;&lt;/li&gt;
+&lt;li&gt;添加操作并指定联网脚本（理论上 java、python 都随意，这里使用批处理脚本）&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172957100.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621172957100.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210621172957100&#34;&gt;&lt;/li&gt;
+&lt;li&gt;添加操作，指定打开远程连接软件 ToDesk (&lt;a href=&#34;http://www.todesk.com&#34;&gt;www.todesk.com&lt;/a&gt;)&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621173149721.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621173149721.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210621173149721&#34;&gt;&lt;/li&gt;
+&lt;li&gt;点击确定完成设置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;设置bios启动&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置bios启动&#34;&gt;#&lt;/a&gt; 设置 BIOS 启动&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;打开开始 &amp;gt; 设置 &amp;gt; 更新和安全 &amp;gt; 恢复 &amp;gt; 立即重新启动 &amp;gt; 疑难解答 &amp;gt; 高级选项 &amp;gt; UEFI 固件设置 &amp;gt; 重启&lt;/li&gt;
+&lt;li&gt;找到电池选项，修改如下，保存开机&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5CIMG_20210621_164601.jpg&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5CIMG_20210621_164601.jpg&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;IMG_20210621_164601&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证&#34;&gt;#&lt;/a&gt; 验证&lt;/h2&gt;
+&lt;p&gt;一气呵成，简直完美&lt;/p&gt;
+ ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://example.com/2021/05/20/%E5%B9%B3%E5%8F%B0/Centos7%E4%B8%8Byum%E5%AE%89%E8%A3%85MariaDB/</guid>
@@ -311,25 +312,25 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;li&gt;将 websockify 解压到 C:\Users\XXX (用户名)\node_modules\noVNC 下&lt;/li&gt;
 &lt;li&gt;如图&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518103523666&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518103547147&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518103523666&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518103547147&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;将./noVNC/vnc.html 复制一份，更名为 index.html&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518105649182&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518105649182&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Server 安装 tightVNC&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;运行 tightVNC server, 任务栏找到图标&lt;br&gt;
-&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518103816266&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518103816266&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;单击打开，设置连接密码&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518104024652&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518104024652&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;这里服务默认端口 5900，不用更改&lt;/p&gt;
@@ -341,16 +342,16 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;node C:\Users\SSR\node_modules\noVNC\websockify-js-master\websockify\websockify.js --web C:\Users\SSR\node_modules\noVNC 9000 localhost:5900&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; 注意更改用户路径&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; 注意更改localhost为本机IP（11.11.11.11）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;保持 cmd 窗口后台运行，打开 Win10 防火墙设置，添加入站规则，允许 TCP9000 端口入站&lt;br&gt;
-&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518104902295&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518104902295&#34;&gt;&lt;/li&gt;
 &lt;li&gt;配置完成&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;验证效果&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证效果&#34;&gt;#&lt;/a&gt; 验证效果&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;打开同网段另一台电脑，打开浏览器&lt;/li&gt;
 &lt;li&gt;访问 ServerIP:9000，形如 11.11.11.11:9000&lt;br&gt;
-&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518110422381&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518110422381&#34;&gt;&lt;/li&gt;
 &lt;li&gt;点击连接，输入之前设置的连接密码&lt;br&gt;
-&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518110522936&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518110522936&#34;&gt;&lt;/li&gt;
 &lt;li&gt;成功连接 Win10&lt;br&gt;
 ![](E:\SSR\Pictures\ 屏幕截图 2021-05-18 110948.png)&lt;/li&gt;
 &lt;/ul&gt;
@@ -403,15 +404,15 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;li&gt;打开另一台同网段电脑浏览器，Chrome/Firefox&lt;/li&gt;
 &lt;li&gt;访问 http://CentosIP/vnc.html&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194210406.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518194210406&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194210406.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194210406.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518194210406&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;输入密码&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194236868.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518194236868&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194236868.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194236868.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518194236868&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;网页连接成功&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194333582.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210518194333582&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194333582.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518194333582.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210518194333582&#34;&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -421,7 +422,7 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
             <category>平台</category>
             <pubDate>Mon, 03 May 2021 11:40:59 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;win7系统封装与快速装机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#win7系统封装与快速装机&#34;&gt;#&lt;/a&gt; Win7 系统封装与快速装机&lt;/h1&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cdos.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;dos&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cdos.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cdos.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;dos&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;背景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#背景&#34;&gt;#&lt;/a&gt; 背景&lt;/h3&gt;
 &lt;p&gt;最近小编接受了一项任务，给一定数量的电脑更换系统，并且需要根据实际，在系统中安装环境和许多软件，而一台一台安装又不大现实，于是就开始了这一次艰辛的历程，从开始着手到最终成功花费了近一周的空闲时间，失败次数 4 次以上，而每次尝试花费的时间都在 5 小时左右。。。&lt;br&gt;
 于是特地把过程记录下来，希望能帮到有需要的人，所需要的工具放在最后。&lt;/p&gt;
@@ -452,15 +453,15 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;ul&gt;
 &lt;li&gt;首先在 VMware 中安装 Win7 系统，安装系统步骤省略。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502203925837.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502203925837&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502203925837.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502203925837.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502203925837&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;安装到这个界面时停住，建立一次快照，记得每做完几步就建立快照哦。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502204145183.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502204145183&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502204145183.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502204145183.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502204145183&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;此时注意，第一个关键点，否则将失败，这里不添加用户，按下 Ctrl+Shift+F3，系统重启，自动用 Administrator 登录。出现以下界面。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502204527028.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502204527028&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502204527028.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502204527028.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502204527028&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;此时注意，第二个关键点，这里选择取消，并且以后的每次重启都选择取消。之后改改分辨率，将桌面图标调出来。&lt;/li&gt;
 &lt;/ul&gt;
@@ -469,13 +470,13 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;li&gt;接下来就是一个接一个地安装软件。U1S1，安装这些软件真太费时间了。&lt;/li&gt;
 &lt;li&gt;这里小编安装了一些语言环境和常用的软件，当然也可以结合需要安装不同软件。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502210406879.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502210406879.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502210406879.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;清理优化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#清理优化&#34;&gt;#&lt;/a&gt; 清理优化&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;安装完所有需要的软件后，接下来将系统清理一下。&lt;/li&gt;
 &lt;li&gt;使用 Dism++ 等清理工具将系统运行不需要的功能和缓存清除，修改一些系统设置，清空回收站等，清理完后系统减小了约 10G 的空间。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502205849480.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502205849480&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502205849480.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502205849480.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502205849480&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;封装系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封装系统&#34;&gt;#&lt;/a&gt; 封装系统&lt;/h3&gt;
 &lt;p&gt;接下来到最关键的步骤了，这一步直接决定成功与否。&lt;/p&gt;
 &lt;h4 id=&#34;第一次封装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第一次封装&#34;&gt;#&lt;/a&gt; 第一次封装&lt;/h4&gt;
@@ -483,7 +484,7 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;li&gt;在做好一切准备工作后，确定这就是你想要的系统时，就可以开始封装系统了。&lt;/li&gt;
 &lt;li&gt;使用系统封装工具 EasySysprep5 对系统进行第一次封装，注意这次是在 Win7 系统中进行。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502210924733.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502210924733&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502210924733.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502210924733.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502210924733&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;直接一键封装。封装结束后需要立即进入 PE 系统进行第二次封装。&lt;/li&gt;
 &lt;/ul&gt;
@@ -496,25 +497,25 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;p&gt;第一步，将虚拟机关机，在虚拟机设置中添加硬盘，直到这一步。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502211314063.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502211314063&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502211314063.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502211314063.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502211314063&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;这里选择使用物理磁盘，选择 PhysicalDrive1，我的情况是电脑只有一块硬盘，那么第二块就是 U 盘了，如果有疑惑可以打开磁盘管理查看，使用整个磁盘，添加完毕。扩展一下，这边也可以使用主机硬盘分区，就类似于共享了主机的一块分区，但是注意不能是系统分区和运行软件的分区。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503125957086.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210503125957086&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503125957086.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503125957086.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210503125957086&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;开机选择打开电源进入固件，就是进入 BIOS 改变启动顺序，在 BOOT 选项中将第二块硬盘放到最上面，F10 保存重启。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502211610879.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210502211610879&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130535636.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210503130535636&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502211610879.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210502211610879.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210502211610879&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130535636.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130535636.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210503130535636&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;进入 PE 后进行第二次封装，一键封装就行，如果没啥问题就成功了。封装完成后别重启，进行下一步系统备份。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130650549.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210503130650549&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130650549.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130650549.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210503130650549&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;制作ghost镜像&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#制作ghost镜像&#34;&gt;#&lt;/a&gt; 制作 Ghost 镜像&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 PE 系统的 Ghost 软件进行备份，选择 Win7 系统所在的盘，备份成为.gho 文件。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130903826.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210503130903826&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130903826.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503130903826.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210503130903826&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;经过近一小时的等待，备份 40 多 G 的系统，得到了 17G 大小的 GHO 镜像，到这里制作自定义系统就结束了。&lt;/li&gt;
 &lt;/ul&gt;
@@ -524,11 +525,11 @@ MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区�
 &lt;li&gt;这时别着急重启系统，使用 DG 分区工具重建还原后的分区引导，不然可能不能正常开机哦。&lt;/li&gt;
 &lt;li&gt;成功启动。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503132307337.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210503132307337&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503132307337.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503132307337.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210503132307337&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;所有环境都在，软件功能正常。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img &#34;&#34; class=&#34;lazyload placeholder&#34; data-original=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503132750165.png&#34; src=&#34;https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif&#34; alt=&#34;image-20210503132750165&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503132750165.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210503132750165.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210503132750165&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
