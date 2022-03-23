@@ -554,43 +554,43 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="3-循环结构"><a class="markdownIt-Anchor" href="#3-循环结构">#</a> 3 循环结构</h2>
+        <h2 id="3-循环结构"><a class="markdownIt-Anchor" href="#3-循环结构"></a> 3 循环结构</h2>
 <ul>
-<li>Shell 语言支持四种循环语句：for、while、until、select</li>
+<li>Shell语言支持四种循环语句：for、while、until、select</li>
 <li>工作中常用的是 for、while、until</li>
 </ul>
-<h3 id="for循环语法结构"><a class="markdownIt-Anchor" href="#for循环语法结构">#</a> for 循环语法结构</h3>
+<h3 id="for循环语法结构"><a class="markdownIt-Anchor" href="#for循环语法结构"></a> for循环语法结构</h3>
 <ul>
-<li>for 循环主要用于确定次数的循环</li>
-<li>第一种 for 循环的语法结构如下所示：</li>
+<li>for循环主要用于确定次数的循环</li>
+<li>第一种for循环的语法结构如下所示：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for 变量名 in 取值列表</span><br><span class="line">do</span><br><span class="line">	循环体</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <ul>
-<li>for 循环语句实现批量主机 ping 探测</li>
+<li>for循环语句实现批量主机ping探测</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hdp-1 shell]# cat for_ping.sh </span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for name in baidu 163 hao123</span><br><span class="line">do</span><br><span class="line">	&#123;</span><br><span class="line">	host=www.$name.com</span><br><span class="line">	ping -c1 -w1 $host &amp;&gt; /dev/null</span><br><span class="line">	if [ $? -eq 0 ];then</span><br><span class="line">		echo &quot;$host&quot; | tee -a host.txt</span><br><span class="line">	fi</span><br><span class="line">	&#125;&amp;</span><br><span class="line">done</span><br><span class="line">wait</span><br><span class="line">echo &quot;Mission Completed.&quot;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>for 循环语句实现文件中批量用户创建</li>
+<li>for循环语句实现文件中批量用户创建</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@hdp-1 shell]# cat users_from_file.sh </span><br><span class="line">IFS=$&#x27;\n&#x27;</span><br><span class="line">for line in `cat $1`</span><br><span class="line">do</span><br><span class="line">if [ $&#123;#line&#125; -eq 0 ];then</span><br><span class="line">continue</span><br><span class="line">fi</span><br><span class="line">user=`echo &quot;$line&quot; | awk &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line">pass=`echo &quot;$line&quot; | awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">id $user &amp;&gt;/dev/nuil</span><br><span class="line">if [ $? -eq 0 ] ;then</span><br><span class="line">echo &quot;user $user already exists&quot;</span><br><span class="line">else</span><br><span class="line">useradd $user</span><br><span class="line">echo &quot;$pass&quot; | passwd --stdin $user &amp;&gt; /dev/null</span><br><span class="line">if [ $? -eq 0 ];then</span><br><span class="line">echo &quot;$user created&quot;</span><br><span class="line">fi</span><br><span class="line">fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h3 id="while循环语句语法结构"><a class="markdownIt-Anchor" href="#while循环语句语法结构">#</a> while 循环语句语法结构</h3>
+<h3 id="while循环语句语法结构"><a class="markdownIt-Anchor" href="#while循环语句语法结构"></a> while循环语句语法结构</h3>
 <ul>
-<li>while 循环语句的基本语法为：</li>
+<li>while循环语句的基本语法为：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while 条件测试</span><br><span class="line">do</span><br><span class="line">    循环体</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <ul>
-<li>while 循环语句会对条件测试进行判断，如果条件测试成立时，则执行 do 和 done 之间的循环体，直到条件测试不成立才停止循环。</li>
-<li>while 循环语句实现批量用户创建</li>
+<li>while循环语句会对条件测试进行判断，如果条件测试成立时，则执行do和done之间的循环体，直到条件测试不成立才停止循环。</li>
+<li>while循环语句实现批量用户创建</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@hdp-1 shell]# cat while_user.sh </span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">while read line</span><br><span class="line">do</span><br><span class="line">	if [ $&#123;#line&#125; -eq 0 ];then</span><br><span class="line">		echo &quot;NULL&quot;</span><br><span class="line">		continue</span><br><span class="line">	fi</span><br><span class="line">	user=`echo $line | awk &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line">	pass=`echo $line | awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">	id $user &amp;&gt;/dev/null</span><br><span class="line">	if [ $? -eq 0 ];then</span><br><span class="line">		echo &quot;user $user already exists.&quot;</span><br><span class="line">	else</span><br><span class="line">		useradd $user</span><br><span class="line">		echo &quot;$pass&quot;| passwd --stdin $user &amp;&gt;/dev/null</span><br><span class="line">		if [ $? -eq 0 ] ;then</span><br><span class="line">			echo &quot;$user created .&quot;</span><br><span class="line">		fi</span><br><span class="line">	fi</span><br><span class="line">done &lt; $1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="until循环语句语法结构"><a class="markdownIt-Anchor" href="#until循环语句语法结构">#</a> until 循环语句语法结构</h3>
+<h3 id="until循环语句语法结构"><a class="markdownIt-Anchor" href="#until循环语句语法结构"></a> until循环语句语法结构</h3>
 <ul>
-<li>until 循环语句基本语法为：</li>
+<li>until循环语句基本语法为：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">until 条件测试</span><br><span class="line">do</span><br><span class="line">	循环体</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <ul>
-<li>until 循环语句是在条件表达式不成立时，进入循环体执行指令，条件表达式成立时，终止循环。until 的应用场景很罕见。</li>
-<li>until 循环语句测试远程主机可达性</li>
+<li>until循环语句是在条件表达式不成立时，进入循环体执行指令，条件表达式成立时，终止循环。until的应用场景很罕见。</li>
+<li>until循环语句测试远程主机可达性</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@hdp-1 shell]# cat until_ping.sh </span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">host=www.baidu.com</span><br><span class="line">until ping -c1 -w1 $host &amp;&gt;/dev/null</span><br><span class="line">do</span><br><span class="line">	sleep 1</span><br><span class="line">done</span><br><span class="line">echo &quot;$host up. &quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -636,20 +636,17 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/38.jpg" class="lazyload placeholder" data-srcset="/medias/38.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
-    <a href="/2021/09/15/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/HBNISWP/" class="post-nav-link">
+    <a href="/2021/09/14/Linux%20Shell/Linux%20Shell%E5%9F%BA%E7%A1%80/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">HBNIS WriteUp</div>
+        <div class="title-text">Linux Shell基础</div>
       </div>
       
       <!-- <div class="content">
-        第四届河北省大学生网络与信息安全大赛选拔赛 WP
-本科组凌云一队战队
-# 一、 战队信息
-战队名称：凌云一队
-# 二、 
+         1 Shell基础
+什么是shell？目前常用的操作系统（Windows、U/L、Android、iOS等）都带有图形
       </div> -->
     </a>
   </div>
@@ -660,16 +657,17 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/36.jpg" class="lazyload placeholder" data-srcset="/medias/36.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
-    <a href="/2021/09/14/Linux%20Shell/Linux%20Shell%E5%9F%BA%E7%A1%80/" class="post-nav-link">
+    <a href="/2021/09/14/Linux%20Shell/Linux%20Shell%E8%BF%9B%E9%98%B6/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">Linux Shell基础</div>
+        <div class="title-text">Linux Shell进阶</div>
       </div>
       <!-- <div class="content">
-        # 1 Shell 基础
-什么是 shell？目前常用的操作系统（Windows、U/L、Android、iOS 等）都
+        # 4 并发控制
+
+默认情况下，Shell 命令是串行方式自上而下执行的，但如果有大量的命令需要执行，串行就会浪费大量的
       </div> -->
     </a>
   </div>

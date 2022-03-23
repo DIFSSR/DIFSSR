@@ -545,71 +545,71 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="网页实现远程桌面"><a class="markdownIt-Anchor" href="#网页实现远程桌面">#</a> 网页实现远程桌面</h1>
-<h2 id="环境"><a class="markdownIt-Anchor" href="#环境">#</a> 环境</h2>
+        <h1 id="网页实现远程桌面"><a class="markdownIt-Anchor" href="#网页实现远程桌面"></a> 网页实现远程桌面</h1>
+<h2 id="环境"><a class="markdownIt-Anchor" href="#环境"></a> 环境</h2>
 <ul>
-<li>Win10 (被访问的 Server, 设其 IP 为 11.11.11.11)</li>
+<li>Win10 (被访问的Server,设其IP为11.11.11.11)</li>
 </ul>
-<h2 id="软件"><a class="markdownIt-Anchor" href="#软件">#</a> 软件</h2>
+<h2 id="软件"><a class="markdownIt-Anchor" href="#软件"></a> 软件</h2>
 <ul>
 <li>nodejs</li>
 <li>noVnc</li>
 <li>websockify</li>
 <li>tightvnc</li>
 </ul>
-<h2 id="搭建流程"><a class="markdownIt-Anchor" href="#搭建流程">#</a> 搭建流程</h2>
+<h2 id="搭建流程"><a class="markdownIt-Anchor" href="#搭建流程"></a> 搭建流程</h2>
 <ul>
-<li>Server 安装 nodejs</li>
-<li>安装 ws、optimist 模块（执行 websockify.js 文件所需）</li>
+<li>Server安装nodejs</li>
+<li>安装ws、optimist模块（执行websockify.js文件所需）</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install ws</span><br><span class="line">npm install optimist</span><br><span class="line">npm install mime-types</span><br></pre></td></tr></table></figure>
 <ul>
-<li>将 noVNC 解压到 C:\Users\XXX (用户名)\node_modules\ 下</li>
-<li>将 websockify 解压到 C:\Users\XXX (用户名)\node_modules\noVNC 下</li>
+<li>将noVNC解压到C:\Users\XXX(用户名)\node_modules\下</li>
+<li>将websockify解压到C:\Users\XXX(用户名)\node_modules\noVNC下</li>
 <li>如图</li>
 </ul>
-<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518103523666"></p>
-<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518103547147"></p>
+<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103523666.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518103523666" /></p>
+<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103547147.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518103547147" /></p>
 <ul>
 <li>
-<p>将./noVNC/vnc.html 复制一份，更名为 index.html</p>
-<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518105649182"></p>
+<p>将./noVNC/vnc.html复制一份，更名为index.html</p>
+<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518105649182.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518105649182" /></p>
 </li>
 <li>
-<p>Server 安装 tightVNC</p>
+<p>Server安装tightVNC</p>
 </li>
 <li>
-<p>运行 tightVNC server, 任务栏找到图标<br>
-<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518103816266"></p>
+<p>运行tightVNC server,任务栏找到图标<br />
+<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518103816266.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518103816266" /></p>
 </li>
 <li>
 <p>单击打开，设置连接密码</p>
 </li>
 </ul>
-<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518104024652"></p>
+<p><img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104024652.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518104024652" /></p>
 <ul>
 <li>
-<p>这里服务默认端口 5900，不用更改</p>
+<p>这里服务默认端口5900，不用更改</p>
 </li>
 <li>
-<p>打开 cmd，使用 websockify.js 转发 9000 端口的 http 链接到 5900 端口，运行以下命令</p>
+<p>打开cmd，使用websockify.js转发9000端口的http链接到5900端口,运行以下命令</p>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node C:\Users\SSR\node_modules\noVNC\websockify-js-master\websockify\websockify.js --web C:\Users\SSR\node_modules\noVNC 9000 localhost:5900</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意更改用户路径</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意更改localhost为本机IP（11.11.11.11）</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>保持 cmd 窗口后台运行，打开 Win10 防火墙设置，添加入站规则，允许 TCP9000 端口入站<br>
-<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518104902295"></li>
+<li>保持cmd窗口后台运行，打开Win10防火墙设置，添加入站规则，允许TCP9000端口入站<br />
+<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518104902295.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518104902295" /></li>
 <li>配置完成</li>
 </ul>
-<h2 id="验证效果"><a class="markdownIt-Anchor" href="#验证效果">#</a> 验证效果</h2>
+<h2 id="验证效果"><a class="markdownIt-Anchor" href="#验证效果"></a> 验证效果</h2>
 <ul>
 <li>打开同网段另一台电脑，打开浏览器</li>
-<li>访问 ServerIP:9000，形如 11.11.11.11:9000<br>
-<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518110422381"></li>
-<li>点击连接，输入之前设置的连接密码<br>
-<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518110522936"></li>
-<li>成功连接 Win10<br>
-![](E:\SSR\Pictures\ 屏幕截图 2021-05-18 110948.png)</li>
+<li>访问ServerIP:9000，形如11.11.11.11:9000<br />
+<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110422381.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518110422381" /></li>
+<li>点击连接，输入之前设置的连接密码<br />
+<img src="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png" class="lazyload placeholder" data-srcset="C:%5CUsers%5CSSR%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210518110522936.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20210518110522936" /></li>
+<li>成功连接Win10<br />
+![](E:\SSR\Pictures\屏幕截图 2021-05-18 110948.png)</li>
 </ul>
 
       </div>
@@ -663,9 +663,9 @@
       </div>
       
       <!-- <div class="content">
-        # centos7 下 yum 安装 MariaDB
-CentOS 7 下 mysql 下替换成 MariaDB 了。
-
+         centos7下yum安装MariaDB
+CentOS 7下mysql下替换成MariaDB了。
+MariaDB数据库
       </div> -->
     </a>
   </div>
@@ -684,13 +684,13 @@ CentOS 7 下 mysql 下替换成 MariaDB 了。
         <div class="title-text">Linux+noVNC</div>
       </div>
       <!-- <div class="content">
-        # Linux+noVNC
-# 环境及软件
+         Linux+noVNC
+ 环境及软件
 
-Centos7 桌面
+Centos7桌面
 noVNC
 websockify
-tigervnc-
+tigervnc-ser
       </div> -->
     </a>
   </div>

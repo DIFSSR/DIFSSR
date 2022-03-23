@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>任意文件下载 | 千里稻花应秀色</title>
+
+  <link rel="icon" type="image/png" href="/medias/logo.png">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.jsdelivr.net/gh/inkss/fontawesome@5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+  
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+
+  
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (href, before, media, attributes) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header   " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
+      <h3 class="drawer-box-head_title">千里稻花应秀色</h3>
+      <h5 class="drawer-box-head_desc">blogs by SSR</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/">
+              <i class="fas fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">千里稻花应秀色</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/DIFSSR/" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+</header>
+        <!-- 内容区域 -->
+        
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/32.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        任意文件下载
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2021-04-18 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/Web%E5%AE%89%E5%85%A8/" class="post-detail-header_category">
+              Web安全
+            </a>
+          
+        </span>
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2>
+<p>产生：任意语言代码下载函数<br />
+文件下载（一些网站由于业务需求，往往需要提供文件查看或文件下载功能，但若对用户查看或下载的文件不做限制，则恶意用户就能够查看或下载任意敏感文件，这就是文件查看与下载漏洞。）</p>
+<blockquote>
+<p>文件下载功能在很多web系统上都会出现，一般我们当点击下载链接，便会向后台发送一个下载请求，一般这个请求会包含一个需要下载的文件名称，后台在收到请求后 会开始执行下载代码，将该文件名对应的文件response给浏览器，从而完成下载。 如果后台在收到请求的文件名后,将其直接拼进下载文件的路径中而不对其进行安全判断的话，则可能会引发不安全的文件下载漏洞。此时如果 攻击者提交的不是一个程序预期的的文件名，而是一个精心构造的路径(比如…/…/…/etc/passwd),则很有可能会直接将该指定的文件下载下来。 从而导致后台敏感信息(密码文件、源代码等)被下载。<br />
+所以，在设计文件下载功能时，如果下载的目标文件是由前端传进来的，则一定要对传进来的文件进行安全考虑。</p>
+</blockquote>
+<h2 id="漏洞危害"><a class="markdownIt-Anchor" href="#漏洞危害"></a> 漏洞危害</h2>
+<p>下载服务器任意文件，如脚本代码、服务及系统配置文件等<br />
+可用得到的代码进一步代码审计，得到更多可利用漏洞</p>
+<h2 id="利用方式"><a class="markdownIt-Anchor" href="#利用方式"></a> 利用方式</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dongchi/p/5561039.html">浅谈任意文件下载漏洞的利用</a><br />
+信息收集信息→猜路径→下载配置文件/代码文件→利用服务器软件漏洞→shell→提权</p>
+<p>首先收集系统信息，包括系统版本，中间件，cms版本，服务器用途，服务器使用者信息，端口，web路径等，然后根据收集到的信息，下载配置文件，如weblogic，ftp，ssh等， 根据下载到的配置文件进行渗透。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 读取程序源代码（如密码配置文件）</span><br><span class="line">2. 读取程序配置文件（如数据库连接文件）</span><br><span class="line">&gt; 如weblogic，ssh，ftp，数据库配置文件等， 当解出密码后，进行登陆，getshell</span><br><span class="line">3. 读取操作系统关键文件（如/etc/sadow，/ root/.bash_history等文件）</span><br><span class="line">4. 读取运维配置文件（redis/rsync/ftp/ssh客 户端数据等）</span><br><span class="line">5. 读取中间件配置文件（weblogic/tomcat等 密码文件，apache的httpd.conf文件）</span><br><span class="line">6. 下载web日志文件（获取网站后台/上传文件 等）</span><br><span class="line">&gt;  下载日志文件，找到登录/上传/后台/ 操作，找到登录入口 可以爆破，测试默认口令，弱口令， 找到文件上传点则测试文件上传漏洞，找到后台操作试试有没有未授权访问</span><br><span class="line">7. 结合SSRF获取内网机器文件</span><br><span class="line">8. 可以利用../返回到上级目录下载敏感文件</span><br></pre></td></tr></table></figure>
+<h2 id="系统文件"><a class="markdownIt-Anchor" href="#系统文件"></a> 系统文件</h2>
+<h3 id="window"><a class="markdownIt-Anchor" href="#window"></a> window</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; C:\boot.ini //查看系统版本</span><br><span class="line">&gt; C:\Windows\System32\inetsrv\MetaBase. xml //IIS配置文件</span><br><span class="line">&gt; C:\Windows\repair\sam //存储系统初次安装的密码</span><br><span class="line">&gt; C:\Program Files\mysql\my.ini //Mysql配置</span><br><span class="line">&gt; C:\Program Files\mysql\data\mysql\user. MYD //Mysql root</span><br><span class="line">&gt; C:\Windows\php.ini //php配置信息</span><br><span class="line">&gt; C:\Windows\my.ini //Mysql配置信息</span><br></pre></td></tr></table></figure>
+<h3 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; .bash_history` # 历史中可能带着用户的密码 ( 遇到过现实案例,是输错的情况下参数的,比如没 输入 su 却以为自己输了 su)</span><br><span class="line">&gt; /etc/passwd # 用户情况</span><br><span class="line">&gt; /etc/shadow # 直接 John the Ripper</span><br><span class="line">&gt; /etc/hosts # 主机信息，通常配置了一些内网 域名</span><br><span class="line">&gt; /root/.bash_history //root的bash历史记录</span><br><span class="line">&gt; /root/.ssh/authorized_keys /root/.mysql_history //mysql的bash历史记录</span><br><span class="line">&gt; /root/.wget-hsts /opt/nginx/conf/nginx.conf //nginx的配置文件</span><br><span class="line">&gt; /var/www/html/index.html /etc/my.cnf /etc/httpd/conf/httpd.conf //httpd的配置文件</span><br><span class="line">&gt; /proc/self/fd/fd[0-9]*(文件标识符)</span><br><span class="line">&gt; /proc/mounts /porc/config.gz /proc/sched_debug // 提供cpu上正在运行的进程信息，可以获得进程的pid号，可以配合后面需要pid的利用</span><br><span class="line">&gt; /proc/mounts // 挂载的文件系统列表</span><br><span class="line">&gt; /proc/net/arp //arp表，可以获得内网其他机器的地址</span><br><span class="line">&gt; /proc/net/route //路由表信息</span><br><span class="line">&gt; /proc/net/tcp and /proc/net/udp // 活动连接的信息</span><br><span class="line">&gt; /proc/net/fib_trie // 路由缓存</span><br><span class="line">&gt; /proc/version // 内核版本</span><br><span class="line">&gt; /proc/[PID]/cmdline // 可能包含有用的路径信息</span><br><span class="line">&gt; /proc/[PID]/environ // 程序运行的环境变量信息，可以用来包含getshell</span><br><span class="line">&gt; /proc/[PID]/cwd // 当前进程的工作目录</span><br><span class="line">&gt; /proc/[PID]/fd/[#] // 访问file descriptors， 某写情况可以读取到进程正在使用的文件，比如 access.log /root/.ssh/id_rsa /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys /etc/ssh/sshd_config /var/log/secure /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/syscomfig/network-scripts/ifcfg-eth1</span><br><span class="line">&gt; /usr/local/tomcat/conf/tomcat-users. xml # tomcat 用户配置文件</span><br><span class="line">&gt; /root/.bashrc # 环境变量</span><br><span class="line">&gt; /root/.bash_history # 还有root外的其他用户</span><br><span class="line">&gt; /root/.viminfo # vim 信息</span><br><span class="line">&gt; /root/.ssh/id_rsa # 拿私钥直接ssh</span><br><span class="line">&gt; /proc/xxxx/cmdline # 进程状态枚举 xxxx 可以为0000-9999 使用burpsuite 数据库 config 文件   web 日志 access.log, error.log /var/lib/php/sess_PHPSESSID # 非常规问题 session 文件</span><br><span class="line">&gt; /proc/net/arp /proc/net/tcp /proc/net/udp /proc/net/dev</span><br></pre></td></tr></table></figure>
+<h2 id="常见脚本敏感文件参考"><a class="markdownIt-Anchor" href="#常见脚本敏感文件参考"></a> 常见脚本敏感文件参考</h2>
+<p>PHP： inc/config. php获得数据库连接字符串中的口令信息<br />
+asp： inc/conn.asp文件，获得数据库连接字符串，得到数据库口令。<br />
+aspx： web.config网站根目录文件，获得数据库连接信息。<br />
+JSP： conf/ tomcat-user.xml文件，获得tomcat管理界面的口令信息<br />
+WEB- INF /Web. xml文件,获得数据库连接字符串中的口令信息。</p>
+<h2 id="任意文件读取"><a class="markdownIt-Anchor" href="#任意文件读取"></a> 任意文件读取</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line">readfile(<span class="variable">$filename</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line"><span class="variable">$fp</span> = fopen(<span class="variable">$filename</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Unable to open file!&quot;</span>);</span><br><span class="line"><span class="variable">$data</span> = fread(<span class="variable">$fp</span>,filesize(<span class="variable">$filename</span>));</span><br><span class="line">fclose(<span class="variable">$fp</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$data</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="variable">$filename</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="任意文件下载"><a class="markdownIt-Anchor" href="#任意文件下载"></a> 任意文件下载</h2>
+<p>直接下载：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.xx.com/a.zip&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;external nofollow&quot;</span> &gt;</span>Download<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>用header()下载：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;uploads/201607141437284653.jpg&quot;</span>;</span><br><span class="line">header(<span class="string">&#x27;Content-Type: imgage/jpeg&#x27;</span>);</span><br><span class="line">header(<span class="string">&#x27;Content-Disposition: attachment; filename=&#x27;</span>.<span class="variable">$filename</span>);</span><br><span class="line">header(<span class="string">&#x27;Content-Lengh: &#x27;</span>.filesize(<span class="variable">$filename</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="google-search"><a class="markdownIt-Anchor" href="#google-search"></a> Google search</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inurl:&quot;readfile.php?file=&quot;</span><br><span class="line">inurl:&quot;read.php?filename=&quot;</span><br><span class="line">inurl:&quot;download.php?file=&quot;</span><br><span class="line">inurl:&quot;down.php?file=&quot;</span><br><span class="line">等等...</span><br></pre></td></tr></table></figure>
+<h2 id="漏洞利用代码"><a class="markdownIt-Anchor" href="#漏洞利用代码"></a> 漏洞利用代码</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readfile.php?file=/etc/passwd``readfile.php?file=../../../../../../../../etc/passwd``readfile.php?file=../../../../../../../../etc/passwd%00</span><br></pre></td></tr></table></figure>
+<p>1.文件被解析，则是文件包含漏洞<br />
+2.显示源代码，则是文件读取漏洞<br />
+3.提示文件下载，则是文件下载漏洞</p>
+<h2 id="漏洞挖掘"><a class="markdownIt-Anchor" href="#漏洞挖掘"></a> 漏洞挖掘</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">可以用Google hacking或Web漏洞扫描器``从链接上看，形如：</span><br><span class="line">• readfile.php?file=***.txt</span><br><span class="line">• download.php?file=***.rar</span><br><span class="line">从参数名看，形如：</span><br><span class="line">• &amp;RealPath= </span><br><span class="line">• &amp;FilePath= </span><br><span class="line">• &amp;ﬁlepath= </span><br><span class="line">• &amp;Path= </span><br><span class="line">• &amp;path= </span><br><span class="line">• &amp;inputFile=</span><br><span class="line">• &amp;url= </span><br><span class="line">• &amp;urls= </span><br><span class="line">• &amp;Lang= </span><br><span class="line">• &amp;dis= </span><br><span class="line">• &amp;data= </span><br><span class="line">• &amp;readﬁle= </span><br><span class="line">• &amp;ﬁlep= </span><br><span class="line">• &amp;src= </span><br><span class="line">• &amp;menu= </span><br><span class="line">• META-INF </span><br><span class="line">• WEB-INF</span><br><span class="line">目录符号等</span><br><span class="line">../ ..\ .\ ./等</span><br><span class="line">%00 ? %23 %20 .等</span><br></pre></td></tr></table></figure>
+<h2 id="漏洞验证"><a class="markdownIt-Anchor" href="#漏洞验证"></a> 漏洞验证</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">• index.php?f=../../../../../../etc/passwd </span><br><span class="line">• index.php?f=../index.php </span><br><span class="line">• index.php?f=ﬁle:///etc/passwd</span><br><span class="line">注：当参数f的参数值为php文件时，若是文件被解析则是文件包含漏洞，</span><br><span class="line">若显示源码或提示下载则是文件查看与下载漏洞</span><br></pre></td></tr></table></figure>
+<h2 id="漏洞防范"><a class="markdownIt-Anchor" href="#漏洞防范"></a> 漏洞防范</h2>
+<p><a target="_blank" rel="noopener" href="https://tonydeng.github.io/2016/06/13/simple-protection-measures-to-download-any-file/">任意文件下载漏洞的简单防护措施</a><br />
+1、过滤“.”符号，使用户在url中无法回溯到上级目录。<br />
+2、使用正则表达式严格判断用户输入参数的格式。<br />
+3、php.ini配置文件中对于open_basedir进行配置，限定用户的文件访问范围。<br />
+4、固定目录</p>
+<h2 id="案例"><a class="markdownIt-Anchor" href="#案例"></a> 案例</h2>
+<h3 id="pikuchu靶场-文件下载测试"><a class="markdownIt-Anchor" href="#pikuchu靶场-文件下载测试"></a> pikuchu靶场-文件下载测试</h3>
+<p>1、判断是否为文件上传漏洞</p>
+<p><img src="2021082316105330.png" class="lazyload placeholder" data-srcset="2021082316105330.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>点击任意图片，发现下载了图片，复制图片下载链接查看</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=kb.png">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=kb.png</a></p>
+</blockquote>
+<p>查看参数名为filename，查看参数后面的值也与下载的文件名一样<br />
+初步判定为文件上传漏洞</p>
+<p>2、判断下载路径<br />
+filename的文件名是单纯的文件名，可判断是前面加了路径名，也可能是与网站在同一个目录下<br />
+通过URL判断文件是通过跳转到execdownload.php页面下载的，我们试试看可不可以直接下载到execdownload.php这个源码</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=execdownload.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=execdownload.php</a></p>
+</blockquote>
+<p><img src="2021082316105331.png" class="lazyload placeholder" data-srcset="2021082316105331.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>发现显示无法下载，说明该execdownload.php与文件不在同一个路径下，我们尝试下到上一级路径</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=../execdownload.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=../execdownload.php</a></p>
+</blockquote>
+<p><img src="2021082316105332.png" class="lazyload placeholder" data-srcset="2021082316105332.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>成功下载，打开源码发现是在download文件夹下</p>
+<p><img src="2021082316105333.png" class="lazyload placeholder" data-srcset="2021082316105333.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>说明文件下载路径的文件夹与down_nba.php是同一级路径<br />
+3、尝试下载敏感文件（以下路径均通过扫描路径得到）<br />
+pikachu-master/inc/config.inc.php<br />
+当前下载路径：<br />
+pikachu-master/vul/unsafedownload/download/xxx.xxx<br />
+与vul相差3个父目录，所以加3个…/<br />
+完整url：<br />
+<a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=%E2%80%A6/%E2%80%A6/%E2%80%A6/inc/config.inc.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=…/…/…/inc/config.inc.php</a><br />
+下载成功，打开发现里面存在数据库相关的配置文件</p>
+<p><img src="2021082316105334.png" class="lazyload placeholder" data-srcset="2021082316105334.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<h3 id="小米路由器-文件读取真实测试-漏洞"><a class="markdownIt-Anchor" href="#小米路由器-文件读取真实测试-漏洞"></a> 小米路由器-文件读取真实测试-漏洞</h3>
+<p><a target="_blank" rel="noopener" href="https://www.seebug.org/vuldb/ssvid-98122">复现</a></p>
+<h3 id="roarctf2019-文件读取真题复现"><a class="markdownIt-Anchor" href="#roarctf2019-文件读取真题复现"></a> RoarCTF2019-文件读取真题复现</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ChenZIDu/article/details/103533554">wp</a><br />
+首先看到一个页面,点击下help看看啥情况。<br />
+<img src="2021082316105335.png" class="lazyload placeholder" data-srcset="2021082316105335.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>发现输出一串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.FileNotFoundException:&#123;help.docx&#125;</span><br></pre></td></tr></table></figure>
+<p>是文件无法找到的异常信息</p>
+<p><img src="2021082316105336.png" class="lazyload placeholder" data-srcset="2021082316105336.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>查询资料发现：<br />
+WEB-INF/web.xml泄露<br />
+WEB-INF是Java的WEB应用的安全目录。如果想在页面中直接访问其中的文件，必须通过web.xml文件对要访问的文件进行相应映射才能访问。WEB-INF主要包含一下文件或目录：<br />
+/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。<br />
+/WEB-INF/classes/：含了站点所有用的 class 文件，包括 servlet class 和非servlet class，他们不能包含在 .jar文件中<br />
+/WEB-INF/lib/：存放web应用需要的各种JAR文件，放置仅在这个应用中要求使用的jar文件,如数据库驱动jar文件<br />
+/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。<br />
+/WEB-INF/database.properties：数据库配置文件</p>
+<blockquote>
+<p>漏洞成因：<br />
+通常一些web应用我们会使用多个web服务器搭配使用，解决其中的一个web服务器的性能缺陷以及做均衡负载的优点和完成一些分层结构的安全策略等。在使用这种架构的时候，由于对静态资源的目录或文件的映射配置不当，可能会引发一些的安全问题，导致web.xml等文件能够被读取。漏洞检测以及利用方法：通过找到web.xml文件，推断class文件的路径，最后直接class文件，在通过反编译class文件，得到网站源码。一般情况，jsp引擎默认都是禁止访问WEB-INF目录的，Nginx 配合Tomcat做均衡负载或集群等情况时，问题原因其实很简单，Nginx不会去考虑配置其他类型引擎（Nginx不是jsp引擎）导致的安全问题而引入到自身的安全规范中来（这样耦合性太高了），修改Nginx配置文件禁止访问WEB-INF目录就好了： location ~ ^/WEB-INF/* { deny all; } 或者return 404; 或者其他！</p>
+</blockquote>
+<p>根据上文，我们先找一下WEB-INF/web.xml,POST传值</p>
+<p><img src="2021082316105437.png" class="lazyload placeholder" data-srcset="2021082316105437.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>得到WEB-INF/web.xml文件，打开</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span><br><span class="line">         version=&quot;4.0&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;welcome-file-list&gt;</span><br><span class="line">        &lt;welcome-file&gt;Index&lt;/welcome-file&gt;</span><br><span class="line">    &lt;/welcome-file-list&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;IndexController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.IndexController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;IndexController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Index&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;LoginController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.LoginController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;LoginController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Login&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;DownloadController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.DownloadController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;DownloadController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Download&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;FlagController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.FlagController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;FlagController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Flag&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们可以看到com.wm.FlagController，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">&lt;servlet-name&gt;FlagController&lt;/servlet-name&gt;</span><br><span class="line">&lt;servlet-class&gt;com.wm.ctf.FlagController&lt;/servlet-class&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
+<p>servlet-class里面的.代表的是路径/<br />
+然后下载FlagController.class文件试一试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename=WEB-INF/classes/com/wm/ctf/FlagController.class</span><br></pre></td></tr></table></figure>
+<p>打开文件发现一串base编码，进行base64解密得到flag</p>
+<p><img src="2021082316105438.png" class="lazyload placeholder" data-srcset="2021082316105438.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p><img src="2021082316105439.png" class="lazyload placeholder" data-srcset="2021082316105439.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanze/p/10457924.html">资料1</a><br />
+<a target="_blank" rel="noopener" href="https://www.runoob.com/servlet/servlet-tutorial.html">资料2</a></p>
+<p><img src="2021082316105440.png" class="lazyload placeholder" data-srcset="2021082316105440.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<h3 id="百度杯2017二月-zone真题复现"><a class="markdownIt-Anchor" href="#百度杯2017二月-zone真题复现"></a> 百度杯2017二月-Zone真题复现</h3>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/battalion?t=1&amp;r=57475">靶场</a><br />
+<a target="_blank" rel="noopener" href="https://mayi077.gitee.io/2020/01/29/2017%E7%99%BE%E5%BA%A6%E6%9D%AF-%E4%BA%8C%E6%9C%88%E5%9C%BA-Zone/">wp1</a><br />
+<a target="_blank" rel="noopener" href="https://www.ichunqiu.com/writeup/detail/4941">wp2</a></p>
+<p><img src="2021082316105441.png" class="lazyload placeholder" data-srcset="2021082316105441.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>1、 尝试burp抓包发现cookie中有个login，值为0，将0改为1后在访问首页，发现可以正常登入</p>
+<p><img src="2021082316105442.png" class="lazyload placeholder" data-srcset="2021082316105442.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>2、单击 “manage” （此时还是需要用burp改login的值），点击框框发现比较特殊的url；猜测可能存在文件包含或者下载、读取</p>
+<p><img src="2021082316105443.png" class="lazyload placeholder" data-srcset="2021082316105443.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>3、测试访问url: <a target="_blank" rel="noopener" href="http://xxxxxx.com/manages/admin.php?module=ind%E2%80%A6/ex&amp;name=php">xxxxxx.com/manages/admin.php?module=ind…/ex&amp;name=php</a> 页面可以正常访问,猜测过滤了一遍…/再试一试绕过 url:url: <a target="_blank" rel="noopener" href="http://xxxxxx.com/manages/admin.php?module=ind%E2%80%A6/./ex&amp;name=php">xxxxxx.com/manages/admin.php?module=ind…/./ex&amp;name=php</a> 访问不正常；<br />
+说明过滤机制只是把…/进行了一次过滤，所以我们双写…/即可</p>
+<p>4、访问测试任意文件读取判断路径通过不断加…/ url:?module=…/./…/./…/./etc/passwd&amp;name<br />
+（用户情况文件）</p>
+<p><img src="2021082316105544.png" class="lazyload placeholder" data-srcset="2021082316105544.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>5、查看下服务器是nginx。找一下它的配置文件，根据信息读取配置文件， url: manages/admin.php?module=…/./…/./…/./etc/nginx/nginx.conf 获得关键文件sites-enabled/default 并进行读取</p>
+<p><img src="2021082316105545.png" class="lazyload placeholder" data-srcset="2021082316105545.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>module=…/./…/./…/./etc/nginx/sites-enabled/default&amp;name=获得web文件路径online-movies 并访问</p>
+<p><img src="2021082316105546.png" class="lazyload placeholder" data-srcset="2021082316105546.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>6、发现可以利用的漏洞，因为有一个autoindex on也就是开启了目录遍历，我们可以访问这个/online-movies/，访问出现如下，再点击…/发现要进行验证，把login改为1后页面空白，我通过百度发现要/online-movies/…才能遍历（不清楚为什么）</p>
+<p><img src="2021082316105547.png" class="lazyload placeholder" data-srcset="2021082316105547.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>7、访问/online-movies…/</p>
+<p><img src="2021082316105548.png" class="lazyload placeholder" data-srcset="2021082316105548.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p>8、地址为:online-movies…/var/www/html/flag.php构造url下载到flag.php获得flag</p>
+<p>到此这篇关于案例讲解WEB 漏洞-文件操作之文件下载读取的文章就介绍到这了,更多相关WEB 漏洞文件下载读取内容请搜索脚本之家以前的文章或继续浏览下面的相关文章希望大家以后多多支持脚本之家！</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E5%AE%89%E5%85%A8/" class="">
+              安全
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SSR</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2021/04/18/网络安全/任意文件下载/" target="_blank" title="任意文件下载">http://example.com/2021/04/18/网络安全/任意文件下载/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/14.jpg" class="lazyload placeholder" data-srcset="/medias/14.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+    </div>
+    <a href="/2021/05/03/%E5%B9%B3%E5%8F%B0/Win7%E7%B3%BB%E7%BB%9F%E5%B0%81%E8%A3%85/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">Win7系统封装与快速装机</div>
+      </div>
+      
+      <!-- <div class="content">
+         Win7系统封装与快速装机
+
+ 背景
+最近小编接受了一项任务，给一定数量的电脑更换系统，并且需要根据实际，在系统中安装
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/13.jpg" class="lazyload placeholder" data-srcset="/medias/13.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+    </div>
+    <a href="/2021/04/15/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/DVWA/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">DVWA通关手册</div>
+      </div>
+      <!-- <div class="content">
+         DVWA通关手册
+ Brute Force
+登录界面
+ 
+ Low
+1234567891011121314151617
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2019 - 2023 <a target="_blank" rel="noopener" href="https://github.com/DIFSSR">DIFSSR</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a></p>
+
+          </div>
+        
+      
+        
+          
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="netease"
+  type="album"
+  id="447721094"
+  fixed='true'
+  autoplay='false'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <!-- 背景彩带 -->
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 100) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('toc-aside')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  }
+</style> 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const headerMenuTransparent = true;
+    if (!headerMenuTransparent) { return; }
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，祝一切顺利。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>

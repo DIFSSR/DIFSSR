@@ -554,76 +554,76 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="机器学习算法八基于bp神经网络的预测"><a class="markdownIt-Anchor" href="#机器学习算法八基于bp神经网络的预测">#</a> 机器学习算法（八）：基于 BP 神经网络的预测 ¶</h1>
-<h2 id="1前言算法简介和应用"><a class="markdownIt-Anchor" href="#1前言算法简介和应用">#</a> 1. 前言：算法简介和应用</h2>
-<h3 id="11算法简介"><a class="markdownIt-Anchor" href="#11算法简介">#</a> 1.1. 算法简介</h3>
-<p>BP（Back Propagation）网络是 1986 年由 Rumelhart 和 McCelland 为首的科学家小组提出，是一种按误差逆传播算法训练的多层前馈网络，是目前应用最广泛的神经网络模型之一。BP 网络能学习和存贮大量的输入 - 输出模式映射关系，而无需事前揭示描述这种映射关系的数学方程。它的学习规则是使用最速下降法，通过反向传播来不断调整网络的权值和阈值，使网络的误差平方和最小。BP 神经网络模型拓扑结构包括输入层（input）、隐层 (hide layer) 和输出层 (output layer)。在模拟过程中收集系统所产生的误差，通过误差反传，然后调整权值大小，通过该不断迭代更新，最后使得模型趋于整体最优化（这是一个循环，我们在训练神经网络的时候是要不断的去重复这个过程的）。</p>
-<p>BP 神经网络具有以下优点：</p>
+        <h1 id="机器学习算法八基于bp神经网络的预测"><a class="markdownIt-Anchor" href="#机器学习算法八基于bp神经网络的预测"></a> 机器学习算法（八）：基于BP神经网络的预测¶</h1>
+<h2 id="1前言算法简介和应用"><a class="markdownIt-Anchor" href="#1前言算法简介和应用"></a> 1.前言：算法简介和应用</h2>
+<h3 id="11算法简介"><a class="markdownIt-Anchor" href="#11算法简介"></a> 1.1.算法简介</h3>
+<p>BP（Back Propagation）网络是1986年由Rumelhart和McCelland为首的科学家小组提出，是一种按误差逆传播算法训练的多层前馈网络，是目前应用最广泛的神经网络模型之一。BP网络能学习和存贮大量的输入-输出模式映射关系，而无需事前揭示描述这种映射关系的数学方程。它的学习规则是使用最速下降法，通过反向传播来不断调整网络的权值和阈值，使网络的误差平方和最小。BP神经网络模型拓扑结构包括输入层（input）、隐层(hide layer)和输出层(output layer)。在模拟过程中收集系统所产生的误差，通过误差反传，然后调整权值大小，通过该不断迭代更新，最后使得模型趋于整体最优化（这是一个循环，我们在训练神经网络的时候是要不断的去重复这个过程的）。</p>
+<p>BP神经网络具有以下优点：</p>
 <ol>
 <li>
-<p>非线性映射能力：BP 神经网络实质上实现了一个从输入到输出的映射功能，数学理论证明三层的神经网络就能够以任意精度逼近任何非线性连续函数。这使得其特别适合于求解内部机制复杂的问题，即 BP 神经网络具有较强的非线性映射能力。</p>
+<p>非线性映射能力：BP神经网络实质上实现了一个从输入到输出的映射功能，数学理论证明三层的神经网络就能够以任意精度逼近任何非线性连续函数。这使得其特别适合于求解内部机制复杂的问题，即BP神经网络具有较强的非线性映射能力。</p>
 </li>
 <li>
-<p>自学习和自适应能力：BP 神经网络在训练时，能够通过学习自动提取输入、输出数据间的 “合理规则”，并自适应地将学习内容记忆于网络的权值中。即 BP 神经网络具有高度自学习和自适应的能力。</p>
+<p>自学习和自适应能力：BP神经网络在训练时，能够通过学习自动提取输入、输出数据间的“合理规则”，并自适应地将学习内容记忆于网络的权值中。即BP神经网络具有高度自学习和自适应的能力。</p>
 </li>
 <li>
-<p>泛化能力：所谓泛化能力是指在设计模式分类器时，即要考虑网络在保证对所需分类对象进行正确分类，还要关心网络在经过训练后，能否对未见过的模式或有噪声污染的模式，进行正确的分类。也即 BP 神经网络具有将学习成果应用于新知识的能力。</p>
+<p>泛化能力：所谓泛化能力是指在设计模式分类器时，即要考虑网络在保证对所需分类对象进行正确分类，还要关心网络在经过训练后，能否对未见过的模式或有噪声污染的模式，进行正确的分类。也即BP神经网络具有将学习成果应用于新知识的能力。</p>
 </li>
 </ol>
-<p>BP 神经网络具有以下缺点点：</p>
+<p>BP神经网络具有以下缺点点：</p>
 <ol>
 <li>
-<p>局部极小化问题：从数学角度看，传统的 BP 神经网络为一种局部搜索的优化方法，它要解决的是一个复杂非线性化问题，网络的权值是通过沿局部改善的方向逐渐进行调整的，这样会使算法陷入局部极值，权值收敛到局部极小点，从而导致网络训练失败。加上 BP 神经网络对初始网络权重非常敏感，以不同的权重初始化网络，其往往会收敛于不同的局部极小，这也是每次训练得到不同结果的根本原因。</p>
+<p>局部极小化问题：从数学角度看，传统的 BP神经网络为一种局部搜索的优化方法，它要解决的是一个复杂非线性化问题，网络的权值是通过沿局部改善的方向逐渐进行调整的，这样会使算法陷入局部极值，权值收敛到局部极小点，从而导致网络训练失败。加上BP神经网络对初始网络权重非常敏感，以不同的权重初始化网络，其往往会收敛于不同的局部极小，这也是每次训练得到不同结果的根本原因。</p>
 </li>
 <li>
-<p>BP 神经网络算法的收敛速度慢：由于 BP 神经网络算法本质上为梯度下降法，它所要优化的目标函数是非常复杂的，因此，必然会出现 “锯齿形现象”，这使得 BP 算法低效；又由于优化的目标函数很复杂，它必然会在神经元输出接近 0 或 1 的情况下，出现一些平坦区，在这些区域内，权值误差改变很小，使训练过程几乎停顿；BP 神经网络模型中，为了使网络执行 BP 算法，不能使用传统的一维搜索法求每次迭代的步长，而必须把步长的更新规则预先赋予网络，这种方法也会引起算法低效。以上种种，导致了 BP 神经网络算法收敛速度慢的现象。</p>
+<p>BP 神经网络算法的收敛速度慢：由于BP神经网络算法本质上为梯度下降法，它所要优化的目标函数是非常复杂的，因此，必然会出现“锯齿形现象”，这使得BP算法低效；又由于优化的目标函数很复杂，它必然会在神经元输出接近0或1的情况下，出现一些平坦区，在这些区域内，权值误差改变很小，使训练过程几乎停顿；BP神经网络模型中，为了使网络执行BP算法，不能使用传统的一维搜索法求每次迭代的步长，而必须把步长的更新规则预先赋予网络，这种方法也会引起算法低效。以上种种，导致了BP神经网络算法收敛速度慢的现象。</p>
 </li>
 <li>
-<p>BP 神经网络结构选择不一：BP 神经网络结构的选择至今尚无一种统一而完整的理论指导，一般只能由经验选定。网络结构选择过大，训练中效率不高，可能出现过拟合现象，造成网络性能低，容错性下降，若选择过小，则又会造成网络可能不收敛。而网络的结构直接影响网络的逼近能力及推广性质。因此，应用中如何选择合适的网络结构是一个重要的问题。</p>
+<p>BP 神经网络结构选择不一：BP神经网络结构的选择至今尚无一种统一而完整的理论指导，一般只能由经验选定。网络结构选择过大，训练中效率不高，可能出现过拟合现象，造成网络性能低，容错性下降，若选择过小，则又会造成网络可能不收敛。而网络的结构直接影响网络的逼近能力及推广性质。因此，应用中如何选择合适的网络结构是一个重要的问题。</p>
 </li>
 </ol>
-<h3 id="12算法应用"><a class="markdownIt-Anchor" href="#12算法应用">#</a> 1.2. 算法应用</h3>
-<p>BP 反映了生物神经系统处理外界事物的基本过程，是在模拟人脑神经组织的基础上发展起来的计算系统，是由大量处理单元通过广泛互联而构成的网络体系，它具有生物神经系统的基本特征，在一定程度上反映了人脑功能的若干反映，是对生物系统的某种模拟，具有大规模并行、分布式处理、自组织、自学习等优点，被广泛应用于语音分析、图像识别、数字水印、计算机视觉等很多领域，取得了许多突出的成果。最近由于人工神经网络的快速发展，它已经成为模式识别的强有力的工具。神经网络的运用展开了新的领域，解决其它模式识别不能解决的问题，其分类功能特别适合于模式识别与分类的应用。</p>
-<h2 id="2学习目标"><a class="markdownIt-Anchor" href="#2学习目标">#</a> 2. 学习目标</h2>
-<p>掌握 BP 算法基本原理<br>
-掌握利用 BP 进行代码实战</p>
-<h2 id="3代码流程"><a class="markdownIt-Anchor" href="#3代码流程">#</a> 3. 代码流程</h2>
-<p><strong>Part 1 Demo 实践</strong></p>
+<h3 id="12算法应用"><a class="markdownIt-Anchor" href="#12算法应用"></a> 1.2.算法应用</h3>
+<p>BP反映了生物神经系统处理外界事物的基本过程，是在模拟人脑神经组织的基础上发展起来的计算系统，是由大量处理单元通过广泛互联而构成的网络体系，它具有生物神经系统的基本特征，在一定程度上反映了人脑功能的若干反映，是对生物系统的某种模拟，具有大规模并行、分布式处理、自组织、自学习等优点，被广泛应用于语音分析、图像识别、数字水印、计算机视觉等很多领域，取得了许多突出的成果。最近由于人工神经网络的快速发展，它已经成为模式识别的强有力的工具。神经网络的运用展开了新的领域，解决其它模式识别不能解决的问题，其分类功能特别适合于模式识别与分类的应用。</p>
+<h2 id="2学习目标"><a class="markdownIt-Anchor" href="#2学习目标"></a> 2.学习目标</h2>
+<p>掌握BP算法基本原理<br />
+掌握利用BP进行代码实战</p>
+<h2 id="3代码流程"><a class="markdownIt-Anchor" href="#3代码流程"></a> 3.代码流程</h2>
+<p><strong>Part 1 Demo实践</strong></p>
 <ul>
 <li>
-<p>Step1: 库函数导入</p>
+<p>Step1:库函数导入</p>
 </li>
 <li>
-<p>Step2: 模型训练</p>
+<p>Step2:模型训练</p>
 </li>
 <li>
-<p>Step3: 模型参数查看</p>
+<p>Step3:模型参数查看</p>
 </li>
 <li>
-<p>Step4: 数据和模型可视化</p>
+<p>Step4:数据和模型可视化</p>
 </li>
 <li>
-<p>Step5: 模型预测<br>
-<strong> Part 2 基于 BP 神经网络的乳腺癌分类实践</strong></p>
+<p>Step5:模型预测<br />
+<strong>Part 2 基于BP神经网络的乳腺癌分类实践</strong></p>
 </li>
 <li>
-<p>Step1: 库函数导入</p>
+<p>Step1:库函数导入</p>
 </li>
 <li>
-<p>Step2: 数据读取 / 载入</p>
+<p>Step2:数据读取/载入</p>
 </li>
 <li>
-<p>Step3: 数据信息简单查看与可视化</p>
+<p>Step3:数据信息简单查看与可视化</p>
 </li>
 <li>
-<p>Step4: 利用 BP 神经网络在乳腺癌数据上进行训练和预测</p>
+<p>Step4:利用BP神经网络在乳腺癌数据上进行训练和预测</p>
 </li>
 </ul>
-<h2 id="4代码实战"><a class="markdownIt-Anchor" href="#4代码实战">#</a> 4. 代码实战</h2>
-<h4 id="part-1-demo实践"><a class="markdownIt-Anchor" href="#part-1-demo实践">#</a> <strong>Part 1 Demo 实践</strong></h4>
-<p><strong>Step1: 库函数导入</strong></p>
+<h2 id="4代码实战"><a class="markdownIt-Anchor" href="#4代码实战"></a> 4.代码实战</h2>
+<h4 id="part-1-demo实践"><a class="markdownIt-Anchor" href="#part-1-demo实践"></a> <strong>Part 1 Demo实践</strong></h4>
+<p><strong>Step1:库函数导入</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基础数组运算库导入</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="comment"># 画图库导入</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="comment"># 导入三维显示工具</span></span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"><span class="comment"># 导入BP模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neural_network <span class="keyword">import</span> MLPClassifier</span><br><span class="line"><span class="comment"># 导入demo数据制作方法</span></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_classification</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report, confusion_matrix</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="keyword">from</span> sklearn.exceptions <span class="keyword">import</span> ConvergenceWarning</span><br></pre></td></tr></table></figure>
-<p><strong>Step2: 模型训练</strong></p>
+<p><strong>Step2:模型训练</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制作五个类别的数据，每个类别1000个样本</span></span><br><span class="line">train_samples, train_labels = make_classification(n_samples=<span class="number">1000</span>, n_features=<span class="number">3</span>, n_redundant=<span class="number">0</span>,</span><br><span class="line">                           n_classes=<span class="number">5</span>, n_informative=<span class="number">3</span>, n_clusters_per_class=<span class="number">1</span>,</span><br><span class="line">                           class_sep=<span class="number">3</span>, random_state=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 将五个类别的数据进行三维显示</span></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = Axes3D(fig, rect=[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], elev=<span class="number">20</span>, azim=<span class="number">20</span>)</span><br><span class="line">ax.scatter(train_samples[:, <span class="number">0</span>], train_samples[:, <span class="number">1</span>], train_samples[:, <span class="number">2</span>], marker=<span class="string">&#x27;o&#x27;</span>, c=train_labels)</span><br><span class="line">plt.title(<span class="string">&#x27;Demo Data Map&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:7: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
   import sys
@@ -634,16 +634,16 @@
 
 Text(0.5, 0.92, 'Demo Data Map')
 </code></pre>
-<p>​<br>
-<img src="output_3_2.png" class="lazyload placeholder" data-srcset="output_3_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
+<p>​<br />
+<img src="output_3_2.png" class="lazyload placeholder" data-srcset="output_3_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
 ​</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立 BP 模型, 采用sgd优化器，relu非线性映射函数</span></span><br><span class="line">BP = MLPClassifier(solver=<span class="string">&#x27;sgd&#x27;</span>,activation = <span class="string">&#x27;relu&#x27;</span>,max_iter = <span class="number">500</span>,alpha = <span class="number">1e-3</span>,hidden_layer_sizes = (<span class="number">32</span>,<span class="number">32</span>),random_state = <span class="number">1</span>)</span><br><span class="line"><span class="comment"># 进行模型训练</span></span><br><span class="line"><span class="keyword">with</span> warnings.catch_warnings():</span><br><span class="line">    warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>, category=ConvergenceWarning,</span><br><span class="line">                            module=<span class="string">&quot;sklearn&quot;</span>)</span><br><span class="line">    BP.fit(train_samples, train_labels)</span><br></pre></td></tr></table></figure>
-<p><strong>Step3: 模型参数查看</strong></p>
+<p><strong>Step3:模型参数查看</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看 BP 模型的参数</span></span><br><span class="line"><span class="built_in">print</span>(BP)</span><br></pre></td></tr></table></figure>
 <pre><code>MLPClassifier(alpha=0.001, hidden_layer_sizes=(32, 32), max_iter=500,
               random_state=1, solver='sgd')
 </code></pre>
-<p><strong>Step4: 数据和模型可视化</strong></p>
+<p><strong>Step4:数据和模型可视化</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行模型预测</span></span><br><span class="line">predict_labels = BP.predict(train_samples)</span><br><span class="line"><span class="comment"># 显示预测的散点图</span></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = Axes3D(fig, rect=[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], elev=<span class="number">20</span>, azim=<span class="number">20</span>)</span><br><span class="line">ax.scatter(train_samples[:, <span class="number">0</span>], train_samples[:, <span class="number">1</span>], train_samples[:, <span class="number">2</span>], marker=<span class="string">&#x27;o&#x27;</span>, c=predict_labels)</span><br><span class="line">plt.title(<span class="string">&#x27;Demo Data Predict Map with BP Model&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示预测分数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预测准确率: &#123;:.4f&#125;&quot;</span>.<span class="built_in">format</span>(BP.score(train_samples, train_labels)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化预测数据 </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;真实类别：&quot;</span>, train_labels[:<span class="number">10</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预测类别：&quot;</span>, predict_labels[:<span class="number">10</span>])</span><br><span class="line"><span class="comment"># 准确率等报表</span></span><br><span class="line"><span class="built_in">print</span>(classification_report(train_labels, predict_labels))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算混淆矩阵</span></span><br><span class="line">classes = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">cofusion_mat = confusion_matrix(train_labels, predict_labels, classes) </span><br><span class="line">sns.<span class="built_in">set</span>()</span><br><span class="line">figur, ax = plt.subplots()</span><br><span class="line"><span class="comment"># 画热力图</span></span><br><span class="line">sns.heatmap(cofusion_mat, cmap=<span class="string">&quot;YlGnBu_r&quot;</span>, annot=<span class="literal">True</span>, ax=ax) </span><br><span class="line">ax.set_title(<span class="string">&#x27;confusion matrix&#x27;</span>)  <span class="comment"># 标题</span></span><br><span class="line">ax.set_xticklabels([<span class="string">&#x27;&#x27;</span>] + classes, minor=<span class="literal">True</span>)</span><br><span class="line">ax.set_yticklabels([<span class="string">&#x27;&#x27;</span>] + classes, minor=<span class="literal">True</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;predict&#x27;</span>)  <span class="comment"># x轴</span></span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;true&#x27;</span>)  <span class="comment"># y轴</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:5: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
   &quot;&quot;&quot;
@@ -669,11 +669,11 @@ c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\
 weighted avg       1.00      0.99      1.00      1000
 </code></pre>
 <p>​</p>
-<p>​<br>
-<img src="output_8_2.png" class="lazyload placeholder" data-srcset="output_8_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
+<p>​<br />
+<img src="output_8_2.png" class="lazyload placeholder" data-srcset="output_8_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
 ​</p>
-<p><img src="output_8_3.png" class="lazyload placeholder" data-srcset="output_8_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
-<p><strong>Step5: 模型预测</strong></p>
+<p><img src="output_8_3.png" class="lazyload placeholder" data-srcset="output_8_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
+<p><strong>Step5:模型预测</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行新的测试数据测试</span></span><br><span class="line">test_sample = np.array([[-<span class="number">1</span>, <span class="number">0.1</span>, <span class="number">0.1</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别是: &quot;</span>, BP.predict(test_sample))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别概率分别是: &quot;</span>, BP.predict_proba(test_sample))</span><br><span class="line"></span><br><span class="line">test_sample = np.array([[-<span class="number">1.2</span>, <span class="number">10</span>, -<span class="number">91</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别是: &quot;</span>, BP.predict(test_sample))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别概率分别是: &quot;</span>, BP.predict_proba(test_sample))</span><br><span class="line"></span><br><span class="line">test_sample = np.array([[-<span class="number">12</span>, -<span class="number">0.1</span>, -<span class="number">0.1</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别是: &quot;</span>, BP.predict(test_sample))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别概率分别是: &quot;</span>, BP.predict_proba(test_sample))</span><br><span class="line"></span><br><span class="line">test_sample = np.array([[<span class="number">100</span>, -<span class="number">90.1</span>, -<span class="number">9.1</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别是: &quot;</span>, BP.predict(test_sample))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;test_sample&#125;</span> 类别概率分别是: &quot;</span>, BP.predict_proba(test_sample))</span><br></pre></td></tr></table></figure>
 <pre><code>[[-1.   0.1  0.1]] 类别是:  [4]
 [[-1.   0.1  0.1]] 类别概率分别是:  [[0.08380116 0.1912275  0.17608601 0.16488309 0.38400224]]
@@ -687,19 +687,19 @@ weighted avg       1.00      0.99      1.00      1000
 [[100.  -90.1  -9.1]] 类别概率分别是:  [[2.45024178e-02 8.44965777e-67 9.75497582e-01 1.41511057e-66
   4.23516105e-50]]
 </code></pre>
-<h4 id="part-2-基于bp神经网络的乳腺癌分类实践"><a class="markdownIt-Anchor" href="#part-2-基于bp神经网络的乳腺癌分类实践">#</a> Part 2 基于 BP 神经网络的乳腺癌分类实践</h4>
-<p><strong>Step1: 库函数导入</strong></p>
+<h4 id="part-2-基于bp神经网络的乳腺癌分类实践"><a class="markdownIt-Anchor" href="#part-2-基于bp神经网络的乳腺癌分类实践"></a> Part 2 基于BP神经网络的乳腺癌分类实践</h4>
+<p><strong>Step1:库函数导入</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入乳腺癌数据集</span></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="comment"># 导入BP模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neural_network <span class="keyword">import</span> MLPClassifier</span><br><span class="line"><span class="comment"># 导入训练集分割方法</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"><span class="comment"># 导入预测指标计算函数和混淆矩阵计算函数</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report, confusion_matrix</span><br><span class="line"><span class="comment"># 导入绘图包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br></pre></td></tr></table></figure>
-<p><strong>Step2: 数据读取 / 载入</strong></p>
+<p><strong>Step2:数据读取/载入</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入乳腺癌数据集</span></span><br><span class="line">cancer = load_breast_cancer()</span><br></pre></td></tr></table></figure>
-<p><strong>Step3: 数据信息简单查看与可视化</strong></p>
+<p><strong>Step3:数据信息简单查看与可视化</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看数据集信息</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;breast_cancer数据集的长度为：&#x27;</span>,<span class="built_in">len</span>(cancer))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;breast_cancer数据集的类型为：&#x27;</span>,<span class="built_in">type</span>(cancer))</span><br><span class="line"><span class="comment"># 分割数据为训练集和测试集</span></span><br><span class="line">cancer_data = cancer[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;cancer_data数据维度为：&#x27;</span>,cancer_data.shape)</span><br><span class="line">cancer_target = cancer[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;cancer_target标签维度为：&#x27;</span>,cancer_target.shape)</span><br><span class="line">cancer_names = cancer[<span class="string">&#x27;feature_names&#x27;</span>]</span><br><span class="line">cancer_desc = cancer[<span class="string">&#x27;DESCR&#x27;</span>]</span><br><span class="line"><span class="comment">#分为训练集与测试集</span></span><br><span class="line">cancer_data_train,cancer_data_test = train_test_split(cancer_data,test_size=<span class="number">0.2</span>,random_state=<span class="number">42</span>)<span class="comment">#训练集</span></span><br><span class="line">cancer_target_train,cancer_target_test = train_test_split(cancer_target,test_size=<span class="number">0.2</span>,random_state=<span class="number">42</span>)<span class="comment">#测试集</span></span><br></pre></td></tr></table></figure>
 <pre><code>breast_cancer数据集的长度为： 7
 breast_cancer数据集的类型为： &lt;class 'sklearn.utils.Bunch'&gt;
 cancer_data数据维度为： (569, 30)
 cancer_target标签维度为： (569,)
 </code></pre>
-<p><strong>Step4: 利用 BP 神经网络在乳腺癌数据上进行训练和预测</strong></p>
+<p><strong>Step4:利用BP神经网络在乳腺癌数据上进行训练和预测</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立 BP 模型, 采用Adam优化器，relu非线性映射函数</span></span><br><span class="line">BP = MLPClassifier(solver=<span class="string">&#x27;adam&#x27;</span>,activation = <span class="string">&#x27;relu&#x27;</span>,max_iter = <span class="number">1000</span>,alpha = <span class="number">1e-3</span>,hidden_layer_sizes = (<span class="number">64</span>,<span class="number">32</span>, <span class="number">32</span>),random_state = <span class="number">1</span>)</span><br><span class="line"><span class="comment"># 进行模型训练</span></span><br><span class="line">BP.fit(cancer_data_train, cancer_target_train)</span><br></pre></td></tr></table></figure>
 <pre><code>MLPClassifier(alpha=0.001, hidden_layer_sizes=(64, 32, 32), max_iter=1000,
               random_state=1)
@@ -708,11 +708,11 @@ cancer_target标签维度为： (569,)
 <pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:5: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
   &quot;&quot;&quot;
 </code></pre>
-<p><img src="output_19_1.png" class="lazyload placeholder" data-srcset="output_19_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p><img src="output_19_1.png" class="lazyload placeholder" data-srcset="output_19_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
 <pre><code>c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:11: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
   # This is added back by InteractiveShellApp.init_path()
 </code></pre>
-<p><img src="output_19_3.png" class="lazyload placeholder" data-srcset="output_19_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p><img src="output_19_3.png" class="lazyload placeholder" data-srcset="output_19_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示预测分数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预测准确率: &#123;:.4f&#125;&quot;</span>.<span class="built_in">format</span>(BP.score(cancer_data_test, cancer_target_test)))</span><br><span class="line"><span class="comment"># 进行测试集数据的类别预测</span></span><br><span class="line">predict_test_labels = BP.predict(cancer_data_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集的真实标签:\n&quot;</span>, cancer_target_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集的预测标签:\n&quot;</span>, predict_test_labels)</span><br></pre></td></tr></table></figure>
 <pre><code>预测准确率: 0.9474
 测试集的真实标签:
@@ -742,17 +742,17 @@ weighted avg       0.95      0.95      0.95       114
  [ 0 71]]
 </code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将混淆矩阵以热力图的防线显示</span></span><br><span class="line">sns.<span class="built_in">set</span>()</span><br><span class="line">figure, ax = plt.subplots()</span><br><span class="line"><span class="comment"># 画热力图</span></span><br><span class="line">sns.heatmap(confusion_mat, cmap=<span class="string">&quot;YlGnBu_r&quot;</span>, annot=<span class="literal">True</span>, ax=ax)  </span><br><span class="line"><span class="comment"># 标题 </span></span><br><span class="line">ax.set_title(<span class="string">&#x27;confusion matrix&#x27;</span>)</span><br><span class="line"><span class="comment"># x轴为预测类别</span></span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;predict&#x27;</span>)  </span><br><span class="line"><span class="comment"># y轴实际类别</span></span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;true&#x27;</span>)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​<br>
-<img src="output_23_0.png" class="lazyload placeholder" data-srcset="output_23_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
+<p>​<br />
+<img src="output_23_0.png" class="lazyload placeholder" data-srcset="output_23_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
 ​</p>
-<h2 id="5-算法重要知识点"><a class="markdownIt-Anchor" href="#5-算法重要知识点">#</a> 5. 算法重要知识点</h2>
-<p>BP 神经网络模型要点在于数据的前向传播和误差反向传播，来对参数进行更新，使得损失最小化。 误差反向传播算法简称反向传播算法（即 BP 算法）。使用反向传播算法的多层感知器又称为 BP 神经网络。BP 算法是一个迭代算法，它的基本思想为：</p>
+<h2 id="5-算法重要知识点"><a class="markdownIt-Anchor" href="#5-算法重要知识点"></a> 5. 算法重要知识点</h2>
+<p>BP神经网络模型要点在于数据的前向传播和误差反向传播，来对参数进行更新，使得损失最小化。 误差反向传播算法简称反向传播算法（即BP算法）。使用反向传播算法的多层感知器又称为BP神经网络。BP算法是一个迭代算法，它的基本思想为：</p>
 <ol>
 <li>先计算每一层的状态和激活值，直到最后一层（即信号是前向传播的）；</li>
 <li>计算每一层的误差，误差的计算过程是从最后一层向前推进的（这就是反向传播算法名字的由来）；</li>
 <li>更新参数（目标是误差变小）。迭代前面两个步骤，直到满足停止准则（比如相邻两次迭代的误差的差别很小）。</li>
 </ol>
-<p>在这个过程，函数的导数链式法则求导很重要，需要手动推导 BP 神经网络模型的梯度反向传播过程，熟练掌握链式法则进行求导，对参数进行更新。</p>
+<p>在这个过程，函数的导数链式法则求导很重要，需要手动推导BP神经网络模型的梯度反向传播过程，熟练掌握链式法则进行求导，对参数进行更新。</p>
 
       </div>
       <div class="post-tags-categories">
@@ -825,9 +825,9 @@ weighted avg       0.95      0.95      0.95       114
         <div class="title-text">基于决策树的分类预测</div>
       </div>
       <!-- <div class="content">
-        # 1 逻决策树的介绍和应用
-# 1.1 决策树的介绍
-决策树是一种常见的分类模型，在金融风控、医疗辅助诊断等诸多行业具
+         1 逻决策树的介绍和应用
+ 1.1 决策树的介绍
+决策树是一种常见的分类模型，在金融风控、医疗辅助诊断等诸多行业具有较
       </div> -->
     </a>
   </div>
