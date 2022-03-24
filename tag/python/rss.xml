@@ -9,8 +9,8 @@
         <lastBuildDate>Tue, 20 Jul 2021 11:40:59 +0800</lastBuildDate>
         <category>C</category>
         <category>大数据</category>
-        <category>Shell</category>
         <category>Python</category>
+        <category>Shell</category>
         <category>MapReduce</category>
         <category>平台</category>
         <category>安全</category>
@@ -23,7 +23,7 @@
             <link>http://example.com/2021/07/20/Python%E5%AD%A6%E4%B9%A0/%E5%BB%BA%E7%AB%8BCSV/</link>
             <category>Python</category>
             <pubDate>Tue, 20 Jul 2021 11:40:59 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;建立csv&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#建立csv&#34;&gt;&lt;/a&gt; 建立CSV&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;建立csv&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#建立csv&#34;&gt;#&lt;/a&gt; 建立 CSV&lt;/h1&gt;
 &lt;p&gt;环境&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pyCharm&lt;/li&gt;

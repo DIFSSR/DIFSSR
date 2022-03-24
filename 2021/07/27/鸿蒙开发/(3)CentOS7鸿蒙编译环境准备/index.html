@@ -554,33 +554,33 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h3 id="安装centos7"><a class="markdownIt-Anchor" href="#安装centos7"></a> 安装CentOS7</h3>
-<p>在VirtualBox中最小化安装CentOS（略）</p>
-<h3 id="配置网络"><a class="markdownIt-Anchor" href="#配置网络"></a> 配置网络</h3>
+        <h3 id="安装centos7"><a class="markdownIt-Anchor" href="#安装centos7">#</a> 安装 CentOS7</h3>
+<p>在 VirtualBox 中最小化安装 CentOS（略）</p>
+<h3 id="配置网络"><a class="markdownIt-Anchor" href="#配置网络">#</a> 配置网络</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 </span><br><span class="line">systemctl restart network</span><br><span class="line">ip addr</span><br><span class="line">ping www.baidu.com</span><br><span class="line"><span class="meta">#</span><span class="bash">设置dhcp动态分配网络</span></span><br><span class="line">yum install net-tools</span><br><span class="line">yum install wget</span><br><span class="line"><span class="meta">#</span><span class="bash">安装常用软件</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装专用编译器"><a class="markdownIt-Anchor" href="#安装专用编译器"></a> 安装专用编译器</h3>
+<h3 id="安装专用编译器"><a class="markdownIt-Anchor" href="#安装专用编译器">#</a> 安装专用编译器</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf gcc_riscv32-linux-7.3.0.tar.gz -C /usr/local/</span><br><span class="line"><span class="meta">#</span><span class="bash">解压到/usr/<span class="built_in">local</span></span></span><br><span class="line">vi /etc/profile</span><br><span class="line">source /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash">添加bin目录到环境变量中</span></span><br><span class="line">riscv32-unknown-elf-gcc --version</span><br><span class="line"><span class="meta">#</span><span class="bash">查看结果</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装python37"><a class="markdownIt-Anchor" href="#安装python37"></a> 安装Python3.7+</h3>
+<h3 id="安装python37"><a class="markdownIt-Anchor" href="#安装python37">#</a> 安装 Python3.7+</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz</span><br><span class="line">ls</span><br><span class="line">tar -zxvf Python-3.9.0.tgz -C /usr/local/</span><br><span class="line"><span class="meta">#</span><span class="bash">解压安装包</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">安装之前下载以下需要的依赖软件</span></span><br><span class="line">yum groupinstall -y &quot;Development tools&quot;</span><br><span class="line">yum install -y &quot;Development tools&quot;</span><br><span class="line">yum install -y openssl-devel</span><br><span class="line">yum install -y libffi libffi-devel</span><br><span class="line">yum install -y bzip2-devel</span><br><span class="line">yum install -y sqlite-devel</span><br><span class="line">yum install -y readline-devel</span><br><span class="line">yum install -y libuuid-devel</span><br><span class="line">yum install -y uuid-devel</span><br><span class="line">yum install -y xz-devel</span><br><span class="line">yum install -y gdbm-devel</span><br><span class="line">yum install -y tk-devel</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">安装Python</span></span><br><span class="line">cd /usr/local/Python-3.9.0/</span><br><span class="line">ls</span><br><span class="line">./configure --prefix=/usr/local/python3</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">建立软链接，不影响系统自带的python</span></span><br><span class="line">ln -s /usr/local/python3/bin/python3 /usr/bin/python3</span><br><span class="line">ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3</span><br><span class="line">pip3 --version</span><br><span class="line">python3 --version</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">安装python包</span></span><br><span class="line">pip3 installsetuptools</span><br><span class="line">pip3 install setuptools</span><br><span class="line">pip3 install kconfiglib</span><br><span class="line">pip3 install pycryptodome</span><br><span class="line">pip3 install six --upgrade --ignore-installed six</span><br><span class="line">pip3 install ecdsa</span><br></pre></td></tr></table></figure>
-<h3 id="安装scons"><a class="markdownIt-Anchor" href="#安装scons"></a> 安装SCONS</h3>
+<h3 id="安装scons"><a class="markdownIt-Anchor" href="#安装scons">#</a> 安装 SCONS</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf scons-4.0.1.tar.gz </span><br><span class="line">cd SCons-4.0.1/</span><br><span class="line">python3 setup.py install</span><br><span class="line">ln -s /usr/local/python3/bin/scons /usr/bin/scons</span><br></pre></td></tr></table></figure>
-<h3 id="安装gn"><a class="markdownIt-Anchor" href="#安装gn"></a> 安装gn</h3>
+<h3 id="安装gn"><a class="markdownIt-Anchor" href="#安装gn">#</a> 安装 gn</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf gn-linux-x86-1717.tar.gz -C /usr/local/</span><br><span class="line">ln -s /usr/local/gn /usr/bin/gn</span><br><span class="line">gn --version</span><br></pre></td></tr></table></figure>
-<h3 id="安装ninja"><a class="markdownIt-Anchor" href="#安装ninja"></a> 安装ninja</h3>
+<h3 id="安装ninja"><a class="markdownIt-Anchor" href="#安装ninja">#</a> 安装 ninja</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf ninja.1.9.0.tar -C /usr/local/</span><br><span class="line">ln -s /usr/local/ninja/ninja /usr/bin/ninja</span><br><span class="line">ninja --version</span><br></pre></td></tr></table></figure>
-<h3 id="安装llvm"><a class="markdownIt-Anchor" href="#安装llvm"></a> 安装llvm</h3>
+<h3 id="安装llvm"><a class="markdownIt-Anchor" href="#安装llvm">#</a> 安装 llvm</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf llvm-linux-9.0.0-36191.tar -C /usr/local/</span><br><span class="line">vi /etc/profile</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<h3 id="安装hb"><a class="markdownIt-Anchor" href="#安装hb"></a> 安装hb</h3>
+<h3 id="安装hb"><a class="markdownIt-Anchor" href="#安装hb">#</a> 安装 hb</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user ohos-build</span><br><span class="line">vi ~/.bashrc </span><br><span class="line">source ./.bashrc</span><br></pre></td></tr></table></figure>
-<h3 id="解压源码并编译"><a class="markdownIt-Anchor" href="#解压源码并编译"></a> 解压源码并编译</h3>
+<h3 id="解压源码并编译"><a class="markdownIt-Anchor" href="#解压源码并编译">#</a> 解压源码并编译</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir code-1.0</span><br><span class="line">tar -zxvf code-1.0.tar.gz -C ./code-1.0</span><br><span class="line">cd code-1.0</span><br><span class="line"><span class="meta">#</span><span class="bash">使用python3编译源码</span></span><br><span class="line">python3 build.py wifiiot</span><br><span class="line"><span class="meta">#</span><span class="bash">编译成功</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装samba服务"><a class="markdownIt-Anchor" href="#安装samba服务"></a> 安装Samba服务</h3>
+<h3 id="安装samba服务"><a class="markdownIt-Anchor" href="#安装samba服务">#</a> 安装 Samba 服务</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install samba</span><br><span class="line">systemctl enable smb</span><br><span class="line"><span class="meta">#</span><span class="bash">编辑配置文件</span></span><br><span class="line">vi /etc/samba/smb.conf</span><br><span class="line"><span class="meta">#</span><span class="bash">创建用户</span></span><br><span class="line">smbpasswd -a root</span><br><span class="line">systemctl start smb</span><br><span class="line">netstat -antp</span><br><span class="line"><span class="meta">#</span><span class="bash">配置selinux及防火墙</span></span><br><span class="line">sestatus -b |grep samba</span><br><span class="line">setsebool -P samba_export_all_rw 1</span><br></pre></td></tr></table></figure>
-<h3 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h3>
-<p>[1]Centos下安装鸿蒙LiteOS编译环境<br />
-<a target="_blank" rel="noopener" href="https://www.sohu.com/a/425806016_463994">https://www.sohu.com/a/425806016_463994</a><br />
-[2]华为设备开发快速入门官方文档<br />
-<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498">https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498</a></p>
+<h3 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献">#</a> 参考文献</h3>
+<p>[1] Centos 下安装鸿蒙 LiteOS 编译环境<br>
+<a target="_blank" rel="noopener" href="https://www.sohu.com/a/425806016_463994"> https://www.sohu.com/a/425806016_463994</a><br>
+ [2] 华为设备开发快速入门官方文档<br>
+<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498"> https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498</a></p>
 
       </div>
       <div class="post-tags-categories">
@@ -641,9 +641,9 @@
       </div>
       
       <!-- <div class="content">
-         Windows开发环境准备
+        # Windows 开发环境准备
 更新时间: 2021-07-21 09:12
-系统要求：Windows 10 64位系统。
+系统要求：Windows 10 64 位
       </div> -->
     </a>
   </div>
@@ -662,9 +662,9 @@
         <div class="title-text">(4)运行Hello World</div>
       </div>
       <!-- <div class="content">
-         运行Hello World
+        # 运行 Hello World
 更新时间: 2021-07-21 09:12
-本示例将演示如何编写简单业务，输出“Hell
+本示例将演示如何编写简单业务，输出 “H
       </div> -->
     </a>
   </div>

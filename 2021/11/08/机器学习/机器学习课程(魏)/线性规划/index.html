@@ -555,9 +555,9 @@
     <article class="post post-detail">
       <div class="post-content">
         <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> optimize <span class="keyword">as</span> op</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="image-20211208163638086.png" class="lazyload placeholder" data-srcset="image-20211208163638086.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211208163638086" /></p>
+<p><img src="image-20211208163638086.png" class="lazyload placeholder" data-srcset="image-20211208163638086.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211208163638086"></p>
 <p>scipy.optimize.linprog(c, A_ub=None, b_ub=None, A_eq=None, b_eq=None, bounds=None, method=‘simplex’, callback=None, options=None)</p>
-<p>很容易发现，c指的应该是要求最大值的函数的系数数组，A_ub是应该是不等式未知量的系数矩阵，仔细观察的人应该发现，为什么第一行里面写的是[-2,5,-1]而不是[2,5,-1]呢，应该要与图里对应才对啊，原来这不等式指的是&lt;=的不等式，那如果是&gt;=呢，乘个负号就行了。A_eq就是其中等式的未知量系数矩阵了。B_ub就是不等式的右边了，B_eq就是等式右边了。bounds的话，指的就是每个未知量的范围了</p>
+<p>很容易发现，c 指的应该是要求最大值的函数的系数数组，A_ub 是应该是不等式未知量的系数矩阵，仔细观察的人应该发现，为什么第一行里面写的是 [-2,5,-1] 而不是 [2,5,-1] 呢，应该要与图里对应才对啊，原来这不等式指的是 &lt;= 的不等式，那如果是 &gt;= 呢，乘个负号就行了。A_eq 就是其中等式的未知量系数矩阵了。B_ub 就是不等式的右边了，B_eq 就是等式右边了。bounds 的话，指的就是每个未知量的范围了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#目标函数，求最大值</span></span><br><span class="line">c=np.array([<span class="number">2</span>,<span class="number">3</span>,-<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#unbalence不等式，默认&lt;=，&gt;=乘-1</span></span><br><span class="line"><span class="comment">#不等式左系数矩阵</span></span><br><span class="line">A_ub=np.array([[-<span class="number">2</span>,<span class="number">5</span>,-<span class="number">1</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>]])</span><br><span class="line"><span class="comment">#不等式右系数矩阵</span></span><br><span class="line">B_ub=np.array([-<span class="number">10</span>,<span class="number">12</span>])</span><br><span class="line"><span class="comment">#equation等式，A_eq为左系数矩阵，B_eq为右系数矩阵</span></span><br><span class="line">A_eq=np.array([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]])<span class="comment">#注意双括号</span></span><br><span class="line">B_eq=np.array([<span class="number">7</span>])</span><br><span class="line"><span class="comment">#x1,x2,x3大于等于0</span></span><br><span class="line">x1=(<span class="number">0</span>,<span class="literal">None</span>)</span><br><span class="line">x2=(<span class="number">0</span>,<span class="literal">None</span>)</span><br><span class="line">x3=(<span class="number">0</span>,<span class="literal">None</span>)</span><br><span class="line"><span class="comment">#函数默认求最小值，-c，结果为负号</span></span><br><span class="line">res=op.linprog(-c,A_ub,B_ub,A_eq,B_eq,bounds=(x1,x2,x3))</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <pre><code>     con: array([1.80713489e-09])
      fun: -14.571428565645059
@@ -614,16 +614,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/6.jpg" class="lazyload placeholder" data-srcset="/medias/6.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/25.jpg" class="lazyload placeholder" data-srcset="/medias/25.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
-    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="post-nav-link">
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E6%8B%9F%E5%90%88/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">朴素贝叶斯</div>
+        <div class="title-text">拟合</div>
       </div>
       
       <!-- <div class="content">
-        123456789101112131415161718from scipy.io import loadmatimpor
+        12345import numpy as npimport matplotlib.pyplot as pltimport
       </div> -->
     </a>
   </div>

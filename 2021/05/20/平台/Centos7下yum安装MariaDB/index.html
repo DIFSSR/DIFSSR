@@ -545,10 +545,10 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="centos7下yum安装mariadb"><a class="markdownIt-Anchor" href="#centos7下yum安装mariadb"></a> centos7下yum安装MariaDB</h1>
-<p>CentOS 7下mysql下替换成MariaDB了。<br />
-MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权 许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</p>
-<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+        <h1 id="centos7下yum安装mariadb"><a class="markdownIt-Anchor" href="#centos7下yum安装mariadb">#</a> centos7 下 yum 安装 MariaDB</h1>
+<p>CentOS 7 下 mysql 下替换成 MariaDB 了。<br>
+MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区在维护，采用 GPL 授权 许可 MariaDB 的目的是完全兼容 MySQL，包括 API 和命令行，使之能轻松成为 MySQL 的代替品。</p>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装">#</a> 安装</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mariadb mariadb-server</span><br><span class="line"></span><br><span class="line">systemctl start mariadb   #启动mariadb</span><br><span class="line">systemctl enable mariadb  #设置开机自启动</span><br><span class="line">systemctl stop mariadb    #停止MariaDB</span><br><span class="line">systemctl restart mariadb #重启MariaDB</span><br><span class="line">mysql_secure_installation #设置root密码等相关</span><br><span class="line">mysql -uroot -p           #测试登录   </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改密码</span></span><br><span class="line">update mysql.user set password=PASSWORD(&#x27;123456&#x27;) where user=&#x27;root&#x27;;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新权限</span></span><br><span class="line">flush privileges; </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新建用户</span></span><br><span class="line"><span class="meta">#</span><span class="bash">create user  <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机&#x27;</span> identified by <span class="string">&#x27;密码&#x27;</span>   如果只允许本机访问 @<span class="string">&#x27;localhost&#x27;</span>  , 或者指定一个ip  @<span class="string">&#x27;192.xx.xx.xx&#x27;</span> 或者使用通配: @<span class="string">&#x27;%&#x27;</span></span></span><br><span class="line">create user &#x27;read_visa&#x27;@&#x27;%&#x27; identified by &#x27;123456&#x27;;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新用户权限</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> grant 操作类型 on 数据库.表 to 用户@<span class="string">&#x27;主机&#x27;</span>   数据库,表,主机都支持通配符 grant select, insert on *.* to  <span class="string">&#x27;read_visa&#x27;</span>@<span class="string">&#x27;%&#x27;</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> grant all on visa.* to <span class="string">&#x27;read_visa&#x27;</span>@<span class="string">&#x27;%&#x27;</span>; // all 表示所有权限</span></span><br><span class="line">grant select on visa.* to &#x27;read_visa&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       </div>
       <div class="post-tags-categories">
@@ -601,8 +601,8 @@ MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在�
       </div>
       
       <!-- <div class="content">
-         Web攻击
-在互联网中，攻击手段数不胜数，我们平时不能以自己只是普通的开发程序员而不是安全方向的开发者为理由，而不去掌
+        # Web 攻击
+在互联网中，攻击手段数不胜数，我们平时不能以自己只是普通的开发程序员而不是安全方向的开发者为理由，而不
       </div> -->
     </a>
   </div>
@@ -621,14 +621,12 @@ MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在�
         <div class="title-text">Win10+noVNC</div>
       </div>
       <!-- <div class="content">
-         网页实现远程桌面
- 环境
+        # 网页实现远程桌面
+# 环境
 
-Win10 (被访问的Server,设其IP为11.11.11.11)
+Win10 (被访问的 Server, 设其 IP 为 11.11.11.11)
 
- 软件
-
-nod
+#
       </div> -->
     </a>
   </div>

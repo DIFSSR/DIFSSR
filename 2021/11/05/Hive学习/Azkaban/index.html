@@ -554,37 +554,37 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="azkaban任务调度"><a class="markdownIt-Anchor" href="#azkaban任务调度"></a> Azkaban任务调度</h1>
-<h2 id="安装azkaban"><a class="markdownIt-Anchor" href="#安装azkaban"></a> 安装Azkaban</h2>
+        <h1 id="azkaban任务调度"><a class="markdownIt-Anchor" href="#azkaban任务调度">#</a> Azkaban 任务调度</h1>
+<h2 id="安装azkaban"><a class="markdownIt-Anchor" href="#安装azkaban">#</a> 安装 Azkaban</h2>
 <p><strong>准备安装包</strong></p>
-<p><img src="Azkaban/image-20211105174045501.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211105174045501.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211105174045501" /></p>
+<p><img src="Azkaban/image-20211105174045501.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211105174045501.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211105174045501"></p>
 <p><strong>将安装包解压</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf azkaban-web-server-2.5.0.tar.gz</span><br><span class="line">tar -zxvf azkaban-sql-script-2.5.0.tar.gz </span><br><span class="line">tar -zxvf azkaban-executor-server-2.5.0.tar.gz</span><br><span class="line">mv azkaban-web-2.5.0/ /usr/local/azkaban-web</span><br><span class="line">mv azkaban-executor-2.5.0/ /usr/local/azkaban-executor</span><br></pre></td></tr></table></figure>
-<p><strong>创建mysql用户</strong></p>
+<p><strong>创建 mysql 用户</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>u root <span class="operator">-</span>p</span><br><span class="line"><span class="keyword">create</span> database azkaban;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">on</span> azkaban.<span class="operator">*</span> <span class="keyword">to</span> azkaban@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;azkaban&#x27;</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">on</span> azkaban.<span class="operator">*</span> <span class="keyword">to</span> azkaban@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;azkaban&#x27;</span>;</span><br><span class="line">flush privileges;</span><br><span class="line">use azkaban</span><br><span class="line">source <span class="operator">/</span>root<span class="operator">/</span>azkaban<span class="number">-2.5</span><span class="number">.0</span><span class="operator">/</span><span class="keyword">create</span><span class="operator">-</span><span class="keyword">all</span><span class="operator">-</span><span class="keyword">sql</span><span class="number">-2.5</span><span class="number">.0</span>.<span class="keyword">sql</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>创建证书</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">keytool -keystore keystore -alias jetty -genkey -keyalg RSA</span><br><span class="line"><span class="meta">#</span><span class="bash">都默认吧，记住自己的密码</span></span><br><span class="line">mv keystore /usr/local/azkaban-web/</span><br><span class="line"><span class="meta">#</span><span class="bash">放到web应用里</span></span><br><span class="line">vi conf/azkaban.properties</span><br><span class="line"><span class="meta">#</span><span class="bash">修改以下数据</span></span><br><span class="line">database.type=mysql</span><br><span class="line">mysql.port=3306</span><br><span class="line">mysql.host=localhost</span><br><span class="line">mysql.database=azkaban</span><br><span class="line">mysql.user=azkaban</span><br><span class="line">mysql.password=azkaban</span><br><span class="line">mysql.numconnections=100</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Azkaban Jetty server properties.</span></span><br><span class="line">jetty.maxThreads=25</span><br><span class="line">jetty.ssl.port=8443</span><br><span class="line">jetty.port=8081</span><br><span class="line">jetty.keystore=keystore</span><br><span class="line">jetty.password=azkaban</span><br><span class="line">jetty.keypassword=azkaban</span><br><span class="line">jetty.truststore=keystore</span><br><span class="line">jetty.trustpassword=azkaban</span><br></pre></td></tr></table></figure>
-<p><strong>编辑executor配置</strong></p>
+<p><strong>编辑 executor 配置</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cd azkaban-executor/</span><br><span class="line">vi conf/azkaban.properties</span><br><span class="line"></span><br><span class="line">database.type=mysql</span><br><span class="line">mysql.port=3306</span><br><span class="line">mysql.host=localhost</span><br><span class="line">mysql.database=azkaban</span><br><span class="line">mysql.user=azkaban</span><br><span class="line">mysql.password=azkaban</span><br><span class="line">mysql.numconnections=100</span><br><span class="line"></span><br><span class="line">cd /usr/local/azkaban-web/</span><br><span class="line">vi conf/azkaban-users.xml </span><br><span class="line"></span><br><span class="line">&lt;azkaban-users&gt;</span><br><span class="line">        &lt;user username=&quot;azkaban&quot; password=&quot;azkaban&quot; roles=&quot;admin&quot; groups=&quot;azkaban&quot; /&gt;</span><br><span class="line">        &lt;user username=&quot;metrics&quot; password=&quot;metrics&quot; roles=&quot;metrics&quot;/&gt;</span><br><span class="line">        &lt;user username=&quot;admin&quot; password=&quot;admin&quot; roles=&quot;admin,metrics&quot;/&gt;</span><br><span class="line">        &lt;role name=&quot;admin&quot; permissions=&quot;ADMIN&quot; /&gt;</span><br><span class="line">        &lt;role name=&quot;metrics&quot; permissions=&quot;METRICS&quot;/&gt;</span><br><span class="line">&lt;/azkaban-users&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>启动应用</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/azkaban-executor/</span><br><span class="line">bin/azkaban-executor-start.sh</span><br><span class="line">cd /usr/local/azkaban-web/</span><br><span class="line">bin/azkaban-web-start.sh </span><br><span class="line"><span class="meta">#</span><span class="bash">注意先启动executor，再启动webserver，避免出错</span></span><br></pre></td></tr></table></figure>
-<p><strong>访问网页</strong><br />
-<a target="_blank" rel="noopener" href="https://yourhost:8443">https://yourhost:8443</a></p>
-<p><img src="Azkaban/image-20211107123423587.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107123423587.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107123423587" /></p>
-<p>admin登陆</p>
-<h2 id="azkaban使用方法"><a class="markdownIt-Anchor" href="#azkaban使用方法"></a> Azkaban使用方法</h2>
-<p><strong>编写Hive作业并使用azkaban运行</strong><br />
-为了让azkaban支持Hive作业，需要使用jobtype插件，将下载好的压缩包解压至azkaban-executor/plugins/目录下</p>
+<p><strong>访问网页</strong><br>
+<a target="_blank" rel="noopener" href="https://yourhost:8443"> https://yourhost:8443</a></p>
+<p><img src="Azkaban/image-20211107123423587.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107123423587.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107123423587"></p>
+<p>admin 登陆</p>
+<h2 id="azkaban使用方法"><a class="markdownIt-Anchor" href="#azkaban使用方法">#</a> Azkaban 使用方法</h2>
+<p><strong>编写 Hive 作业并使用 azkaban 运行</strong><br>
+为了让 azkaban 支持 Hive 作业，需要使用 jobtype 插件，将下载好的压缩包解压至 azkaban-executor/plugins/ 目录下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/azkaban-executor/plugins/</span><br><span class="line">tar -zxvf azkaban-jobtype-2.5.0.tar.gz</span><br><span class="line">cd azkaban-jobtype-2.5.0</span><br><span class="line">vi common.properties</span><br><span class="line"><span class="meta">#</span><span class="bash">添加hadoop和hive家目录</span></span><br></pre></td></tr></table></figure>
-<p><strong>编写hiveCount脚本以及job文件</strong></p>
+<p><strong>编写 hiveCount 脚本以及 job 文件</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi hiveCount.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">hive -e &quot;select count(distinct uid) from sogou.sogou_500w&quot;</span><br><span class="line">vi hiveCount.job</span><br><span class="line">type=command</span><br><span class="line">command=bash hiveCount.sh</span><br></pre></td></tr></table></figure>
-<p><strong>将编写好的两个文件打包成zip并上传web界面</strong></p>
-<p><img src="Azkaban/image-20211107144929701.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107144929701.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107144929701" /></p>
+<p><strong>将编写好的两个文件打包成 zip 并上传 web 界面</strong></p>
+<p><img src="Azkaban/image-20211107144929701.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107144929701.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107144929701"></p>
 <img src="Azkaban/image-20211107145005251.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107145005251.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107145005251" style="zoom:80%;" />
-<p><img src="Azkaban/image-20211107150726252.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107150726252.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107150726252" /></p>
+<p><img src="Azkaban/image-20211107150726252.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107150726252.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107150726252"></p>
 <p><strong>运行结束</strong></p>
-<p><img src="Azkaban/image-20211107151454918.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107151454918.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107151454918" /></p>
-<p><img src="Azkaban/image-20211107151559417.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107151559417.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107151559417" /></p>
+<p><img src="Azkaban/image-20211107151454918.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107151454918.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107151454918"></p>
+<p><img src="Azkaban/image-20211107151559417.png" class="lazyload placeholder" data-srcset="Azkaban/image-20211107151559417.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="image-20211107151559417"></p>
 
       </div>
       <div class="post-tags-categories">
@@ -637,9 +637,9 @@
       </div>
       
       <!-- <div class="content">
-         Mahout安装部署
- Mahout是什么
-Apache Mahout是Apache Software Foundat
+        # Mahout 安装部署
+# Mahout 是什么
+Apache Mahout 是 Apache Software F
       </div> -->
     </a>
   </div>
@@ -658,9 +658,9 @@ Apache Mahout是Apache Software Foundat
         <div class="title-text">Spark+RDD</div>
       </div>
       <!-- <div class="content">
-         Spark RDD编程案例
- WordCount
-WordCount编程是我们最熟悉不过的了，使用Spark进行编写程
+        # Spark RDD 编程案例
+# WordCount
+WordCount 编程是我们最熟悉不过的了，使用 Spark
       </div> -->
     </a>
   </div>

@@ -563,7 +563,7 @@
 
 c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\ipykernel_launcher.py:19: MatplotlibDeprecationWarning: shading='flat' when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading='auto', 'nearest' or 'gouraud', or set rcParams['pcolor.shading'].  This will become an error two minor releases later.
 </code></pre>
-<p><img src="output_1_2.png" class="lazyload placeholder" data-srcset="output_1_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
+<p><img src="output_1_2.png" class="lazyload placeholder" data-srcset="output_1_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"></span><br><span class="line">iris = load_iris()</span><br><span class="line">X = iris.data[:, <span class="number">2</span>:] <span class="comment"># petal length and width</span></span><br><span class="line">y = iris.target</span><br><span class="line">tree_clf = DecisionTreeClassifier(max_depth=<span class="number">3</span>)</span><br><span class="line">tree_clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">export_graphviz(</span><br><span class="line">  tree_clf,</span><br><span class="line">  out_file=<span class="string">&quot;tree.dot&quot;</span>,</span><br><span class="line">  feature_names=iris.feature_names[<span class="number">2</span>:],</span><br><span class="line">  class_names=iris.target_names,</span><br><span class="line">  rounded=<span class="literal">True</span>,</span><br><span class="line">  filled=<span class="literal">True</span></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       </div>
@@ -617,8 +617,8 @@ c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\
       </div>
       
       <!-- <div class="content">
-         对数据降维后使用KNN算法进行分类的案例
-12345678910111213141516171819202122232
+        # 对数据降维后使用 KNN 算法进行分类的案例
+12345678910111213141516171819202122
       </div> -->
     </a>
   </div>
@@ -629,15 +629,15 @@ c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/25.jpg" class="lazyload placeholder" data-srcset="/medias/25.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/6.jpg" class="lazyload placeholder" data-srcset="/medias/6.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
-    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E6%8B%9F%E5%90%88/" class="post-nav-link">
+    <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">拟合</div>
+        <div class="title-text">朴素贝叶斯</div>
       </div>
       <!-- <div class="content">
-        12345import numpy as npimport matplotlib.pyplot as pltimport
+        123456789101112131415161718from scipy.io import loadmatimpor
       </div> -->
     </a>
   </div>

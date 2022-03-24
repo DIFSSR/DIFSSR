@@ -554,44 +554,44 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="led外设控制"><a class="markdownIt-Anchor" href="#led外设控制"></a> LED外设控制</h1>
+        <h1 id="led外设控制"><a class="markdownIt-Anchor" href="#led外设控制">#</a> LED 外设控制</h1>
 <p>更新时间: 2021-07-21 09:12</p>
-<h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
-<p>HarmonyOS WLAN模组基于Hi3861平台提供了丰富的外设操作能力，包含I2C、I2S、ADC、UART、SPI、SDIO、GPIO、PWM、FLASH等。本文介绍如何通过调用HarmonyOS的NDK接口，实现对GPIO控制，达到LED闪烁的效果。其他的IOT外设控制，开发者可根据API指导文档完成，此处不逐一介绍。</p>
-<h2 id="开发"><a class="markdownIt-Anchor" href="#开发"></a> 开发</h2>
+<h2 id="概述"><a class="markdownIt-Anchor" href="#概述">#</a> 概述</h2>
+<p>HarmonyOS WLAN 模组基于 Hi3861 平台提供了丰富的外设操作能力，包含 I2C、I2S、ADC、UART、SPI、SDIO、GPIO、PWM、FLASH 等。本文介绍如何通过调用 HarmonyOS 的 NDK 接口，实现对 GPIO 控制，达到 LED 闪烁的效果。其他的 IOT 外设控制，开发者可根据 API 指导文档完成，此处不逐一介绍。</p>
+<h2 id="开发"><a class="markdownIt-Anchor" href="#开发">#</a> 开发</h2>
 <ol>
 <li>
-<p>请先完成<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-introduction-hi3861-0000001105041324#section19352114194115">《Hi3861快速入门》</a>。</p>
-<p>LED控制参考示例存放于applications/sample/wifi-iot/app/iothardware/led_example.c文件中。</p>
+<p>请先完成<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-introduction-hi3861-0000001105041324#section19352114194115">《Hi3861 快速入门》</a>。</p>
+<p>LED 控制参考示例存放于 applications/sample/wifi-iot/app/iothardware/led_example.c 文件中。</p>
 </li>
 <li>
-<p>实现IOT外设控制，首先需要通过查阅原理图明确接线关系。经过查阅，hispark pegasus的LED与芯片的9号管脚相连。</p>
+<p>实现 IOT 外设控制，首先需要通过查阅原理图明确接线关系。经过查阅，hispark pegasus 的 LED 与芯片的 9 号管脚相连。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define LED_TEST_GPIO 9</span><br></pre></td></tr></table></figure>
 <p>说明</p>
-<p>开发板原理图，请开发者联系Hi3861购买渠道客服获取。</p>
+<p>开发板原理图，请开发者联系 Hi3861 购买渠道客服获取。</p>
 </li>
 <li>
-<p>使用GPIO前，需要完成GPIO管脚初始化，明确管脚用途，并创建任务，使LED周期性亮灭，达到闪烁的效果。</p>
+<p>使用 GPIO 前，需要完成 GPIO 管脚初始化，明确管脚用途，并创建任务，使 LED 周期性亮灭，达到闪烁的效果。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LedExampleEntry</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    osThreadAttr_t attr;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 管脚初始化 */</span></span><br><span class="line">    IoTGpioInit(LED_TEST_GPIO);</span><br><span class="line">    <span class="comment">/* 配置9号管脚为输出方向 */</span></span><br><span class="line">    IoTGpioSetDir(LED_TEST_GPIO, IOT_GPIO_DIR_OUT);</span><br><span class="line"></span><br><span class="line">    attr.name = <span class="string">&quot;LedTask&quot;</span>;</span><br><span class="line">    attr.attr_bits = <span class="number">0U</span>;</span><br><span class="line">    attr.cb_mem = <span class="literal">NULL</span>;</span><br><span class="line">    attr.cb_size = <span class="number">0U</span>;</span><br><span class="line">    attr.stack_mem = <span class="literal">NULL</span>;</span><br><span class="line">    attr.stack_size = LED_TASK_STACK_SIZE;</span><br><span class="line">    attr.priority = LED_TASK_PRIO;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 启动任务 */</span></span><br><span class="line">    <span class="keyword">if</span> (osThreadNew((osThreadFunc_t)LedTask, <span class="literal">NULL</span>, &amp;attr) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[LedExample] Failed to create LedTask!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>在循环任务中通过周期性亮灭形式实现LED闪烁。</p>
+<p>在循环任务中通过周期性亮灭形式实现 LED 闪烁。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> *<span class="title">LedTask</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    (<span class="keyword">void</span>)arg;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">switch</span> (g_ledState) &#123;</span><br><span class="line">            <span class="keyword">case</span> LED_ON:</span><br><span class="line">                IoTGpioSetOutputVal(LED_TEST_GPIO, <span class="number">1</span>);</span><br><span class="line">                usleep(LED_INTERVAL_TIME_US);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> LED_OFF:</span><br><span class="line">                IoTGpioSetOutputVal(LED_TEST_GPIO, <span class="number">0</span>);</span><br><span class="line">                usleep(LED_INTERVAL_TIME_US);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> LED_SPARK:</span><br><span class="line">                IoTGpioSetOutputVal(LED_TEST_GPIO, <span class="number">0</span>);</span><br><span class="line">                usleep(LED_INTERVAL_TIME_US);</span><br><span class="line">                IoTGpioSetOutputVal(LED_TEST_GPIO, <span class="number">1</span>);</span><br><span class="line">                usleep(LED_INTERVAL_TIME_US);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                usleep(LED_INTERVAL_TIME_US);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>在代码最下方，使用HarmonyOS启动恢复模块接口SYS_RUN()启动业务。（SYS_RUN定义在ohos_init.h文件中）</p>
+<p>在代码最下方，使用 HarmonyOS 启动恢复模块接口 SYS_RUN () 启动业务。（SYS_RUN 定义在 ohos_init.h 文件中）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SYS_RUN(LedExampleEntry);</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>修改applications/sample/wifi-iot/app/BUILD.gn文件，使led_example.c参与编译。</p>
+<p>修改 applications/sample/wifi-iot/app/BUILD.gn 文件，使 led_example.c 参与编译。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(<span class="string">&quot;//build/lite/config/component/lite_component.gni&quot;</span>)</span><br><span class="line">lite_component(<span class="string">&quot;app&quot;</span>) &#123;</span><br><span class="line">    features = [</span><br><span class="line">        <span class="string">&quot;iothardware:led_example&quot;</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="验证"><a class="markdownIt-Anchor" href="#验证"></a> 验证</h2>
-<p>编译过程请参考《<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section191121332125319">Hi3861快速入门-源码编译</a>》，烧录过程请参考《<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section19458165166">Hi3861快速入门-镜像烧录</a>》。</p>
-<p>完成以上两步后，按下RST键复位模组，可发现LED在周期性闪烁，与预期相符，验证完毕。</p>
-<p><strong>图1</strong> LED闪烁图<br />
-<img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true" class="lazyload placeholder" data-srcset="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img" /></p>
+<h2 id="验证"><a class="markdownIt-Anchor" href="#验证">#</a> 验证</h2>
+<p>编译过程请参考《<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section191121332125319">Hi3861 快速入门 - 源码编译</a>》，烧录过程请参考《<a target="_blank" rel="noopener" href="https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section19458165166">Hi3861 快速入门 - 镜像烧录</a>》。</p>
+<p>完成以上两步后，按下 RST 键复位模组，可发现 LED 在周期性闪烁，与预期相符，验证完毕。</p>
+<p><strong>图 1</strong> LED 闪烁图<br>
+<img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true" class="lazyload placeholder" data-srcset="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"></p>
 
       </div>
       <div class="post-tags-categories">
@@ -648,9 +648,9 @@
       </div>
       
       <!-- <div class="content">
-         运行Hello World
+        # 运行 Hello World
 更新时间: 2021-07-21 09:12
-本示例将演示如何编写简单业务，输出“Hell
+本示例将演示如何编写简单业务，输出 “H
       </div> -->
     </a>
   </div>
@@ -669,10 +669,9 @@
         <div class="title-text">C语言学习</div>
       </div>
       <!-- <div class="content">
-         C语言学习(一)
- 起源
-1972年， 贝尔实验室的丹尼斯·里奇（Dennis Ritch） 和肯·汤普逊（Ken
-T
+        # C 语言学习 (一)
+# 起源
+1972 年， 贝尔实验室的丹尼斯・里奇（Dennis Ritch） 和肯・汤普逊（
       </div> -->
     </a>
   </div>

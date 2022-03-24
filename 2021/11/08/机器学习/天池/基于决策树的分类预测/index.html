@@ -554,9 +554,9 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="1-逻决策树的介绍和应用"><a class="markdownIt-Anchor" href="#1-逻决策树的介绍和应用"></a> 1 逻决策树的介绍和应用</h1>
-<h2 id="11-决策树的介绍"><a class="markdownIt-Anchor" href="#11-决策树的介绍"></a> 1.1 决策树的介绍</h2>
-<p>决策树是一种常见的分类模型，在金融风控、医疗辅助诊断等诸多行业具有较为广泛的应用。决策树的核心思想是基于树结构对数据进行划分，这种思想是人类处理问题时的本能方法。例如在婚恋市场中，女方通常会先询问男方是否有房产，如果有房产再了解是否有车产，如果有车产再看是否有稳定工作……最后得出是否要深入了解的判断。</p>
+        <h1 id="1-逻决策树的介绍和应用"><a class="markdownIt-Anchor" href="#1-逻决策树的介绍和应用">#</a> 1 逻决策树的介绍和应用</h1>
+<h2 id="11-决策树的介绍"><a class="markdownIt-Anchor" href="#11-决策树的介绍">#</a> 1.1 决策树的介绍</h2>
+<p>决策树是一种常见的分类模型，在金融风控、医疗辅助诊断等诸多行业具有较为广泛的应用。决策树的核心思想是基于树结构对数据进行划分，这种思想是人类处理问题时的本能方法。例如在婚恋市场中，女方通常会先询问男方是否有房产，如果有房产再了解是否有车产，如果有车产再看是否有稳定工作…… 最后得出是否要深入了解的判断。</p>
 <p>决策树的主要优点：</p>
 <ul>
 <li>具有很好的解释性，模型可以生成可以理解的规则。</li>
@@ -570,56 +570,56 @@
 <li>预测能力有限，无法达到其他强监督模型效果。</li>
 <li>方差较高，数据分布的轻微改变很容易造成树结构完全不同。</li>
 </ul>
-<h2 id="12-决策树的应用"><a class="markdownIt-Anchor" href="#12-决策树的应用"></a> 1.2 决策树的应用</h2>
-<p>由于决策树模型中自变量与因变量的非线性关系以及决策树简单的计算方法，使得它成为集成学习中最为广泛使用的基模型。梯度提升树(GBDT)，XGBoost以及LightGBM等先进的集成模型都采用了决策树作为基模型，在广告计算、CTR预估、金融风控等领域大放异彩，成为当今与神经网络相提并论的复杂模型，更是数据挖掘比赛中的常客。在新的研究中，南京大学周志华教授提出一种多粒度级联森林模型，创造了一种全新的基于决策树的深度集成方法，为我们提供了决策树发展的另一种可能。</p>
+<h2 id="12-决策树的应用"><a class="markdownIt-Anchor" href="#12-决策树的应用">#</a> 1.2 决策树的应用</h2>
+<p>由于决策树模型中自变量与因变量的非线性关系以及决策树简单的计算方法，使得它成为集成学习中最为广泛使用的基模型。梯度提升树 (GBDT)，XGBoost 以及 LightGBM 等先进的集成模型都采用了决策树作为基模型，在广告计算、CTR 预估、金融风控等领域大放异彩，成为当今与神经网络相提并论的复杂模型，更是数据挖掘比赛中的常客。在新的研究中，南京大学周志华教授提出一种多粒度级联森林模型，创造了一种全新的基于决策树的深度集成方法，为我们提供了决策树发展的另一种可能。</p>
 <p>同时决策树在一些明确需要可解释性或者提取分类规则的场景中被广泛应用，而其他机器学习模型在这一点很难做到。例如在医疗辅助系统中，为了方便专业人员发现错误，常常将决策树算法用于辅助病症检测。例如在一个预测哮喘患者的模型中，医生发现测试的许多高级模型的效果非常差。在他们运行了一个决策树模型后发现，算法认为剧烈咳嗽的病人患哮喘的风险很小。但医生非常清楚剧烈咳嗽一般都会被立刻检查治疗，这意味着患有剧烈咳嗽的哮喘病人都会马上得到收治。用于建模的数据认为这类病人风险很小，是因为所有这类病人都得到了及时治疗，所以极少有人在此之后患病或死亡。</p>
-<h1 id="2-实验室手册"><a class="markdownIt-Anchor" href="#2-实验室手册"></a> 2. 实验室手册</h1>
-<h2 id="21-学习目标"><a class="markdownIt-Anchor" href="#21-学习目标"></a> 2.1 学习目标</h2>
-<p>了解 决策树 的理论知识<br />
+<h1 id="2-实验室手册"><a class="markdownIt-Anchor" href="#2-实验室手册">#</a> 2. 实验室手册</h1>
+<h2 id="21-学习目标"><a class="markdownIt-Anchor" href="#21-学习目标">#</a> 2.1 学习目标</h2>
+<p>了解 决策树 的理论知识<br>
 掌握 决策树 的 sklearn 函数调用并将其运用在企鹅数据集的预测中</p>
-<h2 id="22-代码流程"><a class="markdownIt-Anchor" href="#22-代码流程"></a> 2.2 代码流程</h2>
-<h4 id="part1-demo实践"><a class="markdownIt-Anchor" href="#part1-demo实践"></a> Part1 Demo实践</h4>
+<h2 id="22-代码流程"><a class="markdownIt-Anchor" href="#22-代码流程">#</a> 2.2 代码流程</h2>
+<h4 id="part1-demo实践"><a class="markdownIt-Anchor" href="#part1-demo实践">#</a> Part1 Demo 实践</h4>
 <ul>
-<li>Step1:库函数导入</li>
-<li>Step2:模型训练</li>
-<li>Step3:数据和模型可视化</li>
-<li>Step4:模型预测</li>
+<li>Step1: 库函数导入</li>
+<li>Step2: 模型训练</li>
+<li>Step3: 数据和模型可视化</li>
+<li>Step4: 模型预测</li>
 </ul>
-<h4 id="part2-基于企鹅penguins数据集的决策树分类实践"><a class="markdownIt-Anchor" href="#part2-基于企鹅penguins数据集的决策树分类实践"></a> Part2 基于企鹅（penguins）数据集的决策树分类实践</h4>
+<h4 id="part2-基于企鹅penguins数据集的决策树分类实践"><a class="markdownIt-Anchor" href="#part2-基于企鹅penguins数据集的决策树分类实践">#</a> Part2 基于企鹅（penguins）数据集的决策树分类实践</h4>
 <ul>
-<li>Step1:库函数导入</li>
-<li>Step2:数据读取/载入</li>
-<li>Step3:数据信息简单查看</li>
-<li>Step4:可视化描述</li>
-<li>Step5:利用 决策树模型 在二分类上 进行训练和预测</li>
-<li>Step6:利用 决策树模型 在三分类(多分类)上 进行训练和预测</li>
+<li>Step1: 库函数导入</li>
+<li>Step2: 数据读取 / 载入</li>
+<li>Step3: 数据信息简单查看</li>
+<li>Step4: 可视化描述</li>
+<li>Step5: 利用 决策树模型 在二分类上 进行训练和预测</li>
+<li>Step6: 利用 决策树模型 在三分类 (多分类) 上 进行训练和预测</li>
 </ul>
-<h2 id="23-算法实战"><a class="markdownIt-Anchor" href="#23-算法实战"></a> 2.3 算法实战</h2>
-<h3 id="231-demo实践"><a class="markdownIt-Anchor" href="#231-demo实践"></a> 2.3.1 Demo实践</h3>
+<h2 id="23-算法实战"><a class="markdownIt-Anchor" href="#23-算法实战">#</a> 2.3 算法实战</h2>
+<h3 id="231-demo实践"><a class="markdownIt-Anchor" href="#231-demo实践">#</a> 2.3.1 Demo 实践</h3>
 <p><strong>Step1: 库函数导入</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##  基础函数库</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line"><span class="comment">## 导入画图库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="comment">## 导入决策树模型函数</span></span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br></pre></td></tr></table></figure>
-<p><strong>Step2:模型训练</strong></p>
+<p><strong>Step2: 模型训练</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##Demo演示LogisticRegression分类</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 构造数据集</span></span><br><span class="line">x_fearures = np.array([[-<span class="number">1</span>, -<span class="number">2</span>], [-<span class="number">2</span>, -<span class="number">1</span>], [-<span class="number">3</span>, -<span class="number">2</span>], [<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">2</span>]])</span><br><span class="line">y_label = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">## 调用决策树回归模型</span></span><br><span class="line">tree_clf = DecisionTreeClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 调用决策树模型拟合构造的数据集</span></span><br><span class="line">tree_clf = tree_clf.fit(x_fearures, y_label)</span><br></pre></td></tr></table></figure>
-<p><strong>Step3:数据和模型可视化</strong></p>
+<p><strong>Step3: 数据和模型可视化</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 可视化构造的数据样本点</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.scatter(x_fearures[:,<span class="number">0</span>],x_fearures[:,<span class="number">1</span>], c=y_label, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Dataset&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​<br />
-<img src="output_5_0.png" class="lazyload placeholder" data-srcset="output_5_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
+<p>​<br>
+<img src="output_5_0.png" class="lazyload placeholder" data-srcset="output_5_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
-<p><strong>Step4:模型预测</strong></p>
+<p><strong>Step4: 模型预测</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 创建新样本</span></span><br><span class="line">x_fearures_new1 = np.array([[<span class="number">0</span>, -<span class="number">1</span>]])</span><br><span class="line">x_fearures_new2 = np.array([[<span class="number">2</span>, <span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment">## 在训练集和测试集上分布利用训练好的模型进行预测</span></span><br><span class="line">y_label_new1_predict = tree_clf.predict(x_fearures_new1)</span><br><span class="line">y_label_new2_predict = tree_clf.predict(x_fearures_new2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The New point 1 predict class:\n&#x27;</span>,y_label_new1_predict)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The New point 2 predict class:\n&#x27;</span>,y_label_new2_predict)</span><br></pre></td></tr></table></figure>
 <pre><code>The New point 1 predict class:
  [1]
 The New point 2 predict class:
  [0]
 </code></pre>
-<h3 id="232-基于企鹅数据集的决策树实战"><a class="markdownIt-Anchor" href="#232-基于企鹅数据集的决策树实战"></a> 2.3.2 基于企鹅数据集的决策树实战</h3>
-<p>在实践的最开始，我们首先需要导入一些基础的函数库包括：numpy （Python进行科学计算的基础软件包），pandas（pandas是一种快速，强大，灵活且易于使用的开源数据分析和处理工具），matplotlib和seaborn绘图。</p>
+<h3 id="232-基于企鹅数据集的决策树实战"><a class="markdownIt-Anchor" href="#232-基于企鹅数据集的决策树实战">#</a> 2.3.2 基于企鹅数据集的决策树实战</h3>
+<p>在实践的最开始，我们首先需要导入一些基础的函数库包括：numpy （Python 进行科学计算的基础软件包），pandas（pandas 是一种快速，强大，灵活且易于使用的开源数据分析和处理工具），matplotlib 和 seaborn 绘图。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载需要用到的数据集</span></span><br><span class="line">!wget https://tianchi-media.oss-cn-beijing.aliyuncs.com/DSW/6tree/penguins_raw.csv</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Step1:库函数导入</li>
+<li>Step1: 库函数导入</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##  基础函数库</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">## 绘图函数库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
-<p>本次我们选择企鹅数据（palmerpenguins）进行方法的尝试训练，该数据集一共包含8个变量，其中7个特征变量，1个目标分类变量。共有150个样本，目标变量为 企鹅的类别 其都属于企鹅类的三个亚属，分别是(Adélie, Chinstrap and Gentoo)。包含的三种种企鹅的七个特征，分别是所在岛屿，嘴巴长度，嘴巴深度，脚蹼长度，身体体积，性别以及年龄。</p>
+<p>本次我们选择企鹅数据（palmerpenguins）进行方法的尝试训练，该数据集一共包含 8 个变量，其中 7 个特征变量，1 个目标分类变量。共有 150 个样本，目标变量为 企鹅的类别 其都属于企鹅类的三个亚属，分别是 (Adélie, Chinstrap and Gentoo)。包含的三种种企鹅的七个特征，分别是所在岛屿，嘴巴长度，嘴巴深度，脚蹼长度，身体体积，性别以及年龄。</p>
 <table>
 <thead>
 <tr>
@@ -663,12 +663,12 @@ The New point 2 predict class:
 </tbody>
 </table>
 <ul>
-<li>Step2:数据读取/载入</li>
+<li>Step2: 数据读取 / 载入</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 我们利用Pandas自带的read_csv函数读取并转化为DataFrame格式</span></span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;./penguins_raw.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 为了方便我们仅选取四个简单的特征，有兴趣的同学可以研究下其他特征的含义以及使用方法</span></span><br><span class="line">data = data[[<span class="string">&#x27;Species&#x27;</span>,<span class="string">&#x27;Culmen Length (mm)&#x27;</span>,<span class="string">&#x27;Culmen Depth (mm)&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Flipper Length (mm)&#x27;</span>,<span class="string">&#x27;Body Mass (g)&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Step3:数据信息简单查看</li>
+<li>Step3: 数据信息简单查看</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 利用.info()查看数据的整体信息</span></span><br><span class="line">data.info()</span><br></pre></td></tr></table></figure>
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -754,7 +754,7 @@ memory usage: 13.6+ KB
   </tbody>
 </table>
 </div>
-<p>这里我们发现数据集中存在NaN，一般的我们认为NaN在数据集中代表了缺失值，可能是数据采集或处理时产生的一种错误。这里我们采用-1将缺失值进行填补，还有其他例如“中位数填补、平均数填补”的缺失值处理方法有兴趣的同学也可以尝试。</p>
+<p>这里我们发现数据集中存在 NaN，一般的我们认为 NaN 在数据集中代表了缺失值，可能是数据采集或处理时产生的一种错误。这里我们采用 - 1 将缺失值进行填补，还有其他例如 “中位数填补、平均数填补” 的缺失值处理方法有兴趣的同学也可以尝试。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = data.fillna(-<span class="number">1</span>)</span><br><span class="line">data.tail()</span><br></pre></td></tr></table></figure>
 <div>
 <style scoped>
@@ -922,29 +922,29 @@ Name: Species, dtype: int64
 </table>
 </div>
 <ul>
-<li>Step4:可视化描述</li>
+<li>Step4: 可视化描述</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 特征与标签组合的散点可视化</span></span><br><span class="line">sns.pairplot(data=data, diag_kind=<span class="string">&#x27;hist&#x27;</span>, hue= <span class="string">&#x27;Species&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​<br />
-<img src="output_24_0.png" class="lazyload placeholder" data-srcset="output_24_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
+<p>​<br>
+<img src="output_24_0.png" class="lazyload placeholder" data-srcset="output_24_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
-<p>从上图可以发现，在2D情况下不同的特征组合对于不同类别的企鹅的散点分布，以及大概的区分能力。Culmen Lenth与其他特征的组合散点的重合较少，所以对于数据集的划分能力最好。<br />
+<p>从上图可以发现，在 2D 情况下不同的特征组合对于不同类别的企鹅的散点分布，以及大概的区分能力。Culmen Lenth 与其他特征的组合散点的重合较少，所以对于数据集的划分能力最好。<br>
 我们发现</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;为了方便我们将标签转化为数字</span></span><br><span class="line"><span class="string">       &#x27;Adelie Penguin (Pygoscelis adeliae)&#x27;        ------0</span></span><br><span class="line"><span class="string">       &#x27;Gentoo penguin (Pygoscelis papua)&#x27;          ------1</span></span><br><span class="line"><span class="string">       &#x27;Chinstrap penguin (Pygoscelis antarctica)   ------2 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trans</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> x == data[<span class="string">&#x27;Species&#x27;</span>].unique()[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x == data[<span class="string">&#x27;Species&#x27;</span>].unique()[<span class="number">1</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x == data[<span class="string">&#x27;Species&#x27;</span>].unique()[<span class="number">2</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">data[<span class="string">&#x27;Species&#x27;</span>] = data[<span class="string">&#x27;Species&#x27;</span>].apply(trans)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> data.columns:</span><br><span class="line">    <span class="keyword">if</span> col != <span class="string">&#x27;Species&#x27;</span>:</span><br><span class="line">        sns.boxplot(x=<span class="string">&#x27;Species&#x27;</span>, y=col, saturation=<span class="number">0.5</span>, palette=<span class="string">&#x27;pastel&#x27;</span>, data=data)</span><br><span class="line">        plt.title(col)</span><br><span class="line">        plt.show()</span><br></pre></td></tr></table></figure>
-<p>​<br />
-<img src="output_27_0.png" class="lazyload placeholder" data-srcset="output_27_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
+<p>​<br>
+<img src="output_27_0.png" class="lazyload placeholder" data-srcset="output_27_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
-<p><img src="output_27_1.png" class="lazyload placeholder" data-srcset="output_27_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
-<p><img src="output_27_2.png" class="lazyload placeholder" data-srcset="output_27_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
-<p><img src="output_27_3.png" class="lazyload placeholder" data-srcset="output_27_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
+<p><img src="output_27_1.png" class="lazyload placeholder" data-srcset="output_27_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p><img src="output_27_2.png" class="lazyload placeholder" data-srcset="output_27_2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p><img src="output_27_3.png" class="lazyload placeholder" data-srcset="output_27_3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
 <p>利用箱型图我们也可以得到不同类别在不同特征上的分布差异情况。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选取其前三个特征绘制三维散点图</span></span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line"></span><br><span class="line">data_class0 = data[data[<span class="string">&#x27;Species&#x27;</span>]==<span class="number">0</span>].values</span><br><span class="line">data_class1 = data[data[<span class="string">&#x27;Species&#x27;</span>]==<span class="number">1</span>].values</span><br><span class="line">data_class2 = data[data[<span class="string">&#x27;Species&#x27;</span>]==<span class="number">2</span>].values</span><br><span class="line"><span class="comment"># &#x27;setosa&#x27;(0), &#x27;versicolor&#x27;(1), &#x27;virginica&#x27;(2)</span></span><br><span class="line">ax.scatter(data_class0[:,<span class="number">0</span>], data_class0[:,<span class="number">1</span>], data_class0[:,<span class="number">2</span>],label=data[<span class="string">&#x27;Species&#x27;</span>].unique()[<span class="number">0</span>])</span><br><span class="line">ax.scatter(data_class1[:,<span class="number">0</span>], data_class1[:,<span class="number">1</span>], data_class1[:,<span class="number">2</span>],label=data[<span class="string">&#x27;Species&#x27;</span>].unique()[<span class="number">1</span>])</span><br><span class="line">ax.scatter(data_class2[:,<span class="number">0</span>], data_class2[:,<span class="number">1</span>], data_class2[:,<span class="number">2</span>],label=data[<span class="string">&#x27;Species&#x27;</span>].unique()[<span class="number">2</span>])</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​<br />
-<img src="output_29_0.png" class="lazyload placeholder" data-srcset="output_29_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /><br />
+<p>​<br>
+<img src="output_29_0.png" class="lazyload placeholder" data-srcset="output_29_0.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"><br>
 ​</p>
 <ul>
-<li>Step5:利用 决策树模型 在二分类上 进行训练和预测</li>
+<li>Step5: 利用 决策树模型 在二分类上 进行训练和预测</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 为了正确评估模型性能，将数据划分为训练集和测试集，并在训练集上训练模型，</span></span><br><span class="line"><span class="comment">## 在测试集上验证模型性能。</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment">## 选择其类别为0和1的样本 （不包括类别为2的样本）</span></span><br><span class="line">data_target_part = data[data[<span class="string">&#x27;Species&#x27;</span>].isin([<span class="number">0</span>,<span class="number">1</span>])][[<span class="string">&#x27;Species&#x27;</span>]]</span><br><span class="line">data_features_part = data[data[<span class="string">&#x27;Species&#x27;</span>].isin([<span class="number">0</span>,<span class="number">1</span>])][[<span class="string">&#x27;Culmen Length (mm)&#x27;</span>,</span><br><span class="line">                                                        <span class="string">&#x27;Culmen Depth (mm)&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Flipper Length (mm)&#x27;</span>,<span class="string">&#x27;Body Mass (g)&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment">## 测试集大小为20%， 80%/20%分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(data_features_part, data_target_part, </span><br><span class="line">                                                    test_size = <span class="number">0.2</span>, random_state = <span class="number">2020</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 从sklearn中导入决策树模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="comment">## 定义 决策树模型 </span></span><br><span class="line">clf = DecisionTreeClassifier(criterion=<span class="string">&#x27;entropy&#x27;</span>)</span><br><span class="line"><span class="comment"># 在训练集上训练决策树模型</span></span><br><span class="line">clf.fit(x_train, y_train)</span><br></pre></td></tr></table></figure>
@@ -957,10 +957,10 @@ The confusion matrix result:
  [[31  0]
  [ 0 25]]
 </code></pre>
-<p><img src="output_33_1.png" class="lazyload placeholder" data-srcset="output_33_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
-<p>我们可以发现其准确度为1，代表所有的样本都预测正确了。</p>
+<p><img src="output_33_1.png" class="lazyload placeholder" data-srcset="output_33_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<p>我们可以发现其准确度为 1，代表所有的样本都预测正确了。</p>
 <ul>
-<li>Step6:利用 决策树模型 在三分类(多分类)上 进行训练和预测</li>
+<li>Step6: 利用 决策树模型 在三分类 (多分类) 上 进行训练和预测</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 测试集大小为20%， 80%/20%分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(data[[<span class="string">&#x27;Culmen Length (mm)&#x27;</span>,<span class="string">&#x27;Culmen Depth (mm)&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Flipper Length (mm)&#x27;</span>,<span class="string">&#x27;Body Mass (g)&#x27;</span>]], data[[<span class="string">&#x27;Species&#x27;</span>]], test_size = <span class="number">0.2</span>, random_state = <span class="number">2020</span>)</span><br><span class="line"><span class="comment">## 定义 决策树模型 </span></span><br><span class="line">clf = DecisionTreeClassifier()</span><br><span class="line"><span class="comment"># 在训练集上训练决策树模型</span></span><br><span class="line">clf.fit(x_train, y_train)</span><br></pre></td></tr></table></figure>
 <pre><code>DecisionTreeClassifier()
@@ -1045,19 +1045,19 @@ The accuracy of the Logistic Regression is: 0.9710144927536232
  [ 0 23  0]
  [ 1  0 13]]
 </code></pre>
-<p><img src="output_37_1.png" class="lazyload placeholder" data-srcset="output_37_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png" /></p>
-<h2 id="24-重要知识点"><a class="markdownIt-Anchor" href="#24-重要知识点"></a> 2.4 重要知识点</h2>
-<h3 id="243-重要参数"><a class="markdownIt-Anchor" href="#243-重要参数"></a> 2.4.3 重要参数</h3>
-<h4 id="2431-criterion"><a class="markdownIt-Anchor" href="#2431-criterion"></a> 2.4.3.1 criterion</h4>
-<p>Criterion这个参数正是用来决定模型特征选择的计算方法的。sklearn提供了两种选择：</p>
+<p><img src="output_37_1.png" class="lazyload placeholder" data-srcset="output_37_1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="png"></p>
+<h2 id="24-重要知识点"><a class="markdownIt-Anchor" href="#24-重要知识点">#</a> 2.4 重要知识点</h2>
+<h3 id="243-重要参数"><a class="markdownIt-Anchor" href="#243-重要参数">#</a> 2.4.3 重要参数</h3>
+<h4 id="2431-criterion"><a class="markdownIt-Anchor" href="#2431-criterion">#</a> 2.4.3.1 criterion</h4>
+<p>Criterion 这个参数正是用来决定模型特征选择的计算方法的。sklearn 提供了两种选择：</p>
 <p>输入”entropy“，使用信息熵（Entropy）</p>
 <p>输入”gini“，使用基尼系数（Gini Impurity）</p>
-<h4 id="2432-random_state-splitter"><a class="markdownIt-Anchor" href="#2432-random_state-splitter"></a> 2.4.3.2 random_state &amp; splitter</h4>
-<p>random_state用来设置分枝中的随机模式的参数，默认None，在高维度时随机性会表现更明显。splitter也是用来控制决策树中的随机选项的，有两种输入值，输入”best&quot;，决策树在分枝时虽然随机，但是还是会优先选择更重要的特征进行分枝（重要性可以通过属性feature_importances_查看），输入“random&quot;，决策树在分枝时会更加随机，树会因为含有更多的不必要信息而更深更大，并因这些不必要信息而降低对训练集的拟合。</p>
-<h4 id="2433-max_depth"><a class="markdownIt-Anchor" href="#2433-max_depth"></a> 2.4.3.3 max_depth</h4>
+<h4 id="2432-random_state-splitter"><a class="markdownIt-Anchor" href="#2432-random_state-splitter">#</a> 2.4.3.2 random_state &amp; splitter</h4>
+<p>random_state 用来设置分枝中的随机模式的参数，默认 None，在高维度时随机性会表现更明显。splitter 也是用来控制决策树中的随机选项的，有两种输入值，输入”best&quot;，决策树在分枝时虽然随机，但是还是会优先选择更重要的特征进行分枝（重要性可以通过属性 feature_importances_查看），输入 “random&quot;，决策树在分枝时会更加随机，树会因为含有更多的不必要信息而更深更大，并因这些不必要信息而降低对训练集的拟合。</p>
+<h4 id="2433-max_depth"><a class="markdownIt-Anchor" href="#2433-max_depth">#</a> 2.4.3.3 max_depth</h4>
 <p>限制树的最大深度，超过设定深度的树枝全部剪掉。这是用得最广泛的剪枝参数，在高维度低样本量时非常有效。决策树多生长一层，对样本量的需求会增加一倍，所以限制树深度能够有效地限制过拟合。</p>
-<h4 id="2434-min_samples_leaf"><a class="markdownIt-Anchor" href="#2434-min_samples_leaf"></a> 2.4.3.4 min_samples_leaf</h4>
-<p>min_samples_leaf 限定，一个节点在分枝后的每个子节点都必须包含至少min_samples_leaf个训练样本，否则分枝就不会发生，或者，分枝会朝着满足每个子节点都包含min_samples_leaf个样本的方向去发生。一般搭配max_depth使用，在回归树中有神奇的效果，可以让模型变得更加平滑。这个参数的数量设置得太小会引起过拟合，设置得太大就会阻止模型学习数据。</p>
+<h4 id="2434-min_samples_leaf"><a class="markdownIt-Anchor" href="#2434-min_samples_leaf">#</a> 2.4.3.4 min_samples_leaf</h4>
+<p>min_samples_leaf 限定，一个节点在分枝后的每个子节点都必须包含至少 min_samples_leaf 个训练样本，否则分枝就不会发生，或者，分枝会朝着满足每个子节点都包含 min_samples_leaf 个样本的方向去发生。一般搭配 max_depth 使用，在回归树中有神奇的效果，可以让模型变得更加平滑。这个参数的数量设置得太小会引起过拟合，设置得太大就会阻止模型学习数据。</p>
 
       </div>
       <div class="post-tags-categories">
@@ -1110,10 +1110,10 @@ The accuracy of the Logistic Regression is: 0.9710144927536232
       </div>
       
       <!-- <div class="content">
-         机器学习算法（八）：基于BP神经网络的预测¶
- 1.前言：算法简介和应用
- 1.1.算法简介
-BP（Back Prop
+        # 机器学习算法（八）：基于 BP 神经网络的预测 ¶
+# 1. 前言：算法简介和应用
+# 1.1. 算法简介
+BP（B
       </div> -->
     </a>
   </div>
@@ -1132,9 +1132,9 @@ BP（Back Prop
         <div class="title-text">基于线性判别模型的分类</div>
       </div>
       <!-- <div class="content">
-         1.前言：LDA算法简介和应用
- 1.1.算法简介
-线性判别模型（LDA）在模式识别领域（比如人脸识别等图形图像识别领
+        # 1. 前言：LDA 算法简介和应用
+# 1.1. 算法简介
+线性判别模型（LDA）在模式识别领域（比如人脸识别等图形
       </div> -->
     </a>
   </div>
