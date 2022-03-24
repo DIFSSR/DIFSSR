@@ -66,7 +66,119 @@
         
     
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
   
   <!-- 依赖于jquery和vue -->
@@ -543,6 +655,9 @@
           </div>
         </swiper-slide>
       
+      
+        
+        
       
         
         
@@ -1357,6 +1472,8 @@
 			
 		
 			
+		
+			
 				<div class="article-link">
 					
 					<div class="article" style="background-size: cover; 
@@ -1437,9 +1554,9 @@
 						<div class="text-main">
 							<div class="title"><a href="/2021/10/13/Spark%E5%AD%A6%E4%B9%A0/Spark-RDD/">Spark+RDD</a></div>
 							<div class="content">
-								# Spark RDD 编程案例
-# WordCount
-WordCount 编程是我们最熟悉不过的了，使用 Spark
+								 Spark RDD编程案例
+ WordCount
+WordCount编程是我们最熟悉不过的了，使用Spark进行编写程
 							</div>
 						</div>
 						<a href="/2021/10/13/Spark%E5%AD%A6%E4%B9%A0/Spark-RDD/" class="more">
@@ -1539,9 +1656,9 @@ WordCount 编程是我们最熟悉不过的了，使用 Spark
             </a>
           </div>
           <div class="post-content">
-            # 二次排序
+             二次排序
 自定义可比较类
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152package so
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152package sor
           </div>
         </div>
         <div class="post-more">
@@ -1595,16 +1712,16 @@ WordCount 编程是我们最熟悉不过的了，使用 Spark
             </a>
           </div>
           <div class="post-content">
-            # HiveQL 数据查询进阶
+             HiveQL数据查询进阶
 本章要点
 
 Hive 内置函数
 Hive 构建搜索日志分析系统
 Sqoop 应用与开发
 
-# Hive 内置函数
-Hive 内置函数就是 Hive 中可以直接使用的函数，首先查看一下有哪些函数
-1234567
+ Hive 内置函数
+Hive 内置函数就是Hive 中可以直接使用的函数，首先查看一下有哪些函数
+12345678910
           </div>
         </div>
         <div class="post-more">
@@ -1658,10 +1775,10 @@ Hive 内置函数就是 Hive 中可以直接使用的函数，首先查看一下
             </a>
           </div>
           <div class="post-content">
-            本章围绕乘用车辆和商用车辆销售数据展开，通过 Hive 构建数据仓库，实现对汽车销售数据各项指标进行立体化分析。
-# 数据概况
+            本章围绕乘用车辆和商用车辆销售数据展开，通过Hive构建数据仓库，实现对汽车销售数据各项指标进行立体化分析。
+ 数据概况
 项目的数据来源于一个真实项目，数据项包括
- “省，月，市，区县，年，车辆型号，制造商，品牌，车辆类型，所有权，使
+“省,月,市,区县,年,车辆型号,制造商,品牌,车辆类型,所有权,使用性质,
           </div>
         </div>
         <div class="post-more">
@@ -1680,6 +1797,62 @@ Hive 内置函数就是 Hive 中可以直接使用的函数，首先查看一下
   
     
     <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2021-11-08</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">Hexo添加数学公式</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%B9%B3%E5%8F%B0/">平台</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+             在Typora添加数学公式
+Typora作为Markdown编辑器，在写技术文档时少不了输入各种Latex数学公式，下面介绍具体的设置、使用格式和常见的符号.
+1.进入文件-&gt;偏好设置-&gt;Markdown，将“Markdown
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1715,21 +1888,23 @@ Hive 内置函数就是 Hive 中可以直接使用的函数，首先查看一下
             </a>
           </div>
           <div class="post-content">
-            # 实验环境准备
+             实验环境准备
 
 Anoconda3.7
 TensorFlow2.1
 PyCharm
 
-# 安装 Anoconda
+ 安装Anoconda
 官网下载安装，勾选添加到环境变量。
-# 安装 TensorFlow2.1
-1 打开安装好的 Anoconda Prompt
+ 安装TensorFlow2.1
+1 打开安装好的Anoconda Prompt
+
+2 创建
           </div>
         </div>
         <div class="post-more">
           <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/TensorFlow%E7%AC%94%E8%AE%B0/Ch1/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1742,7 +1917,7 @@ PyCharm
     </article>
   
     
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
+    <article class="post reveal" style="   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1778,13 +1953,13 @@ PyCharm
             </a>
           </div>
           <div class="post-content">
-            # 1 前言
-支持向量机（Support Vector Machine，SVM）是一个非常优雅的算法，具有非常完善的数学理论，常用于数据分类，也可以用于数据的回归预测中，由于其其优美的理论保证和利用核函数对于线性不可分问题的处理技巧，在上世
+             1 前言
+支持向量机（Support Vector Machine，SVM）是一个非常优雅的算法，具有非常完善的数学理论，常用于数据分类，也可以用于数据的回归预测中，由于其其优美的理论保证和利用核函数对于线性不可分问题的处理技巧，在上世纪
           </div>
         </div>
         <div class="post-more">
           <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1797,7 +1972,7 @@ PyCharm
     </article>
   
     
-    <article class="post reveal" style="   ">
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1838,7 +2013,7 @@ PyCharm
         </div>
         <div class="post-more">
           <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/KMeans/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1851,7 +2026,7 @@ PyCharm
     </article>
   
     
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
+    <article class="post reveal" style="   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1892,7 +2067,7 @@ PyCharm
         </div>
         <div class="post-more">
           <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/KNN/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1905,7 +2080,7 @@ PyCharm
     </article>
   
     
-    <article class="post reveal" style="   ">
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1946,7 +2121,7 @@ PyCharm
         </div>
         <div class="post-more">
           <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/SVM/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1959,7 +2134,7 @@ PyCharm
     </article>
   
     
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
+    <article class="post reveal" style="   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1995,13 +2170,13 @@ PyCharm
             </a>
           </div>
           <div class="post-content">
-            # 对数据降维后使用 KNN 算法进行分类的案例
-123456789101112131415161718192021222324252627from scipy.io import loadmatimport numpy as npfrom
+             对数据降维后使用KNN算法进行分类的案例
+123456789101112131415161718192021222324252627from scipy.io import loadmatimport numpy as npfrom sk
           </div>
         </div>
         <div class="post-more">
           <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -2013,70 +2188,16 @@ PyCharm
       </div>
     </article>
   
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2021-11-08</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%AD%8F/">机器学习课程(魏)</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E5%86%B3%E7%AD%96%E6%A0%91/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="/medias/2.jpg" class="lazyload placeholder" data-srcset="/medias/2.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            12345678910111213141516import numpy as npfrom scipy.io import loadmatimport matplotlib.pyplot as pltfrom sklearn.tree im
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E5%86%B3%E7%AD%96%E6%A0%91/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B(%E9%AD%8F)/%E5%86%B3%E7%AD%96%E6%A0%91/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="/medias/2.jpg" class="lazyload placeholder" data-srcset="/medias/2.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
-        </a>
-      </div>
-    </article>
-  
 </section>
     <!-- 翻页 -->
     
   <!-- <nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav> -->
   <div class="page-nav">
     
     <div class="page-info">
-        <div class="page-info-text">1 / 5</div>
+        <div class="page-info-text">1 / 6</div>
     </div>
     
       <a href="/page/2/"
@@ -2141,7 +2262,7 @@ PyCharm
             <li><a class="flat-box"
               title="/categories/%E5%B9%B3%E5%8F%B0/" href="/categories/%E5%B9%B3%E5%8F%B0/"
               id="categoriesE5B9B3E58FB0"
-              ><div class='name'>平台</div><div class='badge'>(5)</div></a></li>
+              ><div class='name'>平台</div><div class='badge'>(12)</div></a></li>
           
             <li><a class="flat-box"
               title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%AD%8F/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%AD%8F/"
@@ -2171,7 +2292,7 @@ PyCharm
 
 
     <div class='content'>
-    <a href="/tags/C/" style="font-size: 14px; color: #999">C</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Shell/" style="font-size: 16px; color: #8b8b8b">Shell</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 18px; color: #7e7e7e">单片机</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 18px; color: #7e7e7e">大数据</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 20px; color: #707070">安全</a> <a href="/tags/%E5%B9%B3%E5%8F%B0/" style="font-size: 22px; color: #636363">平台</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 24px; color: #555">机器学习</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 18px; color: #7e7e7e">鸿蒙</a>
+    <a href="/tags/C/" style="font-size: 14px; color: #999">C</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Shell/" style="font-size: 18px; color: #7e7e7e">Shell</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px; color: #707070">单片机</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20px; color: #707070">大数据</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 22px; color: #636363">安全</a> <a href="/tags/%E5%B9%B3%E5%8F%B0/" style="font-size: 16px; color: #8b8b8b">平台</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 24px; color: #555">机器学习</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 20px; color: #707070">鸿蒙</a>
     </div>
 </section>
 
@@ -2262,6 +2383,27 @@ PyCharm
             
 
             <div class="post-img-box">
+              <a href="/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-08</span>
+                
+              </div>
+              <a class="post-title" href="/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">Hexo添加数学公式</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/TensorFlow%E7%AC%94%E8%AE%B0/Ch1/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/33.jpg" class="lazyload placeholder" data-srcset="/medias/33.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
@@ -2277,27 +2419,6 @@ PyCharm
             </div>
           </div>
         
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/4.jpg" class="lazyload placeholder" data-srcset="/medias/4.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">11-08</span>
-                
-              </div>
-              <a class="post-title" href="/2021/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%A9%E6%B1%A0/%E5%9F%BA%E4%BA%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B/">基于支持向量机的分类预测</a>
-            </div>
-          </div>
-        
       </div>
     </div>
   </section>
@@ -2305,7 +2426,7 @@ PyCharm
     
   <section class="widget side_archives">
     
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div>
+    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">23</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div>
   </section>
 
     <section class="widget side_webinfo">
@@ -2322,7 +2443,7 @@ PyCharm
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>50 篇</div>
+          <div>51 篇</div>
         </div>
       
 
@@ -2365,7 +2486,7 @@ PyCharm
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Mar 24 2022 11:56:10 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Thu Mar 24 2022 13:07:42 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2022-03-24 日</div>
           
         </div>

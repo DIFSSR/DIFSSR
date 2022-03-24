@@ -9,13 +9,14 @@
         <lastBuildDate>Wed, 28 Jul 2021 08:37:44 +0800</lastBuildDate>
         <category>C</category>
         <category>大数据</category>
-        <category>Python</category>
         <category>Shell</category>
+        <category>Python</category>
         <category>MapReduce</category>
-        <category>平台</category>
+        <category>Hexo</category>
         <category>安全</category>
         <category>鸿蒙</category>
         <category>单片机</category>
+        <category>平台</category>
         <category>机器学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/07/28/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91/(1)Hi3861%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BB%8B%E7%BB%8D/</guid>
@@ -24,34 +25,34 @@
             <category>鸿蒙</category>
             <category>单片机</category>
             <pubDate>Wed, 28 Jul 2021 08:37:44 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;hi3861开发板介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hi3861开发板介绍&#34;&gt;#&lt;/a&gt; Hi3861 开发板介绍&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;hi3861开发板介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hi3861开发板介绍&#34;&gt;&lt;/a&gt; Hi3861开发板介绍&lt;/h1&gt;
 &lt;p&gt;更新时间: 2021-07-21 09:12&lt;/p&gt;
-&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
-&lt;p&gt;Hi3861 WLAN 模组是一片大约 2cm*5cm 大小的开发板，是一款高度集成的 2.4GHz WLAN SoC 芯片，集成 IEEE 802.11b/g/n 基带和 RF（Radio Frequency）电路。支持 HarmonyOS，并配套提供开放、易用的开发和调试运行环境。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;图 1&lt;/strong&gt; Hi3861 WLAN 模组外观图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;(1)Hi3861%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BB%8B%E7%BB%8D/0000000000011111111.20210720210835.65790374497367151790022312337433505207200112592800C0CA3FF463F35CAB7D86B2DE0C2F4173E797E1B4FB16EA6096074D46DDF0FFA3.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;(1)Hi3861%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BB%8B%E7%BB%8D/0000000000011111111.20210720210835.65790374497367151790022312337433505207200112592800C0CA3FF463F35CAB7D86B2DE0C2F4173E797E1B4FB16EA6096074D46DDF0FFA3.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34;&gt;&lt;/p&gt;
-&lt;p&gt;另外，Hi3861 WLAN 模组还可以通过与 Hi3861 底板连接，扩充自身的外设能力，底板如下图所示。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;图 2&lt;/strong&gt; Hi3861 底板外观图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93870309435698895266524018593532:50520720011259:2800:54E179425F0DF0FD559E460B8A9DCCD1D0A9B9AED898F7E84F35EBE440E393AE.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93870309435698895266524018593532:50520720011259:2800:54E179425F0DF0FD559E460B8A9DCCD1D0A9B9AED898F7E84F35EBE440E393AE.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;p&gt;Hi3861 WLAN模组是一片大约2cm*5cm大小的开发板，是一款高度集成的2.4GHz WLAN SoC芯片，集成IEEE 802.11b/g/n基带和RF（Radio Frequency）电路。支持HarmonyOS，并配套提供开放、易用的开发和调试运行环境。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图1&lt;/strong&gt; Hi3861 WLAN模组外观图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;(1)Hi3861%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BB%8B%E7%BB%8D/0000000000011111111.20210720210835.65790374497367151790022312337433505207200112592800C0CA3FF463F35CAB7D86B2DE0C2F4173E797E1B4FB16EA6096074D46DDF0FFA3.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;(1)Hi3861%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BB%8B%E7%BB%8D/0000000000011111111.20210720210835.65790374497367151790022312337433505207200112592800C0CA3FF463F35CAB7D86B2DE0C2F4173E797E1B4FB16EA6096074D46DDF0FFA3.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;另外，Hi3861 WLAN模组还可以通过与Hi3861底板连接，扩充自身的外设能力，底板如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图2&lt;/strong&gt; Hi3861底板外观图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93870309435698895266524018593532:50520720011259:2800:54E179425F0DF0FD559E460B8A9DCCD1D0A9B9AED898F7E84F35EBE440E393AE.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93870309435698895266524018593532:50520720011259:2800:54E179425F0DF0FD559E460B8A9DCCD1D0A9B9AED898F7E84F35EBE440E393AE.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;RF 电路包括功率放大器 PA（Power Amplifier）、低噪声放大器 LNA（Low Noise Amplifier）、RF Balun、天线开关以及电源管理等模块；支持 20MHz 标准带宽和 5MHz/10MHz 窄带宽，提供最大 72.2Mbit/s 物理层速率。&lt;/p&gt;
+&lt;p&gt;RF电路包括功率放大器PA（Power Amplifier）、低噪声放大器LNA（Low Noise Amplifier）、RF Balun、天线开关以及电源管理等模块；支持20MHz标准带宽和5MHz/10MHz窄带宽，提供最大72.2Mbit/s物理层速率。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Hi3861 WLAN 基带支持正交频分复用（OFDM）技术，并向下兼容直接序列扩频（DSSS）和补码键控（CCK）技术，支持 IEEE 802.11 b/g/n 协议的各种数据速率。&lt;/p&gt;
+&lt;p&gt;Hi3861 WLAN基带支持正交频分复用（OFDM）技术，并向下兼容直接序列扩频（DSSS）和补码键控（CCK）技术，支持IEEE 802.11 b/g/n协议的各种数据速率。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Hi3861 芯片集成高性能 32bit 微处理器、硬件安全引擎以及丰富的外设接口，外设接口包括 SPI（Synchronous Peripheral Interface）、UART（Universal Asynchronous Receiver &amp;amp; Transmitter）、I2C（The Inter Integrated Circuit）、PWM（Pulse Width Modulation）、GPIO（General Purpose Input/Output）和多路 ADC（Analog to Digital Converter），同时支持高速 SDIO2.0（Secure Digital Input/Output）接口，最高时钟可达 50MHz；芯片内置 SRAM（Static Random Access Memory）和 Flash，可独立运行，并支持在 Flash 上运行程序。&lt;/p&gt;
+&lt;p&gt;Hi3861芯片集成高性能32bit微处理器、硬件安全引擎以及丰富的外设接口，外设接口包括SPI（Synchronous Peripheral Interface）、UART（Universal Asynchronous Receiver &amp;amp; Transmitter）、I2C（The Inter Integrated Circuit）、PWM（Pulse Width Modulation）、GPIO（General Purpose Input/Output）和多路ADC（Analog to Digital Converter），同时支持高速SDIO2.0（Secure Digital Input/Output）接口，最高时钟可达50MHz；芯片内置SRAM（Static Random Access Memory）和Flash，可独立运行，并支持在Flash上运行程序。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Hi3861 芯片适用于智能家电等物联网智能终端领域。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;图 3&lt;/strong&gt; Hi3861 功能框图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93395099655744724731010133328842:50520720011259:2800:2F9519DC070F9FEAFCFD032F27E2357DA32A9D97F894750BBF98655C47CB6446.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93395099655744724731010133328842:50520720011259:2800:2F9519DC070F9FEAFCFD032F27E2357DA32A9D97F894750BBF98655C47CB6446.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Hi3861芯片适用于智能家电等物联网智能终端领域。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图3&lt;/strong&gt; Hi3861功能框图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93395099655744724731010133328842:50520720011259:2800:2F9519DC070F9FEAFCFD032F27E2357DA32A9D97F894750BBF98655C47CB6446.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.93395099655744724731010133328842:50520720011259:2800:2F9519DC070F9FEAFCFD032F27E2357DA32A9D97F894750BBF98655C47CB6446.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;资源和约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#资源和约束&#34;&gt;#&lt;/a&gt; 资源和约束&lt;/h2&gt;
-&lt;p&gt;Hi3861 WLAN 模组资源十分有限，整板共 2MB FLASH，352KB RAM。在编写业务代码时，需注意资源使用效率。&lt;/p&gt;
-&lt;h2 id=&#34;开发板规格&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发板规格&#34;&gt;#&lt;/a&gt; 开发板规格&lt;/h2&gt;
+&lt;h2 id=&#34;资源和约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#资源和约束&#34;&gt;&lt;/a&gt; 资源和约束&lt;/h2&gt;
+&lt;p&gt;Hi3861 WLAN模组资源十分有限，整板共2MB FLASH，352KB RAM。在编写业务代码时，需注意资源使用效率。&lt;/p&gt;
+&lt;h2 id=&#34;开发板规格&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发板规格&#34;&gt;&lt;/a&gt; 开发板规格&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -62,32 +63,32 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;通用规格&lt;/td&gt;
-&lt;td&gt;1×1 2.4GHz 频段（ch1～ch14）PHY 支持 IEEE 802.11b/g/nMAC 支持 IEEE802.11 d/e/h/i/k/v/w 内置 PA 和 LNA，集成 TX/RX Switch、Balun 等支持 STA 和 AP 形态，作为 AP 时最大支持 6 个 STA 接入支持 WFA WPA/WPA2 personal、WPS2.0 支持与 BT/BLE 芯片共存的 2/3/4 线 PTA 方案电源电压输入范围：2.3V～3.6VIO 电源电压支持 1.8V 和 3.3V 支持 RF 自校准方案低功耗：Ultra Deep Sleep 模式：5μA@3.3VDTIM1：1.5mA@3.3VDTIM3：0.8mA@3.3V&lt;/td&gt;
+&lt;td&gt;1×1 2.4GHz频段（ch1～ch14）PHY支持IEEE 802.11b/g/nMAC支持IEEE802.11 d/e/h/i/k/v/w内置PA和LNA，集成TX/RX Switch、Balun等支持STA和AP形态，作为AP时最大支持6 个STA接入支持WFA WPA/WPA2 personal、WPS2.0支持与BT/BLE芯片共存的2/3/4 线PTA方案电源电压输入范围：2.3V～3.6VIO电源电压支持1.8V和3.3V支持RF自校准方案低功耗：Ultra Deep Sleep模式：5μA@3.3VDTIM1：1.5mA@3.3VDTIM3：0.8mA@3.3V&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;PHY 特性&lt;/td&gt;
-&lt;td&gt;支持 IEEE802.11b/g/n 单天线所有的数据速率支持最大速率：72.2Mbps@HT20 MCS7 支持标准 20MHz 带宽和 5M/10M 窄带宽支持 STBC 支持 Short-GI&lt;/td&gt;
+&lt;td&gt;PHY特性&lt;/td&gt;
+&lt;td&gt;支持IEEE802.11b/g/n单天线所有的数据速率支持最大速率：72.2Mbps@HT20 MCS7支持标准20MHz带宽和5M/10M窄带宽支持STBC支持Short-GI&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;MAC 特性&lt;/td&gt;
-&lt;td&gt;支持 A-MPDU，A-MSDU 支持 Blk-ACK 支持 QoS，满足不同业务服务质量需求&lt;/td&gt;
+&lt;td&gt;MAC特性&lt;/td&gt;
+&lt;td&gt;支持A-MPDU，A-MSDU支持Blk-ACK支持QoS，满足不同业务服务质量需求&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;CPU 子系统&lt;/td&gt;
-&lt;td&gt;高性能 32bit 微处理器，最大工作频率 160MHz 内嵌 SRAM 352KB、ROM 288KB 内嵌 2MB Flash&lt;/td&gt;
+&lt;td&gt;CPU子系统&lt;/td&gt;
+&lt;td&gt;高性能 32bit微处理器，最大工作频率160MHz内嵌SRAM 352KB、ROM 288KB内嵌 2MB Flash&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;外围接口&lt;/td&gt;
-&lt;td&gt;1 个 SDIO 接口、2 个 SPI 接口、2 个 I2C 接口、3 个 UART 接口、15 个 GPIO 接口、7 路 ADC 输入、6 路 PWM、1 个 I2S 接口（注：上述接口通过复用实现）外部主晶体频率 40M 或 24M&lt;/td&gt;
+&lt;td&gt;1个SDIO接口、2个SPI接口、2个I2C接口、3个UART接口、15个GPIO接口、7路ADC输入、6路PWM、1个I2S接口（注：上述接口通过复用实现）外部主晶体频率40M或24M&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;其他信息&lt;/td&gt;
-&lt;td&gt;封装：QFN-32，5mm×5mm 工作温度：-40℃ ～ +85℃&lt;/td&gt;
+&lt;td&gt;封装：QFN-32，5mm×5mm工作温度：-40℃ ～ +85℃&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;harmonyos关键特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#harmonyos关键特性&#34;&gt;#&lt;/a&gt; HarmonyOS 关键特性&lt;/h2&gt;
-&lt;p&gt;HarmonyOS 基于 Hi3861 平台提供了多种开放能力，提供的关键组件如下表所示。&lt;/p&gt;
+&lt;h2 id=&#34;harmonyos关键特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#harmonyos关键特性&#34;&gt;&lt;/a&gt; HarmonyOS关键特性&lt;/h2&gt;
+&lt;p&gt;HarmonyOS基于Hi3861平台提供了多种开放能力，提供的关键组件如下表所示。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -97,16 +98,16 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;WLAN 服务&lt;/td&gt;
-&lt;td&gt;提供 WLAN 服务能力。包括：station 和 hotspot 模式的连接、断开、状态查询等。&lt;/td&gt;
+&lt;td&gt;WLAN服务&lt;/td&gt;
+&lt;td&gt;提供WLAN服务能力。包括：station和hotspot模式的连接、断开、状态查询等。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;模组外设控制&lt;/td&gt;
-&lt;td&gt;提供操作外设的能力。包括：I2C、I2S、ADC、UART、SPI、SDIO、GPIO、PWM、FLASH 等。&lt;/td&gt;
+&lt;td&gt;提供操作外设的能力。包括：I2C、I2S、ADC、UART、SPI、SDIO、GPIO、PWM、FLASH等。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;分布式软总线&lt;/td&gt;
-&lt;td&gt;在 HarmonyOS 分布式网络中，提供设备被发现、数据传输的能力。&lt;/td&gt;
+&lt;td&gt;在HarmonyOS分布式网络中，提供设备被发现、数据传输的能力。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;设备安全绑定&lt;/td&gt;
@@ -118,11 +119,11 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;系统服务管理&lt;/td&gt;
-&lt;td&gt;系统服务管理基于面向服务的架构，提供了 HarmonyOS 统一化的系统服务开发框架。&lt;/td&gt;
+&lt;td&gt;系统服务管理基于面向服务的架构，提供了HarmonyOS统一化的系统服务开发框架。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;启动引导&lt;/td&gt;
-&lt;td&gt;提供系统服务的启动入口标识。在系统服务管理启动时，调用 boostrap 标识的入口函数，并启动系统服务。&lt;/td&gt;
+&lt;td&gt;提供系统服务的启动入口标识。在系统服务管理启动时，调用boostrap标识的入口函数，并启动系统服务。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;系统属性&lt;/td&gt;
@@ -130,15 +131,15 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;基础库&lt;/td&gt;
-&lt;td&gt;提供公共基础库能力。包括：文件操作、KV 存储管理等。&lt;/td&gt;
+&lt;td&gt;提供公共基础库能力。包括：文件操作、KV存储管理等。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;DFX&lt;/td&gt;
-&lt;td&gt;提供 DFX 能力。包括：流水日志、时间打点等。&lt;/td&gt;
+&lt;td&gt;提供DFX能力。包括：流水日志、时间打点等。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;XTS&lt;/td&gt;
-&lt;td&gt;提供 HarmonyOS 生态认证测试套件的集合能力。&lt;/td&gt;
+&lt;td&gt;提供HarmonyOS生态认证测试套件的集合能力。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -148,22 +149,22 @@
             <guid isPermalink="true">http://example.com/2021/07/28/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91/(2)Windows%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
             <title>(2)Windows开发环境准备</title>
             <link>http://example.com/2021/07/28/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91/(2)Windows%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
-            <category>平台</category>
             <category>鸿蒙</category>
             <category>单片机</category>
+            <category>平台</category>
             <pubDate>Wed, 28 Jul 2021 08:37:44 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;windows开发环境准备&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windows开发环境准备&#34;&gt;#&lt;/a&gt; Windows 开发环境准备&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;windows开发环境准备&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windows开发环境准备&#34;&gt;&lt;/a&gt; Windows开发环境准备&lt;/h1&gt;
 &lt;p&gt;更新时间: 2021-07-21 09:12&lt;/p&gt;
-&lt;p&gt;系统要求：Windows 10 64 位系统。&lt;/p&gt;
-&lt;p&gt;DevEco Device Tool 以插件方式提供，基于 Visual Studio Code 进行扩展，安装分为如下几步：&lt;/p&gt;
+&lt;p&gt;系统要求：Windows 10 64位系统。&lt;/p&gt;
+&lt;p&gt;DevEco Device Tool以插件方式提供，基于Visual Studio Code进行扩展，安装分为如下几步：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;安装 Visual Studio Code&lt;/li&gt;
-&lt;li&gt;安装 Python&lt;/li&gt;
-&lt;li&gt;安装 Node.js&lt;/li&gt;
-&lt;li&gt;安装 hpm&lt;/li&gt;
-&lt;li&gt;安装 DevEco Device Tool 插件&lt;/li&gt;
+&lt;li&gt;安装Visual Studio Code&lt;/li&gt;
+&lt;li&gt;安装Python&lt;/li&gt;
+&lt;li&gt;安装Node.js&lt;/li&gt;
+&lt;li&gt;安装hpm&lt;/li&gt;
+&lt;li&gt;安装DevEco Device Tool插件&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;获取软件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取软件&#34;&gt;#&lt;/a&gt; 获取软件&lt;/h2&gt;
+&lt;h2 id=&#34;获取软件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取软件&#34;&gt;&lt;/a&gt; 获取软件&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -177,123 +178,123 @@
 &lt;tr&gt;
 &lt;td&gt;Visual Studio Code&lt;/td&gt;
 &lt;td&gt;代码编辑工具&lt;/td&gt;
-&lt;td&gt;V1.53 及以上 64 位版本。&lt;/td&gt;
+&lt;td&gt;V1.53及以上 64位版本。&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://code.visualstudio.com/Download&#34;&gt;https://code.visualstudio.com/Download&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Python&lt;/td&gt;
 &lt;td&gt;编译构建工具&lt;/td&gt;
-&lt;td&gt;V3.7.4~V3.8.x 64 位版本&lt;/td&gt;
+&lt;td&gt;V3.7.4~V3.8.x 64位版本&lt;/td&gt;
 &lt;td&gt;推荐下载：&lt;a href=&#34;https://www.python.org/downloads/release/python-388/&#34;&gt;https://www.python.org/downloads/release/python-388/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Node.js&lt;/td&gt;
-&lt;td&gt;提供 npm 环境&lt;/td&gt;
-&lt;td&gt;v12.0.0 及以上 64 位版本&lt;/td&gt;
+&lt;td&gt;提供npm环境&lt;/td&gt;
+&lt;td&gt;v12.0.0及以上 64位版本&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://nodejs.org/zh-cn/download/&#34;&gt;https://nodejs.org/zh-cn/download/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;hpm&lt;/td&gt;
 &lt;td&gt;包管理工具&lt;/td&gt;
 &lt;td&gt;最新版&lt;/td&gt;
-&lt;td&gt;请参考&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-win-0000001105567362#section173054793610&#34;&gt;安装 hpm&lt;/a&gt;。&lt;/td&gt;
+&lt;td&gt;请参考&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-win-0000001105567362#section173054793610&#34;&gt;安装hpm&lt;/a&gt;。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;DevEco Device Tool&lt;/td&gt;
-&lt;td&gt;HarmonyOS 源码的编译、烧录、调试插件工具&lt;/td&gt;
+&lt;td&gt;HarmonyOS源码的编译、烧录、调试插件工具&lt;/td&gt;
 &lt;td&gt;v2.2 Beta1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://device.harmonyos.com/cn/ide#download%E4%B8%8B%E8%BD%BD%E5%89%8D%EF%BC%8C%E8%AF%B7%E4%BD%BF%E7%94%A8%E5%8D%8E%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%90%E5%8F%B7%E7%99%BB%E5%BD%95%EF%BC%8C%E5%A6%82%E6%9C%AA%E6%B3%A8%E5%86%8C%EF%BC%8C%E8%AF%B7%E5%85%88&#34;&gt;https://device.harmonyos.com/cn/ide#download 下载前，请使用华为开发者帐号登录，如未注册，请先&lt;/a&gt;&lt;a href=&#34;https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148&#34;&gt;注册华为开发者帐号&lt;/a&gt;。&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://device.harmonyos.com/cn/ide#download%E4%B8%8B%E8%BD%BD%E5%89%8D%EF%BC%8C%E8%AF%B7%E4%BD%BF%E7%94%A8%E5%8D%8E%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%90%E5%8F%B7%E7%99%BB%E5%BD%95%EF%BC%8C%E5%A6%82%E6%9C%AA%E6%B3%A8%E5%86%8C%EF%BC%8C%E8%AF%B7%E5%85%88&#34;&gt;https://device.harmonyos.com/cn/ide#download下载前，请使用华为开发者帐号登录，如未注册，请先&lt;/a&gt;&lt;a href=&#34;https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148&#34;&gt;注册华为开发者帐号&lt;/a&gt;。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;安装visual-studio-code&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装visual-studio-code&#34;&gt;#&lt;/a&gt; 安装 Visual Studio Code&lt;/h2&gt;
+&lt;h2 id=&#34;安装visual-studio-code&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装visual-studio-code&#34;&gt;&lt;/a&gt; 安装Visual Studio Code&lt;/h2&gt;
 &lt;p&gt;说明&lt;/p&gt;
-&lt;p&gt;如果已安装 Visual Studio Code，打开命令行工具，输入&lt;strong&gt; code --version&lt;/strong&gt; 命令，检查版本号是否为 1.53 及以上版本；可以正常返回版本号，说明环境变量设置也正确。&lt;/p&gt;
+&lt;p&gt;如果已安装Visual Studio Code，打开命令行工具，输入&lt;strong&gt;code --version&lt;/strong&gt;命令，检查版本号是否为1.53及以上版本；可以正常返回版本号，说明环境变量设置也正确。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;双击 Visual Studio Code 软件包进行安装。安装过程中，请勾选 “添加到 PATH（重启后生效）”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34;&gt;&lt;/p&gt;
+&lt;p&gt;双击Visual Studio Code软件包进行安装。安装过程中，请勾选“添加到PATH（重启后生效）”。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.18512664503469265160641472664229:50520720011259:2800:AF78793A3F46D46F6A5BEC000068B99202B3D69C7C91898D7E88D4CE10C590D1.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;点击放大&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;安装完成后，重启计算机，使 Visual Studio Code 的环境变量生效。&lt;/p&gt;
+&lt;p&gt;安装完成后，重启计算机，使Visual Studio Code的环境变量生效。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;打开命令行工具，输入&lt;strong&gt; code --version&lt;/strong&gt; 命令，可以正常显示版本号说明安装成功。&lt;/p&gt;
+&lt;p&gt;打开命令行工具，输入&lt;strong&gt;code --version&lt;/strong&gt;命令，可以正常显示版本号说明安装成功。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;安装python&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装python&#34;&gt;#&lt;/a&gt; 安装 Python&lt;/h2&gt;
+&lt;h2 id=&#34;安装python&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装python&#34;&gt;&lt;/a&gt; 安装Python&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;双击 Python 安装包进行安装，勾选 “&lt;strong&gt;Add Python 3.8 to PATH&lt;/strong&gt;”，然后点击&lt;strong&gt; Install Now&lt;/strong&gt; 开始安装。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;双击Python安装包进行安装，勾选“&lt;strong&gt;Add Python 3.8 to PATH&lt;/strong&gt;”，然后点击&lt;strong&gt;Install Now&lt;/strong&gt;开始安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.68236634967698989280426882876057:50520720011259:2800:555A136AC6427598978B4FEC4D474179D6021148162C91E295A883DC39DFE8B7.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;等待安装完成后，点击&lt;strong&gt; Close&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;等待安装完成后，点击&lt;strong&gt;Close&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.40443588200814218790208181727229:50520720011259:2800:B59C18547B6D75F29CC3CA9CCCA7C5E8B625040FA33ED644D381443643B20BC8.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;打开命令行工具，输入 python --version，检查安装结果。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打开命令行工具，输入python --version，检查安装结果。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210835.55187266828086165550009510386782:50520720011259:2800:2682BCA6236A7FDBDB501A78A710951BDC76177B025D4708F1ECB162419BE123.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;在命令行工具中，分别执行如下命令设置 pip 源，用于后续安装 DevEco Device Tool 过程中下载依赖的组件包。&lt;/p&gt;
+&lt;p&gt;在命令行工具中，分别执行如下命令设置pip源，用于后续安装DevEco Device Tool过程中下载依赖的组件包。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip config set global.trusted-host repo.huaweicloud.compip config set global.index-url https://repo.huaweicloud.com/repository/pypi/simplepip config set global.timeout 120&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;安装nodejs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装nodejs&#34;&gt;#&lt;/a&gt; 安装 Node.js&lt;/h2&gt;
+&lt;h2 id=&#34;安装nodejs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装nodejs&#34;&gt;&lt;/a&gt; 安装Node.js&lt;/h2&gt;
 &lt;p&gt;说明&lt;/p&gt;
-&lt;p&gt;如果已安装 Node.js，打开命令行工具，输入&lt;strong&gt; node -v&lt;/strong&gt; 命令，检查版本号是否为 12.0.0 及以上版本。&lt;/p&gt;
+&lt;p&gt;如果已安装Node.js，打开命令行工具，输入&lt;strong&gt;node -v&lt;/strong&gt;命令，检查版本号是否为12.0.0及以上版本。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;点击下载后的软件包进行安装，全部按照默认设置点击&lt;strong&gt; Next&lt;/strong&gt;，直至&lt;strong&gt; Finish&lt;/strong&gt;。安装过程中，Node.js 会自动在系统的 path 环境变量中配置 node.exe 的目录路径。&lt;/p&gt;
+&lt;p&gt;点击下载后的软件包进行安装，全部按照默认设置点击&lt;strong&gt;Next&lt;/strong&gt;，直至&lt;strong&gt;Finish&lt;/strong&gt;。安装过程中，Node.js会自动在系统的path环境变量中配置node.exe的目录路径。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;重新打开命令行工具，输入 “node -v” 命令，能正常查询 Node.js 的版本号，说明 Node.js 安装成功。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;重新打开命令行工具，输入“node -v”命令，能正常查询Node.js的版本号，说明Node.js安装成功。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.62539158827713818108212284791780:50520720011259:2800:5ABC4B73BD2D770166BB7675F013AEEC0670D6092D7A205CC87C862CEA0BAB7F.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;安装hpm&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装hpm&#34;&gt;#&lt;/a&gt; 安装 hpm&lt;/h2&gt;
-&lt;p&gt;该方式需先确保&lt;strong&gt; Node.js&lt;/strong&gt; 安装成功。&lt;/p&gt;
-&lt;p&gt;在安装 hpm 前，请检查网络连接状态，如果网络不能直接访问 Internet，则需要通过代理服务器才可以访问。这种情况下，需要先&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/npm_proxy-0000001054491032&#34;&gt;设置 npm 代理&lt;/a&gt;，才能安装 hpm。&lt;/p&gt;
+&lt;h2 id=&#34;安装hpm&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装hpm&#34;&gt;&lt;/a&gt; 安装hpm&lt;/h2&gt;
+&lt;p&gt;该方式需先确保&lt;strong&gt;Node.js&lt;/strong&gt;安装成功。&lt;/p&gt;
+&lt;p&gt;在安装hpm前，请检查网络连接状态，如果网络不能直接访问Internet，则需要通过代理服务器才可以访问。这种情况下，需要先&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/npm_proxy-0000001054491032&#34;&gt;设置npm代理&lt;/a&gt;，才能安装hpm。&lt;/p&gt;
 &lt;p&gt;说明&lt;/p&gt;
-&lt;p&gt;如果已安装 hpm，可以执行&lt;strong&gt; npm update -g @ohos/hpm-cli&lt;/strong&gt; 命令升级 hpm 至最新版本。&lt;/p&gt;
+&lt;p&gt;如果已安装hpm，可以执行&lt;strong&gt;npm update -g @ohos/hpm-cli&lt;/strong&gt;命令升级hpm至最新版本。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;建议将 npm 源配置为国内镜像，例如设置为华为云镜像源。&lt;/p&gt;
+&lt;p&gt;建议将npm源配置为国内镜像，例如设置为华为云镜像源。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm config set registry https://repo.huaweicloud.com/repository/npm/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;打开命令行工具，执行如下命令安装最新版本 hpm。&lt;/p&gt;
+&lt;p&gt;打开命令行工具，执行如下命令安装最新版本hpm。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g @ohos/hpm-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.90553156380138182569465396373876:50520720011259:2800:BA75EB2D31FF2C2F3331645652878BEB0F9B6CB577049C4AAC0C047FD664A334.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;安装完成后，执行如下命令（V 为大写字母）检查 hpm 安装结果。&lt;/p&gt;
+&lt;p&gt;安装完成后，执行如下命令（V为大写字母）检查hpm安装结果。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hpm -V&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.10048763675015873863276075913893:50520720011259:2800:7A7CA700AAC1FBF8778EBD971C4C3A7044D6542DACA7C129ECC2BB7F8CDED52C.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;安装deveco-device-tool插件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装deveco-device-tool插件&#34;&gt;#&lt;/a&gt; 安装 DevEco Device Tool 插件&lt;/h2&gt;
-&lt;p&gt;安装 DevEco Device Tool 插件，&lt;strong&gt;主机的用户名不能包含中文字符&lt;/strong&gt;，否则可能导致运行出现错误。&lt;/p&gt;
-&lt;p&gt;DevEco Device Tool 正常运行需要依赖于 C/C&lt;ins&gt; 和 CodeLLDB 插件，在安装完 DevEco Device Tool 后，会自动从 Visual Studio Code 的插件市场安装 C/C&lt;/ins&gt; 和 CodeLLDB 插件。因此，在安装 DevEco Device Tool 前，请检查 Visual Studio Code 的网络连接状态，如果网络不能直接访问 Internet，则需要通过代理服务器才可以访问，请先&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/vscode_proxy-0000001074231144&#34;&gt; Visual Studio Code 代理设置&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;安装deveco-device-tool插件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装deveco-device-tool插件&#34;&gt;&lt;/a&gt; 安装DevEco Device Tool插件&lt;/h2&gt;
+&lt;p&gt;安装DevEco Device Tool插件，&lt;strong&gt;主机的用户名不能包含中文字符&lt;/strong&gt;，否则可能导致运行出现错误。&lt;/p&gt;
+&lt;p&gt;DevEco Device Tool正常运行需要依赖于C/C&lt;ins&gt;和CodeLLDB插件，在安装完DevEco Device Tool后，会自动从Visual Studio Code的插件市场安装C/C&lt;/ins&gt;和CodeLLDB插件。因此，在安装DevEco Device Tool前，请检查Visual Studio Code的网络连接状态，如果网络不能直接访问Internet，则需要通过代理服务器才可以访问，请先&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/vscode_proxy-0000001074231144&#34;&gt;Visual Studio Code代理设置&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;说明&lt;/p&gt;
-&lt;p&gt;安装 DevEco Device Tool 时，请先关闭 Visual Studio Code。&lt;/p&gt;
+&lt;p&gt;安装DevEco Device Tool时，请先关闭Visual Studio Code。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;解压 DevEco Device Tool 插件压缩包，双击安装包程序进行安装。&lt;/p&gt;
+&lt;p&gt;解压DevEco Device Tool插件压缩包，双击安装包程序进行安装。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;安装过程中，会自动安装 DevEco Device Tool 所需的依赖文件（如 C/C++ 和 CodeLLDB 插件）和执行程序。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;安装过程中，会自动安装DevEco Device Tool所需的依赖文件（如C/C++和CodeLLDB插件）和执行程序。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.31800168642290558649828696932171:50520720011259:2800:EABAA958E2D53F692068615BA4B3203811102E3BAE8B2D9259BA3EA99CAA8CAE.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;安装完成后，会自动关闭命令行工具窗口。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;启动 Visual Studio Code，点击左侧的&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt; 按钮，检查 INSTALLED 中，是否已成功安装 C/C++、CodeLLDB 和 DevEco Device Tool。&lt;/p&gt;
+&lt;p&gt;启动Visual Studio Code，点击左侧的&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.37798261809799456293951828879216:50520720011259:2800:28C802BF1F065C9925349BDFCD56F9FDF6646D9ED5509A0925420A5BF65A0523.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;按钮，检查INSTALLED中，是否已成功安装C/C++、CodeLLDB和DevEco Device Tool。&lt;/p&gt;
 &lt;p&gt;说明&lt;/p&gt;
-&lt;p&gt;如果 C/C++ 和 CodeLLDB 插件安装不成功，则 DevEco Device Tool 不能正常运行，解决方法，详细请参考：&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/offline_plugin_install-0000001074376846&#34;&gt;离线安装 C/C++ 和 CodeLLDB 插件&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如果C/C++和CodeLLDB插件安装不成功，则DevEco Device Tool不能正常运行，解决方法，详细请参考：&lt;a href=&#34;https://device.harmonyos.com/cn/docs/ide/user-guides/offline_plugin_install-0000001074376846&#34;&gt;离线安装C/C++和CodeLLDB插件&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210836.99646568113737003039809236695544:50520720011259:2800:E24828A9E71543A0B8DF4A0B97CB5D04CD21107DFC1BFBF69718C79E9E5558DB.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -302,37 +303,37 @@
             <guid isPermalink="true">http://example.com/2021/07/27/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91/(3)CentOS7%E9%B8%BF%E8%92%99%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
             <title>(3)CentOS7中安装鸿蒙编译环境</title>
             <link>http://example.com/2021/07/27/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91/(3)CentOS7%E9%B8%BF%E8%92%99%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
-            <category>平台</category>
             <category>鸿蒙</category>
             <category>单片机</category>
+            <category>平台</category>
             <pubDate>Tue, 27 Jul 2021 19:46:54 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;安装centos7&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装centos7&#34;&gt;#&lt;/a&gt; 安装 CentOS7&lt;/h3&gt;
-&lt;p&gt;在 VirtualBox 中最小化安装 CentOS（略）&lt;/p&gt;
-&lt;h3 id=&#34;配置网络&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置网络&#34;&gt;#&lt;/a&gt; 配置网络&lt;/h3&gt;
+            <description><![CDATA[ &lt;h3 id=&#34;安装centos7&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装centos7&#34;&gt;&lt;/a&gt; 安装CentOS7&lt;/h3&gt;
+&lt;p&gt;在VirtualBox中最小化安装CentOS（略）&lt;/p&gt;
+&lt;h3 id=&#34;配置网络&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置网络&#34;&gt;&lt;/a&gt; 配置网络&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;ip addr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;systemctl restart network&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ip addr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ping www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;设置dhcp动态分配网络&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install net-tools&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install wget&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;安装常用软件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装专用编译器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装专用编译器&#34;&gt;#&lt;/a&gt; 安装专用编译器&lt;/h3&gt;
+&lt;h3 id=&#34;安装专用编译器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装专用编译器&#34;&gt;&lt;/a&gt; 安装专用编译器&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf gcc_riscv32-linux-7.3.0.tar.gz -C /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;解压到/usr/&lt;span class=&#34;built_in&#34;&gt;local&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi /etc/profile&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source /etc/profile&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;添加bin目录到环境变量中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;riscv32-unknown-elf-gcc --version&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;查看结果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装python37&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装python37&#34;&gt;#&lt;/a&gt; 安装 Python3.7+&lt;/h3&gt;
+&lt;h3 id=&#34;安装python37&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装python37&#34;&gt;&lt;/a&gt; 安装Python3.7+&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ls&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf Python-3.9.0.tgz -C /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;解压安装包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;安装之前下载以下需要的依赖软件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum groupinstall -y &amp;quot;Development tools&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y &amp;quot;Development tools&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y openssl-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y libffi libffi-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y bzip2-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y sqlite-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y readline-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y libuuid-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y uuid-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y xz-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y gdbm-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install -y tk-devel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;安装Python&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cd /usr/local/Python-3.9.0/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ls&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./configure --prefix=/usr/local/python3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make &amp;amp;&amp;amp; make install&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;建立软链接，不影响系统自带的python&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ln -s /usr/local/python3/bin/python3 /usr/bin/python3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 --version&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 --version&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;安装python包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 installsetuptools&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 install setuptools&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 install kconfiglib&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 install pycryptodome&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 install six --upgrade --ignore-installed six&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip3 install ecdsa&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装scons&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装scons&#34;&gt;#&lt;/a&gt; 安装 SCONS&lt;/h3&gt;
+&lt;h3 id=&#34;安装scons&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装scons&#34;&gt;&lt;/a&gt; 安装SCONS&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf scons-4.0.1.tar.gz &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cd SCons-4.0.1/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 setup.py install&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ln -s /usr/local/python3/bin/scons /usr/bin/scons&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装gn&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装gn&#34;&gt;#&lt;/a&gt; 安装 gn&lt;/h3&gt;
+&lt;h3 id=&#34;安装gn&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装gn&#34;&gt;&lt;/a&gt; 安装gn&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf gn-linux-x86-1717.tar.gz -C /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ln -s /usr/local/gn /usr/bin/gn&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;gn --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装ninja&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装ninja&#34;&gt;#&lt;/a&gt; 安装 ninja&lt;/h3&gt;
+&lt;h3 id=&#34;安装ninja&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装ninja&#34;&gt;&lt;/a&gt; 安装ninja&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf ninja.1.9.0.tar -C /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ln -s /usr/local/ninja/ninja /usr/bin/ninja&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ninja --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装llvm&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装llvm&#34;&gt;#&lt;/a&gt; 安装 llvm&lt;/h3&gt;
+&lt;h3 id=&#34;安装llvm&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装llvm&#34;&gt;&lt;/a&gt; 安装llvm&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf llvm-linux-9.0.0-36191.tar -C /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi /etc/profile&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source /etc/profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装hb&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装hb&#34;&gt;#&lt;/a&gt; 安装 hb&lt;/h3&gt;
+&lt;h3 id=&#34;安装hb&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装hb&#34;&gt;&lt;/a&gt; 安装hb&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 -m pip install --user ohos-build&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi ~/.bashrc &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source ./.bashrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;解压源码并编译&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解压源码并编译&#34;&gt;#&lt;/a&gt; 解压源码并编译&lt;/h3&gt;
+&lt;h3 id=&#34;解压源码并编译&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解压源码并编译&#34;&gt;&lt;/a&gt; 解压源码并编译&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;mkdir code-1.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf code-1.0.tar.gz -C ./code-1.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cd code-1.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;使用python3编译源码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 build.py wifiiot&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;编译成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;安装samba服务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装samba服务&#34;&gt;#&lt;/a&gt; 安装 Samba 服务&lt;/h3&gt;
+&lt;h3 id=&#34;安装samba服务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装samba服务&#34;&gt;&lt;/a&gt; 安装Samba服务&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;yum install samba&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;systemctl enable smb&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;编辑配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi /etc/samba/smb.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;创建用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;smbpasswd -a root&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;systemctl start smb&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;netstat -antp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;配置selinux及防火墙&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sestatus -b |grep samba&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;setsebool -P samba_export_all_rw 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h3&gt;
-&lt;p&gt;[1] Centos 下安装鸿蒙 LiteOS 编译环境&lt;br&gt;
-&lt;a href=&#34;https://www.sohu.com/a/425806016_463994&#34;&gt; https://www.sohu.com/a/425806016_463994&lt;/a&gt;&lt;br&gt;
- [2] 华为设备开发快速入门官方文档&lt;br&gt;
-&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498&#34;&gt; https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;&lt;/a&gt; 参考文献&lt;/h3&gt;
+&lt;p&gt;[1]Centos下安装鸿蒙LiteOS编译环境&lt;br /&gt;
+&lt;a href=&#34;https://www.sohu.com/a/425806016_463994&#34;&gt;https://www.sohu.com/a/425806016_463994&lt;/a&gt;&lt;br /&gt;
+[2]华为设备开发快速入门官方文档&lt;br /&gt;
+&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498&#34;&gt;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-env-setup-lin-0000001105407498&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -342,76 +343,76 @@
             <category>鸿蒙</category>
             <category>单片机</category>
             <pubDate>Tue, 27 Jul 2021 19:46:54 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;运行hello-world&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#运行hello-world&#34;&gt;#&lt;/a&gt; 运行 Hello World&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;运行hello-world&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#运行hello-world&#34;&gt;&lt;/a&gt; 运行Hello World&lt;/h1&gt;
 &lt;p&gt;更新时间: 2021-07-21 09:12&lt;/p&gt;
-&lt;p&gt;本示例将演示如何编写简单业务，输出 “Hello World”，初步了解 HarmonyOS 如何运行在开发板上。&lt;/p&gt;
-&lt;h2 id=&#34;修改源码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改源码&#34;&gt;#&lt;/a&gt; 修改源码&lt;/h2&gt;
-&lt;p&gt;bugfix 和新增业务两种情况，涉及源码修改。下面以新增业务（my_first_app）为例，向开发者介绍如何进行源码修改。&lt;/p&gt;
+&lt;p&gt;本示例将演示如何编写简单业务，输出“Hello World”，初步了解HarmonyOS 如何运行在开发板上。&lt;/p&gt;
+&lt;h2 id=&#34;修改源码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改源码&#34;&gt;&lt;/a&gt; 修改源码&lt;/h2&gt;
+&lt;p&gt;bugfix和新增业务两种情况，涉及源码修改。下面以新增业务（my_first_app）为例，向开发者介绍如何进行源码修改。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;确定目录结构。&lt;/p&gt;
-&lt;p&gt;开发者编写业务时，务必先在./applications/sample/wifi-iot/app 路径下新建一个目录（或一套目录结构），用于存放业务源码文件。&lt;/p&gt;
-&lt;p&gt;例如：在 app 下新增业务 my_first_app，其中 hello_world.c 为业务代码，BUILD.gn 为编译脚本，具体规划目录结构如下：&lt;/p&gt;
+&lt;p&gt;开发者编写业务时，务必先在./applications/sample/wifi-iot/app路径下新建一个目录（或一套目录结构），用于存放业务源码文件。&lt;/p&gt;
+&lt;p&gt;例如：在app下新增业务my_first_app，其中hello_world.c为业务代码，BUILD.gn为编译脚本，具体规划目录结构如下：&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;  .&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  └── applications&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└── sample        &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  		└── wifi-iot            &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  			└── app                &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  				│── my_first_app                &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  				│  │── hello_world.c                &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  				│  └── BUILD.gn                &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  				└── BUILD.gn&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;编写业务代码。&lt;/p&gt;
-&lt;p&gt;新建./applications/sample/wifi-iot/app/my_first_app 下的 hello_world.c 文件，在 hello_world.c 中新建业务入口函数 HelloWorld，并实现业务逻辑。并在代码最下方，使用 HarmonyOS 启动恢复模块接口 SYS_RUN () 启动业务。（SYS_RUN 定义在 ohos_init.h 文件中）&lt;/p&gt;
+&lt;p&gt;新建./applications/sample/wifi-iot/app/my_first_app下的hello_world.c文件，在hello_world.c中新建业务入口函数HelloWorld，并实现业务逻辑。并在代码最下方，使用HarmonyOS启动恢复模块接口SYS_RUN()启动业务。（SYS_RUN定义在ohos_init.h文件中）&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;quot;ohos_init.h&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;quot;ohos_types.h&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;HelloWorld&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;	&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;[DEMO] Hello world.\n&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SYS_RUN(HelloWorld);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;编写用于将业务构建成静态库的 BUILD.gn 文件。&lt;/p&gt;
-&lt;p&gt;新建./applications/sample/wifi-iot/app/my_first_app 下的 BUILD.gn 文件，并完成如下配置。&lt;/p&gt;
-&lt;p&gt;如&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-running-0000001105048942#ZH-CN_TOPIC_0000001128311062__li5479332115116&#34;&gt;步骤 1&lt;/a&gt; 所述，BUILD.gn 文件由三部分内容（目标、源文件、头文件路径）构成，需由开发者完成填写。&lt;/p&gt;
+&lt;p&gt;编写用于将业务构建成静态库的BUILD.gn文件。&lt;/p&gt;
+&lt;p&gt;新建./applications/sample/wifi-iot/app/my_first_app下的BUILD.gn文件，并完成如下配置。&lt;/p&gt;
+&lt;p&gt;如&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-running-0000001105048942#ZH-CN_TOPIC_0000001128311062__li5479332115116&#34;&gt;步骤1&lt;/a&gt;所述，BUILD.gn文件由三部分内容（目标、源文件、头文件路径）构成，需由开发者完成填写。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;static_library(&amp;quot;myapp&amp;quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	sources = [ &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;quot;hello_world.c&amp;quot;   &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	]    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	include_dirs = [ &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;quot;//utils/native/lite/include&amp;quot;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
-&lt;li&gt;static_library 中指定业务模块的编译结果，为静态库文件 libmyapp.a，开发者根据实际情况完成填写。&lt;/li&gt;
-&lt;li&gt;sources 中指定静态库.a 所依赖的.c 文件及其路径，若路径中包含 &amp;quot;//“则表示绝对路径（此处为代码根路径），若不包含”//&amp;quot; 则表示相对路径。&lt;/li&gt;
-&lt;li&gt;include_dirs 中指定 source 所需要依赖的.h 文件路径。&lt;/li&gt;
+&lt;li&gt;static_library中指定业务模块的编译结果，为静态库文件libmyapp.a，开发者根据实际情况完成填写。&lt;/li&gt;
+&lt;li&gt;sources中指定静态库.a所依赖的.c文件及其路径，若路径中包含&amp;quot;//“则表示绝对路径（此处为代码根路径），若不包含”//&amp;quot;则表示相对路径。&lt;/li&gt;
+&lt;li&gt;include_dirs中指定source所需要依赖的.h文件路径。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;编写模块 BUILD.gn 文件，指定需参与构建的特性模块。&lt;/p&gt;
-&lt;p&gt;配置./applications/sample/wifi-iot/app/BUILD.gn 文件，在 features 字段中增加索引，使目标模块参与编译。features 字段指定业务模块的路径和目标，以 my_first_app 举例，features 字段配置如下。&lt;/p&gt;
+&lt;p&gt;编写模块BUILD.gn文件，指定需参与构建的特性模块。&lt;/p&gt;
+&lt;p&gt;配置./applications/sample/wifi-iot/app/BUILD.gn文件，在features字段中增加索引，使目标模块参与编译。features字段指定业务模块的路径和目标，以my_first_app举例，features字段配置如下。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;import(&amp;quot;//build/lite/config/component/lite_component.gni&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;lite_component(&amp;quot;app&amp;quot;) &amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	features = [   &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    	&amp;quot;my_first_app:myapp&amp;quot;,  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
-&lt;li&gt;my_first_app 是相对路径，指向./applications/sample/wifi-iot/app/my_first_app/BUILD.gn。&lt;/li&gt;
-&lt;li&gt;myapp 是目标，指向./applications/sample/wifi-iot/app/my_first_app/BUILD.gn 中的 static_library (“myapp”)。&lt;/li&gt;
+&lt;li&gt;my_first_app是相对路径，指向./applications/sample/wifi-iot/app/my_first_app/BUILD.gn。&lt;/li&gt;
+&lt;li&gt;myapp是目标，指向./applications/sample/wifi-iot/app/my_first_app/BUILD.gn中的static_library(“myapp”)。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;调测验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#调测验证&#34;&gt;#&lt;/a&gt; 调测验证&lt;/h2&gt;
-&lt;p&gt;目前调试验证的方法有两种，分别为通过 printf 打印日志、通过 asm 文件定位 panic 问题，开发者可以根据具体业务情况选择。&lt;/p&gt;
-&lt;p&gt;由于本示例业务简单，采用 printf 打印日志的调试方式即可。下面开始介绍这两种调试手段的使用方法。&lt;/p&gt;
-&lt;h3 id=&#34;printf打印&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#printf打印&#34;&gt;#&lt;/a&gt; printf 打印&lt;/h3&gt;
-&lt;p&gt;代码中增加 printf 维测，信息会直接打印到串口上。开发者可在业务关键路径或业务异常位置增加日志打印，如下所示。&lt;/p&gt;
+&lt;h2 id=&#34;调测验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#调测验证&#34;&gt;&lt;/a&gt; 调测验证&lt;/h2&gt;
+&lt;p&gt;目前调试验证的方法有两种，分别为通过printf打印日志、通过asm文件定位panic问题，开发者可以根据具体业务情况选择。&lt;/p&gt;
+&lt;p&gt;由于本示例业务简单，采用printf打印日志的调试方式即可。下面开始介绍这两种调试手段的使用方法。&lt;/p&gt;
+&lt;h3 id=&#34;printf打印&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#printf打印&#34;&gt;&lt;/a&gt; printf打印&lt;/h3&gt;
+&lt;p&gt;代码中增加printf维测，信息会直接打印到串口上。开发者可在业务关键路径或业务异常位置增加日志打印，如下所示。&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;HelloWorld&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;[DEMO] Hello world.\n&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;根据asm文件进行问题定位&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#根据asm文件进行问题定位&#34;&gt;#&lt;/a&gt; 根据 asm 文件进行问题定位&lt;/h3&gt;
+&lt;h3 id=&#34;根据asm文件进行问题定位&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#根据asm文件进行问题定位&#34;&gt;&lt;/a&gt; 根据asm文件进行问题定位&lt;/h3&gt;
 &lt;p&gt;系统异常退出时，会在串口上打印异常退出原因调用栈信息，如下文所示。通过解析异常栈信息可以定位异常位置。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;=======KERNEL PANIC=======&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;**********************Call Stack*********************&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 0 -- 4860d8 addr:f784c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 1 -- 47b2b2 addr:f788c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 2 -- 3e562c addr:f789c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 3 -- 4101de addr:f78ac&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 4 -- 3e5f32 addr:f78cc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 5 -- 3f78c0 addr:f78ec&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 6 -- 3f5e24 addr:f78fc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;********************Call Stack end*******************&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;为解析上述调用栈信息，需要使用到 Hi3861_wifiiot_app.asm 文件，该文件记录了代码中函数在 Flash 上的符号地址以及反汇编信息。asm 文件会随版本大包一同构建输出，存放在./out/wifiiot/ 路径下。&lt;/p&gt;
+&lt;p&gt;为解析上述调用栈信息，需要使用到Hi3861_wifiiot_app.asm文件，该文件记录了代码中函数在Flash上的符号地址以及反汇编信息。asm文件会随版本大包一同构建输出，存放在./out/wifiiot/路径下。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;将调用栈 CallStack 信息保存到 txt 文档中，以便于编辑。（可选）&lt;/p&gt;
+&lt;p&gt;将调用栈CallStack信息保存到txt文档中，以便于编辑。（可选）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;打开 asm 文件，并搜索 CallStack 中的地址，列出对应的函数名 信息。通常只需找出前几个栈信息对应的函数，就可明确异常代码方向。&lt;/p&gt;
+&lt;p&gt;打开asm文件，并搜索CallStack中的地址，列出对应的函数名 信息。通常只需找出前几个栈信息对应的函数，就可明确异常代码方向。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 0 -- 4860d8 addr:f784c -- WadRecvCB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 1 -- 47b2b2 addr:f788c -- wal_sdp_process_rx_data&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 2 -- 3e562c addr:f789c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 3 -- 4101de addr:f78ac&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 4 -- 3e5f32 addr:f78cc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 5 -- 3f78c0 addr:f78ec&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Call Stack 6 -- 3f5e24 addr:f78fc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;根据以上调用栈信息，可以定位 WadRecvCB 函数中出现了异常。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210837.22448825207289523611021740783323:50520720011259:2800:735A2361AAE8E1229219B5AF3740DCFADC23F587CC83A074B586A05640ADD9BB.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210837.22448825207289523611021740783323:50520720011259:2800:735A2361AAE8E1229219B5AF3740DCFADC23F587CC83A074B586A05640ADD9BB.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;根据以上调用栈信息，可以定位WadRecvCB函数中出现了异常。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210837.22448825207289523611021740783323:50520720011259:2800:735A2361AAE8E1229219B5AF3740DCFADC23F587CC83A074B586A05640ADD9BB.png?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210837.22448825207289523611021740783323:50520720011259:2800:735A2361AAE8E1229219B5AF3740DCFADC23F587CC83A074B586A05640ADD9BB.png?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;完成代码排查及修改。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;运行结果&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#运行结果&#34;&gt;#&lt;/a&gt; 运行结果&lt;/h2&gt;
+&lt;h2 id=&#34;运行结果&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#运行结果&#34;&gt;&lt;/a&gt; 运行结果&lt;/h2&gt;
 &lt;p&gt;示例代码编译、烧录、运行、调测后，在串口界面会显示如下结果：&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;ready to OS start&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;FileSystem mount ok.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wifi init success!&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[DEMO] Hello world.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/hello_world.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/hello_world.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;下一步学习&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下一步学习&#34;&gt;#&lt;/a&gt; 下一步学习&lt;/h2&gt;
-&lt;p&gt;恭喜，您已完成 Hi3861 WLAN 模组快速上手！建议您下一步进入&lt;a href=&#34;https://device.harmonyos.com/cn/docs/develop/demo/device-wifi-led-outcontrol-0000001050059068&#34;&gt; WLAN 产品开发&lt;/a&gt;的学习 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/hello_world.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/hello_world.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下一步学习&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下一步学习&#34;&gt;&lt;/a&gt; 下一步学习&lt;/h2&gt;
+&lt;p&gt;恭喜，您已完成Hi3861 WLAN模组快速上手！建议您下一步进入&lt;a href=&#34;https://device.harmonyos.com/cn/docs/develop/demo/device-wifi-led-outcontrol-0000001050059068&#34;&gt;WLAN产品开发&lt;/a&gt;的学习 。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -421,44 +422,44 @@
             <category>鸿蒙</category>
             <category>单片机</category>
             <pubDate>Tue, 27 Jul 2021 19:46:54 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;led外设控制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#led外设控制&#34;&gt;#&lt;/a&gt; LED 外设控制&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;led外设控制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#led外设控制&#34;&gt;&lt;/a&gt; LED外设控制&lt;/h1&gt;
 &lt;p&gt;更新时间: 2021-07-21 09:12&lt;/p&gt;
-&lt;h2 id=&#34;概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概述&#34;&gt;#&lt;/a&gt; 概述&lt;/h2&gt;
-&lt;p&gt;HarmonyOS WLAN 模组基于 Hi3861 平台提供了丰富的外设操作能力，包含 I2C、I2S、ADC、UART、SPI、SDIO、GPIO、PWM、FLASH 等。本文介绍如何通过调用 HarmonyOS 的 NDK 接口，实现对 GPIO 控制，达到 LED 闪烁的效果。其他的 IOT 外设控制，开发者可根据 API 指导文档完成，此处不逐一介绍。&lt;/p&gt;
-&lt;h2 id=&#34;开发&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发&#34;&gt;#&lt;/a&gt; 开发&lt;/h2&gt;
+&lt;h2 id=&#34;概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概述&#34;&gt;&lt;/a&gt; 概述&lt;/h2&gt;
+&lt;p&gt;HarmonyOS WLAN模组基于Hi3861平台提供了丰富的外设操作能力，包含I2C、I2S、ADC、UART、SPI、SDIO、GPIO、PWM、FLASH等。本文介绍如何通过调用HarmonyOS的NDK接口，实现对GPIO控制，达到LED闪烁的效果。其他的IOT外设控制，开发者可根据API指导文档完成，此处不逐一介绍。&lt;/p&gt;
+&lt;h2 id=&#34;开发&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发&#34;&gt;&lt;/a&gt; 开发&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;请先完成&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-introduction-hi3861-0000001105041324#section19352114194115&#34;&gt;《Hi3861 快速入门》&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;LED 控制参考示例存放于 applications/sample/wifi-iot/app/iothardware/led_example.c 文件中。&lt;/p&gt;
+&lt;p&gt;请先完成&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-introduction-hi3861-0000001105041324#section19352114194115&#34;&gt;《Hi3861快速入门》&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;LED控制参考示例存放于applications/sample/wifi-iot/app/iothardware/led_example.c文件中。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;实现 IOT 外设控制，首先需要通过查阅原理图明确接线关系。经过查阅，hispark pegasus 的 LED 与芯片的 9 号管脚相连。&lt;/p&gt;
+&lt;p&gt;实现IOT外设控制，首先需要通过查阅原理图明确接线关系。经过查阅，hispark pegasus的LED与芯片的9号管脚相连。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#define LED_TEST_GPIO 9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;说明&lt;/p&gt;
-&lt;p&gt;开发板原理图，请开发者联系 Hi3861 购买渠道客服获取。&lt;/p&gt;
+&lt;p&gt;开发板原理图，请开发者联系Hi3861购买渠道客服获取。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;使用 GPIO 前，需要完成 GPIO 管脚初始化，明确管脚用途，并创建任务，使 LED 周期性亮灭，达到闪烁的效果。&lt;/p&gt;
+&lt;p&gt;使用GPIO前，需要完成GPIO管脚初始化，明确管脚用途，并创建任务，使LED周期性亮灭，达到闪烁的效果。&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;LedExampleEntry&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    osThreadAttr_t attr;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;/* 管脚初始化 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    IoTGpioInit(LED_TEST_GPIO);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;/* 配置9号管脚为输出方向 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    IoTGpioSetDir(LED_TEST_GPIO, IOT_GPIO_DIR_OUT);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.name = &lt;span class=&#34;string&#34;&gt;&amp;quot;LedTask&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.attr_bits = &lt;span class=&#34;number&#34;&gt;0U&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.cb_mem = &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.cb_size = &lt;span class=&#34;number&#34;&gt;0U&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.stack_mem = &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.stack_size = LED_TASK_STACK_SIZE;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    attr.priority = LED_TASK_PRIO;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;/* 启动任务 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (osThreadNew((osThreadFunc_t)LedTask, &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;, &amp;amp;attr) == &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;[LedExample] Failed to create LedTask!\n&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;在循环任务中通过周期性亮灭形式实现 LED 闪烁。&lt;/p&gt;
+&lt;p&gt;在循环任务中通过周期性亮灭形式实现LED闪烁。&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; *&lt;span class=&#34;title&#34;&gt;LedTask&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;char&lt;/span&gt; *arg)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    (&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)arg;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;switch&lt;/span&gt; (g_ledState) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;case&lt;/span&gt; LED_ON:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                IoTGpioSetOutputVal(LED_TEST_GPIO, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                usleep(LED_INTERVAL_TIME_US);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;case&lt;/span&gt; LED_OFF:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                IoTGpioSetOutputVal(LED_TEST_GPIO, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                usleep(LED_INTERVAL_TIME_US);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;case&lt;/span&gt; LED_SPARK:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                IoTGpioSetOutputVal(LED_TEST_GPIO, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                usleep(LED_INTERVAL_TIME_US);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                IoTGpioSetOutputVal(LED_TEST_GPIO, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                usleep(LED_INTERVAL_TIME_US);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;default&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                usleep(LED_INTERVAL_TIME_US);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;在代码最下方，使用 HarmonyOS 启动恢复模块接口 SYS_RUN () 启动业务。（SYS_RUN 定义在 ohos_init.h 文件中）&lt;/p&gt;
+&lt;p&gt;在代码最下方，使用HarmonyOS启动恢复模块接口SYS_RUN()启动业务。（SYS_RUN定义在ohos_init.h文件中）&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;SYS_RUN(LedExampleEntry);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;修改 applications/sample/wifi-iot/app/BUILD.gn 文件，使 led_example.c 参与编译。&lt;/p&gt;
+&lt;p&gt;修改applications/sample/wifi-iot/app/BUILD.gn文件，使led_example.c参与编译。&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;//build/lite/config/component/lite_component.gni&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;lite_component(&lt;span class=&#34;string&#34;&gt;&amp;quot;app&amp;quot;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    features = [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;string&#34;&gt;&amp;quot;iothardware:led_example&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证&#34;&gt;#&lt;/a&gt; 验证&lt;/h2&gt;
-&lt;p&gt;编译过程请参考《&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section191121332125319&#34;&gt;Hi3861 快速入门 - 源码编译&lt;/a&gt;》，烧录过程请参考《&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section19458165166&#34;&gt;Hi3861 快速入门 - 镜像烧录&lt;/a&gt;》。&lt;/p&gt;
-&lt;p&gt;完成以上两步后，按下 RST 键复位模组，可发现 LED 在周期性闪烁，与预期相符，验证完毕。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;图 1&lt;/strong&gt; LED 闪烁图&lt;br&gt;
-&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证&#34;&gt;&lt;/a&gt; 验证&lt;/h2&gt;
+&lt;p&gt;编译过程请参考《&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section191121332125319&#34;&gt;Hi3861快速入门-源码编译&lt;/a&gt;》，烧录过程请参考《&lt;a href=&#34;https://device.harmonyos.com/cn/docs/start/introduce/quickstart-lite-steps-board3861-connection-0000001152048651#section19458165166&#34;&gt;Hi3861快速入门-镜像烧录&lt;/a&gt;》。&lt;/p&gt;
+&lt;p&gt;完成以上两步后，按下RST键复位模组，可发现LED在周期性闪烁，与预期相符，验证完毕。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图1&lt;/strong&gt; LED闪烁图&lt;br /&gt;
+&lt;img src=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210720210842.85858839787437486037865254162699:50520720011258:2800:213E67DE9E53810002D1E1621B9BAA11FA675F287FAF2DB732B3679380E38C92.gif?needInitFileName=true?needInitFileName=true&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

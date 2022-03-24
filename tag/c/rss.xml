@@ -9,13 +9,14 @@
         <lastBuildDate>Thu, 22 Jul 2021 08:37:44 +0800</lastBuildDate>
         <category>C</category>
         <category>大数据</category>
-        <category>Python</category>
         <category>Shell</category>
+        <category>Python</category>
         <category>MapReduce</category>
-        <category>平台</category>
+        <category>Hexo</category>
         <category>安全</category>
         <category>鸿蒙</category>
         <category>单片机</category>
+        <category>平台</category>
         <category>机器学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/07/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/</guid>
@@ -23,19 +24,19 @@
             <link>http://example.com/2021/07/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/</link>
             <category>C</category>
             <pubDate>Thu, 22 Jul 2021 08:37:44 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;c语言学习一&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c语言学习一&#34;&gt;#&lt;/a&gt; C 语言学习 (一)&lt;/h1&gt;
-&lt;h3 id=&#34;起源&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h3&gt;
-&lt;p&gt;1972 年， 贝尔实验室的丹尼斯・里奇（Dennis Ritch） 和肯・汤普逊（Ken&lt;br&gt;
-Thompson） 在开发 UNIX 操作系统时设计了 C 语言。 然而， C 语言不完全是里&lt;br&gt;
-奇突发奇想而来， 他是在 B 语言（汤普逊发明） 的基础上进行设计。 至于 B&lt;br&gt;
- 语言的起源， 那是另一个故事。 C 语言设计的初衷是将其作为程序员使用的&lt;br&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;c语言学习一&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c语言学习一&#34;&gt;&lt;/a&gt; C语言学习(一)&lt;/h1&gt;
+&lt;h3 id=&#34;起源&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#起源&#34;&gt;&lt;/a&gt; 起源&lt;/h3&gt;
+&lt;p&gt;1972年， 贝尔实验室的丹尼斯·里奇（Dennis Ritch） 和肯·汤普逊（Ken&lt;br /&gt;
+Thompson） 在开发UNIX操作系统时设计了C语言。 然而， C语言不完全是里&lt;br /&gt;
+奇突发奇想而来， 他是在B语言（汤普逊发明） 的基础上进行设计。 至于 B&lt;br /&gt;
+语言的起源， 那是另一个故事。 C 语言设计的初衷是将其作为程序员使用的&lt;br /&gt;
 一种编程工具， 因此， 其主要目标是成为有用的语言。&lt;/p&gt;
-&lt;h2 id=&#34;基础规则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基础规则&#34;&gt;#&lt;/a&gt; 基础规则&lt;/h2&gt;
-&lt;h3 id=&#34;示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#示例&#34;&gt;#&lt;/a&gt; 示例&lt;/h3&gt;
+&lt;h2 id=&#34;基础规则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基础规则&#34;&gt;&lt;/a&gt; 基础规则&lt;/h2&gt;
+&lt;h3 id=&#34;示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#示例&#34;&gt;&lt;/a&gt; 示例&lt;/h3&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;/* 一个简单的C程序 */&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123; &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;num; &lt;span class=&#34;comment&#34;&gt;/* 定义一个名为num的变量 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;num = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;/* 为num赋一个值 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;I am a simple &amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;/* 使用printf()函数 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;computer.\n&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;My favorite number is %d because it is first.\n&amp;quot;&lt;/span&gt;,num);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;变量命名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#变量命名&#34;&gt;#&lt;/a&gt; 变量命名&lt;/h3&gt;
-&lt;p&gt;可以用小写字母、 大写字母、 数字和下划线（_） 来命名。 而且， 名称&lt;br&gt;
-的第 1 个字符必须是字符或下划线， 不能是数字。&lt;/p&gt;
+&lt;h3 id=&#34;变量命名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#变量命名&#34;&gt;&lt;/a&gt; 变量命名&lt;/h3&gt;
+&lt;p&gt;可以用小写字母、 大写字母、 数字和下划线（_） 来命名。 而且， 名称&lt;br /&gt;
+的第1个字符必须是字符或下划线， 不能是数字。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -66,91 +67,91 @@ Thompson） 在开发 UNIX 操作系统时设计了 C 语言。 然而， C 语�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;保留字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#保留字&#34;&gt;#&lt;/a&gt; 保留字&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;关键字&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;基本数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本数据类型&#34;&gt;#&lt;/a&gt; 基本数据类型&lt;/h3&gt;
+&lt;h3 id=&#34;保留字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#保留字&#34;&gt;&lt;/a&gt; 保留字&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/C%E5%85%B3%E9%94%AE%E5%AD%97.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;关键字&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;基本数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本数据类型&#34;&gt;&lt;/a&gt; 基本数据类型&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;整数类型int&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#整数类型int&#34;&gt;#&lt;/a&gt; 整数类型 int&lt;/h4&gt;
-&lt;p&gt;C 语言提供 3 个附属关键字修饰基本整数类型： short、 long 和 unsigned。&lt;br&gt;
-应记住以下几点。&lt;br&gt;
-short int 类型（或者简写为 short） 占用的存储空间可能比 int 类型少， 常&lt;br&gt;
-用于较小数值的场合以节省空间。 与 int 类似， short 是有符号类型。&lt;br&gt;
-long int 或 long 占用的存储空间可能比 int 多， 适用于较大数值的场合。 与&lt;br&gt;
- int 类似， long 是有符号类型。&lt;br&gt;
-long long int 或 long long（C99 标准加入） 占用的储存空间可能比 long 多，&lt;br&gt;
-适用于更大数值的场合。 该类型至少占 64 位。 与 int 类似， long long 是有符号类型。&lt;br&gt;
-unsigned int 或 unsigned 只用于非负值的场合。 这种类型与有符号类型表&lt;br&gt;
-示的范围不同。 例如， 16 位 unsigned int 允许的取值范围是 0～65535， 而不是 - 32768～32767。 用于表示正负号的位现在用于表示另一个二进制位， 所以无符号整型可以表示更大的数&lt;/p&gt;
+&lt;h4 id=&#34;整数类型int&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#整数类型int&#34;&gt;&lt;/a&gt; 整数类型int&lt;/h4&gt;
+&lt;p&gt;C语言提供3个附属关键字修饰基本整数类型： short、 long和unsigned。&lt;br /&gt;
+应记住以下几点。&lt;br /&gt;
+short int类型（或者简写为short） 占用的存储空间可能比int类型少， 常&lt;br /&gt;
+用于较小数值的场合以节省空间。 与int类似， short是有符号类型。&lt;br /&gt;
+long int或long占用的存储空间可能比int多， 适用于较大数值的场合。 与&lt;br /&gt;
+int类似， long是有符号类型。&lt;br /&gt;
+long long int或long long（C99标准加入） 占用的储存空间可能比long多，&lt;br /&gt;
+适用于更大数值的场合。 该类型至少占64位。 与int类似， long long是有符号类型。&lt;br /&gt;
+unsigned int或unsigned只用于非负值的场合。 这种类型与有符号类型表&lt;br /&gt;
+示的范围不同。 例如， 16位unsigned int允许的取值范围是0～65535， 而不是-32768～32767。 用于表示正负号的位现在用于表示另一个二进制位， 所以无符号整型可以表示更大的数&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;字符型char&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#字符型char&#34;&gt;#&lt;/a&gt; 字符型 char&lt;/h4&gt;
-&lt;p&gt;char 类型用于储存字符（如， 字母或标点符号） ， 但是从技术层面看，&lt;br&gt;
-char 是整数类型。 因为 char 类型实际上储存的是整数而不是字符。 计算机使&lt;br&gt;
-用数字编码来处理字符， 即用特定的整数表示特定的字符。 美国最常用的编&lt;br&gt;
-码是 ASCII 编码， 本书也使用此编码。 例如， 在 ASCII 码中， 整数 65 代表大写字母 A。 因此， 储存字母 A 实际上储存的是整数 65（许多 IBM 的大型主机使&lt;br&gt;
-用另一种编码 ——EBCDIC， 其原理相同。 另外， 其他国家的计算机系统可&lt;br&gt;
-能使用完全不同的编码） 。&lt;br&gt;
-标准 ASCII 码的范围是 0～127， 只需 7 位二进制数即可表示。 通常， char&lt;br&gt;
- 类型被定义为 8 位的存储单元， 因此容纳标准 ASCII 码绰绰有余。 许多其他系&lt;br&gt;
-统（如 IMB PC 和苹果 Macs） 还提供扩展 ASCII 码， 也在 8 位的表示范围之&lt;br&gt;
-内。 一般而言， C 语言会保证 char 类型足够大， 以储存系统（实现 C 语言的系统） 的基本字符集。&lt;br&gt;
-许多字符集都超过了 127， 甚至多于 255。 例如， 日本汉字（kanji） 字符&lt;br&gt;
-集。 商用的统一码（Unicode） 创建了一个能表示世界范围内多种字符集的&lt;br&gt;
-系统， 目前包含的字符已超过 110000 个。 国际标准化组织（ISO） 和国际电&lt;br&gt;
-工技术委员会（IEC） 为字符集开发了 ISO/IEC 10646 标准。 统一码标准也与&lt;br&gt;
- ISO/IEC 10646 标准兼容。&lt;br&gt;
-C 语言把 1 字节定义为 char 类型占用的位（bit） 数， 因此无论是 16 位还是&lt;br&gt;
- 32 位系统， 都可以使用 char 类型。&lt;/p&gt;
+&lt;h4 id=&#34;字符型char&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#字符型char&#34;&gt;&lt;/a&gt; 字符型char&lt;/h4&gt;
+&lt;p&gt;char类型用于储存字符（如， 字母或标点符号） ， 但是从技术层面看，&lt;br /&gt;
+char是整数类型。 因为char类型实际上储存的是整数而不是字符。 计算机使&lt;br /&gt;
+用数字编码来处理字符， 即用特定的整数表示特定的字符。 美国最常用的编&lt;br /&gt;
+码是ASCII编码， 本书也使用此编码。 例如， 在ASCII码中， 整数65代表大写字母A。 因此， 储存字母A实际上储存的是整数65（许多IBM的大型主机使&lt;br /&gt;
+用另一种编码——EBCDIC， 其原理相同。 另外， 其他国家的计算机系统可&lt;br /&gt;
+能使用完全不同的编码） 。&lt;br /&gt;
+标准ASCII码的范围是0～127， 只需7位二进制数即可表示。 通常， char&lt;br /&gt;
+类型被定义为8位的存储单元， 因此容纳标准ASCII码绰绰有余。 许多其他系&lt;br /&gt;
+统（如IMB PC和苹果Macs） 还提供扩展ASCII码， 也在8位的表示范围之&lt;br /&gt;
+内。 一般而言， C语言会保证char类型足够大， 以储存系统（实现C语言的系统） 的基本字符集。&lt;br /&gt;
+许多字符集都超过了127， 甚至多于255。 例如， 日本汉字（kanji） 字符&lt;br /&gt;
+集。 商用的统一码（Unicode） 创建了一个能表示世界范围内多种字符集的&lt;br /&gt;
+系统， 目前包含的字符已超过110000个。 国际标准化组织（ISO） 和国际电&lt;br /&gt;
+工技术委员会（IEC） 为字符集开发了ISO/IEC 10646标准。 统一码标准也与&lt;br /&gt;
+ISO/IEC 10646标准兼容。&lt;br /&gt;
+C语言把1字节定义为char类型占用的位（bit） 数， 因此无论是16位还是&lt;br /&gt;
+32位系统， 都可以使用char类型。&lt;/p&gt;
 &lt;p&gt;转义支付&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210723114546983&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; class=&#34;lazyload placeholder&#34; data-srcset=&#34;/assets/C%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png&#34; srcset=&#34;https://img2.baidu.com/it/u=2037979560,2772131037&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg&#34; alt=&#34;image-20210723114546983&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;布尔类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#布尔类型&#34;&gt;#&lt;/a&gt; 布尔类型&lt;/h4&gt;
-&lt;p&gt;C99 标准添加了_Bool 类型， 用于表示布尔值， 即逻辑值 true 和 false。 因&lt;br&gt;
-为 C 语言用值 1 表示 true， 值 0 表示 false， 所以_Bool 类型实际上也是一种整数&lt;br&gt;
-类型。 但原则上它仅占用 1 位存储空间， 因为对 0 和 1 而言， 1 位的存储空间足&lt;br&gt;
+&lt;h4 id=&#34;布尔类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#布尔类型&#34;&gt;&lt;/a&gt; 布尔类型&lt;/h4&gt;
+&lt;p&gt;C99标准添加了_Bool类型， 用于表示布尔值， 即逻辑值true和false。 因&lt;br /&gt;
+为C语言用值1表示true， 值0表示false， 所以_Bool类型实际上也是一种整数&lt;br /&gt;
+类型。 但原则上它仅占用1位存储空间， 因为对0和1而言， 1位的存储空间足&lt;br /&gt;
 够了。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;浮点数float-double和long-double&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浮点数float-double和long-double&#34;&gt;#&lt;/a&gt; 浮点数（float、 double 和 long double  ）&lt;/h4&gt;
-&lt;p&gt;​	1. 声明浮点型变量&lt;br&gt;
-浮点型变量的声明和初始化方式与整型变量相同， 下面是一些例子：&lt;br&gt;
-float noah, jonah;&lt;br&gt;
-double trouble;&lt;br&gt;
-float planck = 6.63e-34;&lt;br&gt;
-long double gnp;&lt;br&gt;
-​	2. 浮点型常量&lt;br&gt;
-在代码中， 可以用多种形式书写浮点型常量。 浮点型常量的基本形式是： 有符号的数字（包括小数点） ， 后面紧跟 e 或 E， 最后是一个有符号数表示 10 的指数。 下面是两个有效的浮点型常量：&lt;br&gt;
--1.56E+12&lt;br&gt;
-2.87e-3&lt;br&gt;
- 正号可以省略。 可以没有小数点（如， 2E5） 或指数部分（如，19.28） ， 但是不能同时省略两者。 可以省略小数部分（如， 3.E16） 或整数部分（如， .45E-6） ， 但是不能同时省略两者。 下面是更多的有效浮点型常量示例：&lt;br&gt;
-3.14159&lt;br&gt;
-.2&lt;br&gt;
-4e16&lt;br&gt;
-.8E-5&lt;br&gt;
-100.&lt;br&gt;
-145&lt;br&gt;
- 不要在浮点型常量中间加空格： 1.56 E+12（错误！ ）默认情况下， 编译器假定浮点型常量是 double 类型的精度。 例如， 假设 some 是 float 类型的变量， 编写下面的语句：&lt;br&gt;
-some = 4.0 * 2.0;&lt;br&gt;
- 通常， 4.0 和 2.0 被储存为 64 位的 double 类型， 使用双精度进行乘法运算， 然后将乘积截断成 float 类型的宽度。 这样做虽然计算精度更高， 但是会减慢程序的运行速度。&lt;br&gt;
-在浮点数后面加上 f 或 F 后缀可覆盖默认设置， 编译器会将浮点型常量看作 float 类型， 如 2.3f 和 9.11E9F。 使用 l 或 L 后缀使得数字成为 long double 类型， 如 54.3l 和 4.32L。 注意， 建议使用 L 后缀， 因为字母 l 和数字 1 很容易混&lt;br&gt;
-淆。 没有后缀的浮点型常量是 double 类型 。&lt;/p&gt;
+&lt;h4 id=&#34;浮点数float-double和long-double&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浮点数float-double和long-double&#34;&gt;&lt;/a&gt; 浮点数（float、 double和long double  ）&lt;/h4&gt;
+&lt;p&gt;​	1.声明浮点型变量&lt;br /&gt;
+浮点型变量的声明和初始化方式与整型变量相同， 下面是一些例子：&lt;br /&gt;
+float noah, jonah;&lt;br /&gt;
+double trouble;&lt;br /&gt;
+float planck = 6.63e-34;&lt;br /&gt;
+long double gnp;&lt;br /&gt;
+​	2.浮点型常量&lt;br /&gt;
+在代码中， 可以用多种形式书写浮点型常量。 浮点型常量的基本形式是： 有符号的数字（包括小数点） ， 后面紧跟e或E， 最后是一个有符号数表示10的指数。 下面是两个有效的浮点型常量：&lt;br /&gt;
+-1.56E+12&lt;br /&gt;
+2.87e-3&lt;br /&gt;
+正号可以省略。 可以没有小数点（如， 2E5） 或指数部分（如，19.28） ， 但是不能同时省略两者。 可以省略小数部分（如， 3.E16） 或整数部分（如， .45E-6） ， 但是不能同时省略两者。 下面是更多的有效浮点型常量示例：&lt;br /&gt;
+3.14159&lt;br /&gt;
+.2&lt;br /&gt;
+4e16&lt;br /&gt;
+.8E-5&lt;br /&gt;
+100.&lt;br /&gt;
+145&lt;br /&gt;
+不要在浮点型常量中间加空格： 1.56 E+12（错误！ ）默认情况下， 编译器假定浮点型常量是double类型的精度。 例如， 假设some是float类型的变量， 编写下面的语句：&lt;br /&gt;
+some = 4.0 * 2.0;&lt;br /&gt;
+通常， 4.0和2.0被储存为64位的double类型， 使用双精度进行乘法运算， 然后将乘积截断成float类型的宽度。 这样做虽然计算精度更高， 但是会减慢程序的运行速度。&lt;br /&gt;
+在浮点数后面加上f或F后缀可覆盖默认设置， 编译器会将浮点型常量看作float类型， 如2.3f和9.11E9F。 使用l或L后缀使得数字成为long double类型， 如54.3l和4.32L。 注意， 建议使用L后缀， 因为字母l和数字1很容易混&lt;br /&gt;
+淆。 没有后缀的浮点型常量是double类型 。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;使用数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用数据类型&#34;&gt;#&lt;/a&gt; 使用数据类型&lt;/h4&gt;
-&lt;p&gt;编写程序时， 应注意合理选择所需的变量及其类型。 通常， 用 int 或 float&lt;br&gt;
- 类型表示数字， char 类型表示字符。 在使用变量之前必须先声明， 并选择有&lt;br&gt;
+&lt;h4 id=&#34;使用数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用数据类型&#34;&gt;&lt;/a&gt; 使用数据类型&lt;/h4&gt;
+&lt;p&gt;编写程序时， 应注意合理选择所需的变量及其类型。 通常， 用int或float&lt;br /&gt;
+类型表示数字， char类型表示字符。 在使用变量之前必须先声明， 并选择有&lt;br /&gt;
 意义的变量名。 初始化变量应使用与变量类型匹配的常数类型。 例如 ：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; apples = &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;;  &lt;span class=&#34;comment&#34;&gt;/* 正确 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; oranges = &lt;span class=&#34;number&#34;&gt;3.0&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;/* 不好的形式 */&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;把一个类型的数值初始化给不同类型的变量时， 编译器会把值转换成与&lt;br&gt;
+&lt;p&gt;把一个类型的数值初始化给不同类型的变量时， 编译器会把值转换成与&lt;br /&gt;
 变量匹配的类型， 这将导致部分数据丢失。 例如， 下面的初始化：&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; cost = &lt;span class=&#34;number&#34;&gt;12.99&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;/* 用double类型的值初始化int类型的变量 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;float&lt;/span&gt; pi = &lt;span class=&#34;number&#34;&gt;3.1415926536&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;/* 用double类型的值初始化float类型的变量 *&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ol start=&#34;6&#34;&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h4&gt;
+&lt;h4 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;&lt;/a&gt; &lt;/h4&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>

@@ -6,94 +6,48 @@
     <updated>2021-09-14T00:19:12.000Z</updated>
     <category term="C" />
     <category term="大数据" />
-    <category term="Python" />
     <category term="Shell" />
+    <category term="Python" />
     <category term="MapReduce" />
-    <category term="平台" />
+    <category term="Hexo" />
     <category term="安全" />
     <category term="鸿蒙" />
     <category term="单片机" />
+    <category term="平台" />
     <category term="机器学习" />
-    <entry>
-        <id>http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/</id>
-        <title>Linux Shell循环结构</title>
-        <link rel="alternate" href="http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/"/>
-        <content type="html">&lt;h2 id=&#34;3-循环结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-循环结构&#34;&gt;#&lt;/a&gt; 3 循环结构&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Shell 语言支持四种循环语句：for、while、until、select&lt;/li&gt;
-&lt;li&gt;工作中常用的是 for、while、until&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;for循环语法结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#for循环语法结构&#34;&gt;#&lt;/a&gt; for 循环语法结构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;for 循环主要用于确定次数的循环&lt;/li&gt;
-&lt;li&gt;第一种 for 循环的语法结构如下所示：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;for 变量名 in 取值列表&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	循环体&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;for 循环语句实现批量主机 ping 探测&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat for_ping.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;for name in baidu 163 hao123&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	host=www.$name.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ping -c1 -w1 $host &amp;amp;&amp;gt; /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	if [ $? -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;$host&amp;quot; | tee -a host.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wait&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;Mission Completed.&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;for 循环语句实现文件中批量用户创建&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat users_from_file.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;IFS=$&amp;#x27;\n&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;for line in `cat $1`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $&amp;#123;#line&amp;#125; -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;continue&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;user=`echo &amp;quot;$line&amp;quot; | awk &amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pass=`echo &amp;quot;$line&amp;quot; | awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;id $user &amp;amp;&amp;gt;/dev/nuil&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -eq 0 ] ;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;user $user already exists&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;useradd $user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;$pass&amp;quot; | passwd --stdin $user &amp;amp;&amp;gt; /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;$user created&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;while循环语句语法结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#while循环语句语法结构&#34;&gt;#&lt;/a&gt; while 循环语句语法结构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;while 循环语句的基本语法为：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;while 条件测试&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    循环体&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;while 循环语句会对条件测试进行判断，如果条件测试成立时，则执行 do 和 done 之间的循环体，直到条件测试不成立才停止循环。&lt;/li&gt;
-&lt;li&gt;while 循环语句实现批量用户创建&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat while_user.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;while read line&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	if [ $&amp;#123;#line&amp;#125; -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;NULL&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		continue&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	user=`echo $line | awk &amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	pass=`echo $line | awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	id $user &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	if [ $? -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;user $user already exists.&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		useradd $user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;$pass&amp;quot;| passwd --stdin $user &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		if [ $? -eq 0 ] ;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			echo &amp;quot;$user created .&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done &amp;lt; $1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;until循环语句语法结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#until循环语句语法结构&#34;&gt;#&lt;/a&gt; until 循环语句语法结构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;until 循环语句基本语法为：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;until 条件测试&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	循环体&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;until 循环语句是在条件表达式不成立时，进入循环体执行指令，条件表达式成立时，终止循环。until 的应用场景很罕见。&lt;/li&gt;
-&lt;li&gt;until 循环语句测试远程主机可达性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat until_ping.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;host=www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;until ping -c1 -w1 $host &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	sleep 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;$host up. &amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-        <category term="Shell" />
-        <updated>2021-09-14T00:19:12.000Z</updated>
-    </entry>
     <entry>
         <id>http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E5%9F%BA%E7%A1%80/</id>
         <title>Linux Shell基础</title>
         <link rel="alternate" href="http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E5%9F%BA%E7%A1%80/"/>
-        <content type="html">&lt;h2 id=&#34;1-shell基础&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-shell基础&#34;&gt;#&lt;/a&gt; 1 Shell 基础&lt;/h2&gt;
-&lt;p&gt;什么是 shell？目前常用的操作系统（Windows、U/L、Android、iOS 等）都带有图形界面，然 而，早期的计算机并没有图形界面，人们只能使用命令来控制计算机。其实，真 正能够控制计算机硬件（CPU、内存、显示器）的只有操作系统内核（Kernel）， 图形界面和命令行都是架设在用户和内核之间的桥梁，是为了方便用户控制计算 机而存在的。Shell 也是一种编程语言，主要用来开发一些实用的、自动化的小工具，例如，检测计算机的硬件参数、搭建 Web 运行环境、日志分析等。对 Linux 运维工程师来说，Shell 更是必须掌握的技能。Shell 使自动化管理服务器集群成为可能，否则用户只能一个一个地登录所有的服务器，对每一台服务器进行相同的设置，而这些服务器可能有成百上千之多，用户会在重复性的工作上浪费大量时间。&lt;/p&gt;
-&lt;h3 id=&#34;11查看shell版本&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#11查看shell版本&#34;&gt;#&lt;/a&gt; 1.1 查看 Shell 版本&lt;/h3&gt;
+        <content type="html">&lt;h2 id=&#34;1-shell基础&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-shell基础&#34;&gt;&lt;/a&gt; 1 Shell基础&lt;/h2&gt;
+&lt;p&gt;什么是shell？目前常用的操作系统（Windows、U/L、Android、iOS等）都带有图形界面，然 而，早期的计算机并没有图形界面，人们只能使用命令来控制计算机。其实，真 正能够控制计算机硬件（CPU、内存、显示器）的只有操作系统内核（Kernel）， 图形界面和命令行都是架设在用户和内核之间的桥梁，是为了方便用户控制计算 机而存在的。Shell 也是一种编程语言，主要用来开发一些实用的、自动化的小工具，例如，检测计算机的硬件参数、搭建Web运行环境、日志分析等。对Linux运维工程师来说，Shell更是必须掌握的技能。Shell使自动化管理服务器集群成为可能，否则用户只能一个一个地登录所有的服务器，对每一台服务器进行相同的设置，而这些服务器可能有成百上千之多，用户会在重复性的工作上浪费大量时间。&lt;/p&gt;
+&lt;h3 id=&#34;11查看shell版本&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#11查看shell版本&#34;&gt;&lt;/a&gt; 1.1查看Shell版本&lt;/h3&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cat /ect/shells&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/bin/sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/sbin/nologin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/bin/sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/sbin/nologin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;12-shell变量类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-shell变量类型&#34;&gt;#&lt;/a&gt; 1.2 Shell 变量类型&lt;/h3&gt;
-&lt;p&gt;Shell 变量分为四类，分别为自定义变量、环境变量、位置变量和预定义变量。&lt;/p&gt;
+&lt;h3 id=&#34;12-shell变量类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-shell变量类型&#34;&gt;&lt;/a&gt; 1.2 Shell变量类型&lt;/h3&gt;
+&lt;p&gt;Shell变量分为四类，分别为自定义变量、环境变量、位置变量和预定义变量。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;根据工作要求临时定义的变量称为自定义变量&lt;/li&gt;
-&lt;li&gt;环境变量一般是指用 export 内置命令导出的变量，用于定义 Shell 的运行环境，保证 Shell 命令的正确执行 只使用 不定义&lt;/li&gt;
-&lt;li&gt;从命令行、函数或脚本执行等处传递参数时，$0、$1 称为特殊位置变量&lt;/li&gt;
-&lt;li&gt;预定义变量是在 bash 中已有的变量，可以直接使用，如&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;@&lt;/mi&gt;&lt;mtext&gt;、&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;@、&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;、&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;* 等。&lt;/li&gt;
+&lt;li&gt;环境变量一般是指用export内置命令导出的变量，用于定义Shell的运行环境，保证Shell命令的正确执行 只使用 不定义&lt;/li&gt;
+&lt;li&gt;从命令行、函数或脚本执行等处传递参数时，$0、$1称为特殊位置变量&lt;/li&gt;
+&lt;li&gt;预定义变量是在 bash 中已有的变量，可以直接使用，如&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;@&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;、&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;@、&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;、&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;*等。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;121-自定义变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#121-自定义变量&#34;&gt;#&lt;/a&gt; 1.2.1 自定义变量&lt;/h4&gt;
-&lt;p&gt;自定义变量可以理解为局部变量或普通变量，只能在创建它们的 Shell 函数或 Shell 脚本中使用，自定义变量的说明如表所示。&lt;/p&gt;
+&lt;h4 id=&#34;121-自定义变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#121-自定义变量&#34;&gt;&lt;/a&gt; 1.2.1 自定义变量&lt;/h4&gt;
+&lt;p&gt;自定义变量可以理解为局部变量或普通变量，只能在创建它们的Shell函数或Shell脚本中使用，自定义变量的说明如表所示。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;定义自定义变量&lt;/th&gt;
-&lt;th&gt;变量名 = 变量值，字母下划线开头，区分大小写&lt;/th&gt;
+&lt;th&gt;变量名=变量值，字母下划线开头，区分大小写&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;使用自定义变量&lt;/td&gt;
-&lt;td&gt;$ 变量名&lt;/td&gt;
+&lt;td&gt;$变量名&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;查看自定义变量&lt;/td&gt;
-&lt;td&gt;echo$ 变量名 set (所有变量)&lt;/td&gt;
+&lt;td&gt;echo$变量名 set(所有变量)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;取消自定义变量&lt;/td&gt;
@@ -101,19 +55,19 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;自定义变量使用范围&lt;/td&gt;
-&lt;td&gt;仅在当前 Shell 中有效&lt;/td&gt;
+&lt;td&gt;仅在当前Shell中有效&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;分支结构&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;host=www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if ping -c1 $host &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;network ok&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;bad network&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;122环境变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#122环境变量&#34;&gt;#&lt;/a&gt; 1.2.2 环境变量&lt;/h4&gt;
-&lt;p&gt;环境变量也可称为全局变量，可以在创建它们的 Shell 及其派生出来的任意子进程 Shell 中使用。环境变量的说明如表所示。&lt;/p&gt;
+&lt;h4 id=&#34;122环境变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#122环境变量&#34;&gt;&lt;/a&gt; 1.2.2环境变量&lt;/h4&gt;
+&lt;p&gt;环境变量也可称为全局变量，可以在创建它们的Shell及其派生出来的任意子进程Shell中使用。环境变量的说明如表所示。&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;查看&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;修改&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PATH=$PATH:/bin/new&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;123位置变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#123位置变量&#34;&gt;#&lt;/a&gt; 1.2.3 位置变量&lt;/h4&gt;
-&lt;p&gt;在 Shell 中存在一些位置变量。位置变量用于在命令行、函数或脚本中传递参数，其变量名不用自己定义，其作用也是固定的。执行脚本时，通过在脚本后面给出具体的参数（多个参数用空格隔开）对相应的位置变量进行赋值。&lt;br&gt;
-$0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mtext&gt;以上需要用&lt;/mtext&gt;&lt;mrow&gt;&lt;/mrow&gt;&lt;mtext&gt;括起来，如&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;10以上需要用{}括起来，如&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;以&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;上&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;需&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;要&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;括&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;起&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;来&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;如&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; {10} 代表接收的第 10 个参数。&lt;/p&gt;
+&lt;h4 id=&#34;123位置变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#123位置变量&#34;&gt;&lt;/a&gt; 1.2.3位置变量&lt;/h4&gt;
+&lt;p&gt;在Shell中存在一些位置变量。位置变量用于在命令行、函数或脚本中传递参数，其变量名不用自己定义，其作用也是固定的。执行脚本时，通过在脚本后面给出具体的参数（多个参数用空格隔开）对相应的位置变量进行赋值。&lt;br /&gt;
+$0代表命令本身，$1-$9代表接收的第1~9个参数，&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;以&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;上&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;需&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;要&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;用&lt;/mi&gt;&lt;mrow&gt;&lt;/mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;括&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;起&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;来&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;，&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;如&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;10以上需要用{}括起来，如&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;以&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;上&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;需&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;要&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;括&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;起&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;来&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;如&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;{10}代表接收的第10个参数。&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ cat ping06.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ping -c1 $1 &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -eq &amp;quot;0&amp;quot; ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;network to $1 is ok&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;bad network to $1&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ sh ping06.sh www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;network to www.baidu.com is ok&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;124预定义变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#124预定义变量&#34;&gt;#&lt;/a&gt; 1.2.4 预定义变量&lt;/h4&gt;
+&lt;h4 id=&#34;124预定义变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#124预定义变量&#34;&gt;&lt;/a&gt; 1.2.4预定义变量&lt;/h4&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -136,23 +90,23 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;$$&lt;/td&gt;
-&lt;td&gt;当前进程 PID&lt;/td&gt;
+&lt;td&gt;当前进程PID&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;$!&lt;/td&gt;
-&lt;td&gt;上一个进程 PID&lt;/td&gt;
+&lt;td&gt;上一个进程PID&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;$?&lt;/td&gt;
-&lt;td&gt;上一个命令返回值，0 代表成功&lt;/td&gt;
+&lt;td&gt;上一个命令返回值，0代表成功&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ ls &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[1] 6950&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ ip.txt  ping03.sh  ping04.sh  ping05.sh  ping06.sh  ping07.sh  read&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[1]+  完成                  ls --color=auto&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ $!&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-bash: 6950: 未找到命令&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ cat ping07.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $# -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;usage: `basename $0` filename&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	exit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ ! -f $1 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;filename error&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	exit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;for ip in `cat $1`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ping -c1 $ip&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ sh ping07.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;usage: ping07.sh filename&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ sh ping07.sh ip.txt &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;13变量的赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#13变量的赋值&#34;&gt;#&lt;/a&gt; 1.3 变量的赋值&lt;/h3&gt;
-&lt;h4 id=&#34;131显式赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#131显式赋值&#34;&gt;#&lt;/a&gt; 1.3.1 显式赋值&lt;/h4&gt;
-&lt;p&gt;在 Shell 中，当第一次使用某变量名时，实际上就已经给变量赋值了。显式赋值的&lt;br&gt;
-格式为” 变量名 = 变量值”。为了避免歧义，显式赋值时__禁止在等号两边添加空格__，&lt;br&gt;
+&lt;h3 id=&#34;13变量的赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#13变量的赋值&#34;&gt;&lt;/a&gt; 1.3变量的赋值&lt;/h3&gt;
+&lt;h4 id=&#34;131显式赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#131显式赋值&#34;&gt;&lt;/a&gt; 1.3.1显式赋值&lt;/h4&gt;
+&lt;p&gt;在Shell中，当第一次使用某变量名时，实际上就已经给变量赋值了。显式赋值的&lt;br /&gt;
+格式为”变量名=变量值”。为了避免歧义，显式赋值时__禁止在等号两边添加空格__，&lt;br /&gt;
 这跟常见的编程语言有所不同。&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;a=3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -160,42 +114,42 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;li&gt;变量值中有空格需要使用引号&lt;/li&gt;
 &lt;li&gt;使用变量值进行赋值  name=“welcome to $place”&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;132从键盘赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#132从键盘赋值&#34;&gt;#&lt;/a&gt; 1.3.2 从键盘赋值&lt;/h4&gt;
+&lt;h4 id=&#34;132从键盘赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#132从键盘赋值&#34;&gt;&lt;/a&gt; 1.3.2从键盘赋值&lt;/h4&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;read -p &amp;quot;Please enter a ip:&amp;quot; ip&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Please enter a ip:1.1.1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $ip&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1.1.1.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;133使用位置变量赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#133使用位置变量赋值&#34;&gt;#&lt;/a&gt; 1.3.3 使用位置变量赋值&lt;/h4&gt;
+&lt;h4 id=&#34;133使用位置变量赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#133使用位置变量赋值&#34;&gt;&lt;/a&gt; 1.3.3使用位置变量赋值&lt;/h4&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cat test.sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $1 $2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sh test.sh hello world&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hello world&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;134利用命令替换进行赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#134利用命令替换进行赋值&#34;&gt;#&lt;/a&gt; 1.3.4 利用命令替换进行赋值&lt;/h4&gt;
+&lt;h4 id=&#34;134利用命令替换进行赋值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#134利用命令替换进行赋值&#34;&gt;&lt;/a&gt; 1.3.4利用命令替换进行赋值&lt;/h4&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;today=`date +%F`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo today&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2021-10-2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;touch `date +%F`_file.txt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;双引号弱引用，单引号为强引用&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[hadoop@master shell]$ cat ping04.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;host=www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ping -c1 $host &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -eq 0 ] &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;network to $host is ok&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;bad network to $host&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;14变量的运算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#14变量的运算&#34;&gt;#&lt;/a&gt; 1.4 变量的运算&lt;/h3&gt;
-&lt;h4 id=&#34;141expr数值运算命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#141expr数值运算命令&#34;&gt;#&lt;/a&gt; 1.4.1.expr 数值运算命令&lt;/h4&gt;
+&lt;h3 id=&#34;14变量的运算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#14变量的运算&#34;&gt;&lt;/a&gt; 1.4变量的运算&lt;/h3&gt;
+&lt;h4 id=&#34;141expr数值运算命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#141expr数值运算命令&#34;&gt;&lt;/a&gt; 1.4.1.expr数值运算命令&lt;/h4&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;echo 1 + 3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1 + 3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;expr 1 + 3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;res = `expr $name1 \* $name2`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $res&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
-&lt;li&gt;在使用 expr 时，需要注意运算符及用于计算的数字两边必须有空格，否则会执行失败。&lt;/li&gt;
+&lt;li&gt;在使用expr时，需要注意运算符及用于计算的数字两边必须有空格，否则会执行失败。&lt;/li&gt;
 &lt;li&gt;expr 支持乘法运算，在使用乘号 * 时必须用反斜杠转义，即 \*&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;142或数值运算命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#142或数值运算命令&#34;&gt;#&lt;/a&gt; 1.4.2.“$(())” 或 “[]” 数值运算命令&lt;/h4&gt;
+&lt;h4 id=&#34;142或数值运算命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#142或数值运算命令&#34;&gt;&lt;/a&gt; 1.4.2.“$(())”或“[]”数值运算命令&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;双小括号 “$(())” 的作用是进行整数运算和数值比较，格式为 “ ((表达式))”&lt;/li&gt;
+&lt;li&gt;双小括号 “$(())” 的作用是进行整数运算和数值比较，格式为“ ((表达式))”&lt;/li&gt;
 &lt;li&gt;操作数、运算符两侧可以有空格&lt;/li&gt;
 &lt;li&gt;括号内 $ 符合可省略&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;num1=10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;num2=20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sum=$((num1+num2))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $sum&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sum=$[ num1+num2 ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $sum&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;可以使用加减乘除幂&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;143let数值运算命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#143let数值运算命令&#34;&gt;#&lt;/a&gt; 1.4.3.let 数值运算命令&lt;/h4&gt;
+&lt;h4 id=&#34;143let数值运算命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#143let数值运算命令&#34;&gt;&lt;/a&gt; 1.4.3.let数值运算命令&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;let 数值符号可以直接进行计算，不需要使用 $ 符号。&lt;/li&gt;
-&lt;li&gt;let 运算命令的语法格式为：let 赋值表达式&lt;/li&gt;
+&lt;li&gt;let数值符号可以直接进行计算，不需要使用 $ 符号。&lt;/li&gt;
+&lt;li&gt;let运算命令的语法格式为：let 赋值表达式&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;let num=1+2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo $num&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;调试模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;bash -vx test.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;144shell小数运算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#144shell小数运算&#34;&gt;#&lt;/a&gt; 1.4.4Shell 小数运算&lt;/h4&gt;
+&lt;h4 id=&#34;144shell小数运算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#144shell小数运算&#34;&gt;&lt;/a&gt; 1.4.4Shell小数运算&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;bc 是 Unix/Linux 下的计算器，它还可以作为命令进行小数运算。&lt;/li&gt;
+&lt;li&gt;bc是Unix/Linux下的计算器，它还可以作为命令进行小数运算。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;2^4&amp;quot;|bc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;scale=2;6/4&amp;quot;|bc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1.50&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;15-变量的删除和替换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#15-变量的删除和替换&#34;&gt;#&lt;/a&gt; 1.5 变量的删除和替换&lt;/h3&gt;
-&lt;p&gt;Linux 提供了一些可以直接对变量进行操作的符号。通过这些符号，变量中的部分内容可以被删除、替换和替代。在 Shell 变量中，变量的删除、替换和替代也是非常重要的。通过简单的操作修改变量，可以减少代码的行数并提高可读性。&lt;/p&gt;
-&lt;h4 id=&#34;151-变量的删除&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#151-变量的删除&#34;&gt;#&lt;/a&gt; 1.5.1 变量的删除&lt;/h4&gt;
+&lt;h3 id=&#34;15-变量的删除和替换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#15-变量的删除和替换&#34;&gt;&lt;/a&gt; 1.5 变量的删除和替换&lt;/h3&gt;
+&lt;p&gt;Linux提供了一些可以直接对变量进行操作的符号。通过这些符号，变量中的部分内容可以被删除、替换和替代。在Shell变量中，变量的删除、替换和替代也是非常重要的。通过简单的操作修改变量，可以减少代码的行数并提高可读性。&lt;/p&gt;
+&lt;h4 id=&#34;151-变量的删除&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#151-变量的删除&#34;&gt;&lt;/a&gt; 1.5.1 变量的删除&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;变量删除的操作方式，如表所示。&lt;/li&gt;
 &lt;/ul&gt;
@@ -208,20 +162,20 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td 变量名#关键字符=&#34;&#34;&gt;$&lt;/td&gt;
-&lt;td&gt;如果变量内容从头开始的数据符合 “关键字符”，则将符合的最短数据删除&lt;/td&gt;
+&lt;td&gt;${变量名#关键字符}&lt;/td&gt;
+&lt;td&gt;如果变量内容从头开始的数据符合“关键字符”，则将符合的最短数据删除&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td 变量名##关键字符=&#34;&#34;&gt;$&lt;/td&gt;
-&lt;td&gt;如果变量内容从头开始的数据符合 “关键字符”，则将符合的最长数据删除&lt;/td&gt;
+&lt;td&gt;${变量名##关键字符}&lt;/td&gt;
+&lt;td&gt;如果变量内容从头开始的数据符合“关键字符”，则将符合的最长数据删除&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td 变量名%关键字符=&#34;&#34;&gt;$&lt;/td&gt;
-&lt;td&gt;如果变量内容从尾开始的数据符合 “关键字符”，则将符合的最短数据删除&lt;/td&gt;
+&lt;td&gt;${变量名%关键字符}&lt;/td&gt;
+&lt;td&gt;如果变量内容从尾开始的数据符合“关键字符”，则将符合的最短数据删除&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td 变量名%%关键字符=&#34;&#34;&gt;$&lt;/td&gt;
-&lt;td&gt;如果变量内容从尾开始的数据符合 “关键字符”，则将符合的最长数据删除&lt;/td&gt;
+&lt;td&gt;${变量名%%关键字符}&lt;/td&gt;
+&lt;td&gt;如果变量内容从尾开始的数据符合“关键字符”，则将符合的最长数据删除&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -230,7 +184,7 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;li&gt;索引和切片&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url:0:5&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;www.b&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url:5:5&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ing.c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url:5:&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url:5&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ing.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;152-变量的替换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#152-变量的替换&#34;&gt;#&lt;/a&gt; 1.5.2 变量的替换&lt;/h4&gt;
+&lt;h4 id=&#34;152-变量的替换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#152-变量的替换&#34;&gt;&lt;/a&gt; 1.5.2 变量的替换&lt;/h4&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -240,19 +194,19 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td 变量名旧字符串新字符串=&#34;&#34;&gt;$&lt;/td&gt;
+&lt;td&gt;${变量名/旧字符串/新字符串}&lt;/td&gt;
 &lt;td&gt;表示若变量内容符和【旧字符串】则第一个【旧字符串】会被【新字符串】替换&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td 变量名旧字符串新字符串=&#34;&#34;&gt;$&lt;/td&gt;
+&lt;td&gt;${变量名//旧字符串/新字符串}&lt;/td&gt;
 &lt;td&gt;表示若变量内容符和【旧字符串】则全部的【旧字符串】会被【新字符串】替换&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url/bing/baidu&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url/b/B&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;www.Bing.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url/w/W&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Www.bing.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url//w/W&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;WWW.bing.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;153变量的替代&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#153变量的替代&#34;&gt;#&lt;/a&gt; 1.5.3 变量的替代&lt;/h4&gt;
+&lt;h4 id=&#34;153变量的替代&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#153变量的替代&#34;&gt;&lt;/a&gt; 1.5.3变量的替代&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;给 Shell 变量设置默认值的格式为”${变量名 - 新的变量名}”，如果变量名没有被赋值，会使用” 新的变量值” 替代，如果变量已被赋值（包括空值），则该值不会被替代。&lt;/li&gt;
+&lt;li&gt;给Shell变量设置默认值的格式为”${变量名-新的变量名}”，如果变量名没有被赋值，会使用”新的变量值”替代，如果变量已被赋值（包括空值），则该值不会被替代。&lt;/li&gt;
 &lt;li&gt;变量替代常用于为变量设置缺省值。例如，在连接数据库时，需要使用端口，这个端口可以是预先设置的具体端口，也可以是用户输入的端口。假如用户没有输入具体的端口号，脚本中就使用预先设置的端口。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# unset url&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;url-www.heuet.edu.cn&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;www.heuet.edu.cn&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# host=hadoop&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;host-www.heuet.edu.cn&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hadoop&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# var=&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;var-www.heuet.edu.cn&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# unset var1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# var2=&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# var3=333&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;var1-111&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;var1:-111&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;var2:-111&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $&amp;#123;var3:-111&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;333&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
@@ -263,11 +217,11 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
         <id>http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E6%9D%A1%E4%BB%B6%E6%B5%8B%E8%AF%95/</id>
         <title>Linux Shell条件测试</title>
         <link rel="alternate" href="http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E6%9D%A1%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-        <content type="html">&lt;h2 id=&#34;2-shell条件测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-shell条件测试&#34;&gt;#&lt;/a&gt; 2 Shell 条件测试&lt;/h2&gt;
-&lt;h3 id=&#34;21-文件测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-文件测试&#34;&gt;#&lt;/a&gt; 2.1 文件测试&lt;/h3&gt;
+        <content type="html">&lt;h2 id=&#34;2-shell条件测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-shell条件测试&#34;&gt;&lt;/a&gt; 2 Shell条件测试&lt;/h2&gt;
+&lt;h3 id=&#34;21-文件测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-文件测试&#34;&gt;&lt;/a&gt; 2.1 文件测试&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;在 Shell 编程中，通常使用 test 命令进行条件测试&lt;/li&gt;
-&lt;li&gt;语法形式为 “test &amp;lt; 测试表达式&amp;gt;”。&lt;/li&gt;
+&lt;li&gt;在Shell编程中，通常使用 test 命令进行条件测试&lt;/li&gt;
+&lt;li&gt;语法形式为“test &amp;lt;测试表达式&amp;gt;”。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# test -d /home&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# test -d /homo&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 ~]# echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -276,7 +230,7 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat test_mysqlback.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/usr/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;back_dir=~/mysql_back&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if ! test -d $back_dir;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	mkdir -p $back_dir&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;开始备份...&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# chmod +x test_mysqlback.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# bash -vx test_mysqlback.sh &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;除 test 外，还可以使用中括号或双中括号进行条件测试&lt;/li&gt;
-&lt;li&gt;中括号 [ 是 Shell 的内置命令，不是标点符号&lt;/li&gt;
+&lt;li&gt;中括号 [ 是Shell的内置命令，不是标点符号&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ -d /home ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ -d /homo ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# type -a [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[ 是 shell 内嵌&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[ 是 /usr/bin/[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [[ -d /home ]];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -292,15 +246,15 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;-d&lt;/td&gt;
-&lt;td&gt;测试是否为目录 (Directory)&lt;/td&gt;
+&lt;td&gt;测试是否为目录(Directory)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-a&lt;/td&gt;
-&lt;td&gt;测试目录或文件是否存在 (Exist）&lt;/td&gt;
+&lt;td&gt;测试目录或文件是否存在(Exist）&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-f&lt;/td&gt;
-&lt;td&gt;测试是否为文件 (File)&lt;/td&gt;
+&lt;td&gt;测试是否为文件(File)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-r&lt;/td&gt;
@@ -308,7 +262,7 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-w&lt;/td&gt;
-&lt;td&gt;测试当前用户是否可写 (write）&lt;/td&gt;
+&lt;td&gt;测试当前用户是否可写(write）&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-x&lt;/td&gt;
@@ -317,10 +271,10 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# ll host.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-rw-r--r--. 1 root root 102 11月  2 15:41 host.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ -r host.txt ];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# chmod -r host.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# ll host.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;--w-------. 1 root root 102 11月  2 15:41 host.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ -r host.txt ];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ -w host.txt ];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ -x host.txt ];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;22-整数测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-整数测试&#34;&gt;#&lt;/a&gt; 2.2 整数测试&lt;/h3&gt;
+&lt;h3 id=&#34;22-整数测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-整数测试&#34;&gt;&lt;/a&gt; 2.2 整数测试&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;整数测试通常用于数值之间的运算，其语法格式为 [整数 1 操作符 整数 2]&lt;/li&gt;
-&lt;li&gt;或 test 整数 1 操作符 整数 2。&lt;/li&gt;
+&lt;li&gt;整数测试通常用于数值之间的运算，其语法格式为 [ 整数1 操作符 整数2 ]&lt;/li&gt;
+&lt;li&gt;或 test 整数1 操作符 整数2。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -336,23 +290,23 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-ne&lt;/td&gt;
-&lt;td&gt;不等于 (Not Equal)&lt;/td&gt;
+&lt;td&gt;不等于(Not Equal)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-gt&lt;/td&gt;
-&lt;td&gt;大于 (Greater Than)&lt;/td&gt;
+&lt;td&gt;大于(Greater Than)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-lt&lt;/td&gt;
-&lt;td&gt;小于 (Lesser Than)&lt;/td&gt;
+&lt;td&gt;小于(Lesser Than)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-le&lt;/td&gt;
-&lt;td&gt;小于或等于 (Lesser or Equal)&lt;/td&gt;
+&lt;td&gt;小于或等于(Lesser or Equal)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-ge&lt;/td&gt;
-&lt;td&gt;大于或等于 (Greater or Equal)&lt;/td&gt;
+&lt;td&gt;大于或等于(Greater or Equal)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -369,9 +323,9 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;li&gt;shell 语法检查：bash -n &lt;a href=&#34;http://xxx.sh&#34;&gt;xxx.sh&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat mem_use.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mem_used=`free -m |grep &amp;#x27;^M&amp;#x27; |awk &amp;#x27;&amp;#123;print $3&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mem_total=`free -m |grep &amp;#x27;^M&amp;#x27; |awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mem_percent=$[mem_used*100/mem_total]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;var_file=`date +%F`.log&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $mem_percent -ge 10 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;`date +%F&amp;quot; &amp;quot;%T` memory used: $&amp;#123;mem_percent&amp;#125;%&amp;quot; &amp;gt;$var_file&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# ./mem_use.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat 2021-12-06.log &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2021-12-06 14:54:44 memory used: 79%&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;23-字符串测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#23-字符串测试&#34;&gt;#&lt;/a&gt; 2.3 字符串测试&lt;/h3&gt;
+&lt;h3 id=&#34;23-字符串测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#23-字符串测试&#34;&gt;&lt;/a&gt; 2.3 字符串测试&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;字符串测试操作符的作用包括比较字符串是否相同、测试字符串的长度是否为 0。书写表达式为 [字符串 1 = 字符串 2]、[ 字符串 1 ！= 字符串 2 ] 或 [ -z 字符串 ]。字符串测试运算符如表所示。&lt;/li&gt;
+&lt;li&gt;字符串测试操作符的作用包括比较字符串是否相同、测试字符串的长度是否为0。书写表达式为[ 字符串1 = 字符串2 ]、[ 字符串1 ！= 字符串2 ]或[ -z 字符串 ]。字符串测试运算符如表所示。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -383,11 +337,11 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;-z&lt;/td&gt;
-&lt;td&gt;判断字符串长度是否为 0&lt;/td&gt;
+&lt;td&gt;判断字符串长度是否为0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-n&lt;/td&gt;
-&lt;td&gt;判断字符串长度是否为非 0&lt;/td&gt;
+&lt;td&gt;判断字符串长度是否为非0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;!&lt;/td&gt;
@@ -414,12 +368,12 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat install.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $user ! = root ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;Permission Denied&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	exit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum install httpd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
-&lt;li&gt;以上是安装服务的脚本，判断变量 user 的值是否为 root，如果为 root 则安装 httpd，&lt;br&gt;
-如果不是 root，则显示” 你没有权限”。&lt;/li&gt;
+&lt;li&gt;以上是安装服务的脚本，判断变量user的值是否为root，如果为root则安装httpd，&lt;br /&gt;
+如果不是root，则显示”你没有权限”。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;24-逻辑运算符&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#24-逻辑运算符&#34;&gt;#&lt;/a&gt; 2.4 逻辑运算符&lt;/h3&gt;
+&lt;h3 id=&#34;24-逻辑运算符&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#24-逻辑运算符&#34;&gt;&lt;/a&gt; 2.4 逻辑运算符&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;在 Shell 条件测试中，使用逻辑运算符实现复杂的条件测试，逻辑运算符用于操作两个变量。逻辑运算符语法格式。&lt;/li&gt;
+&lt;li&gt;在Shell条件测试中，使用逻辑运算符实现复杂的条件测试，逻辑运算符用于操作两个变量。逻辑运算符语法格式。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[ 表达式1 ] 操作符 [ 表达式2 ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;or&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;命令1 操作符 命令2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -435,20 +389,20 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;-a 或 &amp;amp;&amp;amp;&lt;/td&gt;
-&lt;td&gt;判断操作符两边均为真，结果为真，否则为假，” 逻辑与”&lt;/td&gt;
+&lt;td&gt;判断操作符两边均为真，结果为真，否则为假，”逻辑与”&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-o 或 ||&lt;/td&gt;
-&lt;td&gt;判断操作符两边一边为真，结果为真，否则为假，” 逻辑或”&lt;/td&gt;
+&lt;td&gt;判断操作符两边一边为真，结果为真，否则为假，”逻辑或”&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;!&lt;/td&gt;
-&lt;td&gt;判断操作符两边均为假，结果为真，否则为假，” 逻辑否”&lt;/td&gt;
+&lt;td&gt;判断操作符两边均为假，结果为真，否则为假，”逻辑否”&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;-a 和 &amp;amp;&amp;amp; 的运算规则。&lt;/li&gt;
+&lt;li&gt;-a和&amp;amp;&amp;amp;的运算规则。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ 1 -lt 2 -a 5 -gt 10 ];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [ 1 -lt 2 -o 5 -gt 10 ];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [[ 1 -lt 2 &amp;amp;&amp;amp; 5 -gt 10 ]];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# [[ 1 -lt 2 || 5 -gt 10 ]];echo $?&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -458,11 +412,11 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;ul&gt;
 &lt;li&gt;应用：创建批量用户&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;case-条件语句&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#case-条件语句&#34;&gt;#&lt;/a&gt; case 条件语句&lt;/h3&gt;
+&lt;h3 id=&#34;case-条件语句&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#case-条件语句&#34;&gt;&lt;/a&gt; case 条件语句&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;case 条件语句相当于多分支的 if/elif/else 条件语句&lt;/li&gt;
-&lt;li&gt;case 条件语句比 if 语句更加简洁工整，故常应用在实现系统服务启动脚本等应用场景中。&lt;/li&gt;
-&lt;li&gt;在 Shell 编程中，case 语句有固定的语法格式。其语法格式为：&lt;/li&gt;
+&lt;li&gt;case条件语句相当于多分支的if/elif/else条件语句&lt;/li&gt;
+&lt;li&gt;case条件语句比if语句更加简洁工整，故常应用在实现系统服务启动脚本等应用场景中。&lt;/li&gt;
+&lt;li&gt;在Shell编程中，case语句有固定的语法格式。其语法格式为：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;case 变量值 in&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  条件表达式1）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    代码块1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ；；&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  条件表达式2）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    代码块2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ；；&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  条件表达式3）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    代码块3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ；；&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  *）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    默认代码块&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;esac&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -499,9 +453,56 @@ $0 代表命令本身，$1-$9 代表接收的第 1~9 个参数，&lt;span class=
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;case 条件语句案例实战&lt;/li&gt;
+&lt;li&gt;case条件语句案例实战&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat user_del.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; delete user&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;read -p &amp;quot;Input a username: &amp;quot; user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;id $user &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -ne 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;no such user: $user&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	exit 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;read -p &amp;quot;Are you sure?[y/n]: &amp;quot; action&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;case &amp;quot;$action&amp;quot; in&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;y|Y|yes|YES)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	userdel -r $user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;user $user deleted. &amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;*)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	echo &amp;quot;error! &amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	exit 2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;esac&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+        <category term="Shell" />
+        <updated>2021-09-14T00:19:12.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/</id>
+        <title>Linux Shell循环结构</title>
+        <link rel="alternate" href="http://example.com/2021/09/14/Linux%20Shell/Linux%20Shell%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/"/>
+        <content type="html">&lt;h2 id=&#34;3-循环结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-循环结构&#34;&gt;&lt;/a&gt; 3 循环结构&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Shell语言支持四种循环语句：for、while、until、select&lt;/li&gt;
+&lt;li&gt;工作中常用的是 for、while、until&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;for循环语法结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#for循环语法结构&#34;&gt;&lt;/a&gt; for循环语法结构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;for循环主要用于确定次数的循环&lt;/li&gt;
+&lt;li&gt;第一种for循环的语法结构如下所示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;for 变量名 in 取值列表&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	循环体&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;for循环语句实现批量主机ping探测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat for_ping.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;for name in baidu 163 hao123&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	host=www.$name.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ping -c1 -w1 $host &amp;amp;&amp;gt; /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	if [ $? -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;$host&amp;quot; | tee -a host.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wait&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;Mission Completed.&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;for循环语句实现文件中批量用户创建&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat users_from_file.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;IFS=$&amp;#x27;\n&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;for line in `cat $1`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $&amp;#123;#line&amp;#125; -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;continue&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;user=`echo &amp;quot;$line&amp;quot; | awk &amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pass=`echo &amp;quot;$line&amp;quot; | awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;id $user &amp;amp;&amp;gt;/dev/nuil&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -eq 0 ] ;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;user $user already exists&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;useradd $user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;$pass&amp;quot; | passwd --stdin $user &amp;amp;&amp;gt; /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;$user created&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;while循环语句语法结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#while循环语句语法结构&#34;&gt;&lt;/a&gt; while循环语句语法结构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;while循环语句的基本语法为：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;while 条件测试&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    循环体&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;while循环语句会对条件测试进行判断，如果条件测试成立时，则执行do和done之间的循环体，直到条件测试不成立才停止循环。&lt;/li&gt;
+&lt;li&gt;while循环语句实现批量用户创建&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat while_user.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;while read line&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	if [ $&amp;#123;#line&amp;#125; -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;NULL&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		continue&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	user=`echo $line | awk &amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	pass=`echo $line | awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	id $user &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	if [ $? -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;user $user already exists.&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		useradd $user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		echo &amp;quot;$pass&amp;quot;| passwd --stdin $user &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		if [ $? -eq 0 ] ;then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			echo &amp;quot;$user created .&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done &amp;lt; $1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;until循环语句语法结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#until循环语句语法结构&#34;&gt;&lt;/a&gt; until循环语句语法结构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;until循环语句基本语法为：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;until 条件测试&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	循环体&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;until循环语句是在条件表达式不成立时，进入循环体执行指令，条件表达式成立时，终止循环。until的应用场景很罕见。&lt;/li&gt;
+&lt;li&gt;until循环语句测试远程主机可达性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@hdp-1 shell]# cat until_ping.sh &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;host=www.baidu.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;until ping -c1 -w1 $host &amp;amp;&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;do&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	sleep 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;done&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;$host up. &amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 </content>
         <category term="Shell" />
         <updated>2021-09-14T00:19:12.000Z</updated>

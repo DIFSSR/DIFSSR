@@ -6,19 +6,20 @@
     <updated>2021-07-20T03:40:59.000Z</updated>
     <category term="C" />
     <category term="大数据" />
-    <category term="Python" />
     <category term="Shell" />
+    <category term="Python" />
     <category term="MapReduce" />
-    <category term="平台" />
+    <category term="Hexo" />
     <category term="安全" />
     <category term="鸿蒙" />
     <category term="单片机" />
+    <category term="平台" />
     <category term="机器学习" />
     <entry>
         <id>http://example.com/2021/07/20/Python%E5%AD%A6%E4%B9%A0/%E5%BB%BA%E7%AB%8BCSV/</id>
         <title>建立CSV</title>
         <link rel="alternate" href="http://example.com/2021/07/20/Python%E5%AD%A6%E4%B9%A0/%E5%BB%BA%E7%AB%8BCSV/"/>
-        <content type="html">&lt;h1 id=&#34;建立csv&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#建立csv&#34;&gt;#&lt;/a&gt; 建立 CSV&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&#34;建立csv&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#建立csv&#34;&gt;&lt;/a&gt; 建立CSV&lt;/h1&gt;
 &lt;p&gt;环境&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pyCharm&lt;/li&gt;

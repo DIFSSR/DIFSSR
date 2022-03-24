@@ -526,6 +526,15 @@
       
 
       
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E5%B9%B3%E5%8F%B0/" class="post-detail-header_category">
+              平台
+            </a>
+          
+        </span>
+      
 
       
     
@@ -545,43 +554,35 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="安装mysql_5633-linux_64位"><a class="markdownIt-Anchor" href="#安装mysql_5633-linux_64位">#</a> 安装 mysql_5.6.33 linux_64 位</h1>
-<h2 id="环境及软件"><a class="markdownIt-Anchor" href="#环境及软件">#</a> 环境及软件</h2>
+        <h1 id="安装mysql_5633-linux_64位"><a class="markdownIt-Anchor" href="#安装mysql_5633-linux_64位"></a> 安装mysql_5.6.33 linux_64位</h1>
+<h2 id="环境及软件"><a class="markdownIt-Anchor" href="#环境及软件"></a> 环境及软件</h2>
 <pre><code>* Centos7
 * mysql_5.6.33 linux_64位
 * wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz
 </code></pre>
-<h2 id="安装流程"><a class="markdownIt-Anchor" href="#安装流程">#</a> 安装流程</h2>
-<h3 id="1-卸载老版本"><a class="markdownIt-Anchor" href="#1-卸载老版本">#</a> 1. 卸载老版本</h3>
+<h2 id="安装流程"><a class="markdownIt-Anchor" href="#安装流程"></a> 安装流程</h2>
+<h3 id="1-卸载老版本"><a class="markdownIt-Anchor" href="#1-卸载老版本"></a> 1. 卸载老版本</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find / -name mysql</span><br><span class="line">rm -rf 上边查找到的路径，多个路径用空格隔开</span><br><span class="line"><span class="meta">#</span><span class="bash">或者下边一条命令即可</span></span><br><span class="line">find / -name mysql|xargs rm -r</span><br></pre></td></tr></table></figure>
-<h3 id="2-解压安装包到usrlocal"><a class="markdownIt-Anchor" href="#2-解压安装包到usrlocal">#</a> 2. 解压安装包到 /usr/local</h3>
+<h3 id="2-解压安装包到usrlocal"><a class="markdownIt-Anchor" href="#2-解压安装包到usrlocal"></a> 2. 解压安装包到/usr/local</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
-<h3 id="3-重命名文件夹"><a class="markdownIt-Anchor" href="#3-重命名文件夹">#</a> 3. 重命名文件夹</h3>
+<h3 id="3-重命名文件夹"><a class="markdownIt-Anchor" href="#3-重命名文件夹"></a> 3. 重命名文件夹</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">mv mysql-5.6.33-linux-glibc2.5-x86_64/ mysql</span><br></pre></td></tr></table></figure>
-<h3 id="4-添加mysql用户组和用户名"><a class="markdownIt-Anchor" href="#4-添加mysql用户组和用户名">#</a> 4. 添加 mysql 用户组和用户名</h3>
+<h3 id="4-添加mysql用户组和用户名"><a class="markdownIt-Anchor" href="#4-添加mysql用户组和用户名"></a> 4. 添加mysql用户组和用户名</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd -r -g mysql mysql</span><br><span class="line">groups mysql</span><br></pre></td></tr></table></figure>
-<h3 id="5-更改文件夹权限"><a class="markdownIt-Anchor" href="#5-更改文件夹权限">#</a> 5. 更改文件夹权限</h3>
+<h3 id="5-更改文件夹权限"><a class="markdownIt-Anchor" href="#5-更改文件夹权限"></a> 5. 更改文件夹权限</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd mysql/</span><br><span class="line">chown -R mysql:mysql ./</span><br></pre></td></tr></table></figure>
-<h3 id="6-执行安装脚本"><a class="markdownIt-Anchor" href="#6-执行安装脚本">#</a> 6. 执行安装脚本</h3>
+<h3 id="6-执行安装脚本"><a class="markdownIt-Anchor" href="#6-执行安装脚本"></a> 6. 执行安装脚本</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./scripts/mysql_install_db --user=mysql</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">安装完执行下列语句修改权限</span></span><br><span class="line">chown -R root:root ./</span><br><span class="line">chown -R mysql:mysql data</span><br></pre></td></tr></table></figure>
-<h3 id="7-更改数据库密码"><a class="markdownIt-Anchor" href="#7-更改数据库密码">#</a> 7. 更改数据库密码</h3>
+<h3 id="7-更改数据库密码"><a class="markdownIt-Anchor" href="#7-更改数据库密码"></a> 7. 更改数据库密码</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">首先启动mysql</span></span><br><span class="line">./support-files/mysql.server start</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">如果已经启动</span></span><br><span class="line">ps aux|grep mysql</span><br><span class="line">kill -9 #上边的进程号</span><br><span class="line"><span class="meta">#</span><span class="bash">或者下边一条命令即可杀掉所有MySQL进程</span></span><br><span class="line">ps aux|grep mysql|awk &#x27;&#123;print $2&#125;&#x27;|xargs kill -9</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改密码为root</span></span><br><span class="line">./bin/mysqladmin -u root -h localhost.localdomain password &#x27;root&#x27;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">登录mysql</span></span><br><span class="line">./bin/mysql -h 127.0.0.1 -u root -p root</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改其他用户密码</span></span><br><span class="line">update mysql.user set password=password(&#x27;root&#x27;) where user=&#x27;root&#x27;;</span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="8-添加远程登录权限"><a class="markdownIt-Anchor" href="#8-添加远程登录权限">#</a> 8. 添加远程登录权限</h3>
+<h3 id="8-添加远程登录权限"><a class="markdownIt-Anchor" href="#8-添加远程登录权限"></a> 8. 添加远程登录权限</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">在mysql中输入</span></span><br><span class="line">grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;root&#x27;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-<h3 id="9-将mysql加入service系统服务"><a class="markdownIt-Anchor" href="#9-将mysql加入service系统服务">#</a> 9. 将 MySQL 加入 Service 系统服务</h3>
+<h3 id="9-将mysql加入service系统服务"><a class="markdownIt-Anchor" href="#9-将mysql加入service系统服务"></a> 9. 将MySQL加入Service系统服务</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">chkconfig --add mysqld</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">service mysqld restart</span><br><span class="line">service mysqld status</span><br></pre></td></tr></table></figure>
-<h3 id="10-配置mycnf"><a class="markdownIt-Anchor" href="#10-配置mycnf">#</a> 10. 配置 my.cnf</h3>
+<h3 id="10-配置mycnf"><a class="markdownIt-Anchor" href="#10-配置mycnf"></a> 10. 配置my.cnf</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vi my.cnf</span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下语句</span></span><br><span class="line">character-set-server=utf8</span><br><span class="line">lower_case_table_names=1</span><br><span class="line">max_allowed_packet=100M</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">配置完成重启服务</span></span><br><span class="line">service mysqld restart</span><br><span class="line">service mysqld status</span><br></pre></td></tr></table></figure>
       </div>
       <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/%E5%B9%B3%E5%8F%B0/" class="">
-              平台
-            </a>
-          
-        </div>
         
       </div>
       
@@ -623,11 +624,11 @@
       </div>
       
       <!-- <div class="content">
-        # Windows 定时开机、联网、打开远程服务
+         Windows 定时开机、联网、打开远程服务
 作者：SSR
-# 设置定时任务
+ 设置定时任务
 
-右键此电脑 &gt; 管理 &gt;
+右键此电脑&gt;管理&gt;任务计划程
       </div> -->
     </a>
   </div>
@@ -646,8 +647,8 @@
         <div class="title-text">Web攻击方式</div>
       </div>
       <!-- <div class="content">
-        # Web 攻击
-在互联网中，攻击手段数不胜数，我们平时不能以自己只是普通的开发程序员而不是安全方向的开发者为理由，而不
+         Web攻击
+在互联网中，攻击手段数不胜数，我们平时不能以自己只是普通的开发程序员而不是安全方向的开发者为理由，而不去掌
       </div> -->
     </a>
   </div>
