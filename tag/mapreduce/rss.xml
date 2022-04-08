@@ -7,6 +7,7 @@
         <language>zh-CN</language>
         <pubDate>Mon, 13 Dec 2021 20:40:59 +0800</pubDate>
         <lastBuildDate>Mon, 13 Dec 2021 20:40:59 +0800</lastBuildDate>
+        <category>机器学习</category>
         <category>C</category>
         <category>大数据</category>
         <category>Shell</category>
@@ -17,7 +18,7 @@
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>平台</category>
-        <category>机器学习</category>
+        <category>深度学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/12/13/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/%E4%BA%8C%E6%AC%A1%E6%8E%92%E5%BA%8F/</guid>
             <title>MapReduce二次排序</title>

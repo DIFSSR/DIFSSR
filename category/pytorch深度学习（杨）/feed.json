@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "千里稻花应秀色 • All posts by \"pytorch深度学习（杨）\" category",
+    "description": "blogs by SSR",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2022/03/25/CNN/",
+            "url": "http://example.com/2022/03/25/CNN/",
+            "title": "CNN",
+            "date_published": "2022-03-25T01:43:11.000Z",
+            "content_html": "",
+            "tags": [
+                "机器学习"
+            ]
+        }
+    ]
+}

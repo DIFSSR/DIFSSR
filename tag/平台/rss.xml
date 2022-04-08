@@ -7,6 +7,7 @@
         <language>zh-CN</language>
         <pubDate>Wed, 28 Jul 2021 08:37:44 +0800</pubDate>
         <lastBuildDate>Wed, 28 Jul 2021 08:37:44 +0800</lastBuildDate>
+        <category>机器学习</category>
         <category>C</category>
         <category>大数据</category>
         <category>Shell</category>
@@ -17,7 +18,7 @@
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>平台</category>
-        <category>机器学习</category>
+        <category>深度学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/07/28/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91/(2)Windows%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
             <title>(2)Windows开发环境准备</title>

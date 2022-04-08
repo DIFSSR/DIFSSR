@@ -4,6 +4,7 @@
     <title>千里稻花应秀色 • Posts by &#34;hexo&#34; tag</title>
     <link href="http://example.com" />
     <updated>2021-11-08T07:02:54.000Z</updated>
+    <category term="机器学习" />
     <category term="C" />
     <category term="大数据" />
     <category term="Shell" />
@@ -14,7 +15,7 @@
     <category term="鸿蒙" />
     <category term="单片机" />
     <category term="平台" />
-    <category term="机器学习" />
+    <category term="深度学习" />
     <entry>
         <id>http://example.com/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</id>
         <title>Hexo添加数学公式</title>

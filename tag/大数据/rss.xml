@@ -7,6 +7,7 @@
         <language>zh-CN</language>
         <pubDate>Sun, 12 Dec 2021 19:17:39 +0800</pubDate>
         <lastBuildDate>Sun, 12 Dec 2021 19:17:39 +0800</lastBuildDate>
+        <category>机器学习</category>
         <category>C</category>
         <category>大数据</category>
         <category>Shell</category>
@@ -17,7 +18,7 @@
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>平台</category>
-        <category>机器学习</category>
+        <category>深度学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/12/12/Hive%E5%AD%A6%E4%B9%A0/hive5/</guid>
             <title>Hive查询进阶</title>

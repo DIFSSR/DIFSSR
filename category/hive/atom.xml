@@ -4,6 +4,7 @@
     <title>千里稻花应秀色 • Posts by &#34;hive&#34; category</title>
     <link href="http://example.com" />
     <updated>2021-12-12T11:17:39.970Z</updated>
+    <category term="机器学习" />
     <category term="C" />
     <category term="大数据" />
     <category term="Shell" />
@@ -14,7 +15,7 @@
     <category term="鸿蒙" />
     <category term="单片机" />
     <category term="平台" />
-    <category term="机器学习" />
+    <category term="深度学习" />
     <entry>
         <id>http://example.com/2021/12/12/Hive%E5%AD%A6%E4%B9%A0/hive5/</id>
         <title>Hive查询进阶</title>

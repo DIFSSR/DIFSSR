@@ -7,6 +7,7 @@
         <language>zh-CN</language>
         <pubDate>Wed, 13 Oct 2021 08:40:00 +0800</pubDate>
         <lastBuildDate>Wed, 13 Oct 2021 08:40:00 +0800</lastBuildDate>
+        <category>机器学习</category>
         <category>C</category>
         <category>大数据</category>
         <category>Shell</category>
@@ -17,7 +18,7 @@
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>平台</category>
-        <category>机器学习</category>
+        <category>深度学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/10/13/Spark%E5%AD%A6%E4%B9%A0/Spark-RDD/</guid>
             <title>Spark+RDD</title>

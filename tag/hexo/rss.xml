@@ -7,6 +7,7 @@
         <language>zh-CN</language>
         <pubDate>Mon, 08 Nov 2021 15:02:54 +0800</pubDate>
         <lastBuildDate>Mon, 08 Nov 2021 15:02:54 +0800</lastBuildDate>
+        <category>机器学习</category>
         <category>C</category>
         <category>大数据</category>
         <category>Shell</category>
@@ -17,7 +18,7 @@
         <category>鸿蒙</category>
         <category>单片机</category>
         <category>平台</category>
-        <category>机器学习</category>
+        <category>深度学习</category>
         <item>
             <guid isPermalink="true">http://example.com/2021/11/08/%E5%B9%B3%E5%8F%B0/Typora%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</guid>
             <title>Hexo添加数学公式</title>

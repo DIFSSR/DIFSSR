@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>千里稻花应秀色 • Posts by &#34;pytorch深度学习（杨）&#34; category</title>
+    <link href="http://example.com" />
+    <updated>2022-03-25T01:43:11.000Z</updated>
+    <category term="机器学习" />
+    <category term="C" />
+    <category term="大数据" />
+    <category term="Shell" />
+    <category term="Python" />
+    <category term="MapReduce" />
+    <category term="Hexo" />
+    <category term="安全" />
+    <category term="鸿蒙" />
+    <category term="单片机" />
+    <category term="平台" />
+    <category term="深度学习" />
+    <entry>
+        <id>http://example.com/2022/03/25/CNN/</id>
+        <title>CNN</title>
+        <link rel="alternate" href="http://example.com/2022/03/25/CNN/"/>
+        <content type="html"></content>
+        <category term="机器学习" />
+        <updated>2022-03-25T01:43:11.000Z</updated>
+    </entry>
+</feed>
